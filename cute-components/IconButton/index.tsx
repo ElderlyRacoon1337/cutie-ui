@@ -23,7 +23,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
     <div className={`${color} ${size}`}>
       <button
         onClick={onClick}
-        style={sx}
         className={`${className} ${
           variant == 'outlined'
             ? 'iconButtonOutlined'
@@ -31,7 +30,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
             ? 'iconButtonContained'
             : 'iconButtonText'
         }
-      `}
+        `}
+        style={sx}
       >
         {svg}
       </button>

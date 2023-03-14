@@ -24,7 +24,7 @@ export const Menu: React.FC<MenuProps> = ({
   useEffect(() => {
     if (anchorEl) {
       const b = anchorEl.getBoundingClientRect();
-      setHeight(b.y + menu.current.clientHeight / 2 + 5);
+      setHeight(b.y + b.height + 5);
       setWidth(b.x);
     }
 

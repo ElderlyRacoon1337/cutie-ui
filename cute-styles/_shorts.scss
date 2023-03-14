@@ -47,12 +47,64 @@
   color: var(--primary);
 }
 
-.bgColorPrimary {
+.colorSecondary {
+  color: var(--secondary);
+}
+
+.bgPrimary {
   background-color: var(--primary);
+}
+
+.bgSecondary {
+  background-color: var(--secondary);
+}
+
+.textSecondary {
+  color: var(--textSecondary);
+}
+
+.textPrimary {
+  color: var(--textPrimary);
+}
+
+.textOpposite {
+  color: var(--textOpposite);
 }
 
 .dn {
   display: none;
+}
+
+.tac {
+  text-align: center;
+}
+
+.cup {
+  cursor: pointer;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.borderPrimary {
+  border: 1px solid var(--primary);
+}
+
+.borderSecondary {
+  border: 1px solid var(--secondary);
+}
+
+.bgWhite {
+  background-color: #fff;
+}
+
+.bgBlack {
+  background-color: black;
+}
+
+.flex {
+  flex: 1;
 }
 
 $utilities: (

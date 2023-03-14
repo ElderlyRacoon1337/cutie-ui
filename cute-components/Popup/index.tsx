@@ -20,9 +20,9 @@ export const Popup: React.FC<PopupProps> = ({
       {open && (
         <div className="popup" onClick={handleClose}>
           <div
-            style={sx}
             className="popupElement"
             onClick={(e) => e.stopPropagation()}
+            style={sx}
           >
             {children}
           </div>

@@ -15,13 +15,15 @@ export const Icon: React.FC<IconProps> = ({
   size,
   color,
   sx,
+  onClick,
 }) => {
   return (
     <div className={`${color} ${size}`}>
       <div
-        style={sx}
+        onClick={onClick}
         className={`${className} ${'icon'}
-      `}
+        `}
+        style={sx}
       >
         {svg}
       </div>

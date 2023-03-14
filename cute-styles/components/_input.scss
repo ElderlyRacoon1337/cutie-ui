@@ -2,7 +2,6 @@
   padding: 10px;
   border-radius: 10px;
   outline: none;
-  min-width: 250px;
   border: 2px solid transparent;
   // background-color: rgba(242, 242, 242, 0.5);
   // border: 2px solid var(--secondary);
@@ -26,10 +25,7 @@
     }
   }
 
-  &::before {
-    content: '';
-    display: block;
-    background-image: url('../../cute-assets/search.svg');
+  svg {
     width: 20px;
     height: 20px;
     position: absolute;
@@ -37,7 +33,6 @@
     bottom: 0;
     margin: auto;
     left: 10px;
-    background-repeat: no-repeat;
   }
 }
 

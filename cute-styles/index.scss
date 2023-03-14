@@ -1,13 +1,13 @@
-@import './normalize';
-@import './variables';
-@import './components/button';
+@import 'normalize';
+@import 'variables';
+@import 'components/button';
 @import './components/pupup';
 @import './components/input';
 @import './components/avatar';
 @import './components/menu';
 @import './components/icon';
 @import './components/list';
-@import './shorts';
+@import 'shorts';
 
 * {
   margin: 0;

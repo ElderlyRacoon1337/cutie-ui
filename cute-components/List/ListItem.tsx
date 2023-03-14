@@ -5,6 +5,7 @@ interface ListItemProps {
   children: any;
   sx?: React.CSSProperties;
   startIcon?: any;
+  onClick?: any;
 }
 
 export const ListItem: React.FC<ListItemProps> = ({
@@ -12,9 +13,11 @@ export const ListItem: React.FC<ListItemProps> = ({
   children,
   sx,
   startIcon,
+  onClick,
 }) => {
   return (
     <li
+      onClick={onClick}
       className={`${className} listItem ${startIcon ? 'listItemIcon' : ''}`}
       style={sx}
     >

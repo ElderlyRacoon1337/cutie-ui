@@ -5,6 +5,7 @@ interface AvatarProps {
   className?: string;
   src: string;
   sx?: React.CSSProperties;
+  onClick?: any;
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -12,9 +13,11 @@ export const Avatar: React.FC<AvatarProps> = ({
   className,
   src,
   sx,
+  onClick,
 }) => {
   return (
     <div
+      onClick={onClick}
       className={`avatar ${className} ${
         variant == 'square' ? 'avatar avatarSquare' : 'avatar'
       }`}

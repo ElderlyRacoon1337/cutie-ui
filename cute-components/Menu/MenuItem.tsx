@@ -5,6 +5,7 @@ interface MenuItemProps {
   handleClose?: any;
   children?: any;
   sx?: React.CSSProperties;
+  onClick?: any;
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
@@ -12,9 +13,17 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   handleClose,
   className,
   sx,
+  onClick,
 }: any) => {
   return (
-    <li style={sx} onClick={handleClose} className={`${className} menuItem`}>
+    <li
+      onClick={() => {
+        handleClose();
+        onClick();
+      }}
+      className={`${className} menuItem`}
+      style={sx}
+    >
       {children}
     </li>
   );
