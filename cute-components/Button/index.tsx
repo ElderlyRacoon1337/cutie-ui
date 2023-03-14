@@ -11,7 +11,7 @@ interface ButtonProps {
   sx?: React.CSSProperties;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   variant,
   children,
   className,
@@ -39,5 +39,3 @@ const Button: React.FC<ButtonProps> = ({
     </div>
   );
 };
-
-export default Button;

@@ -9,7 +9,7 @@ interface MenuProps {
   sx?: React.CSSProperties;
 }
 
-const Menu: React.FC<MenuProps> = ({
+export const Menu: React.FC<MenuProps> = ({
   open,
   anchorEl,
   handleClose,
@@ -55,5 +55,3 @@ const Menu: React.FC<MenuProps> = ({
     </>
   );
 };
-
-export default Menu;

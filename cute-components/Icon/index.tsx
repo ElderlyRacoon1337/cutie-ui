@@ -9,7 +9,13 @@ interface IconProps {
   sx?: React.CSSProperties;
 }
 
-const Icon: React.FC<IconProps> = ({ svg, className, size, color, sx }) => {
+export const Icon: React.FC<IconProps> = ({
+  svg,
+  className,
+  size,
+  color,
+  sx,
+}) => {
   return (
     <div className={`${color} ${size}`}>
       <div
@@ -22,5 +28,3 @@ const Icon: React.FC<IconProps> = ({ svg, className, size, color, sx }) => {
     </div>
   );
 };
-
-export default Icon;

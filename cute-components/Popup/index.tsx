@@ -9,7 +9,12 @@ interface PopupProps {
   sx?: React.CSSProperties;
 }
 
-const Popup: React.FC<PopupProps> = ({ open, handleClose, children, sx }) => {
+export const Popup: React.FC<PopupProps> = ({
+  open,
+  handleClose,
+  children,
+  sx,
+}) => {
   return (
     <>
       {open && (
@@ -26,5 +31,3 @@ const Popup: React.FC<PopupProps> = ({ open, handleClose, children, sx }) => {
     </>
   );
 };
-
-export default Popup;

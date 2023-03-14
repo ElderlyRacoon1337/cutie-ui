@@ -7,7 +7,7 @@ interface ListItemProps {
   startIcon?: any;
 }
 
-const ListItem: React.FC<ListItemProps> = ({
+export const ListItem: React.FC<ListItemProps> = ({
   className,
   children,
   sx,
@@ -23,5 +23,3 @@ const ListItem: React.FC<ListItemProps> = ({
     </li>
   );
 };
-
-export default ListItem;

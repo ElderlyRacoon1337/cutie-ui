@@ -7,7 +7,7 @@ interface MenuItemProps {
   sx?: React.CSSProperties;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
+export const MenuItem: React.FC<MenuItemProps> = ({
   children,
   handleClose,
   className,
@@ -19,5 +19,3 @@ const MenuItem: React.FC<MenuItemProps> = ({
     </li>
   );
 };
-
-export default MenuItem;

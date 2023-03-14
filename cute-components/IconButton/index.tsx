@@ -10,7 +10,7 @@ interface IconButtonProps {
   sx?: React.CSSProperties;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton: React.FC<IconButtonProps> = ({
   variant,
   svg,
   className,
@@ -38,5 +38,3 @@ const IconButton: React.FC<IconButtonProps> = ({
     </div>
   );
 };
-
-export default IconButton;

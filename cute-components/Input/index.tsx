@@ -7,7 +7,7 @@ interface InputProps {
   sx?: React.CSSProperties;
 }
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   variant,
   placeholder,
   className,
@@ -33,5 +33,3 @@ const Input: React.FC<InputProps> = ({
     </>
   );
 };
-
-export default Input;

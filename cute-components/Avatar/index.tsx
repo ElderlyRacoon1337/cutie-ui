@@ -7,7 +7,12 @@ interface AvatarProps {
   sx?: React.CSSProperties;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ variant, className, src, sx }) => {
+export const Avatar: React.FC<AvatarProps> = ({
+  variant,
+  className,
+  src,
+  sx,
+}) => {
   return (
     <div
       className={`avatar ${className} ${
@@ -17,5 +22,3 @@ const Avatar: React.FC<AvatarProps> = ({ variant, className, src, sx }) => {
     ></div>
   );
 };
-
-export default Avatar;
