@@ -1,13 +1,15 @@
 // =================================== Here you can assign your favourite colors ==================================
 
 $primary: #8884ff;
-$primary: #ff77c4;
 $primary: #c39bff;
+$primary: #ff77c4;
 $secondary: rgb(255, 170, 0);
 $secondary: rgb(255, 0, 76);
 $primary: #7b23ff;
 $primary: #ff6da5;
 $primary: #b16dff;
+$primary: #923197;
+$primary: rgb(255, 0, 76);
 
 // ================================================================================================================
 
@@ -49,15 +51,15 @@ $darkGlass: rgba($primary, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
-  $dm_primary: lighten($primary, 10%);
+  $dm_primary: lighten($primary, 5%);
   $dm_primaryDark: darken($dm_primary, 15%);
   $dm_primaryTooDark: darken($dm_primary, 20%);
-  $dm_primaryLight: darken($dm_primary, 40%);
-  $dm_primaryTooLight: darken($dm_primary, 20%);
+  $dm_primaryLight: lighten($dm_primary, 3%);
+  $dm_primaryTooLight: lighten($dm_primary, 20%);
 
   $dm_secondary: darken($secondary, 5%);
   $dm_secondaryDark: darken($dm_secondary, 15%);
-  $dm_secondaryTooDark: darken($dm_secondary, 20%);
+  $dm_secondaryTooDark: darken($dm_secondary, 10%);
   $dm_secondaryLight: darken($dm_secondary, 40%);
   $dm_secondaryTooLight: darken($dm_secondary, 20%);
 
@@ -66,16 +68,16 @@ $darkGlass: rgba($primary, 0.1);
 
   :root {
     --primary: #{$dm_primary};
-    --primaryDark: #{$dm_primaryDark};
-    --primaryTooDark: #{$dm_primaryTooDark};
-    --primaryLight: #{$dm_primaryLight};
+    --primaryDark: #{$dm_primaryLight};
+    --primaryTooDark: #{$dm_primaryTooLight};
+    --primaryLight: #{$dm_primaryDark};
     --primaryTooLight: #{$dm_primaryTooLight};
 
     --secondary: #{$dm_secondary};
     --secondaryDark: #{$dm_secondaryDark};
     --secondaryTooDark: #{$dm_secondaryTooDark};
     --secondaryLight: #{$dm_secondaryLight};
-    --secondaryTooLight: #{$dm_secondaryTooLight};
+    --secondaryTooLight: #{$dm_primaryTooDark};
 
     --background: #121212;
 

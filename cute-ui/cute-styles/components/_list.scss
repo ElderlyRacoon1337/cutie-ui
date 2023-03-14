@@ -5,10 +5,13 @@
   padding: 10px 15px;
   border-radius: 7px;
   user-select: none;
+}
 
+.listItemButton {
+  @extend .listItem;
   &:hover {
     background-color: var(--glass);
-    color: var(--primaryTooDark);
+    color: var(--primaryDark);
   }
 
   &:active {

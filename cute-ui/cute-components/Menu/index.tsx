@@ -42,7 +42,11 @@ const Menu: React.FC<MenuProps> = ({
             ref={menu}
             className={`${className} menu`}
             onClick={(e) => e.stopPropagation()}
-            style={{ ...sx, top: `${height}px`, left: `${width}px` }}
+            style={
+              height == 0
+                ? { visibility: 'hidden' }
+                : { ...sx, top: `${height}px`, left: `${width}px` }
+            }
           >
             {children}
           </ul>

@@ -43,6 +43,18 @@
   top: 0;
 }
 
+.colorPrimary {
+  color: var(--primary);
+}
+
+.bgColorPrimary {
+  background-color: var(--primary);
+}
+
+.dn {
+  display: none;
+}
+
 $utilities: (
   'padding': (
     'prefix': 'p',
