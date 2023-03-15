@@ -1,0 +1,317 @@
+.small {
+  .button {
+    font-size: 0.875rem !important;
+    padding: 7px 8px;
+  }
+
+  .iconButton {
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  .icon {
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+.large {
+  .button {
+    font-size: 0.9375rem !important;
+  }
+
+  .iconButton {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .icon {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+// ================================================= Buttons =================================================
+
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 9px 10px;
+  border-radius: 7px;
+  display: inline-block;
+  font-size: 0.875rem;
+  transition: 0.1s all ease-in-out;
+}
+
+.buttonContained {
+  @extend .button;
+  background-color: var(--primary);
+  color: white;
+
+  &:hover {
+    background-color: var(--primaryDark);
+    box-shadow: 3px 3px 0px 0px var(--primaryLight);
+  }
+
+  &:active {
+    background-color: var(--primaryTooDark);
+  }
+}
+
+.buttonOutlined {
+  @extend .button;
+  background-color: transparent;
+  color: var(--textPrimary);
+  border: 1px solid var(--textPrimary);
+
+  &:hover {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    box-shadow: 3px 3px 0px 0px var(--primaryLight);
+  }
+
+  &:active {
+  }
+}
+
+.buttonText {
+  @extend .button;
+  background-color: transparent;
+  color: var(--primaryDark);
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--primaryTooLight);
+    color: var(--primaryDark);
+  }
+
+  &:active {
+    background-color: var(--primaryLight);
+  }
+}
+
+// ================================================= Icon Buttons =================================================
+
+.iconButton {
+  @extend .button;
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 50%;
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.iconButtonOutlined {
+  @extend .iconButton;
+  background-color: transparent;
+  color: var(--textPrimary);
+  border: 1px solid var(--textPrimary);
+
+  &:hover {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    box-shadow: 0px 0px 0px 3px var(--primaryTooLight);
+  }
+
+  svg {
+    min-width: 22px;
+  }
+}
+
+.iconButtonText {
+  @extend .iconButton;
+  background-color: transparent;
+  color: var(--primaryDark);
+
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--primaryTooLight);
+    color: var(--primaryDark);
+  }
+
+  &:active {
+    background-color: var(--primaryLight);
+  }
+}
+
+.iconButtonContained {
+  @extend .iconButton;
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: white;
+
+  &:hover {
+    background-color: var(--primaryDark);
+  }
+
+  &:active {
+    background-color: var(--primaryTooDark);
+  }
+}
+
+// ================================================= Secondary =================================================
+
+.secondary .buttonContained {
+  background-color: var(--secondary);
+
+  &:hover {
+    background-color: var(--secondaryDark) !important;
+    box-shadow: 3px 3px 0px 0px var(--secondaryTooLight) !important;
+  }
+
+  &:active {
+    background-color: var(--secondaryTooDark);
+  }
+}
+
+.secondary .buttonOutlined {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+
+  &:hover {
+    box-shadow: 3px 3px 0px 0px var(--secondaryTooLight) !important;
+  }
+
+  &:active {
+    background-color: var(--secondaryDark);
+  }
+}
+
+.secondary .buttonText {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--secondaryTooLight);
+    color: var(--secondary);
+    box-shadow: 0px 0px 0px 3px var(--secondaryTooLight) !important;
+  }
+
+  &:active {
+    background-color: var(--secondaryLight);
+  }
+}
+
+.secondary .iconButtonContained {
+  background-color: var(--secondary);
+
+  &:hover {
+    background-color: var(--secondaryDark) !important;
+  }
+
+  &:active {
+    background-color: var(--secondaryTooDark);
+  }
+}
+
+.secondary .iconButtonOutlined {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+
+  &:hover {
+    background-color: var(--secondary);
+    color: white;
+    box-shadow: 0px 0px 0px 3px var(--secondaryTooLight) !important;
+    border: 1px solid var(--secondary);
+  }
+
+  &:active {
+    background-color: var(--secondaryDark);
+  }
+}
+
+.secondary .iconButtonText {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--secondaryTooLight);
+    color: var(--primary);
+    color: var(--secondary);
+  }
+
+  &:active {
+    background-color: var(--secondaryLight);
+  }
+}
+
+// ================================================= Error =================================================
+
+// ================================================= Success =================================================
+
+// ================================================= Dark mode =================================================
+
+@media (prefers-color-scheme: dark) {
+  .buttonText {
+    color: var(--textPrimary);
+    &:hover {
+      color: var(--textPrimary);
+      background-color: var(--glass);
+    }
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+
+  .buttonContained {
+    background-color: var(--primaryLight);
+    &:hover {
+      background-color: #fff;
+      color: var(--primaryLight);
+      box-shadow: 3px 3px 0px 0px var(--primaryLight);
+    }
+  }
+
+  .buttonOutlined {
+    &:hover {
+      border-color: var(--white);
+      color: white;
+    }
+  }
+
+  .iconButtonOutlined {
+    &:hover {
+      border-color: white;
+      background-color: white;
+      box-shadow: none;
+      color: var(--primaryLight);
+    }
+  }
+
+  .iconButtonContained {
+    background-color: var(--primaryLight);
+    &:hover {
+      background-color: #fff;
+      color: var(--primaryLight);
+    }
+  }
+
+  .iconButtonText {
+    color: white;
+    border-color: transparent !important;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+}

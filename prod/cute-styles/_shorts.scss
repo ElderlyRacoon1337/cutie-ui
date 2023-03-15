@@ -1,0 +1,184 @@
+.df {
+  display: flex;
+}
+
+.flex {
+  flex: 1;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
+.aic {
+  align-items: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcfs {
+  justify-content: flex-start;
+}
+
+.jcfe {
+  justify-content: flex-end;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.colorPrimary {
+  color: var(--primary);
+}
+
+.colorSecondary {
+  color: var(--secondary);
+}
+
+.bgPrimary {
+  background-color: var(--primary);
+}
+
+.bgSecondary {
+  background-color: var(--secondary);
+}
+
+.textSecondary {
+  color: var(--textSecondary);
+}
+
+.textPrimary {
+  color: var(--textPrimary);
+}
+
+.textOpposite {
+  color: var(--textOpposite);
+}
+
+.dn {
+  display: none;
+}
+
+.tac {
+  text-align: center;
+}
+
+.cup {
+  cursor: pointer;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.borderPrimary {
+  border-color: var(--primary);
+}
+
+.borderSecondary {
+  border-color: var(--secondary);
+}
+
+.bgWhite {
+  background-color: #fff;
+}
+
+.bgBlack {
+  background-color: black;
+}
+
+@for $i from 0 through 1000 {
+  .m-#{$i} {
+    margin: #{$i}px;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .mx-#{$i} {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+  }
+  .my-#{$i} {
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+
+  .p-#{$i} {
+    padding: #{$i}px;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}px;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+  .px-#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+  .py-#{$i} {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+
+  .maxw-#{$i} {
+    max-width: #{$i}px;
+  }
+  .maxh-#{$i} {
+    max-height: #{$i}px;
+  }
+  .minw-#{$i} {
+    min-width: #{$i}px;
+  }
+  .minh-#{$i} {
+    min-height: #{$i}px;
+  }
+
+  .top-#{$i} {
+    top: #{$i}px;
+  }
+  .bottom-#{$i} {
+    bottom: #{$i}px;
+  }
+  .left-#{$i} {
+    left: #{$i}px;
+  }
+  .right-#{$i} {
+    right: #{$i}px;
+  }
+}

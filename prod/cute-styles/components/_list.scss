@@ -1,0 +1,42 @@
+.listItem {
+  padding: 10px 15px;
+  border-radius: 7px;
+  user-select: none;
+}
+
+.listItemButton {
+  @extend .listItem;
+  &:hover {
+    background-color: var(--glass);
+    color: var(--primaryDark);
+  }
+
+  &:active {
+    background-color: var(--darkGlass);
+  }
+}
+
+.listItemIcon {
+  position: relative;
+  padding-left: 37px;
+  svg {
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .listItemButton {
+    &:hover {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+}
