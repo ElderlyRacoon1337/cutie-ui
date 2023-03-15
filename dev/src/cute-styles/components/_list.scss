@@ -2,6 +2,7 @@
   padding: 10px 15px;
   border-radius: 7px;
   user-select: none;
+  margin-bottom: 5px;
 }
 
 .listItemButton {
@@ -16,9 +17,10 @@
   }
 }
 
-.listItemIcon {
+.listItemIconStart {
   position: relative;
   padding-left: 37px;
+
   svg {
     color: var(--primary);
     width: 20px;
@@ -32,10 +34,80 @@
   }
 }
 
+.listItemIconEnd {
+  position: relative;
+  padding-right: 37px;
+
+  svg {
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.listItemIcons {
+  position: relative;
+  padding-left: 37px;
+  padding-right: 37px;
+
+  svg:nth-child(1) {
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  svg:nth-child(2) {
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.listItemActive {
+  background-color: var(--primary);
+  color: white;
+  &:hover {
+    background-color: var(--primaryDark);
+    color: white;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .listItemButton {
     &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
       background-color: var(--glass);
+    }
+  }
+
+  .listItemActive {
+    background-color: var(--primaryDark);
+    color: white;
+    &:hover {
+      background-color: var(--primaryDark);
       color: white;
     }
   }

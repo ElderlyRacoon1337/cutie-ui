@@ -1,36 +1,48 @@
+import clsx from 'clsx';
 import React from 'react';
 
-export const Input = ({
+interface InputProps {
+  placeholder?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  startIcon?: any;
+  type?: any;
+  value?: any;
+  onChange?: any;
+  classNameForWrapper?: string;
+}
+
+export const Input: React.FC<InputProps> = ({
   placeholder,
   className,
-  sx,
+  style,
   type,
   value,
   onChange,
   startIcon,
+  classNameForWrapper,
 }) => {
   return (
     <>
       {startIcon ? (
-        <div className="searchInput">
+        <div className={clsx('searchInput', classNameForWrapper)} style={style}>
           {startIcon}
           <input
-            className={`input ${className}`}
+            className={clsx('input', className)}
             placeholder={placeholder}
             type={type}
             value={value}
             onChange={onChange}
-            style={sx}
           />
         </div>
       ) : (
         <input
-          className={`input ${className}`}
+          className={clsx('input', className)}
           placeholder={placeholder}
           type={type}
           value={value}
           onChange={onChange}
-          style={sx}
+          style={style}
         />
       )}
     </>

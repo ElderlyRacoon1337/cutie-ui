@@ -1,18 +1,22 @@
 const React = require('react');
+const { clsx } = require('clsx');
 
-const Avatar = ({ variant, className, src, sx, onClick }) => {
+const Avatar = ({ variant = 'circular', className, src, style, onClick }) => {
   return /*#__PURE__*/ React.createElement('div', {
     onClick: onClick,
-    className: `avatar ${className} ${
-      variant == 'square' ? 'avatar avatarSquare' : 'avatar'
-    }`,
+    className: clsx(
+      'avatar',
+      variant == 'square' && 'avatarSquare',
+      variant == 'rounded' && 'avatarRounded',
+      variant == 'circular' && 'avatarCircular',
+      className
+    ),
     style: {
-      ...sx,
+      ...style,
       backgroundImage: 'url(' + src + ')',
     },
   });
 };
-
 module.exports = {
   Avatar,
 };

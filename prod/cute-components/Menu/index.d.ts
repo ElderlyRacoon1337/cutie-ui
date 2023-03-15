@@ -3,17 +3,16 @@ import React from 'react';
 interface MenuProps {
   open: boolean;
   anchorEl: HTMLElement | null;
-  handleClose: any;
+  onClose: any;
   children: any;
   className?: string;
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
-
 interface MenuItemProps {
   className?: string;
-  handleClose?: any;
+  onClose?: any;
   children?: any;
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
   onClick?: any;
 }
 

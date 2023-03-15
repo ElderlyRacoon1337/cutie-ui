@@ -1,6 +1,5 @@
 const React = require('react');
 const { clsx } = require('clsx');
-
 const Button = ({
   variant,
   children,
@@ -9,33 +8,34 @@ const Button = ({
   color,
   size,
   startIcon,
-  sx,
+  endIcon,
+  style,
 }) => {
   return /*#__PURE__*/ React.createElement(
-    'div',
+    'button',
     {
-      className: clsx(color, size),
+      className: clsx(
+        size && `${size}Button`,
+        color && `${color}Button`,
+        variant == 'outlined'
+          ? 'buttonOutlined'
+          : variant == 'contained'
+          ? 'buttonContained'
+          : 'buttonText',
+        startIcon && !endIcon && 'buttonIconStart',
+        endIcon && !startIcon && 'buttonIconEnd',
+        startIcon && endIcon && 'buttonIcons',
+        color && variant && `${color}Button${variant}`,
+        className
+      ),
+      onClick: onClick,
+      style: style,
     },
-    /*#__PURE__*/ React.createElement(
-      'button',
-      {
-        onClick: onClick,
-        className: clsx(
-          className,
-          variant == 'outlined'
-            ? 'buttonOutlined'
-            : variant == 'contained'
-            ? 'buttonContained'
-            : 'buttonText',
-          color
-        ),
-        style: sx,
-      },
-      children
-    )
+    startIcon,
+    children,
+    endIcon
   );
 };
-
 module.exports = {
   Button,
 };

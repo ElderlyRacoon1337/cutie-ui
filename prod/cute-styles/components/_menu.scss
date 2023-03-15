@@ -1,10 +1,12 @@
 .menuBackground {
   position: fixed;
+  z-index: 9;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: transparent;
+  backdrop-filter: blur(2px);
 }
 
 .menu {
@@ -15,7 +17,7 @@
   border-radius: 7px;
   border: 1px solid var(--divider);
   background-color: var(--background);
-  min-width: 130px;
+  min-width: 10px;
   display: flex;
   flex-direction: column;
   padding: 7px 0;
@@ -28,12 +30,19 @@
     color: var(--textSecondary);
 
     &:hover {
-      background-color: var(--glass);
-      color: var(--primaryDark);
+      background-color: var(--darkGlass);
+      color: var(--textPrimary);
     }
 
     &:active {
-      background-color: var(--darkGlass);
+      background-color: var(--glass);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .menuItem {
+    &:hover {
     }
   }
 }

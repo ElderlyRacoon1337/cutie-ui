@@ -7,8 +7,9 @@ interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: 'primary' | 'secondary';
   size?: 'large' | 'small' | 'medium';
-  startIcon?: any;
-  sx?: React.CSSProperties;
+  startIcon?: JSX.Element | SVGElement;
+  endIcon?: JSX.Element | SVGElement;
+  style?: React.CSSProperties;
 }
 
 export const Button: React.FC<ButtonProps>;

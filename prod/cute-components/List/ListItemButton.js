@@ -1,20 +1,33 @@
 const React = require('react');
-
-const ListItemButton = ({ className, children, sx, startIcon, onClick }) => {
+const { clsx } = require('clsx');
+const ListItemButton = ({
+  className,
+  children,
+  style,
+  startIcon,
+  onClick,
+  active,
+  endIcon,
+}) => {
   return /*#__PURE__*/ React.createElement(
     'li',
     {
       onClick: onClick,
-      className: `${className} listItemButton ${
-        startIcon ? 'listItemIcon' : ''
-      }`,
-      style: sx,
+      className: clsx(
+        'listItemButton',
+        active && 'listItemActive',
+        startIcon && !endIcon && 'listItemIconStart',
+        endIcon && !startIcon && 'listItemIconEnd',
+        startIcon && endIcon && 'listItemIcons',
+        className
+      ),
+      style: style,
     },
     startIcon,
+    endIcon,
     children
   );
 };
-
 module.exports = {
   ListItemButton,
 };

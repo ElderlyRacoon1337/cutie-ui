@@ -1,13 +1,13 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
   svg: any;
   className?: string;
-  onClick?: MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   color?: 'primary' | 'secondary';
   size?: 'large' | 'small' | 'medium';
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 export const IconButton: React.FC<IconButtonProps>;

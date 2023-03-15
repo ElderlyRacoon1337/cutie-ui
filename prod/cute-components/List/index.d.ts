@@ -3,23 +3,17 @@ import React from 'react';
 interface ListProps {
   className?: string;
   children?: any;
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 interface ListItemProps {
   className?: string;
   children: any;
-  sx?: React.CSSProperties;
-  startIcon?: any;
+  style?: React.CSSProperties;
+  startIcon?: JSX.Element | SVGElement;
+  endIcon?: JSX.Element | SVGElement;
   onClick?: any;
-}
-
-interface ListItemProps {
-  className?: string;
-  children: any;
-  sx?: React.CSSProperties;
-  startIcon?: any;
-  onClick?: any;
+  active?: boolean;
 }
 
 export const List: React.FC<ListProps>;

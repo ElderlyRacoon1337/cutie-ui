@@ -3,11 +3,12 @@ import React from 'react';
 interface InputProps {
   placeholder?: string;
   className?: string;
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
   startIcon?: any;
   type?: any;
   value?: any;
   onChange?: any;
+  classNameForWrapper?: string;
 }
 
 export const Input: React.FC<InputProps>;

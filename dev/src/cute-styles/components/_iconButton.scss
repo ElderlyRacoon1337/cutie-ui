@@ -1,0 +1,198 @@
+// =================================================== Sizes ===================================================
+
+.smallIconButton {
+  svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+  .icon {
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+.largeIconButton {
+  svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
+
+// ================================================= Icon Buttons =================================================
+
+.iconButton {
+  @extend .button;
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 50%;
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.iconButtonOutlined {
+  @extend .iconButton;
+  background-color: transparent;
+  color: var(--textPrimary);
+  border: 1px solid var(--textPrimary);
+
+  &:hover {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    box-shadow: 0px 0px 0px 3px var(--primaryTooLight);
+  }
+}
+
+.iconButtonText {
+  @extend .iconButton;
+  background-color: transparent;
+  color: var(--primaryDark);
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--glassPrimary);
+    color: var(--primaryDark);
+  }
+
+  &:active {
+    background-color: var(--darkGlassPrimary);
+  }
+}
+
+.iconButtonContained {
+  @extend .iconButton;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: white;
+
+  &:hover {
+    background-color: var(--primaryDark);
+  }
+
+  &:active {
+    background-color: var(--primaryTooDark);
+  }
+}
+
+// ================================================= Dark mode =================================================
+
+@media (prefers-color-scheme: dark) {
+  .iconButtonOutlined {
+    &:hover {
+      border-color: white;
+      background-color: white;
+      box-shadow: none;
+      color: var(--primary);
+    }
+  }
+
+  .iconButtonContained {
+    background-color: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+      border-color: white;
+      background-color: #fff;
+      color: var(--primary);
+    }
+  }
+
+  .iconButtonText {
+    color: white;
+    border-color: transparent !important;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+}
+
+// ================================================= Secondary =================================================
+
+.secondaryIconButton {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid transparent;
+  &:hover {
+    background-color: var(--secondaryTooLight);
+    color: var(--primary);
+    color: var(--secondary);
+  }
+
+  &:active {
+    background-color: var(--secondaryLight);
+  }
+}
+
+.secondaryIconButtoncontained {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+
+  &:hover {
+    background-color: var(--secondaryDark) !important;
+    border-color: var(--secondaryDark);
+    color: #fff;
+  }
+
+  &:active {
+    background-color: var(--secondaryTooDark) !important;
+    border-color: var(--secondaryTooDark);
+    color: #fff;
+  }
+}
+
+.secondaryIconButtonoutlined {
+  @extend .iconButton;
+  color: var(--textPrimary);
+  border: 1px solid var(--textPrimary);
+
+  &:hover {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    box-shadow: 0px 0px 0px 3px var(--secondaryTooLight);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .secondaryIconButton {
+    color: white;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .secondaryIconButtoncontained {
+    background-color: var(--secondaryLight);
+    border-color: var(--secondaryLight);
+    &:hover {
+      background-color: #fff !important;
+      color: var(--secondaryLight);
+      border-color: #fff;
+      box-shadow: none;
+    }
+  }
+
+  .secondaryIconButtonoutlined {
+    &:hover {
+      border-color: white;
+      background-color: white;
+      box-shadow: none;
+      color: var(--secondaryLight);
+    }
+  }
+}

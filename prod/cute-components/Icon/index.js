@@ -1,24 +1,21 @@
 const React = require('react');
-
-const Icon = ({ svg, className, size, color, sx, onClick }) => {
+const { clsx } = require('clsx');
+const Icon = ({ svg, className, size, color, style, onClick }) => {
   return /*#__PURE__*/ React.createElement(
     'div',
     {
-      className: `${color} ${size}`,
+      onClick: onClick,
+      className: clsx(
+        'icon',
+        size && `${size}Icon`,
+        color && `${color}Icon`,
+        className
+      ),
+      style: style,
     },
-    /*#__PURE__*/ React.createElement(
-      'div',
-      {
-        onClick: onClick,
-        className: `${className} ${'icon'}
-        `,
-        style: sx,
-      },
-      svg
-    )
+    svg
   );
 };
-
 module.exports = {
   Icon,
 };

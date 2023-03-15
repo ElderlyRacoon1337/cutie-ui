@@ -1,3 +1,17 @@
+.smallIcon {
+  svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+}
+
+.largeIcon {
+  svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
+
 .icon {
   display: flex;
   align-items: center;
@@ -9,10 +23,8 @@
   }
 }
 
-.secondary {
-  .icon {
-    svg {
-      color: var(--secondary);
-    }
+.secondaryIcon {
+  svg {
+    color: var(--secondary);
   }
 }

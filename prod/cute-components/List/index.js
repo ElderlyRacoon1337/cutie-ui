@@ -1,16 +1,15 @@
 const React = require('react');
-
-const List = ({ children, className, sx }) => {
+const { clsx } = require('clsx');
+const List = ({ children, className, style }) => {
   return /*#__PURE__*/ React.createElement(
     'ul',
     {
-      className: `${className} list`,
-      style: sx,
+      className: clsx('list', className),
+      style: style,
     },
     children
   );
 };
-
 module.exports = {
   List,
 };

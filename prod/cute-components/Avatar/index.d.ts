@@ -1,10 +1,10 @@
 import React from 'react';
 
 interface AvatarProps {
-  variant?: 'round' | 'square';
+  variant?: 'rounded' | 'square' | 'circular';
   className?: string;
   src: string;
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
   onClick?: any;
 }
 

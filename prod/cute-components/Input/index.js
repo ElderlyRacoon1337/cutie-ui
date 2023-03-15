@@ -1,13 +1,14 @@
 const React = require('react');
-
+const { clsx } = require('clsx');
 const Input = ({
   placeholder,
   className,
-  sx,
+  style,
   type,
   value,
   onChange,
   startIcon,
+  classNameForWrapper,
 }) => {
   return /*#__PURE__*/ React.createElement(
     React.Fragment,
@@ -16,29 +17,28 @@ const Input = ({
       ? /*#__PURE__*/ React.createElement(
           'div',
           {
-            className: 'searchInput',
+            className: clsx('searchInput', classNameForWrapper),
+            style: style,
           },
           startIcon,
           /*#__PURE__*/ React.createElement('input', {
-            className: `input ${className}`,
+            className: clsx('input', className),
             placeholder: placeholder,
             type: type,
             value: value,
             onChange: onChange,
-            style: sx,
           })
         )
       : /*#__PURE__*/ React.createElement('input', {
-          className: `input ${className}`,
+          className: clsx('input', className),
           placeholder: placeholder,
           type: type,
           value: value,
           onChange: onChange,
-          style: sx,
+          style: style,
         })
   );
 };
-
 module.exports = {
   Input,
 };

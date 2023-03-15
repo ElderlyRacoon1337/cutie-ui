@@ -4,9 +4,9 @@ interface PopupProps {
   variant?: 'base' | 'search';
   open: boolean;
   className?: string;
-  handleClose: any;
+  onClose: any;
   children?: any;
-  sx?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 export const Popup: React.FC<PopupProps>;
