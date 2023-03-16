@@ -2,17 +2,17 @@ import React from 'react';
 
 interface ListProps {
   className?: string;
-  children?: any;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
 interface ListItemProps {
   className?: string;
-  children: any;
+  children: React.ReactNode;
   style?: React.CSSProperties;
   startIcon?: JSX.Element | SVGElement;
   endIcon?: JSX.Element | SVGElement;
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<any>) => void;
   active?: boolean;
 }
 

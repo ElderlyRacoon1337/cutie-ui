@@ -1,4 +1,4 @@
-.avatar {
+.CuteAvatar {
   width: 40px;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -9,14 +9,14 @@
   background-repeat: no-repeat;
 }
 
-.avatarSquare {
+.CuteAvatar-square {
   border-radius: 0;
 }
 
-.avatarRouneded {
+.CuteAvatar-rouneded {
   border-radius: 20%;
 }
 
-.avatarCircular {
+.CuteAvatar-circular {
   border-radius: 50%;
 }

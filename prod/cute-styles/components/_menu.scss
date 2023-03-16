@@ -1,4 +1,4 @@
-.menuBackground {
+.CuteMenuBackground {
   position: fixed;
   z-index: 9;
   top: 0;
@@ -9,7 +9,7 @@
   backdrop-filter: blur(2px);
 }
 
-.menu {
+.CuteMenu {
   position: absolute;
   z-index: 10;
   margin-right: auto;
@@ -22,7 +22,7 @@
   flex-direction: column;
   padding: 7px 0;
 
-  .menuItem {
+  .CuteMenuItem {
     padding: 7px 20px;
     background-color: var(--background);
     cursor: pointer;
@@ -30,19 +30,25 @@
     color: var(--textSecondary);
 
     &:hover {
-      background-color: var(--darkGlass);
+      background-color: var(--glass);
       color: var(--textPrimary);
     }
 
     &:active {
-      background-color: var(--glass);
+      background-color: var(--darkGlass);
     }
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  .menuItem {
+  .CuteMenuItem {
     &:hover {
+      background-color: var(--darkGlass) !important;
+      color: var(--textPrimary);
+    }
+
+    &:active {
+      background-color: var(--glass) !important;
     }
   }
 }

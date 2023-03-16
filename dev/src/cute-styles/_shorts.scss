@@ -1,94 +1,106 @@
 .df {
-  display: flex !important;
+  display: flex;
+}
+
+.db {
+  display: block;
 }
 
 .flex {
-  flex: 1 !important;
+  flex: 1;
 }
 
 .fdc {
-  flex-direction: column !important;
+  flex-direction: column;
 }
 
 .aic {
-  align-items: center !important;
+  align-items: center;
 }
 
 .jcsb {
-  justify-content: space-between !important;
+  justify-content: space-between;
 }
 
 .jcc {
-  justify-content: center !important;
+  justify-content: center;
 }
 
 .jcfs {
-  justify-content: flex-start !important;
+  justify-content: flex-start;
 }
 
 .jcfe {
-  justify-content: flex-end !important;
+  justify-content: flex-end;
 }
 
 .relative {
-  position: relative !important;
+  position: relative;
 }
 
 .absolute {
-  position: absolute !important;
+  position: absolute;
 }
 
 .fixed {
-  position: fixed !important;
+  position: fixed;
 }
 
 .sticky {
-  position: sticky !important;
+  position: sticky;
   top: 0;
 }
 
 .colorPrimary {
-  color: var(--primary) !important;
+  color: var(--primary);
 }
 
 .colorSecondary {
-  color: var(--secondary) !important;
+  color: var(--secondary);
+}
+
+.colorNeutral {
+  color: var(--neutral);
 }
 
 .bgPrimary {
-  background-color: var(--primary) !important;
+  background-color: var(--primary);
 }
 
 .bgSecondary {
-  background-color: var(--secondary) !important;
+  background-color: var(--secondary);
+}
+
+.bgNeutral {
+  background-color: var(--neutral);
 }
 
 .textSecondary {
-  color: var(--textSecondary) !important;
+  color: var(--textSecondary);
 }
 
 .textPrimary {
-  color: var(--textPrimary) !important;
+  color: var(--textPrimary);
 }
 
 .textOpposite {
-  color: var(--textOpposite) !important;
+  color: var(--textOpposite);
 }
 
 .dn {
-  display: none !important;
+  display: none;
 }
 
 .tac {
-  text-align: center !important;
+  text-align: center;
 }
 
 .cup {
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 .border {
-  border: 1px solid black !important;
+  border: 1px solid black;
 }
 
 .borderPrimary {
@@ -99,117 +111,181 @@
   border-color: var(--secondary);
 }
 
+.borderNeutral {
+  border-color: var(--neutral);
+}
+
 .bgWhite {
-  background-color: white !important;
+  background-color: white;
 }
 
 .bgBlack {
-  background-color: black !important;
+  background-color: black;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.fssm {
+  font-size: var(--fontSizeSmall);
+}
+.fsmd {
+  font-size: var(--fontSizeMedium);
+}
+.fslg {
+  font-size: var(--fontSizeLarge);
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+.fw-200 {
+  font-weight: 200;
+}
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+.fw-900 {
+  font-weight: 900;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.fullHeight {
+  width: 100%;
 }
 
 .iconWhite {
   svg {
-    color: white !important;
+    color: white;
   }
 }
 
 .iconBlack {
   svg {
-    color: black !important;
+    color: black;
   }
 }
 
 .iconPrimary {
   svg {
-    color: var(--primary) !important;
+    color: var(--primary);
   }
 }
 
 .iconSecondary {
   svg {
-    color: var(--secondary) !important;
+    color: var(--secondary);
   }
+}
+
+.iconNeutral {
+  svg {
+    color: var(--neutral);
+  }
+}
+
+.disableBoxShadow {
+  box-shadow: none;
 }
 
 @for $i from 0 through 1000 {
   .m-#{$i}px {
-    margin: #{$i}px !important;
+    margin: #{$i}px;
   }
   .ml-#{$i}px {
-    margin-left: #{$i}px !important;
+    margin-left: #{$i}px;
   }
   .mr-#{$i}px {
-    margin-right: #{$i}px !important;
+    margin-right: #{$i}px;
   }
   .mt-#{$i}px {
-    margin-top: #{$i}px !important;
+    margin-top: #{$i}px;
   }
   .mb-#{$i}px {
-    margin-bottom: #{$i}px !important;
+    margin-bottom: #{$i}px;
   }
   .mx-#{$i}px {
-    margin-left: #{$i}px !important;
-    margin-right: #{$i}px !important;
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
   }
   .my-#{$i}px {
-    margin-top: #{$i}px !important;
-    margin-bottom: #{$i}px !important;
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
   }
 
   .p-#{$i}px {
-    padding: #{$i}px !important;
+    padding: #{$i}px;
   }
   .pl-#{$i}px {
-    padding-left: #{$i}px !important;
+    padding-left: #{$i}px;
   }
   .pr-#{$i}px {
-    padding-right: #{$i}px !important;
+    padding-right: #{$i}px;
   }
   .pt-#{$i}px {
-    padding-top: #{$i}px !important;
+    padding-top: #{$i}px;
   }
   .pb-#{$i}px {
-    padding-bottom: #{$i}px !important;
+    padding-bottom: #{$i}px;
   }
   .px-#{$i}px {
-    padding-left: #{$i}px !important;
-    padding-right: #{$i}px !important;
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
   }
   .py-#{$i}px {
-    padding-top: #{$i}px !important;
-    padding-bottom: #{$i}px !important;
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
   }
 
   .w-#{$i}px {
-    width: #{$i}px !important;
+    width: #{$i}px;
   }
   .h-#{$i}px {
-    height: #{$i}px !important;
+    height: #{$i}px;
   }
 
   .maxw-#{$i}px {
-    max-width: #{$i}px !important;
+    max-width: #{$i}px;
   }
   .maxh-#{$i}px {
-    max-height: #{$i}px !important;
+    max-height: #{$i}px;
   }
   .minw-#{$i}px {
-    min-width: #{$i}px !important;
+    min-width: #{$i}px;
   }
   .minh-#{$i}px {
-    min-height: #{$i}px !important;
+    min-height: #{$i}px;
   }
 
   .top-#{$i}px {
-    top: #{$i}px !important;
+    top: #{$i}px;
   }
   .bottom-#{$i}px {
-    bottom: #{$i}px !important;
+    bottom: #{$i}px;
   }
   .left-#{$i}px {
-    left: #{$i}px !important;
+    left: #{$i}px;
   }
   .right-#{$i}px {
-    right: #{$i}px !important;
+    right: #{$i}px;
   }
 }

@@ -4,11 +4,10 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   style?: React.CSSProperties;
-  startIcon?: any;
+  startIcon?: JSX.Element | SVGElement;
   type?: any;
-  value?: any;
-  onChange?: any;
+  value?: string;
+  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   classNameForWrapper?: string;
 }
-
 export const Input: React.FC<InputProps>;

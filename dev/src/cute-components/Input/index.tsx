@@ -5,10 +5,10 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   style?: React.CSSProperties;
-  startIcon?: any;
+  startIcon?: React.ReactNode;
   type?: any;
-  value?: any;
-  onChange?: any;
+  value?: string;
+  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   classNameForWrapper?: string;
 }
 
@@ -25,10 +25,13 @@ export const Input: React.FC<InputProps> = ({
   return (
     <>
       {startIcon ? (
-        <div className={clsx('searchInput', classNameForWrapper)} style={style}>
+        <div
+          className={clsx('CuteSearchInput', classNameForWrapper)}
+          style={style}
+        >
           {startIcon}
           <input
-            className={clsx('input', className)}
+            className={clsx('CuteInput', className)}
             placeholder={placeholder}
             type={type}
             value={value}
@@ -37,7 +40,7 @@ export const Input: React.FC<InputProps> = ({
         </div>
       ) : (
         <input
-          className={clsx('input', className)}
+          className={clsx('CuteInput', className)}
           placeholder={placeholder}
           type={type}
           value={value}

@@ -17,12 +17,12 @@ const Input = ({
       ? /*#__PURE__*/ React.createElement(
           'div',
           {
-            className: clsx('searchInput', classNameForWrapper),
+            className: clsx('CuteSearchInput', classNameForWrapper),
             style: style,
           },
           startIcon,
           /*#__PURE__*/ React.createElement('input', {
-            className: clsx('input', className),
+            className: clsx('CuteInput', className),
             placeholder: placeholder,
             type: type,
             value: value,
@@ -30,7 +30,7 @@ const Input = ({
           })
         )
       : /*#__PURE__*/ React.createElement('input', {
-          className: clsx('input', className),
+          className: clsx('CuteInput', className),
           placeholder: placeholder,
           type: type,
           value: value,

@@ -10,18 +10,26 @@ import { ListItemButton } from './cute-components/List/ListItemButton';
 import { Menu } from './cute-components/Menu';
 import { MenuItem } from './cute-components/Menu/MenuItem';
 import { Popup } from './cute-components/Popup';
+import { useMenu } from './cute-hooks/useMenu';
+import { usePopup } from './cute-hooks/usePopup';
 
 function App() {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const onClose = () => {
-    setAnchorEl(null);
-  };
+  // const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  // const open = Boolean(anchorEl);
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+  // const onClose = () => {
+  //   setAnchorEl(null);
+  // };
+  // const [popupOpen, setPopupOpen] = useState(false);
 
-  const [popupOpen, setPopupOpen] = useState(false);
+  const { anchorEl, open, handleClick, handleClose } = useMenu();
+  const {
+    open: popupOpen,
+    handleClick: handleClickPopup,
+    handleClose: handleClosePopup,
+  } = usePopup();
 
   return (
     <div className="App">
@@ -32,7 +40,7 @@ function App() {
               <h1 className="m-0px">Cutie</h1>
               <Icon
                 size="large"
-                svg={
+                icon={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -71,8 +79,9 @@ function App() {
           />
           <div className="right df aic">
             <IconButton
+              size="medium"
               className="mr-10px"
-              svg={
+              icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -91,7 +100,7 @@ function App() {
             <IconButton
               variant="outlined"
               className="mr-10px"
-              svg={
+              icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -110,7 +119,7 @@ function App() {
             <IconButton
               variant="contained"
               className="mr-10px"
-              svg={
+              icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -127,7 +136,7 @@ function App() {
               }
             />
             <Button
-              endIcon={
+              startIcon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -150,65 +159,94 @@ function App() {
             >
               Hello
             </Button>
-            <Button
-              endIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              }
-              className="mr-10px"
-              variant="outlined"
-            >
-              Hello
+
+            <Button className="mr-10px" variant="outlined">
+              More
+              <input hidden accept="image/*" multiple type="file" />
             </Button>
             <Button
-              endIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              }
-              onClick={() => setPopupOpen(true)}
+              // endIcon={
+              //   <svg
+              //     xmlns="http://www.w3.org/2000/svg"
+              //     fill="none"
+              //     viewBox="0 0 24 24"
+              //     strokeWidth={1.5}
+              //     stroke="currentColor"
+              //     className="w-6 h-6"
+              //   >
+              //     <path
+              //       strokeLinecap="round"
+              //       strokeLinejoin="round"
+              //       d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              //     />
+              //   </svg>
+              // }
+              onClick={handleClickPopup}
               className="mr-10px"
               variant="contained"
             >
-              Hello
+              Button
             </Button>
-            <Popup open={popupOpen} onClose={() => setPopupOpen(false)}>
+            <Popup open={popupOpen} onClose={handleClosePopup}>
               fewfwe
             </Popup>
-            <Menu open={open} anchorEl={anchorEl} onClose={onClose}>
-              <MenuItem onClick={() => setPopupOpen(true)} onClose={onClose}>
+            <Menu
+              fullWidth
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClickPopup} onClose={handleClose}>
                 Hello I'm
               </MenuItem>
-              <MenuItem onClose={onClose}>Hello I'm </MenuItem>
-              <MenuItem onClose={onClose}>Hello I'm menu</MenuItem>
-              <MenuItem onClose={onClose}>Hello</MenuItem>
-              <MenuItem onClose={onClose}>Hello I'm menu</MenuItem>
+              <MenuItem
+                endIcon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                }
+                onClose={handleClose}
+              >
+                Hello I'm
+              </MenuItem>
+              <MenuItem onClose={handleClose}>Hello I'm menu</MenuItem>
+              <MenuItem
+                endIcon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                }
+                onClose={handleClose}
+              >
+                Hello
+              </MenuItem>
+              <MenuItem onClose={handleClose}>Hello I'm menu</MenuItem>
             </Menu>
             <Icon
               className="mr-10px"
-              svg={
+              icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -232,8 +270,8 @@ function App() {
             />
           </div>
         </div>
-        <div className="mt-10px">
-          <List className="maxw-200px">
+        <div className="mt-10px df">
+          <List>
             <ListItemButton
               startIcon={
                 <svg
@@ -302,12 +340,11 @@ function App() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                    d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
               }
@@ -323,13 +360,14 @@ function App() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                   />
                 </svg>
               }
+              onClick={handleClick}
               className="mb-10px"
             >
-              Follow
+              Features
             </ListItemButton>
             <ListItem className="colorPrimary">Components</ListItem>
             <ListItemButton>Hello</ListItemButton>
@@ -367,8 +405,15 @@ function App() {
             <ListItemButton>Hello worldworldworld</ListItemButton>
             <ListItemButton>Hello worldworldworld</ListItemButton>
             <ListItemButton>Hello worldworldworld</ListItemButton>
-            <ListItemButton>Hello worldworldworld</ListItemButton>
+            <ListItemButton onClick={handleClick}>
+              Hello worldworldworld
+            </ListItemButton>
           </List>
+          <div className="">
+            <Button>Hello</Button>
+            <Button>Hello</Button>
+            <Button>Hello</Button>
+          </div>
         </div>
       </div>
     </div>

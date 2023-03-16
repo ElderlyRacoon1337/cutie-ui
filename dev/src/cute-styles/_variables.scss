@@ -14,7 +14,18 @@ $primary: rgb(255, 170, 0);
 $primary: rgb(175, 82, 110);
 $primary: rgb(255, 0, 76);
 
+$primary: rgb(224, 32, 96);
+$secondary: rgb(126, 205, 0);
+
+$neutral: rgb(81, 94, 111);
+
+$disabled: rgb(201, 201, 201);
+
 // ================================================================================================================
+
+$fontSizeSmall: 0.8125rem;
+$fontSizeMedium: 0.875rem;
+$fontSizeLarge: 0.9375rem;
 
 $primaryDark: darken($primary, 4%);
 $primaryTooDark: darken($primary, 10%);
@@ -26,6 +37,11 @@ $secondaryTooDark: darken($secondary, 10%);
 $secondaryLight: rgba($secondary, 0.2);
 $secondaryTooLight: rgba($secondary, 0.1);
 
+$neutralDark: darken($neutral, 4%);
+$neutralTooDark: darken($neutral, 10%);
+$neutralLight: rgba($neutral, 0.2);
+$neutralTooLight: rgba($neutral, 0.1);
+
 $glass: rgba(black, 0.03);
 $darkGlass: rgba(black, 0.05);
 $glassPrimary: rgba($primary, 0.05);
@@ -34,6 +50,10 @@ $glassSecondary: rgba($secondary, 0.05);
 $darkGlassSecondary: rgba($secondary, 0.08);
 
 :root {
+  --fontSizeSmall: #{$fontSizeSmall};
+  --fontSizeMedium: #{$fontSizeMedium};
+  --fontSizeLarge: #{$fontSizeLarge};
+
   --primary: #{$primary};
   --primaryDark: #{$primaryDark};
   --primaryTooDark: #{$primaryTooDark};
@@ -45,6 +65,14 @@ $darkGlassSecondary: rgba($secondary, 0.08);
   --secondaryTooDark: #{$secondaryTooDark};
   --secondaryLight: #{$secondaryLight};
   --secondaryTooLight: #{$secondaryTooLight};
+
+  --neutral: #{$neutral};
+  --neutralDark: #{$neutralDark};
+  --neutralTooDark: #{$neutralTooDark};
+  --neutralLight: #{$neutralLight};
+  --neutralTooLight: #{$neutralTooLight};
+
+  --disabled: #{$disabled};
 
   --background: #ffffff;
   --textPrimary: #213547;
@@ -74,6 +102,8 @@ $darkGlassSecondary: rgba($secondary, 0.08);
   $dm_secondaryLight: lighten($dm_secondary, 3%);
   $dm_secondaryTooLight: lighten($dm_secondary, 20%);
 
+  $dm_disabled: rgb(82, 82, 82);
+
   $dm_glass: rgba(white, 0.08);
   $dm_darkGlass: rgba(white, 0.05);
   $dm_glassPrimary: rgba($primary, 0.05);
@@ -94,6 +124,8 @@ $darkGlassSecondary: rgba($secondary, 0.08);
     --secondaryTooDark: #{$dm_secondaryTooDark};
     --secondaryLight: #{$dm_secondaryLight};
     --secondaryTooLight: #{$dm_primaryTooDark};
+
+    --disabled: #{$dm_disabled};
 
     --glass: #{$dm_glass};
     --darkGlass: #{$dm_darkGlass};

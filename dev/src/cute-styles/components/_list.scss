@@ -1,15 +1,13 @@
-.listItem {
-  padding: 10px 15px;
+.CuteListItem {
+  padding: 8px 15px;
   border-radius: 7px;
   user-select: none;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
-.listItemButton {
-  @extend .listItem;
+.CuteListItemButton {
   &:hover {
     background-color: var(--glass);
-    color: var(--primaryDark);
   }
 
   &:active {
@@ -17,73 +15,56 @@
   }
 }
 
-.listItemIconStart {
-  position: relative;
-  padding-left: 37px;
+.CuteListItem-iconStart {
+  display: flex;
+  align-items: center;
 
-  svg {
+  & > *:first-child {
+    margin-right: 10px;
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
   }
 }
 
-.listItemIconEnd {
-  position: relative;
-  padding-right: 37px;
+.CuteListItem-iconEnd {
+  display: flex;
+  align-items: center;
 
-  svg {
+  & > *:last-child {
+    margin-left: 10px;
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 20px;
   }
 }
 
-.listItemIcons {
-  position: relative;
-  padding-left: 37px;
-  padding-right: 37px;
-
-  svg:nth-child(1) {
+.CuteListItem-icons {
+  display: flex;
+  align-items: center;
+  & > *:first-child {
+    margin-right: 10px;
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    left: 10px;
-
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 20px;
   }
 
-  svg:nth-child(2) {
+  .CuteListItemChildren {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    right: 10px;
-
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 20px;
+    margin-left: auto;
   }
 }
 
-.listItemActive {
+.CuteListItem-active {
   background-color: var(--primary);
   color: white;
   &:hover {
@@ -93,7 +74,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .listItemButton {
+  .CuteListItemButton {
     &:hover {
       background-color: var(--darkGlass);
       color: white;
@@ -103,7 +84,7 @@
     }
   }
 
-  .listItemActive {
+  .CuteListItem-active {
     background-color: var(--primaryDark);
     color: white;
     &:hover {

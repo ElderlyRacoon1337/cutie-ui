@@ -1,14 +1,21 @@
 const React = require('react');
 const { clsx } = require('clsx');
-const Icon = ({ svg, className, size, color, style, onClick }) => {
+const Icon = ({
+  svg,
+  className,
+  size = 'medium',
+  color = 'primary',
+  style,
+  onClick,
+}) => {
   return /*#__PURE__*/ React.createElement(
     'div',
     {
       onClick: onClick,
       className: clsx(
-        'icon',
-        size && `${size}Icon`,
-        color && `${color}Icon`,
+        'CuteIcon',
+        size && `CuteIcon-${size}`,
+        color && `CuteIcon-${color}`,
         className
       ),
       style: style,

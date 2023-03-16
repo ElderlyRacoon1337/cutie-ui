@@ -3,13 +3,13 @@ import React from 'react';
 
 interface ListProps {
   className?: string;
-  children?: any;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
 export const List: React.FC<ListProps> = ({ children, className, style }) => {
   return (
-    <ul className={clsx('list', className)} style={style}>
+    <ul className={clsx('CuteList', className)} style={style}>
       {children}
     </ul>
   );

@@ -1,20 +1,7 @@
 const React = require('react');
-const {
-  clsx
-} = require('clsx');
-const {
-  useEffect,
-  useRef,
-  useState
-} = require('react');
-const Menu = ({
-  open,
-  anchorEl,
-  onClose,
-  children,
-  className,
-  style
-}) => {
+const { clsx } = require('clsx');
+const { useEffect, useRef, useState } = require('react');
+const Menu = ({ open, anchorEl, onClose, children, className, style }) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const menu = useRef(null);
@@ -30,9 +17,10 @@ const Menu = ({
         setWidth(clicked.x);
       }
       const bottomOut = window.innerHeight - clicked.top - menuEl.height - 50;
-      console.log(bottomOut);
       if (bottomOut < 0) {
-        setHeight(clicked.y + bottomOut + 40 - (window.innerHeight - clicked.y));
+        setHeight(
+          clicked.y + bottomOut + 40 - (window.innerHeight - clicked.y)
+        );
       } else {
         setHeight(clicked.y + clicked.height + 5);
       }
@@ -43,22 +31,38 @@ const Menu = ({
       document.body.style.overflow = '';
     };
   }, [anchorEl]);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, open && /*#__PURE__*/React.createElement("div", {
-    className: "menuBackground",
-    onClick: onClose
-  }, /*#__PURE__*/React.createElement("ul", {
-    ref: menu,
-    className: clsx('menu', className),
-    onClick: e => e.stopPropagation(),
-    style: height == 0 ? {
-      visibility: 'hidden'
-    } : {
-      ...style,
-      top: `${height}px`,
-      left: `${width}px`
-    }
-  }, children)));
+  return /*#__PURE__*/ React.createElement(
+    React.Fragment,
+    null,
+    open &&
+      /*#__PURE__*/ React.createElement(
+        'div',
+        {
+          className: 'CuteMenuBackground',
+          onClick: onClose,
+        },
+        /*#__PURE__*/ React.createElement(
+          'ul',
+          {
+            ref: menu,
+            className: clsx('CuteMenu', className),
+            onClick: (e) => e.stopPropagation(),
+            style:
+              height == 0
+                ? {
+                    visibility: 'hidden',
+                  }
+                : {
+                    ...style,
+                    top: `${height}px`,
+                    left: `${width}px`,
+                  },
+          },
+          children
+        )
+      )
+  );
 };
 module.exports = {
-  Menu
+  Menu,
 };

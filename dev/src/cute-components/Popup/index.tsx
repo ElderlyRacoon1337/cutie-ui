@@ -1,11 +1,11 @@
+import clsx from 'clsx';
 import React, { useEffect } from 'react';
 
 interface PopupProps {
-  variant?: 'base' | 'search';
   open: boolean;
   className?: string;
-  onClose: any;
-  children?: any;
+  onClose: (event: React.MouseEvent<any, MouseEvent>) => void;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
@@ -14,6 +14,7 @@ export const Popup: React.FC<PopupProps> = ({
   onClose,
   children,
   style,
+  className,
 }) => {
   useEffect(() => {
     if (open) {
@@ -25,11 +26,11 @@ export const Popup: React.FC<PopupProps> = ({
   }, [open]);
 
   return (
-    <div>
+    <>
       {open && (
-        <div className="popup" onClick={onClose}>
+        <div className="CutePopup" onClick={onClose}>
           <div
-            className="popupElement"
+            className={clsx('CutePupupElement', className)}
             onClick={(e) => e.stopPropagation()}
             style={style}
           >
@@ -37,6 +38,6 @@ export const Popup: React.FC<PopupProps> = ({
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };

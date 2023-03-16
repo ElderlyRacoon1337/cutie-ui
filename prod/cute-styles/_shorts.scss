@@ -55,12 +55,20 @@
   color: var(--secondary) !important;
 }
 
+.colorNeutral {
+  color: var(--neutral) !important;
+}
+
 .bgPrimary {
   background-color: var(--primary) !important;
 }
 
 .bgSecondary {
   background-color: var(--secondary) !important;
+}
+
+.bgNeutral {
+  background-color: var(--neutral) !important;
 }
 
 .textSecondary {
@@ -99,6 +107,10 @@
   border-color: var(--secondary);
 }
 
+.borderNeutral {
+  border-color: var(--neutral);
+}
+
 .bgWhite {
   background-color: white !important;
 }
@@ -128,6 +140,12 @@
 .iconSecondary {
   svg {
     color: var(--secondary) !important;
+  }
+}
+
+.iconNeutral {
+  svg {
+    color: var(--neutral) !important;
   }
 }
 

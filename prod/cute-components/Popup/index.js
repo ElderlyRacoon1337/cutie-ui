@@ -1,7 +1,7 @@
 const React = require('react');
 const { clsx } = require('clsx');
-
-const Popup = ({ open, onClose, children, style }) => {
+const { useEffect } = require('react');
+const Popup = ({ open, onClose, children, style, className }) => {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
@@ -11,19 +11,19 @@ const Popup = ({ open, onClose, children, style }) => {
     };
   }, [open]);
   return /*#__PURE__*/ React.createElement(
-    'div',
+    React.Fragment,
     null,
     open &&
       /*#__PURE__*/ React.createElement(
         'div',
         {
-          className: 'popup',
+          className: 'CutePopup',
           onClick: onClose,
         },
         /*#__PURE__*/ React.createElement(
           'div',
           {
-            className: 'popupElement',
+            className: clsx('CutePupupElement', className),
             onClick: (e) => e.stopPropagation(),
             style: style,
           },

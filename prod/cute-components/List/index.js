@@ -4,7 +4,7 @@ const List = ({ children, className, style }) => {
   return /*#__PURE__*/ React.createElement(
     'ul',
     {
-      className: clsx('list', className),
+      className: clsx('CuteList', className),
       style: style,
     },
     children

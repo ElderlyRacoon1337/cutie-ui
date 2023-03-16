@@ -1,4 +1,4 @@
-.input {
+.CuteInput {
   padding: 10px;
   border-radius: 10px;
   outline: none;
@@ -11,11 +11,10 @@
   }
 }
 
-.searchInput {
+.CuteSearchInput {
   position: relative;
 
-  .input {
-    @extend .input;
+  .CuteInput {
     padding: 7px 7px 7px 35px;
     background-color: var(--background);
     width: 100%;
@@ -40,7 +39,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .input {
+  .CuteInput {
     background-color: rgba(22, 22, 22, 0.5);
     border: 2px solid rgb(38, 38, 38);
   }

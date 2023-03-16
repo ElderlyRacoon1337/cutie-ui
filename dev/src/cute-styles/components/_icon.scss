@@ -1,30 +1,70 @@
-.smallIcon {
-  svg {
-    width: 17px !important;
-    height: 17px !important;
-  }
-}
-
-.largeIcon {
-  svg {
-    width: 25px !important;
-    height: 25px !important;
-  }
-}
-
-.icon {
+.CuteIcon {
   display: flex;
   align-items: center;
   padding: 7px;
-  svg {
-    width: 22px;
-    height: 22px;
+}
+
+.CuteIcon-small {
+  & > *:first-child {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.CuteIcon-large {
+  & > *:first-child {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.CuteIcon-medium {
+  & > *:first-child {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.CuteIcon-secondary {
+  & > *:first-child {
+    color: var(--secondary);
+  }
+}
+
+.CuteIcon-neutral {
+  & > *:first-child {
+    color: var(--neutral);
+  }
+}
+
+.CuteIcon-primary {
+  & > *:first-child {
     color: var(--primary);
   }
 }
 
-.secondaryIcon {
-  svg {
-    color: var(--secondary);
+.CuteIcon-black {
+  & > *:first-child {
+    color: black;
+  }
+}
+
+.CuteIcon-white {
+  & > *:first-child {
+    color: white;
+  }
+}
+
+.CuteIcon-text {
+  & > *:first-child {
+    color: black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .CuteIcon-text {
+    & > *:first-child {
+      color: white;
+    }
   }
 }

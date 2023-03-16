@@ -3,10 +3,12 @@ import React from 'react';
 
 interface MenuItemProps {
   className?: string;
-  onClose?: any;
-  children?: any;
+  onClose?: (event: React.MouseEvent<any, MouseEvent>) => void;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<any>) => void;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
@@ -15,23 +17,32 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   className,
   style,
   onClick,
-  ...rest
+  startIcon,
+  endIcon,
 }) => {
   return (
+    // @ts-ignore
     <li
-      {...rest}
       onClick={
         onClick
           ? (e) => {
               onClick(e);
-              onClose(e);
+              onClose && onClose(e);
             }
           : onClose
       }
-      className={clsx('menuItem', className)}
+      className={clsx(
+        'CuteMenuItem',
+        startIcon && !endIcon && 'CuteMenuItem-iconStart',
+        endIcon && !startIcon && 'CuteMenuItem-iconEnd',
+        startIcon && endIcon && 'CuteMenuItem-icons',
+        className
+      )}
       style={style}
     >
-      {children}
+      {startIcon}
+      <div className="CuteMenuItemChildren">{children}</div>
+      {endIcon}
     </li>
   );
 };

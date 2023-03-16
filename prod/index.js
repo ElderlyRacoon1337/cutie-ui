@@ -9,6 +9,8 @@ const { Avatar } = require('./cute-components/Avatar');
 const { Icon } = require('./cute-components/Icon');
 const { IconButton } = require('./cute-components/IconButton');
 const { Input } = require('./cute-components/Input');
+const { useMenu } = require('./cute-hooks/useMenu');
+const { usePopup } = require('./cute-hooks/usePopup');
 
 module.exports = {
   Button,
@@ -22,4 +24,6 @@ module.exports = {
   Icon,
   IconButton,
   Input,
+  useMenu,
+  usePopup,
 };

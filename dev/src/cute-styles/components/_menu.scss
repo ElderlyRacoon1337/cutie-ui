@@ -1,4 +1,4 @@
-.menuBackground {
+.CuteMenuBackground {
   position: fixed;
   z-index: 9;
   top: 0;
@@ -9,7 +9,7 @@
   backdrop-filter: blur(2px);
 }
 
-.menu {
+.CuteMenu {
   position: absolute;
   z-index: 10;
   margin-right: auto;
@@ -22,27 +22,86 @@
   flex-direction: column;
   padding: 7px 0;
 
-  .menuItem {
-    padding: 7px 20px;
+  .CuteMenuItem {
+    padding: 10px 15px;
     background-color: var(--background);
     cursor: pointer;
     user-select: none;
     color: var(--textSecondary);
 
     &:hover {
-      background-color: var(--darkGlass);
+      background-color: var(--glass);
       color: var(--textPrimary);
     }
 
     &:active {
-      background-color: var(--glass);
+      background-color: var(--darkGlass);
     }
   }
 }
 
+.CuteMenuItem-iconStart {
+  display: flex;
+  align-items: center;
+
+  & > *:first-child {
+    margin-right: 10px;
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.CuteMenuItem-iconEnd {
+  display: flex;
+  align-items: center;
+
+  & > *:first-child {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
+    margin-left: auto;
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+  }
+}
+
+.CuteMenuItem-icons {
+  display: flex;
+  align-items: center;
+  & > *:first-child {
+    margin-right: 10px;
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+  }
+
+  .CuteMenuItemChildren {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-left: auto;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
-  .menuItem {
+  .CuteMenuItem {
     &:hover {
+      background-color: var(--darkGlass) !important;
+      color: var(--textPrimary);
+    }
+
+    &:active {
+      background-color: var(--glass) !important;
     }
   }
 }

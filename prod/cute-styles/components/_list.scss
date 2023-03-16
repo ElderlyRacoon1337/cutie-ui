@@ -1,12 +1,11 @@
-.listItem {
-  padding: 10px 15px;
+.CuteListItem {
+  padding: 7px 15px;
   border-radius: 7px;
   user-select: none;
   margin-bottom: 5px;
 }
 
-.listItemButton {
-  @extend .listItem;
+.CuteListItemButton {
   &:hover {
     background-color: var(--glass);
     color: var(--primaryDark);
@@ -17,7 +16,7 @@
   }
 }
 
-.listItemIconStart {
+.CuteListItem-iconStart {
   position: relative;
   padding-left: 37px;
 
@@ -34,7 +33,7 @@
   }
 }
 
-.listItemIconEnd {
+.CuteListItem-iconEnd {
   position: relative;
   padding-right: 37px;
 
@@ -51,7 +50,7 @@
   }
 }
 
-.listItemIcons {
+.CuteListItem-icons {
   position: relative;
   padding-left: 37px;
   padding-right: 37px;
@@ -83,7 +82,7 @@
   }
 }
 
-.listItemActive {
+.CuteListItem-active {
   background-color: var(--primary);
   color: white;
   &:hover {
@@ -93,7 +92,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .listItemButton {
+  .CuteListItemButton {
     &:hover {
       background-color: var(--darkGlass);
       color: white;
@@ -103,7 +102,7 @@
     }
   }
 
-  .listItemActive {
+  .CuteListItem-active {
     background-color: var(--primaryDark);
     color: white;
     &:hover {

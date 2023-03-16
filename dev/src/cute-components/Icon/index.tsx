@@ -2,34 +2,37 @@ import clsx from 'clsx';
 import React from 'react';
 
 interface IconProps {
-  svg: any;
+  icon: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'neutral' | 'black' | 'white' | 'text';
   size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 export const Icon: React.FC<IconProps> = ({
-  svg,
+  icon,
   className,
-  size,
-  color,
+  size = 'medium',
+  color = 'primary',
   style,
   onClick,
+  children,
 }) => {
   return (
     <div
       onClick={onClick}
       className={clsx(
-        'icon',
-        size && `${size}Icon`,
-        color && `${color}Icon`,
+        'CuteIcon',
+        size && `CuteIcon-${size}`,
+        color && `CuteIcon-${color}`,
         className
       )}
       style={style}
     >
-      {svg}
+      {icon}
+      {children}
     </div>
   );
 };

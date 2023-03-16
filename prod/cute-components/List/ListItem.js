@@ -14,11 +14,11 @@ const ListItem = ({
     {
       onClick: onClick,
       className: clsx(
-        'listItem',
-        active && 'listItemActive',
-        startIcon && !endIcon && 'listItemIconStart',
-        endIcon && !startIcon && 'listItemIconEnd',
-        startIcon && endIcon && 'listItemIcons',
+        'CuteListItem',
+        active && 'CuteListItem-active',
+        startIcon && !endIcon && 'CuteListItem-iconStart',
+        endIcon && !startIcon && 'CuteListItem-iconEnd',
+        startIcon && endIcon && 'CuteListItem-icons',
         className
       ),
       style: style,

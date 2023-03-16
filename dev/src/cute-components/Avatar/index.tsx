@@ -6,7 +6,7 @@ interface AvatarProps {
   className?: string;
   src: string;
   style?: React.CSSProperties;
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<any>) => void;
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -20,10 +20,10 @@ export const Avatar: React.FC<AvatarProps> = ({
     <div
       onClick={onClick}
       className={clsx(
-        'avatar',
-        variant == 'square' && 'avatarSquare',
-        variant == 'rounded' && 'avatarRounded',
-        variant == 'circular' && 'avatarCircular',
+        'CuteAvatar',
+        variant == 'square' && 'CuteAvatar-square',
+        variant == 'rounded' && 'CuteAvatar-rounded',
+        variant == 'circular' && 'CuteAvatar-circular',
         className
       )}
       style={{ ...style, backgroundImage: 'url(' + src + ')' }}

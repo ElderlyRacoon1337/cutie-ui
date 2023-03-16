@@ -1,31 +1,31 @@
 const React = require('react');
 const { clsx } = require('clsx');
 const Button = ({
-  variant,
+  variant = 'text',
   children,
   className,
   onClick,
-  color,
-  size,
+  color = 'primary',
+  size = 'medium',
   startIcon,
   endIcon,
   style,
+  disabled,
+  type = 'button',
 }) => {
   return /*#__PURE__*/ React.createElement(
     'button',
     {
+      disabled: disabled,
+      type: type,
       className: clsx(
-        size && `${size}Button`,
-        color && `${color}Button`,
-        variant == 'outlined'
-          ? 'buttonOutlined'
-          : variant == 'contained'
-          ? 'buttonContained'
-          : 'buttonText',
-        startIcon && !endIcon && 'buttonIconStart',
-        endIcon && !startIcon && 'buttonIconEnd',
-        startIcon && endIcon && 'buttonIcons',
-        color && variant && `${color}Button${variant}`,
+        'CuteButton',
+        size && `CuteButton-${size}`,
+        disabled && 'CuteButton-disabled',
+        startIcon && !endIcon && 'CuteButton-iconStart',
+        endIcon && !startIcon && 'CuteButton-iconEnd',
+        startIcon && endIcon && 'CuteButton-icons',
+        color && variant && `CuteButton-${color}-${variant}`,
         className
       ),
       onClick: onClick,

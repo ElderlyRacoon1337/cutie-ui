@@ -3,11 +3,11 @@ import React from 'react';
 
 interface ListItemProps {
   className?: string;
-  children: any;
+  children: React.ReactNode;
   style?: React.CSSProperties;
-  startIcon?: JSX.Element | SVGElement;
-  endIcon?: JSX.Element | SVGElement;
-  onClick?: any;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  onClick?: (event: React.MouseEvent<any>) => void;
   active?: boolean;
 }
 
@@ -21,21 +21,22 @@ export const ListItem: React.FC<ListItemProps> = ({
   endIcon,
 }) => {
   return (
+    // @ts-ignore
     <li
       onClick={onClick}
       className={clsx(
-        'listItem',
-        active && 'listItemActive',
-        startIcon && !endIcon && 'listItemIconStart',
-        endIcon && !startIcon && 'listItemIconEnd',
-        startIcon && endIcon && 'listItemIcons',
+        'CuteListItem',
+        active && 'CuteListItem-active',
+        startIcon && !endIcon && 'CuteListItem-iconStart',
+        endIcon && !startIcon && 'CuteListItem-iconEnd',
+        startIcon && endIcon && 'CuteListItem-icons',
         className
       )}
       style={style}
     >
       {startIcon}
+      <div className="CuteListItemChildren">{children}</div>
       {endIcon}
-      {children}
     </li>
   );
 };

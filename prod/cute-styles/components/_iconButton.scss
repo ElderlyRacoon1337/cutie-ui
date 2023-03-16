@@ -1,41 +1,38 @@
 // =================================================== Sizes ===================================================
 
-.smallIconButton {
+.CuteIconButton-small {
   svg {
-    width: 17px !important;
-    height: 17px !important;
-  }
-  .icon {
-    svg {
-      width: 17px;
-      height: 17px;
-    }
+    width: 17px;
+    height: 17px;
   }
 }
 
-.largeIconButton {
-  svg {
-    width: 25px !important;
-    height: 25px !important;
-  }
-}
-
-// ================================================= Icon Buttons =================================================
-
-.iconButton {
-  @extend .button;
-  display: flex;
-  align-items: center;
-  padding: 7px;
-  border-radius: 50%;
+.CuteIconButton-medium {
   svg {
     width: 22px;
     height: 22px;
   }
 }
 
-.iconButtonOutlined {
-  @extend .iconButton;
+.CuteIconButton-large {
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+// ================================================= Icon Buttons =================================================
+
+.CuteIconButton {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 50%;
+}
+
+// ================================================= Primary =================================================
+
+.CuteIconButton-primary-outlined {
   background-color: transparent;
   color: var(--textPrimary);
   border: 1px solid var(--textPrimary);
@@ -47,8 +44,7 @@
   }
 }
 
-.iconButtonText {
-  @extend .iconButton;
+.CuteIconButton-primary-text {
   background-color: transparent;
   color: var(--primaryDark);
   border: 1px solid transparent;
@@ -63,17 +59,18 @@
   }
 }
 
-.iconButtonContained {
-  @extend .iconButton;
+.CuteIconButton-primary-contained {
   border: 1px solid var(--primary);
   background-color: var(--primary);
   color: white;
 
   &:hover {
     background-color: var(--primaryDark);
+    border-color: var(--primaryDark);
   }
 
   &:active {
+    border-color: var(--primaryTooDark);
     background-color: var(--primaryTooDark);
   }
 }
@@ -81,7 +78,7 @@
 // ================================================= Dark mode =================================================
 
 @media (prefers-color-scheme: dark) {
-  .iconButtonOutlined {
+  .CuteIconButton-primary-outlined {
     &:hover {
       border-color: white;
       background-color: white;
@@ -90,7 +87,7 @@
     }
   }
 
-  .iconButtonContained {
+  .CuteIconButton-primary-contained {
     background-color: var(--primary);
     border-color: var(--primary);
 
@@ -101,9 +98,9 @@
     }
   }
 
-  .iconButtonText {
+  .CuteIconButton-primary-text {
     color: white;
-    border-color: transparent !important;
+    border-color: transparent;
     &:hover {
       background-color: var(--darkGlass);
       color: white;
@@ -117,13 +114,12 @@
 
 // ================================================= Secondary =================================================
 
-.secondaryIconButton {
+.CuteIconButton-secondary-text {
   background-color: transparent;
   color: var(--secondary);
   border: 1px solid transparent;
   &:hover {
     background-color: var(--secondaryTooLight);
-    color: var(--primary);
     color: var(--secondary);
   }
 
@@ -132,26 +128,25 @@
   }
 }
 
-.secondaryIconButtoncontained {
+.CuteIconButton-secondary-contained {
   background-color: var(--secondary);
-  border-color: var(--secondary);
+  border: 1px solid var(--secondary);
   color: #fff;
 
   &:hover {
-    background-color: var(--secondaryDark) !important;
+    background-color: var(--secondaryDark);
     border-color: var(--secondaryDark);
     color: #fff;
   }
 
   &:active {
-    background-color: var(--secondaryTooDark) !important;
+    background-color: var(--secondaryTooDark);
     border-color: var(--secondaryTooDark);
     color: #fff;
   }
 }
 
-.secondaryIconButtonoutlined {
-  @extend .iconButton;
+.CuteIconButton-secondary-outlined {
   color: var(--textPrimary);
   border: 1px solid var(--textPrimary);
 
@@ -164,7 +159,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .secondaryIconButton {
+  .CuteIconButton-secondary-text {
     color: white;
     &:hover {
       background-color: var(--darkGlass);
@@ -176,18 +171,19 @@
     }
   }
 
-  .secondaryIconButtoncontained {
-    background-color: var(--secondaryLight);
-    border-color: var(--secondaryLight);
+  .CuteIconButton-secondary-outlined {
+    background-color: transparent;
+    border-color: #fff;
     &:hover {
-      background-color: #fff !important;
+      background-color: #fff;
       color: var(--secondaryLight);
       border-color: #fff;
       box-shadow: none;
     }
   }
 
-  .secondaryIconButtonoutlined {
+  .CuteIconButton-secondary-contained {
+    border-color: var(--secondary);
     &:hover {
       border-color: white;
       background-color: white;
@@ -195,4 +191,94 @@
       color: var(--secondaryLight);
     }
   }
+}
+
+// ================================================= Neutral =================================================
+
+.CuteIconButton-neutral-text {
+  background-color: transparent;
+  color: var(--neutral);
+  border: 1px solid transparent;
+  &:hover {
+    background-color: var(--neutralTooLight);
+    color: var(--neutral);
+  }
+
+  &:active {
+    background-color: var(--neutralLight);
+  }
+}
+
+.CuteIconButton-neutral-contained {
+  background-color: var(--neutral);
+  color: #fff;
+  border: 1px solid var(--neutral);
+
+  &:hover {
+    background-color: var(--neutralDark);
+    border-color: var(--neutralDark);
+    color: #fff;
+  }
+
+  &:active {
+    background-color: var(--neutralTooDark);
+    border-color: var(--neutralTooDark);
+    color: #fff;
+  }
+}
+
+.CuteIconButton-neutral-outlined {
+  color: var(--textPrimary);
+  border: 1px solid var(--textPrimary);
+  background-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--neutral);
+    border: 1px solid var(--neutral);
+    box-shadow: 0px 0px 0px 3px var(--neutralTooLight);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .CuteIconButton-neutral-text {
+    color: white;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-neutral-contained {
+    background-color: var(--neutral);
+    border-color: var(--neutral);
+    &:hover {
+      background-color: #fff;
+      color: var(--neutral);
+      border-color: #fff;
+      box-shadow: none;
+    }
+  }
+
+  .CuteIconButton-neutral-outlined {
+    &:hover {
+      border-color: white;
+      background-color: white;
+      box-shadow: none;
+      color: var(--neutral);
+    }
+  }
+}
+
+// ====== disabled ===
+
+.CuteIconButton-disabled {
+  background-color: transparent !important;
+  border-color: var(--disabled) !important;
+  color: var(--disabled) !important;
+  box-shadow: none !important;
 }
