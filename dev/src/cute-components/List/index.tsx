@@ -5,11 +5,24 @@ interface ListProps {
   className?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
+  ref?: any;
+  other?: object;
 }
 
-export const List: React.FC<ListProps> = ({ children, className, style }) => {
+export const List: React.FC<ListProps> = ({
+  children,
+  className,
+  style,
+  ref,
+  other,
+}) => {
   return (
-    <ul className={clsx('CuteList', className)} style={style}>
+    <ul
+      ref={ref}
+      className={clsx('CuteList', className)}
+      {...other}
+      style={style}
+    >
       {children}
     </ul>
   );

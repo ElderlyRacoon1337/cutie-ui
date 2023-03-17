@@ -5,10 +5,13 @@ interface ListItemProps {
   className?: string;
   children: React.ReactNode;
   style?: React.CSSProperties;
-  startIcon?: JSX.Element | SVGElement;
+  startIcon?: React.ReactNode;
   onClick?: (event: React.MouseEvent<any>) => void;
   active?: boolean;
   endIcon?: React.ReactNode;
+  activeFilled?: boolean;
+  ref?: any;
+  other?: object;
 }
 
 export const ListItemButton: React.FC<ListItemProps> = ({
@@ -19,20 +22,25 @@ export const ListItemButton: React.FC<ListItemProps> = ({
   onClick,
   active,
   endIcon,
+  activeFilled,
+  ref,
+  other,
 }) => {
   return (
-    // @ts-ignore
     <li
+      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteListItem',
         'CuteListItemButton',
         active && 'CuteListItem-active',
+        activeFilled && 'CuteListItem-activeFilled',
         startIcon && !endIcon && 'CuteListItem-iconStart',
         endIcon && !startIcon && 'CuteListItem-iconEnd',
         startIcon && endIcon && 'CuteListItem-icons',
         className
       )}
+      {...other}
       style={style}
     >
       {startIcon}

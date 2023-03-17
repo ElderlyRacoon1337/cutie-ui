@@ -9,6 +9,8 @@ interface IconProps {
   size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  ref?: any;
+  other?: object;
 }
 
 export const Icon: React.FC<IconProps> = ({
@@ -19,9 +21,12 @@ export const Icon: React.FC<IconProps> = ({
   style,
   onClick,
   children,
+  ref,
+  other,
 }) => {
   return (
     <div
+      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteIcon',
@@ -29,6 +34,7 @@ export const Icon: React.FC<IconProps> = ({
         color && `CuteIcon-${color}`,
         className
       )}
+      {...other}
       style={style}
     >
       {icon}

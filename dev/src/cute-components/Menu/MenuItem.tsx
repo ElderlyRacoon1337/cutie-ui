@@ -9,6 +9,9 @@ interface MenuItemProps {
   onClick?: (event: React.MouseEvent<any>) => void;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+  divider?: boolean;
+  ref?: any;
+  other?: object;
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
@@ -19,10 +22,14 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   onClick,
   startIcon,
   endIcon,
+  divider,
+  ref,
+  other,
 }) => {
   return (
     // @ts-ignore
     <li
+      ref={ref}
       onClick={
         onClick
           ? (e) => {
@@ -36,8 +43,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({
         startIcon && !endIcon && 'CuteMenuItem-iconStart',
         endIcon && !startIcon && 'CuteMenuItem-iconEnd',
         startIcon && endIcon && 'CuteMenuItem-icons',
+        divider && 'CuteMenuItem-divider',
         className
       )}
+      {...other}
       style={style}
     >
       {startIcon}

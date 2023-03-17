@@ -9,6 +9,9 @@ interface ListItemProps {
   endIcon?: React.ReactNode;
   onClick?: (event: React.MouseEvent<any>) => void;
   active?: boolean;
+  activeFilled?: boolean;
+  ref?: any;
+  other?: object;
 }
 
 export const ListItem: React.FC<ListItemProps> = ({
@@ -19,19 +22,25 @@ export const ListItem: React.FC<ListItemProps> = ({
   onClick,
   active,
   endIcon,
+  activeFilled,
+  ref,
+  other,
 }) => {
   return (
-    // @ts-ignore
     <li
+      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteListItem',
         active && 'CuteListItem-active',
+        activeFilled && 'CuteListItem-activeFilled',
         startIcon && !endIcon && 'CuteListItem-iconStart',
         endIcon && !startIcon && 'CuteListItem-iconEnd',
         startIcon && endIcon && 'CuteListItem-icons',
+
         className
       )}
+      {...other}
       style={style}
     >
       {startIcon}

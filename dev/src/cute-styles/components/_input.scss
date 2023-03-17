@@ -1,44 +1,277 @@
-.CuteInput {
-  padding: 10px;
-  border-radius: 10px;
-  outline: none;
-  border: 2px solid transparent;
-  border: 2px solid var(--primaryTooLight);
+// ======================================================= Wrapper =======================================================
 
-  &:focus {
-    border: 2px solid var(--primary);
+.CuteInputWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+
+  .CuteInput-message {
+    font-size: var(--fontSizeSmall);
+    margin-left: 10px;
+    margin-top: 5px;
+    color: var(--textSecondary);
+    font-size: 12px;
+  }
+  .CuteInput-label {
+    position: absolute;
+    z-index: 1;
+    color: var(--textSecondary);
+    width: fit-content;
+    border-radius: 7px;
+    font-size: var(--fontSizeSmall);
+    margin-left: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+    top: -8px;
     background-color: var(--background);
+    font-size: 11px;
+  }
+
+  .CuteButton {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 }
 
-.CuteSearchInput {
-  position: relative;
+.CuteInput {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
 
-  .CuteInput {
-    padding: 7px 7px 7px 35px;
-    background-color: var(--background);
-    &:focus {
-      border: 2px solid var(--primary);
-      background-color: var(--background);
-    }
-  }
-
-  & > *:first-child {
-    color: var(--textSecondary);
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    left: 10px;
+.CuteInput-square {
+  border-radius: 0 !important;
+  .CuteButton {
+    border-radius: 0 !important;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .CuteInput {
-    background-color: rgba(22, 22, 22, 0.5);
-    border: 2px solid rgb(38, 38, 38);
+    background-color: transparent;
+    // outline: 1px solid var(--divider);
+  }
+}
+
+// ======================================================= Icons ============================================================
+
+.CuteInput-iconStart {
+  .CuteInput-row {
+    display: flex;
+    align-items: center;
+    & > *:nth-child(1) {
+      color: var(--textSecondary);
+      width: 20px;
+      height: 20px;
+      margin-left: 8px;
+    }
+
+    & > *:nth-child(2) {
+      padding-left: 7px;
+    }
+  }
+}
+
+.CuteInput-iconEnd {
+  .CuteInput-row {
+    display: flex;
+    align-items: center;
+    & > *:nth-child(2) {
+      color: var(--textSecondary);
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    & > *:nth-child(1) {
+      padding-right: 7px;
+    }
+  }
+}
+
+.CuteInput-icons {
+  .CuteInput-row {
+    display: flex;
+    align-items: center;
+    & > *:nth-child(1) {
+      color: var(--textSecondary);
+      width: 20px;
+      height: 20px;
+      margin-left: 8px;
+    }
+    & > *:nth-child(2) {
+      padding-right: 7px;
+      padding-left: 7px;
+    }
+    & > *:nth-child(3) {
+      color: var(--textSecondary);
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+}
+
+// ======================================================= Sizes ============================================================
+
+.CuteInput-small {
+  font-size: var(--fontSizeSmall);
+  border-radius: 5px;
+  input {
+    padding: 6px 10px;
+  }
+  .CuteInput-label {
+    font-size: 11px;
+  }
+}
+
+.CuteInput-medium {
+  font-size: var(--fontSizeMedium);
+  border-radius: 7px;
+  input {
+    padding: 8px 10px;
+  }
+}
+
+.CuteInput-large {
+  font-size: var(--fontSizeLarge);
+  border-radius: 7px;
+  input {
+    padding: 10px;
+  }
+}
+
+// ======================================================= Variants ============================================================
+
+.CuteInput-outlined {
+  outline: 1px solid;
+  input {
+  }
+}
+
+.CuteInput-filled {
+  outline: 1px solid transparent !important;
+  background-color: var(--darkGlass);
+  input {
+    background-color: transparent;
+  }
+  .CuteInput-label {
+    color: var(--textSecondary) !important;
+    top: -14px;
+  }
+  svg {
+    color: var(--textSecondary) !important;
+  }
+}
+
+.CuteInput-underlined {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid;
+  input {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .CuteInput-label {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .CuteInput-message {
+    margin-left: 0;
+  }
+
+  .CuteButton {
+    border-radius: 0;
+  }
+}
+
+.CuteInput-basic {
+  border-radius: 0;
+  input {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// ======================================================= Colors ============================================================
+
+.CuteInput-error {
+  outline-color: var(--error) !important;
+  border-color: var(--error) !important;
+
+  input {
+  }
+  .CuteInput-message {
+    color: var(--error);
+  }
+  .CuteInput-label {
+    color: var(--error);
+  }
+}
+
+.CuteInput-success {
+  outline-color: var(--success) !important;
+  border-color: var(--success) !important;
+  input {
+  }
+  .CuteInput-message {
+    color: var(--success);
+  }
+  .CuteInput-label {
+    color: var(--success);
+  }
+}
+
+.CuteInput-primary {
+  outline-color: var(--divider);
+  .CuteInput-label {
+    color: var(--primary);
+  }
+}
+.CuteInput-primary-focused {
+  border-color: var(--primary);
+  outline-color: var(--primary);
+  outline-width: 1.5px;
+  svg {
+    color: var(--primary) !important;
+  }
+}
+
+.CuteInput-secondary {
+  outline-color: var(--divider);
+  .CuteInput-label {
+    color: var(--secondary);
+  }
+}
+.CuteInput-secondary-focused {
+  border-color: var(--secondary);
+  outline-color: var(--secondary);
+  outline-width: 1.5px;
+  svg {
+    color: var(--secondary) !important;
+  }
+}
+
+.CuteInput-neutral {
+  outline-color: var(--divider);
+  .CuteInput-label {
+    color: var(--neutral);
+  }
+}
+.CuteInput-neutral-focused {
+  border-color: var(--neutral);
+  outline: 1.5px solid var(--neutral);
+  outline-width: 1.5px;
+  svg {
+    color: var(--neutral) !important;
+  }
+}
+
+.CuteInput-filled {
+  svg {
+    color: var(--textSecondary) !important;
   }
 }

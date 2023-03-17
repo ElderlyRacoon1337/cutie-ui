@@ -9,6 +9,7 @@ interface MenuProps {
   className?: string;
   style?: React.CSSProperties;
   fullWidth?: boolean;
+  other?: object;
 }
 
 export const Menu: React.FC<MenuProps> = ({
@@ -19,6 +20,7 @@ export const Menu: React.FC<MenuProps> = ({
   className,
   style,
   fullWidth,
+  other,
 }) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -47,7 +49,7 @@ export const Menu: React.FC<MenuProps> = ({
           clicked.y + bottomOut + 40 - (window.innerHeight - clicked.y)
         );
       } else {
-        setHeight(clicked.y + clicked.height + 5);
+        setHeight(clicked.y + clicked.height + 3);
       }
     }
 
@@ -67,6 +69,7 @@ export const Menu: React.FC<MenuProps> = ({
             ref={menu}
             className={clsx('CuteMenu', className)}
             onClick={(e) => e.stopPropagation()}
+            {...other}
             style={
               height == 0
                 ? { visibility: 'hidden', minWidth: widthParent }

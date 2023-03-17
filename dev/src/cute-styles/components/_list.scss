@@ -65,8 +65,20 @@
 }
 
 .CuteListItem-active {
+  background-color: var(--darkGlassPrimary);
+  color: var(--primary);
+  &:hover {
+    background-color: var(--darkGlassPrimary);
+    color: var(--primary);
+  }
+}
+
+.CuteListItem-activeFilled {
   background-color: var(--primary);
   color: white;
+  & > * {
+    color: white !important;
+  }
   &:hover {
     background-color: var(--primaryDark);
     color: white;
@@ -85,6 +97,15 @@
   }
 
   .CuteListItem-active {
+    background-color: rgba($primary, 0.2);
+    color: white;
+    &:hover {
+      background-color: rgba($primary, 0.2);
+      color: white;
+    }
+  }
+
+  .CuteListItem-activeFilled {
     background-color: var(--primaryDark);
     color: white;
     &:hover {

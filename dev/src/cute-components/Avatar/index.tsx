@@ -7,6 +7,8 @@ interface AvatarProps {
   src: string;
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<any>) => void;
+  ref?: any;
+  other?: object;
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -15,9 +17,12 @@ export const Avatar: React.FC<AvatarProps> = ({
   src,
   style,
   onClick,
+  ref,
+  other,
 }) => {
   return (
     <div
+      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteAvatar',
@@ -26,6 +31,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         variant == 'circular' && 'CuteAvatar-circular',
         className
       )}
+      {...other}
       style={{ ...style, backgroundImage: 'url(' + src + ')' }}
     ></div>
   );

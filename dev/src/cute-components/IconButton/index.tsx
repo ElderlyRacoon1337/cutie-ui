@@ -3,7 +3,7 @@ import React from 'react';
 
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: 'primary' | 'secondary' | 'neutral' | 'white' | 'black' | 'text';
@@ -12,6 +12,8 @@ interface IconButtonProps {
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   children?: React.ReactNode;
+  ref?: any;
+  other?: object;
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({
@@ -25,9 +27,12 @@ export const IconButton: React.FC<IconButtonProps> = ({
   disabled,
   type = 'button',
   children,
+  ref,
+  other,
 }) => {
   return (
     <button
+      ref={ref}
       type={type}
       disabled={disabled}
       onClick={onClick}
@@ -38,6 +43,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
         color && variant && `CuteIconButton-${color}-${variant}`,
         className
       )}
+      {...other}
       style={style}
     >
       {icon}

@@ -1,6 +1,8 @@
 // =================================================== Sizes ===================================================
 
 .CuteIconButton-small {
+  width: 31px;
+  height: 31px;
   & > *:first-child {
     width: 17px;
     height: 17px;
@@ -8,6 +10,8 @@
 }
 
 .CuteIconButton-medium {
+  width: 34px;
+  height: 34px;
   & > *:first-child {
     width: 20px;
     height: 20px;
@@ -15,6 +19,8 @@
 }
 
 .CuteIconButton-large {
+  width: 38px;
+  height: 38px;
   & > *:first-child {
     width: 25px;
     height: 25px;
@@ -26,7 +32,7 @@
 .CuteIconButton {
   display: flex;
   align-items: center;
-  padding: 7px;
+  justify-content: center;
   border-radius: 50%;
   transition: 0.1s all ease-in-out;
 }
@@ -80,11 +86,16 @@
 
 @media (prefers-color-scheme: dark) {
   .CuteIconButton-primary-outlined {
+    background-color: transparent;
+    border-color: #fff;
     &:hover {
-      border-color: white;
-      background-color: white;
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
       box-shadow: none;
-      color: var(--primary);
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 
@@ -149,6 +160,7 @@
 
 .CuteIconButton-secondary-outlined {
   color: var(--textPrimary);
+  background-color: transparent;
   border: 1px solid var(--textPrimary);
 
   &:hover {
@@ -176,10 +188,13 @@
     background-color: transparent;
     border-color: #fff;
     &:hover {
-      background-color: #fff;
-      color: var(--secondaryLight);
+      background-color: var(--darkGlass);
       border-color: #fff;
+      color: #fff;
       box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 
@@ -266,11 +281,16 @@
   }
 
   .CuteIconButton-neutral-outlined {
+    background-color: transparent;
+    border-color: #fff;
     &:hover {
-      border-color: white;
-      background-color: white;
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
       box-shadow: none;
-      color: var(--neutral);
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 }

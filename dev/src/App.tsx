@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import Alert from './cute-components/Alert';
 import { Avatar } from './cute-components/Avatar';
 import { Button } from './cute-components/Button';
+import CircularProgress from './cute-components/CircularProgress';
 import { Icon } from './cute-components/Icon';
 import { IconButton } from './cute-components/IconButton';
 import { Input } from './cute-components/Input';
+import Link from './cute-components/Link';
 import { List } from './cute-components/List';
 import { ListItem } from './cute-components/List/ListItem';
 import { ListItemButton } from './cute-components/List/ListItemButton';
@@ -12,6 +15,7 @@ import { MenuItem } from './cute-components/Menu/MenuItem';
 import { Popup } from './cute-components/Popup';
 import { useMenu } from './cute-hooks/useMenu';
 import { usePopup } from './cute-hooks/usePopup';
+import Switch from './Switch';
 
 function App() {
   // const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -23,6 +27,7 @@ function App() {
   //   setAnchorEl(null);
   // };
   // const [popupOpen, setPopupOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
   const { anchorEl, open, handleClick, handleClose } = useMenu();
   const {
@@ -30,6 +35,10 @@ function App() {
     handleClick: handleClickPopup,
     handleClose: handleClosePopup,
   } = usePopup();
+
+  const [checked, setChecked] = useState(false);
+
+  console.log(checked);
 
   return (
     <div className="App">
@@ -59,6 +68,7 @@ function App() {
             </a>
           </div>
           <Input
+            button={<Button>Search</Button>}
             startIcon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,8 +84,8 @@ function App() {
                 />
               </svg>
             }
-            className="w-600px py-10px"
-            placeholder="Search"
+            className="w-600px"
+            placeholder="Choose your age"
           />
           <div className="right df aic">
             <IconButton
@@ -99,6 +109,7 @@ function App() {
             />
             <IconButton
               variant="outlined"
+              color="secondary"
               className="mr-10px"
               icon={
                 <svg
@@ -117,6 +128,7 @@ function App() {
               }
             />
             <IconButton
+              onClick={(e: any) => setAlertOpen(true)}
               variant="contained"
               className="mr-10px"
               icon={
@@ -136,7 +148,21 @@ function App() {
               }
             />
             <Button
-              startIcon={
+              onClick={(e: any) => {
+                handleClick(e);
+              }}
+              className="mr-10px"
+            >
+              Hello
+            </Button>
+
+            <Button className="mr-10px" variant="outlined">
+              More
+              <input hidden accept="image/*" multiple type="file" />
+            </Button>
+            <Button
+              color="secondary"
+              endIcon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -152,35 +178,6 @@ function App() {
                   />
                 </svg>
               }
-              onClick={(e: any) => {
-                handleClick(e);
-              }}
-              className="mr-10px"
-            >
-              Hello
-            </Button>
-
-            <Button className="mr-10px" variant="outlined">
-              More
-              <input hidden accept="image/*" multiple type="file" />
-            </Button>
-            <Button
-              // endIcon={
-              //   <svg
-              //     xmlns="http://www.w3.org/2000/svg"
-              //     fill="none"
-              //     viewBox="0 0 24 24"
-              //     strokeWidth={1.5}
-              //     stroke="currentColor"
-              //     className="w-6 h-6"
-              //   >
-              //     <path
-              //       strokeLinecap="round"
-              //       strokeLinejoin="round"
-              //       d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              //     />
-              //   </svg>
-              // }
               onClick={handleClickPopup}
               className="mr-10px"
               variant="contained"
@@ -220,7 +217,9 @@ function App() {
               >
                 Hello I'm
               </MenuItem>
-              <MenuItem onClose={handleClose}>Hello I'm menu</MenuItem>
+              <MenuItem divider onClose={handleClose}>
+                Hello I'm menu
+              </MenuItem>
               <MenuItem
                 endIcon={
                   <svg
@@ -244,6 +243,14 @@ function App() {
               </MenuItem>
               <MenuItem onClose={handleClose}>Hello I'm menu</MenuItem>
             </Menu>
+            <Alert
+              open={alertOpen}
+              onClose={(e: any) => setAlertOpen(false)}
+              position="bottomCenter"
+              color="primary"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </Alert>
             <Icon
               className="mr-10px"
               icon={
@@ -313,6 +320,7 @@ function App() {
               Sponsor
             </ListItemButton>
             <ListItemButton
+              activeFilled
               startIcon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -410,12 +418,22 @@ function App() {
             </ListItemButton>
           </List>
           <div className="">
+            <Button disabled>Hello</Button>
             <Button>Hello</Button>
             <Button>Hello</Button>
-            <Button>Hello</Button>
+            <Link className="ml-10px">Hello</Link>
+            <Switch
+              checked={checked}
+              onChange={(e: {
+                target: {
+                  checked: boolean | ((prevState: boolean) => boolean);
+                };
+              }) => setChecked(e.target.checked)}
+            />
           </div>
         </div>
       </div>
+      <CircularProgress />
     </div>
   );
 }

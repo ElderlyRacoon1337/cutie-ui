@@ -7,6 +7,8 @@ interface PopupProps {
   onClose: (event: React.MouseEvent<any, MouseEvent>) => void;
   children?: React.ReactNode;
   style?: React.CSSProperties;
+  ref?: any;
+  other?: object;
 }
 
 export const Popup: React.FC<PopupProps> = ({
@@ -15,6 +17,8 @@ export const Popup: React.FC<PopupProps> = ({
   children,
   style,
   className,
+  ref,
+  other,
 }) => {
   useEffect(() => {
     if (open) {
@@ -30,8 +34,10 @@ export const Popup: React.FC<PopupProps> = ({
       {open && (
         <div className="CutePopup" onClick={onClose}>
           <div
+            ref={ref}
             className={clsx('CutePupupElement', className)}
             onClick={(e) => e.stopPropagation()}
+            {...other}
             style={style}
           >
             {children}
