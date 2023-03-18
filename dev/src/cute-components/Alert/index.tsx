@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { IconButton } from '../IconButton';
 import React, { useEffect } from 'react';
+import '../../cute-styles/index.scss';
 
 interface AlertProps {
   children?: React.ReactNode;

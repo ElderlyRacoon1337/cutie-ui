@@ -68,3 +68,51 @@
     }
   }
 }
+
+// =================
+
+[data-theme='light'] {
+  .CuteIcon-secondary {
+    & > *:first-child {
+      color: var(--secondary);
+    }
+  }
+
+  .CuteIcon-neutral {
+    & > *:first-child {
+      color: var(--neutral);
+    }
+  }
+
+  .CuteIcon-primary {
+    & > *:first-child {
+      color: var(--primary);
+    }
+  }
+
+  .CuteIcon-black {
+    & > *:first-child {
+      color: black;
+    }
+  }
+
+  .CuteIcon-white {
+    & > *:first-child {
+      color: white;
+    }
+  }
+
+  .CuteIcon-text {
+    & > *:first-child {
+      color: black;
+    }
+  }
+}
+
+[data-theme='dark'] {
+  .CuteIcon-text {
+    & > *:first-child {
+      color: white;
+    }
+  }
+}

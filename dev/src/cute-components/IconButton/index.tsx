@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import '../../cute-styles/index.scss';
 
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -40,6 +41,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
         'CuteIconButton',
         disabled && `CuteIconButton-${variant}-disabled`,
         size && `CuteIconButton-${size}`,
+        `CuteIconButton-${variant}`,
         color && variant && `CuteIconButton-${color}-${variant}`,
         className
       )}

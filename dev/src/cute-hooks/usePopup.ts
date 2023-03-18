@@ -1,18 +1,19 @@
 import { useState } from 'react';
 
 export const usePopup = () => {
-  const [open, setOpen] = useState(false);
+  const [popupOpen, setOpenPopup] = useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
+  const handleClickPopup = () => {
+    setOpenPopup(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const handleClosePopup = () => {
+    setOpenPopup(false);
   };
 
   return {
-    open,
-    handleClick,
-    handleClose,
+    popupOpen,
+    handleClickPopup,
+    handleClosePopup,
+    setOpenPopup,
   };
 };

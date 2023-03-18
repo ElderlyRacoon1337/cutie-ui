@@ -6,14 +6,11 @@
   width: 100vw;
   height: 100vh;
   background-color: transparent;
-  backdrop-filter: blur(2px);
 }
 
 .CuteMenu {
   position: absolute;
   z-index: 10;
-  margin-right: auto;
-  margin-left: auto;
   border-radius: 7px;
   border: 1px solid var(--divider);
   background-color: var(--background);
@@ -21,17 +18,19 @@
   display: flex;
   flex-direction: column;
   padding: 7px 0;
+  background-color: rgba($backgroundSecondary, 0.85);
+  backdrop-filter: blur(7px);
+  box-shadow: var(--baseBoxShadow);
 
   .CuteMenuItem {
-    padding: 7px 20px;
-    background-color: var(--background);
+    padding: 9px 15px;
     cursor: pointer;
     user-select: none;
-    color: var(--textSecondary);
+    color: var(--textPrimary);
+    font-size: var(--fontSizeSmall);
 
     &:hover {
       background-color: var(--glass);
-      color: var(--textPrimary);
     }
 
     &:active {
@@ -40,7 +39,66 @@
   }
 }
 
+.CuteMenuItem-iconStart {
+  display: flex;
+  align-items: center;
+
+  & > *:first-child {
+    margin-right: 10px;
+    color: var(--textPrimary);
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.CuteMenuItem-iconEnd {
+  display: flex;
+  align-items: center;
+
+  & > *:first-child {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
+    margin-left: auto;
+    color: var(--textPrimary);
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+  }
+}
+
+.CuteMenuItem-icons {
+  display: flex;
+  align-items: center;
+  & > *:first-child {
+    margin-right: 10px;
+    color: var(--textPrimary);
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+  }
+
+  .CuteMenuItemChildren {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
+    color: var(--textPrimary);
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    margin-left: auto;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
+  .CuteMenu {
+    backdrop-filter: blur(7px);
+    background-color: rgba($dm_backgroundSecondary, 0.85);
+    box-shadow: var(--baseBoxShadow);
+  }
+
   .CuteMenuItem {
     &:hover {
       background-color: var(--darkGlass) !important;
@@ -51,4 +109,8 @@
       background-color: var(--glass) !important;
     }
   }
+}
+
+.CuteMenuItem-divider {
+  border-bottom: 1px solid var(--divider);
 }

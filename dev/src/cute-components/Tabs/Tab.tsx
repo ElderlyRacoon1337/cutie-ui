@@ -2,15 +2,15 @@ import clsx from 'clsx';
 import React from 'react';
 import '../../cute-styles/index.scss';
 
-interface ListProps {
-  className?: string;
+interface TabProps {
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
   ref?: any;
   other?: object;
 }
 
-export const List: React.FC<ListProps> = ({
+const Tab: React.FC<TabProps> = ({
   children,
   className,
   style,
@@ -18,13 +18,15 @@ export const List: React.FC<ListProps> = ({
   other,
 }) => {
   return (
-    <ul
+    <div
       ref={ref}
-      className={clsx('CuteList', className)}
-      {...other}
+      className={clsx('CuteTabPanel', className)}
       style={style}
+      {...other}
     >
       {children}
-    </ul>
+    </div>
   );
 };
+
+export default Tab;

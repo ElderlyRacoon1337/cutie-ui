@@ -1,0 +1,121 @@
+.CuteTabs {
+  display: flex;
+  align-items: center;
+}
+
+.CuteTabs-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.CuteTab {
+  border-bottom: 2px solid transparent;
+  text-align: center;
+  user-select: none;
+  &:hover {
+    background-color: var(--glass);
+  }
+  &:active {
+    background-color: var(--darkGlass);
+  }
+}
+
+.CuteTabs-fullWidth {
+  & > * {
+    flex: 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .CuteTab {
+    &:hover {
+      background-color: var(--darkGlass);
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+}
+
+// ====================================================== Sizes =============================================================
+
+.CuteTabs-small {
+  padding: 7px 12px;
+  font-size: var(--fontSizeSmall) !important;
+}
+.CuteTabs-medium {
+  padding: 10px 15px;
+  font-size: var(--fontSizeMedium);
+}
+.CuteTabs-large {
+  padding: 12px 22px;
+  font-size: var(--fontSizeLarge);
+}
+
+// ====================================================== Colors =============================================================
+
+.CuteTab-active-contained-primary {
+  background-color: var(--primary) !important;
+  color: white;
+}
+.CuteTab-active-underlined-primary {
+  border-color: var(--primary);
+}
+
+.CuteTab-active-contained-secondary {
+  background-color: var(--secondary) !important;
+  color: white;
+}
+.CuteTab-active-underlined-secondary {
+  border-color: var(--secondary);
+}
+
+.CuteTab-active-contained-neutral {
+  background-color: var(--neutral) !important;
+  color: white;
+}
+.CuteTab-active-underlined-neutral {
+  border-color: var(--neutral);
+}
+
+.CuteTab-active-contained-black {
+  background-color: black !important;
+  color: white;
+}
+.CuteTab-active-underlined-black {
+  border-color: black;
+}
+
+.CuteTab-active-contained-white {
+  background-color: white !important;
+  color: black;
+}
+.CuteTab-active-underlined-white {
+  border-color: white;
+}
+
+.CuteTab-active-contained-error {
+  background-color: var(--error) !important;
+  color: white;
+}
+.CuteTab-active-underlined-error {
+  border-color: var(--error);
+}
+
+.CuteTab-active-contained-success {
+  background-color: var(--success) !important;
+  color: white;
+}
+.CuteTab-active-underlined-success {
+  border-color: var(--success);
+}
+
+// ================================================== Border radius =========================================================
+
+.CuteTab-rounded {
+  border-radius: 10px;
+}
+
+.CuteTab-circle {
+  border-radius: 20px;
+}

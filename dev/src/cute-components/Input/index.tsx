@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
+import '../../cute-styles/index.scss';
 
 interface InputProps {
   placeholder?: string;
@@ -55,7 +56,6 @@ export const Input: React.FC<InputProps> = ({
   button,
 }) => {
   const [focused, setFocused] = useState(false);
-
   return (
     <div
       className={clsx(

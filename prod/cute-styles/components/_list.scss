@@ -1,14 +1,13 @@
 .CuteListItem {
-  padding: 7px 15px;
+  padding: 8px 15px;
   border-radius: 7px;
   user-select: none;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .CuteListItemButton {
   &:hover {
     background-color: var(--glass);
-    color: var(--primaryDark);
   }
 
   &:active {
@@ -17,74 +16,69 @@
 }
 
 .CuteListItem-iconStart {
-  position: relative;
-  padding-left: 37px;
+  display: flex;
+  align-items: center;
 
-  svg {
+  & > *:first-child {
+    margin-right: 10px;
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
   }
 }
 
 .CuteListItem-iconEnd {
-  position: relative;
-  padding-right: 37px;
+  display: flex;
+  align-items: center;
 
-  svg {
+  & > *:last-child {
+    margin-left: 10px;
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 20px;
   }
 }
 
 .CuteListItem-icons {
-  position: relative;
-  padding-left: 37px;
-  padding-right: 37px;
-
-  svg:nth-child(1) {
+  display: flex;
+  align-items: center;
+  & > *:first-child {
+    margin-right: 10px;
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    left: 10px;
-
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 20px;
   }
 
-  svg:nth-child(2) {
+  .CuteListItemChildren {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
     color: var(--primary);
     width: 20px;
     height: 20px;
-    position: absolute;
-    right: 10px;
-
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 20px;
+    margin-left: auto;
   }
 }
 
 .CuteListItem-active {
+  background-color: var(--darkGlassPrimary);
+  color: var(--primary);
+  &:hover {
+    background-color: var(--darkGlassPrimary);
+    color: var(--primary);
+  }
+}
+
+.CuteListItem-activeFilled {
   background-color: var(--primary);
   color: white;
+  & > * {
+    color: white !important;
+  }
   &:hover {
     background-color: var(--primaryDark);
     color: white;
@@ -103,6 +97,15 @@
   }
 
   .CuteListItem-active {
+    background-color: rgba($primary, 0.2);
+    color: white;
+    &:hover {
+      background-color: rgba($primary, 0.2);
+      color: white;
+    }
+  }
+
+  .CuteListItem-activeFilled {
     background-color: var(--primaryDark);
     color: white;
     &:hover {

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import '../../cute-styles/index.scss';
 
 interface IconProps {
   icon: React.ReactNode;

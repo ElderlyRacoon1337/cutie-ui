@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
+import '../../cute-styles/index.scss';
 
 interface PopupProps {
   open: boolean;

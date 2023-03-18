@@ -8,9 +8,10 @@
   .CuteInput-message {
     font-size: var(--fontSizeSmall);
     margin-left: 10px;
-    margin-top: 5px;
+    position: absolute;
     color: var(--textSecondary);
     font-size: 12px;
+    bottom: -20px;
   }
   .CuteInput-label {
     position: absolute;
@@ -38,19 +39,13 @@
   outline: none;
   border: none;
   border-radius: 10px;
+  background-color: transparent;
 }
 
 .CuteInput-square {
   border-radius: 0 !important;
   .CuteButton {
     border-radius: 0 !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CuteInput {
-    background-color: transparent;
-    // outline: 1px solid var(--divider);
   }
 }
 
@@ -146,29 +141,32 @@
 
 .CuteInput-outlined {
   outline: 1px solid;
-  input {
-  }
 }
 
 .CuteInput-filled {
   outline: 1px solid transparent !important;
+  border-bottom: 1.5px solid;
+  border-radius: 0;
   background-color: var(--darkGlass);
   input {
     background-color: transparent;
   }
   .CuteInput-label {
-    color: var(--textSecondary) !important;
-    top: -14px;
+    color: var(--textSecondary);
+    top: -15px;
   }
   svg {
-    color: var(--textSecondary) !important;
+    color: var(--textSecondary);
+  }
+  .CuteButton {
+    border-radius: 0;
   }
 }
 
 .CuteInput-underlined {
   border-radius: 0;
   border: none;
-  border-bottom: 1px solid;
+  border-bottom: 1.5px solid;
   input {
     border: none;
     padding-left: 0;
@@ -205,10 +203,44 @@
   input {
   }
   .CuteInput-message {
-    color: var(--error);
+    color: var(--error) !important;
   }
   .CuteInput-label {
-    color: var(--error);
+    color: var(--error) !important;
+  }
+
+  .CuteInput-row {
+    svg {
+      color: var(--error) !important;
+    }
+  }
+
+  .CuteButton-text {
+    background-color: transparent;
+    color: var(--error) !important;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glass);
+
+      color: var(--error) !important;
+    }
+
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+
+  .CuteButton-contained {
+    background-color: var(--error) !important;
+    color: white;
+    border: 1px solid var(--error) !important;
+  }
+
+  .CuteButton-outlined {
+    background-color: transparent;
+    color: var(--error) !important;
+    border: 1px solid var(--error) !important;
   }
 }
 
@@ -217,11 +249,43 @@
   border-color: var(--success) !important;
   input {
   }
+  .CuteInput-row {
+    svg {
+      color: var(--success) !important;
+    }
+  }
   .CuteInput-message {
-    color: var(--success);
+    color: var(--success) !important;
   }
   .CuteInput-label {
-    color: var(--success);
+    color: var(--success) !important;
+  }
+  .CuteButton-text {
+    background-color: transparent;
+    color: var(--success) !important;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glass);
+
+      color: var(--success) !important;
+    }
+
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+
+  .CuteButton-contained {
+    background-color: var(--success) !important;
+    color: white;
+    border: 1px solid var(--success) !important;
+  }
+
+  .CuteButton-outlined {
+    background-color: transparent;
+    color: var(--success) !important;
+    border: 1px solid var(--success) !important;
   }
 }
 
@@ -270,8 +334,8 @@
   }
 }
 
+// ====
+
 .CuteInput-filled {
-  svg {
-    color: var(--textSecondary) !important;
-  }
+  outline: 1px solid transparent !important;
 }

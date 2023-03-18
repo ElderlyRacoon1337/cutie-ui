@@ -1,0 +1,36 @@
+.CuteSkeleton {
+  animation: toggle 0.5s infinite;
+  animation-direction: alternate;
+}
+
+.CuteSkeleton-square {
+  border-radius: 0px;
+}
+.CuteSkeleton-rounded {
+  border-radius: 7px;
+}
+.CuteSkeleton-circle {
+  border-radius: 50%;
+  height: auto !important;
+  aspect-ratio: 1;
+}
+
+@keyframes toggle {
+  0% {
+    background-color: rgb(236, 235, 235);
+  }
+  100% {
+    background-color: rgb(243, 243, 243);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @keyframes toggle {
+    0% {
+      background-color: rgb(33, 33, 33);
+    }
+    100% {
+      background-color: rgb(25, 25, 25);
+    }
+  }
+}

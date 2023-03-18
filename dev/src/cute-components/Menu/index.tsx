@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
+import '../../cute-styles/index.scss';
 
 interface MenuProps {
   open: boolean;
@@ -27,22 +28,18 @@ export const Menu: React.FC<MenuProps> = ({
   const [widthParent, setWidthParent] = useState(0);
   const menu = useRef<HTMLUListElement | null>(null);
 
-  useEffect(() => {
+  const setActualValues = () => {
     if (anchorEl && menu.current) {
+      document.body.style.overflow = 'hidden';
       const clicked = anchorEl.getBoundingClientRect();
       const menuEl = menu.current.getBoundingClientRect();
       fullWidth && setWidthParent(clicked.width);
-      console.log(widthParent);
-      document.body.style.overflow = 'hidden';
-
       const rightOut = window.innerWidth - clicked.left - menuEl.width;
-
       if (rightOut < 0) {
         setWidth(clicked.x + rightOut - 10);
       } else {
         setWidth(clicked.x);
       }
-
       const bottomOut = window.innerHeight - clicked.top - menuEl.height - 50;
       if (bottomOut < 0) {
         setHeight(
@@ -52,7 +49,10 @@ export const Menu: React.FC<MenuProps> = ({
         setHeight(clicked.y + clicked.height + 3);
       }
     }
+  };
 
+  useEffect(() => {
+    setActualValues();
     return () => {
       setHeight(0);
       setWidth(0);

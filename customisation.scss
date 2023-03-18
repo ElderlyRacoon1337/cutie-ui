@@ -1,0 +1,36 @@
+// =================================== Here you can assign your favourite colors ==================================
+
+$primary: #01e2a6;
+$secondary: #6449ff;
+$neutral: rgb(81, 94, 111);
+$disabled: rgb(201, 201, 201);
+$error: #ff525e;
+$success: rgb(28, 187, 0);
+$glass: rgba(black, 0.03);
+$darkGlass: rgba(black, 0.05);
+$background: #ffffff;
+$backgroundSecondary: #f6f6f6;
+$textPrimary: #213547;
+$textSecondary: #6a6a6a;
+$textOpposite: #ffffff;
+$divider: rgb(218, 218, 218);
+$link: rgb(24, 118, 209);
+
+// ========== dark mode ============
+
+$dm_disabled: rgb(82, 82, 82);
+$dm_glass: rgba(white, 0.08);
+$dm_darkGlass: rgba(white, 0.05);
+$dm_background: #121212;
+$dm_backgroundSecondary: #1c1c1c;
+$dm_textPrimary: #ffffff;
+$dm_textSecondary: #bcbcbc;
+$dm_textOpposite: #000000;
+$dm_divider: rgb(57, 57, 57);
+$dm_link: rgb(31, 136, 241);
+$dm_error: #d02a35;
+$dm_success: rgb(30, 158, 8);
+
+:root {
+  --primary: #{$primary};
+}

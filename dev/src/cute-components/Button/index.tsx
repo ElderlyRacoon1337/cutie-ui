@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import clsx from 'clsx';
+import '../../cute-styles/index.scss';
 
 interface ButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -16,13 +17,13 @@ interface ButtonProps {
     | 'error'
     | 'success';
   size?: 'large' | 'small' | 'medium';
-  startIcon?: JSX.Element | SVGElement;
-  endIcon?: JSX.Element | SVGElement;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   style?: React.CSSProperties;
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   square?: boolean;
-  ref?: any;
+  _ref?: React.MutableRefObject<null>;
   other?: object;
 }
 
@@ -39,15 +40,14 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   type = 'button',
   square,
-  ref,
+  _ref,
   other,
 }) => {
   return (
-    // @ts-ignore
     <button
       disabled={disabled}
       type={type}
-      ref={ref}
+      ref={_ref}
       className={clsx(
         'CuteButton',
         disabled && `CuteButton-${variant}-disabled`,
@@ -55,6 +55,7 @@ export const Button: React.FC<ButtonProps> = ({
         startIcon && !endIcon && 'CuteButton-iconStart',
         endIcon && !startIcon && 'CuteButton-iconEnd',
         startIcon && endIcon && 'CuteButton-icons',
+        `CuteButton-${variant}`,
         square && 'CuteButton-square',
         color && variant && `CuteButton-${color}-${variant}`,
         className

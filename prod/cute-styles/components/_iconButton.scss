@@ -1,21 +1,27 @@
 // =================================================== Sizes ===================================================
 
 .CuteIconButton-small {
-  svg {
+  width: 31px;
+  height: 31px;
+  & > *:first-child {
     width: 17px;
     height: 17px;
   }
 }
 
 .CuteIconButton-medium {
-  svg {
-    width: 22px;
-    height: 22px;
+  width: 34px;
+  height: 34px;
+  & > *:first-child {
+    width: 20px;
+    height: 20px;
   }
 }
 
 .CuteIconButton-large {
-  svg {
+  width: 38px;
+  height: 38px;
+  & > *:first-child {
     width: 25px;
     height: 25px;
   }
@@ -26,8 +32,9 @@
 .CuteIconButton {
   display: flex;
   align-items: center;
-  padding: 7px;
+  justify-content: center;
   border-radius: 50%;
+  transition: 0.1s all ease-in-out;
 }
 
 // ================================================= Primary =================================================
@@ -79,11 +86,16 @@
 
 @media (prefers-color-scheme: dark) {
   .CuteIconButton-primary-outlined {
+    background-color: transparent;
+    border-color: #fff;
     &:hover {
-      border-color: white;
-      background-color: white;
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
       box-shadow: none;
-      color: var(--primary);
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 
@@ -148,6 +160,7 @@
 
 .CuteIconButton-secondary-outlined {
   color: var(--textPrimary);
+  background-color: transparent;
   border: 1px solid var(--textPrimary);
 
   &:hover {
@@ -175,10 +188,13 @@
     background-color: transparent;
     border-color: #fff;
     &:hover {
-      background-color: #fff;
-      color: var(--secondaryLight);
+      background-color: var(--darkGlass);
       border-color: #fff;
+      color: #fff;
       box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 
@@ -265,20 +281,225 @@
   }
 
   .CuteIconButton-neutral-outlined {
+    background-color: transparent;
+    border-color: #fff;
     &:hover {
-      border-color: white;
-      background-color: white;
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
       box-shadow: none;
-      color: var(--neutral);
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 }
 
-// ====== disabled ===
+// ===================================================== Disabled =========================================================
 
-.CuteIconButton-disabled {
+.CuteIconButton-text-disabled {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--disabled) !important;
+  box-shadow: none !important;
+}
+
+.CuteIconButton-outlined-disabled {
   background-color: transparent !important;
   border-color: var(--disabled) !important;
   color: var(--disabled) !important;
   box-shadow: none !important;
+}
+
+.CuteIconButton-contained-disabled {
+  background-color: var(--glass) !important;
+  border-color: transparent !important;
+  color: var(--disabled) !important;
+  box-shadow: none !important;
+}
+
+@media (prefers-color-scheme: light) {
+  .CuteIconButton-contained-disabled {
+    background-color: var(--darkGlass) !important;
+  }
+}
+
+// ===================================================== Black =========================================================
+
+.CuteIconButton-black-text {
+  background-color: transparent;
+  color: black;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--glass);
+    color: black;
+  }
+
+  &:active {
+    background-color: var(--darkGlass);
+  }
+}
+
+.CuteIconButton-black-contained {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    box-shadow: none;
+  }
+  &:active {
+    background-color: black;
+  }
+}
+
+.CuteIconButton-black-outlined {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+
+  &:hover {
+    border-color: black;
+    box-shadow: none;
+    background-color: black;
+    color: #fff;
+  }
+}
+
+// ===================================================== White =========================================================
+
+.CuteIconButton-white-text {
+  background-color: transparent;
+  color: white;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--glass);
+    color: white;
+  }
+
+  &:active {
+    background-color: var(--darkGlass);
+  }
+}
+
+.CuteIconButton-white-contained {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+
+  &:hover {
+    color: black;
+    background-color: white;
+    box-shadow: none;
+  }
+  &:active {
+    background-color: white;
+  }
+}
+
+.CuteIconButton-white-outlined {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+
+  &:hover {
+    border-color: black;
+    box-shadow: none;
+    background-color: white;
+    color: black;
+  }
+}
+
+// ===================================================== text =========================================================
+
+.CuteIconButton-text-text {
+  background-color: transparent;
+  color: black;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--glass);
+    color: black;
+  }
+
+  &:active {
+    background-color: var(--darkGlass);
+  }
+}
+
+.CuteIconButton-text-contained {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    box-shadow: none;
+  }
+  &:active {
+    background-color: black;
+  }
+}
+
+.CuteIconButton-text-outlined {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+
+  &:hover {
+    border-color: black;
+    box-shadow: none;
+    background-color: black;
+    color: #fff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .CuteIconButton-text-text {
+    background-color: transparent;
+    color: white;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-text-contained {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+
+    &:hover {
+      color: black;
+      background-color: white;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: white;
+    }
+  }
+
+  .CuteIconButton-text-outlined {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+
+    &:hover {
+      border-color: black;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+    }
+  }
 }

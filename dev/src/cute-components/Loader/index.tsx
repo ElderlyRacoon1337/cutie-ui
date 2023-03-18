@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import '../../cute-styles/index.scss';
 
 interface CircularProgressProps {
   width?: number | string;
@@ -11,7 +12,7 @@ interface CircularProgressProps {
   className?: string;
 }
 
-const CircularProgress: React.FC<CircularProgressProps> = ({
+const Loader: React.FC<CircularProgressProps> = ({
   width = 50,
   color = 'primary',
   fatness = 4,
@@ -35,4 +36,4 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   );
 };
 
-export default CircularProgress;
+export default Loader;

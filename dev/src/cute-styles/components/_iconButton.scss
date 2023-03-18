@@ -82,48 +82,6 @@
   }
 }
 
-// ================================================= Dark mode =================================================
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-primary-outlined {
-    background-color: transparent;
-    border-color: #fff;
-    &:hover {
-      background-color: var(--darkGlass);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteIconButton-primary-contained {
-    background-color: var(--primary);
-    border-color: var(--primary);
-
-    &:hover {
-      border-color: white;
-      background-color: #fff;
-      color: var(--primary);
-    }
-  }
-
-  .CuteIconButton-primary-text {
-    color: white;
-    border-color: transparent;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
-  }
-}
-
 // ================================================= Secondary =================================================
 
 .CuteIconButton-secondary-text {
@@ -168,44 +126,6 @@
     color: var(--secondary);
     border: 1px solid var(--secondary);
     box-shadow: 0px 0px 0px 3px var(--secondaryTooLight);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-secondary-text {
-    color: white;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
-  }
-
-  .CuteIconButton-secondary-outlined {
-    background-color: transparent;
-    border-color: #fff;
-    &:hover {
-      background-color: var(--darkGlass);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteIconButton-secondary-contained {
-    border-color: var(--secondary);
-    &:hover {
-      border-color: white;
-      background-color: white;
-      box-shadow: none;
-      color: var(--secondaryLight);
-    }
   }
 }
 
@@ -256,45 +176,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-neutral-text {
-    color: white;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
-  }
-
-  .CuteIconButton-neutral-contained {
-    background-color: var(--neutral);
-    border-color: var(--neutral);
-    &:hover {
-      background-color: #fff;
-      color: var(--neutral);
-      border-color: #fff;
-      box-shadow: none;
-    }
-  }
-
-  .CuteIconButton-neutral-outlined {
-    background-color: transparent;
-    border-color: #fff;
-    &:hover {
-      background-color: var(--darkGlass);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-
 // ===================================================== Disabled =========================================================
 
 .CuteIconButton-text-disabled {
@@ -316,12 +197,6 @@
   border-color: transparent !important;
   color: var(--disabled) !important;
   box-shadow: none !important;
-}
-
-@media (prefers-color-scheme: light) {
-  .CuteIconButton-contained-disabled {
-    background-color: var(--darkGlass) !important;
-  }
 }
 
 // ===================================================== Black =========================================================
@@ -459,7 +334,120 @@
   }
 }
 
+// ================================================= Dark mode =================================================
+
 @media (prefers-color-scheme: dark) {
+  .CuteIconButton-primary-outlined {
+    background-color: transparent;
+    border-color: #fff;
+    &:hover {
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-primary-contained {
+    background-color: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+      border-color: white;
+      background-color: #fff;
+      color: var(--primary);
+    }
+  }
+
+  .CuteIconButton-primary-text {
+    color: white;
+    border-color: transparent;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-secondary-text {
+    color: white;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-secondary-outlined {
+    background-color: transparent;
+    border-color: #fff;
+    &:hover {
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-secondary-contained {
+    border-color: var(--secondary);
+    &:hover {
+      border-color: white;
+      background-color: white;
+      box-shadow: none;
+      color: var(--secondaryLight);
+    }
+  }
+
+  .CuteIconButton-neutral-text {
+    color: white;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-neutral-contained {
+    background-color: var(--neutral);
+    border-color: var(--neutral);
+    &:hover {
+      background-color: #fff;
+      color: var(--neutral);
+      border-color: #fff;
+      box-shadow: none;
+    }
+  }
+
+  .CuteIconButton-neutral-outlined {
+    background-color: transparent;
+    border-color: #fff;
+    &:hover {
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
   .CuteIconButton-text-text {
     background-color: transparent;
     color: white;
@@ -500,6 +488,342 @@
       box-shadow: none;
       background-color: white;
       color: black;
+    }
+  }
+}
+
+// ===============
+
+[data-theme='dark'] {
+  .CuteIconButton-primary-outlined {
+    background-color: transparent;
+    border-color: #fff;
+    &:hover {
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-primary-contained {
+    background-color: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+      border-color: white;
+      background-color: #fff;
+      color: var(--primary);
+    }
+  }
+
+  .CuteIconButton-primary-text {
+    color: white;
+    border-color: transparent;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-secondary-text {
+    color: white;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-secondary-outlined {
+    background-color: transparent;
+    border-color: #fff;
+    &:hover {
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-secondary-contained {
+    border-color: var(--secondary);
+    &:hover {
+      border-color: white;
+      background-color: white;
+      box-shadow: none;
+      color: var(--secondaryLight);
+    }
+  }
+
+  .CuteIconButton-neutral-text {
+    color: white;
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+      color: white;
+    }
+  }
+
+  .CuteIconButton-neutral-contained {
+    background-color: var(--neutral);
+    border-color: var(--neutral);
+    &:hover {
+      background-color: #fff;
+      color: var(--neutral);
+      border-color: #fff;
+      box-shadow: none;
+    }
+  }
+
+  .CuteIconButton-neutral-outlined {
+    background-color: transparent;
+    border-color: #fff;
+    &:hover {
+      background-color: var(--darkGlass);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-text-text {
+    background-color: transparent;
+    color: white;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteIconButton-text-contained {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+
+    &:hover {
+      color: black;
+      background-color: white;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: white;
+    }
+  }
+
+  .CuteIconButton-text-outlined {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+
+    &:hover {
+      border-color: black;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+[data-theme='light'] {
+  .CuteIconButton-primary-outlined {
+    background-color: transparent;
+    color: var(--textPrimary);
+    border: 1px solid var(--textPrimary);
+
+    &:hover {
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      box-shadow: 0px 0px 0px 3px var(--primaryTooLight);
+    }
+  }
+
+  .CuteIconButton-primary-text {
+    background-color: transparent;
+    color: var(--primaryDark);
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glassPrimary);
+      color: var(--primaryDark);
+    }
+
+    &:active {
+      background-color: var(--darkGlassPrimary);
+    }
+  }
+
+  .CuteIconButton-primary-contained {
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    color: white;
+
+    &:hover {
+      background-color: var(--primaryDark);
+      border-color: var(--primaryDark);
+    }
+
+    &:active {
+      border-color: var(--primaryTooDark);
+      background-color: var(--primaryTooDark);
+    }
+  }
+
+  .CuteIconButton-secondary-text {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid transparent;
+    &:hover {
+      background-color: var(--secondaryTooLight);
+      color: var(--secondary);
+    }
+
+    &:active {
+      background-color: var(--secondaryLight);
+    }
+  }
+
+  .CuteIconButton-secondary-contained {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+    color: #fff;
+
+    &:hover {
+      background-color: var(--secondaryDark);
+      border-color: var(--secondaryDark);
+      color: #fff;
+    }
+
+    &:active {
+      background-color: var(--secondaryTooDark);
+      border-color: var(--secondaryTooDark);
+      color: #fff;
+    }
+  }
+
+  .CuteIconButton-secondary-outlined {
+    color: var(--textPrimary);
+    background-color: transparent;
+    border: 1px solid var(--textPrimary);
+
+    &:hover {
+      background-color: transparent;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+      box-shadow: 0px 0px 0px 3px var(--secondaryTooLight);
+    }
+  }
+
+  .CuteIconButton-neutral-text {
+    background-color: transparent;
+    color: var(--neutral);
+    border: 1px solid transparent;
+    &:hover {
+      background-color: var(--neutralTooLight);
+      color: var(--neutral);
+    }
+
+    &:active {
+      background-color: var(--neutralLight);
+    }
+  }
+
+  .CuteIconButton-neutral-contained {
+    background-color: var(--neutral);
+    color: #fff;
+    border: 1px solid var(--neutral);
+
+    &:hover {
+      background-color: var(--neutralDark);
+      border-color: var(--neutralDark);
+      color: #fff;
+    }
+
+    &:active {
+      background-color: var(--neutralTooDark);
+      border-color: var(--neutralTooDark);
+      color: #fff;
+    }
+  }
+
+  .CuteIconButton-neutral-outlined {
+    color: var(--textPrimary);
+    border: 1px solid var(--textPrimary);
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--neutral);
+      border: 1px solid var(--neutral);
+      box-shadow: 0px 0px 0px 3px var(--neutralTooLight);
+    }
+  }
+
+  .CuteIconButton-text-text {
+    background-color: transparent;
+    color: black;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glass);
+      color: black;
+    }
+
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+
+  .CuteIconButton-text-contained {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+
+    &:hover {
+      color: white;
+      background-color: black;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: black;
+    }
+  }
+
+  .CuteIconButton-text-outlined {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      border-color: black;
+      box-shadow: none;
+      background-color: black;
+      color: #fff;
     }
   }
 }

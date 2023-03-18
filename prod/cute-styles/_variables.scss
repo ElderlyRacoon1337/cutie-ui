@@ -1,22 +1,53 @@
 // =================================== Here you can assign your favourite colors ==================================
 
-$primary: #c39bff;
-$primary: #ff77c4;
-$secondary: rgb(255, 0, 76);
-$primary: #7b23ff;
-$primary: #ff6da5;
-$secondary: rgb(255, 170, 0);
-$primary: #b16dff;
-$primary: #923197;
-$primary: #ff6da5;
-$primary: #8884ff;
-$primary: rgb(255, 170, 0);
-$primary: rgb(175, 82, 110);
-$primary: rgb(255, 0, 76);
-
+$primary: #01aae2;
+$secondary: #ffb649;
 $neutral: rgb(81, 94, 111);
-
 $disabled: rgb(201, 201, 201);
+$error: #ff525e;
+$success: rgb(28, 187, 0);
+$glass: rgba(black, 0.03);
+$darkGlass: rgba(black, 0.05);
+$background: #ffffff;
+$backgroundSecondary: #f6f6f6;
+$textPrimary: #213547;
+$textSecondary: #6a6a6a;
+$textOpposite: #ffffff;
+$divider: rgb(218, 218, 218);
+$link: rgb(24, 118, 209);
+
+// ========== dark mode ============
+
+$dm_disabled: rgb(82, 82, 82);
+$dm_glass: rgba(white, 0.08);
+$dm_darkGlass: rgba(white, 0.05);
+$dm_background: #121212;
+$dm_backgroundSecondary: #1c1c1c;
+$dm_textPrimary: #ffffff;
+$dm_textSecondary: #bcbcbc;
+$dm_textOpposite: #000000;
+$dm_divider: rgb(57, 57, 57);
+$dm_link: rgb(31, 136, 241);
+$dm_error: #d02a35;
+$dm_success: rgb(30, 158, 8);
+
+// ================================================== Font sizes ========================================================
+
+$fontSizeSmall: 0.8125rem;
+$fontSizeMedium: 0.875rem;
+$fontSizeLarge: 0.9375rem;
+
+// ============================================ Disable button animation ================================================
+
+button {
+  box-shadow: none !important;
+}
+
+// ================================================================================================================
+
+// ================================================================================================================
+
+// ================================================================================================================
 
 // ================================================================================================================
 
@@ -24,52 +55,49 @@ $primaryDark: darken($primary, 4%);
 $primaryTooDark: darken($primary, 10%);
 $primaryLight: rgba($primary, 0.2);
 $primaryTooLight: rgba($primary, 0.1);
-
 $secondaryDark: darken($secondary, 4%);
 $secondaryTooDark: darken($secondary, 10%);
 $secondaryLight: rgba($secondary, 0.2);
 $secondaryTooLight: rgba($secondary, 0.1);
-
 $neutralDark: darken($neutral, 4%);
 $neutralTooDark: darken($neutral, 10%);
 $neutralLight: rgba($neutral, 0.2);
 $neutralTooLight: rgba($neutral, 0.1);
-
-$glass: rgba(black, 0.03);
-$darkGlass: rgba(black, 0.05);
 $glassPrimary: rgba($primary, 0.05);
 $darkGlassPrimary: rgba($primary, 0.08);
 $glassSecondary: rgba($secondary, 0.05);
 $darkGlassSecondary: rgba($secondary, 0.08);
 
 :root {
+  --fontSizeSmall: #{$fontSizeSmall};
+  --fontSizeMedium: #{$fontSizeMedium};
+  --fontSizeLarge: #{$fontSizeLarge};
   --primary: #{$primary};
   --primaryDark: #{$primaryDark};
   --primaryTooDark: #{$primaryTooDark};
   --primaryLight: #{$primaryLight};
   --primaryTooLight: #{$primaryTooLight};
-
   --secondary: #{$secondary};
   --secondaryDark: #{$secondaryDark};
   --secondaryTooDark: #{$secondaryTooDark};
   --secondaryLight: #{$secondaryLight};
   --secondaryTooLight: #{$secondaryTooLight};
-
   --neutral: #{$neutral};
   --neutralDark: #{$neutralDark};
   --neutralTooDark: #{$neutralTooDark};
   --neutralLight: #{$neutralLight};
   --neutralTooLight: #{$neutralTooLight};
-
   --disabled: #{$disabled};
-
-  --background: #ffffff;
-  --textPrimary: #213547;
-  --textSecondary: #6a6a6a;
-  --textOpposite: #ffffff;
-  --baseBoxShadow: 0px 0px 10px 0px rgba(50, 27, 76, 0.2);
-  --divider: rgb(232, 232, 232);
-
+  --error: #{$error};
+  --success: #{$success};
+  --link: #{$link};
+  --background: #{$background};
+  --backgroundSecondary: #{$backgroundSecondary};
+  --textPrimary: #{$textPrimary};
+  --textSecondary: #{$textSecondary};
+  --textOpposite: #{$textOpposite};
+  --divider: #{$divider};
+  --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
   --glass: #{$glass};
   --darkGlass: #{$darkGlass};
   --glassPrimary: #{$glassPrimary};
@@ -78,28 +106,22 @@ $darkGlassSecondary: rgba($secondary, 0.08);
   --darkGlassSecondary: #{$darkGlassPrimary};
 }
 
+$dm_primary: $primary;
+$dm_primaryDark: rgba($primary, 0.8);
+$dm_primaryTooDark: rgba($primary, 0.6);
+$dm_primaryLight: lighten($primary, 4%);
+$dm_primaryTooLight: lighten($primary, 10%);
+$dm_secondary: darken($secondary, 5%);
+$dm_secondaryDark: darken($dm_secondary, 15%);
+$dm_secondaryTooDark: darken($dm_secondary, 20%);
+$dm_secondaryLight: lighten($dm_secondary, 3%);
+$dm_secondaryTooLight: lighten($dm_secondary, 20%);
+$dm_glassPrimary: rgba($primary, 0.05);
+$dm_darkGlassPrimary: rgba($primary, 0.08);
+$dm_glassSecondary: rgba($secondary, 0.05);
+$dm_darkGlassSecondary: rgba($secondary, 0.08);
+
 @media (prefers-color-scheme: dark) {
-  $dm_primary: $primary;
-  $dm_primaryDark: rgba($primary, 0.8);
-  $dm_primaryTooDark: rgba($primary, 0.6);
-  $dm_primaryLight: lighten($primary, 4%);
-  $dm_primaryTooLight: lighten($primary, 10%);
-
-  $dm_secondary: darken($secondary, 5%);
-  $dm_secondaryDark: darken($dm_secondary, 15%);
-  $dm_secondaryTooDark: darken($dm_secondary, 20%);
-  $dm_secondaryLight: lighten($dm_secondary, 3%);
-  $dm_secondaryTooLight: lighten($dm_secondary, 20%);
-
-  $dm_disabled: rgb(62, 62, 62);
-
-  $dm_glass: rgba(white, 0.08);
-  $dm_darkGlass: rgba(white, 0.05);
-  $dm_glassPrimary: rgba($primary, 0.05);
-  $dm_darkGlassPrimary: rgba($primary, 0.08);
-  $dm_glassSecondary: rgba($secondary, 0.05);
-  $dm_darkGlassSecondary: rgba($secondary, 0.08);
-
   :root {
     --primary: #{$dm_primary};
     --primaryDark: #{$dm_primaryDark};
@@ -107,26 +129,27 @@ $darkGlassSecondary: rgba($secondary, 0.08);
     --primaryLight: #{$dm_primaryLight};
     --primaryTooLight: #{$dm_primaryTooLight};
     --primaryTooLight: #{$dm_primaryTooLight};
-
     --secondary: #{$dm_secondary};
     --secondaryDark: #{$dm_secondaryDark};
     --secondaryTooDark: #{$dm_secondaryTooDark};
     --secondaryLight: #{$dm_secondaryLight};
     --secondaryTooLight: #{$dm_primaryTooDark};
-
+    --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
     --disabled: #{$dm_disabled};
-
     --glass: #{$dm_glass};
     --darkGlass: #{$dm_darkGlass};
     --glassPrimary: #{$dm_glassPrimary};
     --darkGlassPrimary: #{$dm_darkGlassPrimary};
     --glassSecondary: #{$dm_glassPrimary};
     --darkGlassSecondary: #{$dm_darkGlassPrimary};
-
-    --background: #121212;
-    --textPrimary: #ffffff;
-    --textSecondary: #bcbcbc;
-    --textOpposite: #000000;
-    --divider: rgb(45, 45, 45);
+    --background: #{$dm_background};
+    --dm_backgroundSecondary: #{$dm_backgroundSecondary};
+    --textPrimary: #{$dm_textPrimary};
+    --textSecondary: #{$dm_textSecondary};
+    --textOpposite: #{$dm_textOpposite};
+    --divider: #{$dm_divider};
+    --link: #{$dm_link};
+    --error: #{$dm_error};
+    --success: #{$dm_success};
   }
 }

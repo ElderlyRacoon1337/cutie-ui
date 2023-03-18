@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import Alert from './cute-components/Alert';
 import { Avatar } from './cute-components/Avatar';
 import { Button } from './cute-components/Button';
-import CircularProgress from './cute-components/CircularProgress';
+import Loader from './cute-components/Loader';
 import { Icon } from './cute-components/Icon';
 import { IconButton } from './cute-components/IconButton';
 import { Input } from './cute-components/Input';
@@ -13,32 +12,39 @@ import { ListItemButton } from './cute-components/List/ListItemButton';
 import { Menu } from './cute-components/Menu';
 import { MenuItem } from './cute-components/Menu/MenuItem';
 import { Popup } from './cute-components/Popup';
+import Tabs from './cute-components/Tabs';
 import { useMenu } from './cute-hooks/useMenu';
 import { usePopup } from './cute-hooks/usePopup';
-import Switch from './Switch';
+import Switch from './cute-components/Switch';
+import Tab from './cute-components/Tabs/Tab';
+import { useAlert } from './cute-hooks/useAlert';
+import { useTabs } from './cute-hooks/useTabs';
+import Skeleton from './cute-components/Skeleton';
+import { ThemeContext } from './ThemeProvider';
+import { useContext, useEffect, useState } from 'react';
+import GradientText from './cute-components/GradientText';
+import { useSwitch } from './cute-hooks/useSwitch';
+// import { useTheme } from './cute-hooks/useTheme';
 
 function App() {
-  // const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  // const open = Boolean(anchorEl);
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-  // const onClose = () => {
-  //   setAnchorEl(null);
-  // };
-  // const [popupOpen, setPopupOpen] = useState(false);
-  const [alertOpen, setAlertOpen] = useState(false);
+  const { popupOpen, handleClickPopup, handleClosePopup } = usePopup();
+  const { menuAnchorEl, menuOpen, handleClickMenu, handleCloseMenu } =
+    useMenu();
+  const { alertOpen, handleCloseAlert, handleClickAlert } = useAlert();
+  const { handleChangeTabs, tabsValue } = useTabs(1);
 
-  const { anchorEl, open, handleClick, handleClose } = useMenu();
-  const {
-    open: popupOpen,
-    handleClick: handleClickPopup,
-    handleClose: handleClosePopup,
-  } = usePopup();
+  const [theme, setTheme] = useState('light');
+  const { changeTheme } = useContext(ThemeContext);
+  const { checkedSwitch, setCheckedSwitch, handleSwitch } = useSwitch();
+  useEffect(() => {
+    const theme = document.documentElement.dataset.theme;
+    if (theme) {
+      setCheckedSwitch(theme == 'dark');
+      setTheme(theme);
+    }
+  }, [document.documentElement.dataset.theme, checkedSwitch]);
 
-  const [checked, setChecked] = useState(false);
-
-  console.log(checked);
+  // useTheme();
 
   return (
     <div className="App">
@@ -68,6 +74,8 @@ function App() {
             </a>
           </div>
           <Input
+            message="wefwef"
+            label
             button={<Button>Search</Button>}
             startIcon={
               <svg
@@ -128,7 +136,7 @@ function App() {
               }
             />
             <IconButton
-              onClick={(e: any) => setAlertOpen(true)}
+              onClick={handleClickAlert}
               variant="contained"
               className="mr-10px"
               icon={
@@ -149,7 +157,7 @@ function App() {
             />
             <Button
               onClick={(e: any) => {
-                handleClick(e);
+                handleClickMenu(e);
               }}
               className="mr-10px"
             >
@@ -189,11 +197,11 @@ function App() {
             </Popup>
             <Menu
               fullWidth
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
+              open={menuOpen}
+              anchorEl={menuAnchorEl}
+              onClose={handleCloseMenu}
             >
-              <MenuItem onClick={handleClickPopup} onClose={handleClose}>
+              <MenuItem onClick={handleClickPopup} onClose={handleCloseMenu}>
                 Hello I'm
               </MenuItem>
               <MenuItem
@@ -213,11 +221,11 @@ function App() {
                     />
                   </svg>
                 }
-                onClose={handleClose}
+                onClose={handleCloseMenu}
               >
                 Hello I'm
               </MenuItem>
-              <MenuItem divider onClose={handleClose}>
+              <MenuItem divider onClose={handleCloseMenu}>
                 Hello I'm menu
               </MenuItem>
               <MenuItem
@@ -237,17 +245,17 @@ function App() {
                     />
                   </svg>
                 }
-                onClose={handleClose}
+                onClose={handleCloseMenu}
               >
                 Hello
               </MenuItem>
-              <MenuItem onClose={handleClose}>Hello I'm menu</MenuItem>
+              <MenuItem onClose={handleCloseMenu}>Hello I'm menu</MenuItem>
             </Menu>
             <Alert
               open={alertOpen}
-              onClose={(e: any) => setAlertOpen(false)}
-              position="bottomCenter"
-              color="primary"
+              onClose={handleCloseAlert}
+              position="bottomLeft"
+              color="error"
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </Alert>
@@ -271,7 +279,7 @@ function App() {
             />
             <Avatar
               onClick={(e: any) => {
-                handleClick(e);
+                handleClickMenu(e);
               }}
               src="https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_4x3.jpg"
             />
@@ -372,7 +380,7 @@ function App() {
                   />
                 </svg>
               }
-              onClick={handleClick}
+              onClick={handleClickMenu}
               className="mb-10px"
             >
               Features
@@ -384,7 +392,7 @@ function App() {
             <ListItemButton className="mb-10px">
               Hello worldworldworld
             </ListItemButton>
-            <ListItem onClick={handleClick} className="colorPrimary">
+            <ListItem onClick={handleClickMenu} className="colorPrimary">
               Layout
             </ListItem>
             <ListItemButton>Hello</ListItemButton>
@@ -398,7 +406,9 @@ function App() {
             <ListItem className="colorPrimary">Layout</ListItem>
             <ListItemButton>Hello</ListItemButton>
             <ListItemButton>Hello world</ListItemButton>
-            <ListItemButton onClick={handleClick}>Hello world</ListItemButton>
+            <ListItemButton onClick={handleClickMenu}>
+              Hello world
+            </ListItemButton>
             <ListItemButton>Hello world</ListItemButton>
             <ListItemButton>Hello world</ListItemButton>
             <ListItemButton>Hello world</ListItemButton>
@@ -413,27 +423,93 @@ function App() {
             <ListItemButton>Hello worldworldworld</ListItemButton>
             <ListItemButton>Hello worldworldworld</ListItemButton>
             <ListItemButton>Hello worldworldworld</ListItemButton>
-            <ListItemButton onClick={handleClick}>
+            <ListItemButton onClick={handleClickMenu}>
               Hello worldworldworld
             </ListItemButton>
           </List>
-          <div className="">
-            <Button disabled>Hello</Button>
-            <Button>Hello</Button>
-            <Button>Hello</Button>
+          <div className="px-50px">
+            <Button className="mr-10px mb-10px">Hello</Button>
+            <Button className="mr-10px" variant="outlined">
+              Hello
+            </Button>
+            <Button className="mr-10px" variant="contained">
+              Hello
+            </Button>
             <Link className="ml-10px">Hello</Link>
+
             <Switch
-              checked={checked}
-              onChange={(e: {
-                target: {
-                  checked: boolean | ((prevState: boolean) => boolean);
-                };
-              }) => setChecked(e.target.checked)}
+              className="mb-10px"
+              checked={checkedSwitch}
+              onChange={(e: any) => {
+                handleSwitch(e);
+                changeTheme(theme == 'dark' ? 'light' : 'dark');
+              }}
             />
+
+            <Tabs
+              value={tabsValue}
+              color="primary"
+              labels={['English', 'Russian', 'Swedish']}
+              onChange={handleChangeTabs}
+              // fullWidth
+              className="minw-550px"
+            >
+              <Tab className="pt-20px">
+                <Skeleton
+                  className="mb-10px"
+                  variant="circle"
+                  width={100}
+                  height={100}
+                />
+                <Skeleton variant="rounded" width="500" height="100" />
+              </Tab>
+              <Tab className="pt-20px">
+                <div className="">
+                  <Button
+                    size="large"
+                    color="white"
+                    className="mr-20px"
+                    onClick={() => changeTheme('light')}
+                    variant="contained"
+                  >
+                    Light
+                  </Button>
+                  <Button
+                    size="large"
+                    color="neutral"
+                    className="mr-20px"
+                    onClick={() => changeTheme('dark')}
+                    variant="contained"
+                  >
+                    Dark
+                  </Button>
+                  <Button
+                    size="large"
+                    color="secondary"
+                    className="mr-20px"
+                    onClick={() => changeTheme('system')}
+                    variant="contained"
+                  >
+                    System
+                  </Button>
+                </div>
+              </Tab>
+              <Tab className="pt-10px">
+                <GradientText
+                  fontSize={50}
+                  fontWeight={700}
+                  rotate={150}
+                  firstColor="var(--secondary)"
+                  secondColor="var(--primary)"
+                >
+                  Hello world
+                </GradientText>
+              </Tab>
+            </Tabs>
           </div>
         </div>
       </div>
-      <CircularProgress />
+      <Loader />
     </div>
   );
 }

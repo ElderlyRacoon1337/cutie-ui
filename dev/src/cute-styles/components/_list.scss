@@ -114,3 +114,68 @@
     }
   }
 }
+
+// ============
+
+[data-theme='dark'] {
+  .CuteListItemButton {
+    &:hover {
+      background-color: var(--darkGlass);
+      color: white;
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
+  .CuteListItem-active {
+    background-color: rgba($primary, 0.2);
+    color: white;
+    &:hover {
+      background-color: rgba($primary, 0.2);
+      color: white;
+    }
+  }
+
+  .CuteListItem-activeFilled {
+    background-color: var(--primaryDark);
+    color: white;
+    &:hover {
+      background-color: var(--primaryDark);
+      color: white;
+    }
+  }
+}
+
+[data-theme='light'] {
+  .CuteListItemButton {
+    &:hover {
+      background-color: var(--glass);
+      color: var(--textPrimary);
+    }
+
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+  .CuteListItem-active {
+    background-color: var(--darkGlassPrimary);
+    color: var(--primary);
+    &:hover {
+      background-color: var(--darkGlassPrimary);
+      color: var(--primary);
+    }
+  }
+
+  .CuteListItem-activeFilled {
+    background-color: var(--primary);
+    color: white;
+    & > * {
+      color: white !important;
+    }
+    &:hover {
+      background-color: var(--primaryDark);
+      color: white;
+    }
+  }
+}
