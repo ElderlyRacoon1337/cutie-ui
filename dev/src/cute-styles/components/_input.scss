@@ -339,3 +339,141 @@
 .CuteInput-filled {
   outline: 1px solid transparent !important;
 }
+
+[data-theme='dark'] {
+  .CuteInput-error {
+    outline-color: var(--dm_error) !important;
+    border-color: var(--dm_error) !important;
+
+    input {
+    }
+    .CuteInput-message {
+      color: var(--dm_error) !important;
+    }
+    .CuteInput-label {
+      color: var(--dm_error) !important;
+    }
+
+    .CuteInput-row {
+      svg {
+        color: var(--dm_error) !important;
+      }
+    }
+
+    .CuteButton-text {
+      background-color: transparent;
+      color: var(--dm_error) !important;
+      border: 1px solid transparent;
+
+      &:hover {
+        background-color: var(--glass);
+
+        color: var(--dm_error) !important;
+      }
+
+      &:active {
+        background-color: var(--darkGlass);
+      }
+    }
+
+    .CuteButton-contained {
+      background-color: var(--dm_error) !important;
+      color: white;
+      border: 1px solid var(--dm_error) !important;
+    }
+
+    .CuteButton-outlined {
+      background-color: transparent;
+      color: var(--dm_error) !important;
+      border: 1px solid var(--dm_error) !important;
+    }
+  }
+
+  .CuteInput-success {
+    outline-color: var(--dm_success) !important;
+    border-color: var(--dm_success) !important;
+    .CuteInput-row {
+      svg {
+        color: var(--dm_success) !important;
+      }
+    }
+    .CuteInput-message {
+      color: var(--dm_success) !important;
+    }
+    .CuteInput-label {
+      color: var(--dm_success) !important;
+    }
+    .CuteButton-text {
+      background-color: transparent;
+      color: var(--dm_success) !important;
+      border: 1px solid transparent;
+
+      &:hover {
+        background-color: var(--glass);
+
+        color: var(--dm_success) !important;
+      }
+
+      &:active {
+        background-color: var(--darkGlass);
+      }
+    }
+
+    .CuteButton-contained {
+      background-color: var(--dm_success) !important;
+      color: white;
+      border: 1px solid var(--dm_success) !important;
+    }
+
+    .CuteButton-outlined {
+      background-color: transparent;
+      color: var(--dm_success) !important;
+      border: 1px solid var(--dm_success) !important;
+    }
+  }
+
+  .CuteInput-primary {
+    outline-color: var(--dm_divider);
+    .CuteInput-label {
+      color: var(--dm_primary);
+    }
+  }
+  .CuteInput-primary-focused {
+    border-color: var(--dm_primary);
+    outline-color: var(--dm_primary);
+    outline-width: 1.5px;
+    svg {
+      color: var(--dm_primary) !important;
+    }
+  }
+
+  .CuteInput-secondary {
+    outline-color: var(--dm_divider);
+    .CuteInput-label {
+      color: var(--dm_secondary);
+    }
+  }
+  .CuteInput-secondary-focused {
+    border-color: var(--dm_secondary);
+    outline-color: var(--dm_secondary);
+    outline-width: 1.5px;
+    svg {
+      color: var(--dm_secondary) !important;
+    }
+  }
+
+  .CuteInput-neutral {
+    outline-color: var(--dm_divider);
+    .CuteInput-label {
+      color: var(--dm_neutral);
+    }
+  }
+  .CuteInput-neutral-focused {
+    border-color: var(--dm_neutral);
+    outline: 1.5px solid var(--dm_neutral);
+    outline-width: 1.5px;
+    svg {
+      color: var(--dm_neutral) !important;
+    }
+  }
+}

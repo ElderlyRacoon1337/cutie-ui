@@ -6,13 +6,6 @@
 
 .CuteIcon-small {
   & > *:first-child {
-    width: 17px;
-    height: 17px;
-  }
-}
-
-.CuteIcon-large {
-  & > *:first-child {
     width: 25px;
     height: 25px;
   }
@@ -20,8 +13,15 @@
 
 .CuteIcon-medium {
   & > *:first-child {
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.CuteIcon-large {
+  & > *:first-child {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -64,7 +64,7 @@
 @media (prefers-color-scheme: dark) {
   .CuteIcon-text {
     & > *:first-child {
-      color: white;
+      color: var(--textWhite);
     }
   }
 }
@@ -111,6 +111,35 @@
 
 [data-theme='dark'] {
   .CuteIcon-text {
+    & > *:first-child {
+      color: white;
+    }
+  }
+  .CuteIcon-secondary {
+    & > *:first-child {
+      color: var(--dm_secondary);
+    }
+  }
+
+  .CuteIcon-neutral {
+    & > *:first-child {
+      color: var(--dm_neutral);
+    }
+  }
+
+  .CuteIcon-primary {
+    & > *:first-child {
+      color: var(--dm_primary);
+    }
+  }
+
+  .CuteIcon-black {
+    & > *:first-child {
+      color: black;
+    }
+  }
+
+  .CuteIcon-white {
     & > *:first-child {
       color: white;
     }

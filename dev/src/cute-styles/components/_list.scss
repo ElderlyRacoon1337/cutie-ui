@@ -21,7 +21,6 @@
 
   & > *:first-child {
     margin-right: 10px;
-    color: var(--primary);
     width: 20px;
     height: 20px;
   }
@@ -33,7 +32,6 @@
 
   & > *:last-child {
     margin-left: 10px;
-    color: var(--primary);
     width: 20px;
     height: 20px;
     min-width: 20px;
@@ -45,7 +43,6 @@
   align-items: center;
   & > *:first-child {
     margin-right: 10px;
-    color: var(--primary);
     width: 20px;
     height: 20px;
     min-width: 20px;
@@ -56,7 +53,6 @@
   }
 
   & > *:last-child {
-    color: var(--primary);
     width: 20px;
     height: 20px;
     min-width: 20px;
@@ -67,6 +63,7 @@
 .CuteListItem-active {
   background-color: var(--darkGlassPrimary);
   color: var(--primary);
+  font-weight: 600;
   &:hover {
     background-color: var(--darkGlassPrimary);
     color: var(--primary);
@@ -75,13 +72,13 @@
 
 .CuteListItem-activeFilled {
   background-color: var(--primary);
-  color: white;
+  color: var(--primaryText);
   & > * {
-    color: white !important;
+    color: var(--primaryText);
   }
   &:hover {
     background-color: var(--primaryDark);
-    color: white;
+    color: var(--primaryText);
   }
 }
 
@@ -89,7 +86,7 @@
   .CuteListItemButton {
     &:hover {
       background-color: var(--darkGlass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
     &:active {
       background-color: var(--glass);
@@ -98,19 +95,20 @@
 
   .CuteListItem-active {
     background-color: rgba($primary, 0.2);
-    color: white;
+    color: var(--dm_textPrimary);
+    font-weight: 600;
     &:hover {
       background-color: rgba($primary, 0.2);
-      color: white;
+      color: var(--dm_textPrimary);
     }
   }
 
   .CuteListItem-activeFilled {
-    background-color: var(--primaryDark);
-    color: white;
+    background-color: var(--dm_primaryDark);
+    color: var(--dm_textPrimary);
     &:hover {
-      background-color: var(--primaryDark);
-      color: white;
+      background-color: var(--dm_primaryDark);
+      color: var(--dm_textPrimary);
     }
   }
 }
@@ -119,9 +117,15 @@
 
 [data-theme='dark'] {
   .CuteListItemButton {
+    & > * {
+      color: var(--dm_textPrimary);
+    }
+    .CuteListItemChildren {
+      color: var(--dm_textPrimary);
+    }
     &:hover {
       background-color: var(--darkGlass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
     &:active {
       background-color: var(--glass);
@@ -129,20 +133,31 @@
   }
 
   .CuteListItem-active {
-    background-color: rgba($primary, 0.2);
-    color: white;
+    background-color: var(--dm_glassPrimary);
+    color: var(--dm_primary);
+    font-weight: 600;
+    & > * {
+      color: var(--dm_primaryLight) !important;
+    }
+
     &:hover {
-      background-color: rgba($primary, 0.2);
-      color: white;
+      background-color: var(--dm_darkGlassPrimary);
+      color: var(--dm_primaryTooLight);
     }
   }
 
   .CuteListItem-activeFilled {
-    background-color: var(--primaryDark);
-    color: white;
+    background-color: var(--dm_primaryDark);
+    & > * {
+      color: var(--dm_primaryText);
+    }
+    .CuteListItemChildren {
+      color: var(--dm_primaryText);
+    }
+
     &:hover {
-      background-color: var(--primaryDark);
-      color: white;
+      background-color: var(--dm_primaryDark);
+      color: var(--dm_primaryText);
     }
   }
 }
@@ -151,16 +166,16 @@
   .CuteListItemButton {
     &:hover {
       background-color: var(--glass);
-      color: var(--textPrimary);
+      color: var(--textBlack);
     }
-
     &:active {
       background-color: var(--darkGlass);
     }
   }
   .CuteListItem-active {
     background-color: var(--darkGlassPrimary);
-    color: var(--primary);
+    color: var(--primaryDark);
+    font-weight: 600;
     &:hover {
       background-color: var(--darkGlassPrimary);
       color: var(--primary);
@@ -169,13 +184,13 @@
 
   .CuteListItem-activeFilled {
     background-color: var(--primary);
-    color: white;
+    color: var(--primaryText);
     & > * {
-      color: white !important;
+      color: var(--primaryText);
     }
     &:hover {
       background-color: var(--primaryDark);
-      color: white;
+      color: var(--primaryText);
     }
   }
 }

@@ -70,3 +70,21 @@
 .CuteAlert-success {
   background-color: var(--success);
 }
+
+[data-theme='dark'] {
+  .CuteAlert-primary {
+    background-color: var(--dm_primary);
+  }
+  .CuteAlert-secondary {
+    background-color: var(--dm_secondary);
+  }
+  .CuteAlert-neutral {
+    background-color: var(--dm_neutral);
+  }
+  .CuteAlert-error {
+    background-color: var(--dm_error);
+  }
+  .CuteAlert-success {
+    background-color: var(--dm_success);
+  }
+}

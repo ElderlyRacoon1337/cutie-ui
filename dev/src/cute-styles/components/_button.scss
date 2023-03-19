@@ -33,18 +33,23 @@
 
 .CuteButton-primary-contained {
   background-color: var(--primary);
-  color: white;
+  color: var(--primaryText);
   border: 1px solid var(--primary);
+  position: relative;
 
   &:hover {
     background-color: var(--primaryDark);
+    // background-color: var(--primary) !important;
     box-shadow: 3px 3px 0px 0px var(--primaryLight);
     border-color: var(--primaryDark);
-  }
 
-  &:active {
-    background-color: var(--primaryTooDark);
-    border-color: var(--primaryTooDark);
+    // background-image: linear-gradient(rgb(0 0 0/8%) 0 0);
+
+    &:active {
+      background-color: var(--primaryTooDark);
+      // background-image: linear-gradient(rgb(0 0 0/12%) 0 0);
+      border-color: var(--primaryTooDark);
+    }
   }
 }
 
@@ -79,7 +84,7 @@
 
 .CuteButton-secondary-contained {
   background-color: var(--secondary);
-  color: white;
+  color: var(--secondaryText);
   border: 1px solid var(--secondary);
 
   &:hover {
@@ -194,7 +199,7 @@
 
 .CuteButton-neutral-contained {
   background-color: var(--neutral);
-  color: white;
+  color: var(--neutralText);
   border: 1px solid var(--neutral);
 
   &:hover {
@@ -400,7 +405,7 @@
 
 .CuteButton-error-contained {
   background-color: var(--error);
-  color: white;
+  color: var(--errorText);
   border: 1px solid var(--error);
 }
 
@@ -429,7 +434,7 @@
 
 .CuteButton-success-contained {
   background-color: var(--success);
-  color: white;
+  color: var(--successText);
   border: 1px solid var(--success);
 }
 
@@ -462,9 +467,11 @@
   .CuteButton-primary-contained {
     background-color: var(--primary);
     border-color: var(--primary);
+    color: var(--dm_primaryText);
 
     &:hover {
       background-color: #fff;
+      background-color: var(--primaryText);
       border-color: #fff;
       color: var(--primary);
       box-shadow: 3px 3px 0px 0px var(--primary);
@@ -498,6 +505,7 @@
   .CuteButton-secondary-contained {
     background-color: var(--secondaryLight);
     border-color: var(--secondaryLight);
+    color: var(--dm_secondaryText);
     &:hover {
       box-shadow: 3px 3px 0px 0px var(--secondary);
       background-color: #fff;
@@ -531,44 +539,9 @@
   }
 
   .CuteButton-neutral-contained {
-    background-color: var(--neutral);
-    border-color: var(--neutralLight);
-    &:hover {
-      background-color: #fff;
-      color: var(--neutral);
-      border-color: #fff;
-      box-shadow: none;
-      box-shadow: 3px 3px 0px 0px var(--neutral);
-    }
-  }
-
-  .CuteButton-neutral-outlined {
-    &:hover {
-      box-shadow: 3px 3px 0px 0px var(--neutral);
-      border-color: var(--textPrimary);
-      color: var(--textPrimary);
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteButton-neutral-text {
-    color: white;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
-  }
-
-  .CuteButton-neutral-contained {
-    background-color: var(--neutral);
-    border-color: var(--neutralLight);
+    background-color: var(--dm_neutral);
+    border-color: var(--dm_neutralLight);
+    color: var(--dm_neutralText);
     &:hover {
       background-color: #fff;
       color: var(--neutral);
@@ -637,10 +610,29 @@
 // ============
 
 [data-theme='dark'] {
+  .CuteButton-success-contained {
+    color: var(--dm_successText);
+  }
+  .CuteButton-error-contained {
+    color: var(--dm_errorText);
+  }
+  .CuteButton-text-disabled {
+    color: var(--dm_disabled) !important;
+  }
+
+  .CuteButton-outlined-disabled {
+    border-color: var(--dm_disabled) !important;
+    color: var(--dm_disabled) !important;
+  }
+
+  .CuteButton-contained-disabled {
+    color: var(--dm_disabled) !important;
+  }
+
   .CuteButton-primary-text {
-    color: var(--textPrimary);
+    color: var(--dm_textPrimary);
     &:hover {
-      color: var(--textPrimary);
+      color: var(--dm_textPrimary);
       background-color: var(--darkGlass);
     }
     &:active {
@@ -649,23 +641,25 @@
   }
 
   .CuteButton-primary-contained {
-    background-color: var(--primary);
-    border-color: var(--primary);
-
+    background-color: var(--dm_primary);
+    border-color: var(--dm_primary);
+    color: var(--dm_primaryText);
     &:hover {
-      background-color: #fff;
-      border-color: #fff;
-      color: var(--primary);
-      box-shadow: 3px 3px 0px 0px var(--primary);
+      background-color: var(--dm_textPrimary);
+      border-color: black;
+      color: black;
+      box-shadow: 3px 3px 0px 0px var(--dm_primary);
     }
   }
 
   .CuteButton-primary-outlined {
+    color: var(--dm_textPrimary);
+    border-color: var(--dm_textPrimary);
     &:hover {
       background-color: var(--darkGlass);
-      border-color: var(--white);
-      color: white;
-      box-shadow: 3px 3px 0px 0px var(--primary);
+      border-color: var(--dm_textPrimary);
+      color: var(--dm_textPrimary);
+      box-shadow: 3px 3px 0px 0px var(--dm_primary);
     }
     &:active {
       background-color: var(--glass);
@@ -673,33 +667,36 @@
   }
 
   .CuteButton-secondary-text {
-    color: white;
+    color: var(--dm_textPrimary);
     &:hover {
       background-color: var(--darkGlass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
     &:active {
       background-color: var(--glass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
   }
 
   .CuteButton-secondary-contained {
-    background-color: var(--secondaryLight);
-    border-color: var(--secondaryLight);
+    background-color: var(--dm_secondary);
+    border-color: var(--dm_secondary);
+    color: var(--dm_secondaryText);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--secondary);
-      background-color: #fff;
-      color: var(--secondaryLight);
-      border-color: #fff;
+      box-shadow: 3px 3px 0px 0px var(--dm_secondary);
+      background-color: var(--dm_textPrimary);
+      color: black;
+      border-color: black;
     }
   }
 
   .CuteButton-secondary-outlined {
+    color: var(--dm_textPrimary);
+    border-color: var(--dm_textPrimary);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--secondary);
-      border-color: var(--textPrimary);
-      color: var(--textPrimary);
+      box-shadow: 3px 3px 0px 0px var(--dm_secondary);
+      border-color: var(--dm_textPrimary);
+      color: var(--dm_textPrimary);
       background-color: var(--darkGlass);
     }
     &:active {
@@ -708,34 +705,37 @@
   }
 
   .CuteButton-neutral-text {
-    color: white;
+    color: var(--dm_textPrimary);
+
     &:hover {
       background-color: var(--darkGlass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
     &:active {
       background-color: var(--glass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
   }
 
   .CuteButton-neutral-contained {
-    background-color: var(--neutral);
-    border-color: var(--neutralLight);
+    background-color: var(--dm_neutral);
+    border-color: var(--dm_neutral);
+    color: var(--dm_neutralText);
     &:hover {
-      background-color: #fff;
-      color: var(--neutral);
-      border-color: #fff;
-      box-shadow: none;
-      box-shadow: 3px 3px 0px 0px var(--neutral);
+      background-color: var(--dm_textPrimary);
+      color: black;
+      border-color: black;
+      box-shadow: 3px 3px 0px 0px var(--dm_neutral);
     }
   }
 
   .CuteButton-neutral-outlined {
+    color: var(--dm_textPrimary);
+    border-color: var(--dm_textPrimary);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--neutral);
-      border-color: var(--textPrimary);
-      color: var(--textPrimary);
+      box-shadow: 3px 3px 0px 0px var(--dm_neutral);
+      border-color: var(--dm_textPrimary);
+      color: var(--dm_textPrimary);
       background-color: var(--darkGlass);
     }
     &:active {
@@ -745,12 +745,12 @@
 
   .CuteButton-text-text {
     background-color: transparent;
-    color: white;
+    color: var(--dm_textPrimary);
     border: 1px solid transparent;
 
     &:hover {
       background-color: var(--darkGlass);
-      color: white;
+      color: var(--dm_textPrimary);
     }
 
     &:active {
@@ -759,30 +759,30 @@
   }
 
   .CuteButton-text-contained {
-    background-color: white;
+    background-color: var(--dm_textPrimary);
     color: black;
-    border: 1px solid white;
+    border: 1px solid var(--dm_textPrimary);
 
     &:hover {
       color: black;
-      background-color: white;
+      background-color: var(--dm_textPrimary);
       box-shadow: none;
     }
     &:active {
-      background-color: white;
+      background-color: var(--dm_textPrimary);
     }
   }
 
   .CuteButton-text-outlined {
     background-color: transparent;
-    color: white;
-    border: 1px solid white;
+    color: var(--dm_textPrimary);
+    border: 1px solid var(--dm_textPrimary);
 
     &:hover {
-      border-color: white;
+      border-color: var(--dm_textPrimary);
       box-shadow: none;
-      background-color: white;
-      color: black;
+      background-color: var(--dm_textPrimary);
+      color: var(--dm_textOpposite);
     }
   }
 }
@@ -807,7 +807,7 @@
 
   .CuteButton-primary-contained {
     background-color: var(--primary);
-    color: white;
+    color: var(--primaryText);
     border: 1px solid var(--primary);
 
     &:hover {
@@ -851,11 +851,10 @@
 
   .CuteButton-secondary-contained {
     background-color: var(--secondary);
-    color: white;
+    color: var(--secondaryText);
     border: 1px solid var(--secondary);
 
     &:hover {
-      color: white;
       background-color: var(--secondaryDark);
       box-shadow: 3px 3px 0px 0px var(--secondaryTooLight);
       border-color: var(--secondaryDark);
@@ -900,11 +899,10 @@
 
   .CuteButton-neutral-contained {
     background-color: var(--neutral);
-    color: white;
+    color: var(--neutralText);
     border: 1px solid var(--neutral);
 
     &:hover {
-      color: white;
       background-color: var(--neutralDark);
       box-shadow: 3px 3px 0px 0px var(--neutralTooLight);
     }

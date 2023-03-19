@@ -56,7 +56,7 @@
 
 .CuteTab-active-contained-primary {
   background-color: var(--primary) !important;
-  color: white;
+  color: var(--primaryText);
 }
 .CuteTab-active-underlined-primary {
   border-color: var(--primary);
@@ -64,7 +64,7 @@
 
 .CuteTab-active-contained-secondary {
   background-color: var(--secondary) !important;
-  color: white;
+  color: var(--secondaryText);
 }
 .CuteTab-active-underlined-secondary {
   border-color: var(--secondary);
@@ -72,7 +72,7 @@
 
 .CuteTab-active-contained-neutral {
   background-color: var(--neutral) !important;
-  color: white;
+  color: var(--neutralText);
 }
 .CuteTab-active-underlined-neutral {
   border-color: var(--neutral);
@@ -80,23 +80,23 @@
 
 .CuteTab-active-contained-black {
   background-color: black !important;
-  color: white;
+  color: var(--textOpposite);
 }
 .CuteTab-active-underlined-black {
   border-color: black;
 }
 
 .CuteTab-active-contained-white {
-  background-color: white !important;
-  color: black;
+  background-color: var(--textOpposite) !important;
+  color: var(--textPrimary);
 }
 .CuteTab-active-underlined-white {
-  border-color: white;
+  border-color: var(--textOpposite);
 }
 
 .CuteTab-active-contained-error {
   background-color: var(--error) !important;
-  color: white;
+  color: var(--textPrimary);
 }
 .CuteTab-active-underlined-error {
   border-color: var(--error);
@@ -104,7 +104,7 @@
 
 .CuteTab-active-contained-success {
   background-color: var(--success) !important;
-  color: white;
+  color: var(--textPrimary);
 }
 .CuteTab-active-underlined-success {
   border-color: var(--success);
@@ -135,11 +135,71 @@
 
 [data-theme='dark'] {
   .CuteTab {
+    color: var(--dm_textPrimary);
     &:hover {
       background-color: var(--darkGlass);
     }
     &:active {
       background-color: var(--glass);
     }
+  }
+
+  .CuteTab-active-contained-primary {
+    background-color: var(--dm_primary) !important;
+    color: var(--dm_textPrimary);
+  }
+  .CuteTab-active-underlined-primary {
+    color: var(--dm_textPrimary);
+    border-color: var(--dm_primary);
+  }
+
+  .CuteTab-active-contained-secondary {
+    background-color: var(--dm_secondary) !important;
+    color: var(--dm_textPrimary);
+  }
+  .CuteTab-active-underlined-secondary {
+    border-color: var(--dm_secondary);
+  }
+
+  .CuteTab-active-contained-neutral {
+    background-color: var(--dm_neutral) !important;
+    color: var(--dm_textPrimary);
+  }
+  .CuteTab-active-underlined-neutral {
+    border-color: var(--dm_neutral);
+    color: var(--dm_textPrimary);
+  }
+
+  .CuteTab-active-contained-black {
+    background-color: black !important;
+    color: var(--dm_textPrimary);
+  }
+  .CuteTab-active-underlined-black {
+    color: var(--dm_textPrimary);
+  }
+
+  .CuteTab-active-contained-white {
+    background-color: white !important;
+    color: var(--textPrimary);
+  }
+  .CuteTab-active-underlined-white {
+    border-color: white;
+  }
+
+  .CuteTab-active-contained-error {
+    background-color: var(--dm_error) !important;
+    color: var(--textPrimary);
+  }
+  .CuteTab-active-underlined-error {
+    border-color: var(--dm_error);
+  }
+
+  .CuteTab-active-contained-success {
+    background-color: var(--dm_success) !important;
+    color: var(--dm_textPrimary);
+  }
+  .CuteTab-active-underlined-success {
+    border-color: var(--dm_success);
+    color: var(--dm_textPrimary);
   }
 }

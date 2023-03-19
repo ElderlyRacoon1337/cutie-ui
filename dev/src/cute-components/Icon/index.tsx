@@ -3,7 +3,7 @@ import React from 'react';
 import '../../cute-styles/index.scss';
 
 interface IconProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: 'primary' | 'secondary' | 'neutral' | 'black' | 'white' | 'text';
@@ -12,6 +12,7 @@ interface IconProps {
   children?: React.ReactNode;
   ref?: any;
   other?: object;
+  fontSize?: number | string;
 }
 
 export const Icon: React.FC<IconProps> = ({

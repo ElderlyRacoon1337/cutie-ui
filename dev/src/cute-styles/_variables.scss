@@ -1,5 +1,11 @@
-// =================================== Here you can assign your favourite colors ==================================
+// ================================================== Font sizes ========================================================
 
+$fontSizeSmall: 0.8125rem;
+$fontSizeMedium: 0.875rem;
+$fontSizeLarge: 0.9375rem;
+
+// =================================== Colors ==================================
+// 6B6CCC
 $primary: #2394fe;
 $secondary: #aa49ad;
 $neutral: rgb(81, 94, 111);
@@ -9,56 +15,52 @@ $success: #2cd252;
 $glass: rgba(black, 0.03);
 $darkGlass: rgba(black, 0.05);
 $background: #ffffff;
-$backgroundSecondary: #f6f6f6;
-$textPrimary: #213547;
+$backgroundSecondary: rgba(246, 246, 246, 0.85);
+$textPrimary: #000000;
 $textSecondary: #6a6a6a;
-$textOpposite: #ffffff;
+$textBlack: #000000;
+$textOpposite: #fff;
 $divider: rgb(218, 218, 218);
 $link: rgb(24, 118, 209);
+$skeletonLight: rgb(236, 235, 235);
+$skeletonDark: rgb(243, 243, 243);
 
 // ========== dark mode ============
 
-$dm_disabled: rgb(82, 82, 82);
 $dm_glass: rgba(white, 0.08);
 $dm_darkGlass: rgba(white, 0.05);
 $dm_background: #121212;
-$dm_backgroundSecondary: #1c1c1c;
+$dm_disabled: rgb(82, 82, 82);
+$dm_background: #060606;
+$dm_backgroundSecondary: rgba(28, 28, 28, 0.85);
 $dm_textPrimary: #ffffff;
 $dm_textSecondary: #bcbcbc;
-$dm_textOpposite: #000000;
+$dm_textOpposite: $textPrimary;
 $dm_divider: rgb(57, 57, 57);
 $dm_link: rgb(31, 136, 241);
 $dm_error: #d02a35;
 $dm_success: rgb(30, 158, 8);
-
-// ================================================== Font sizes ========================================================
-
-$fontSizeSmall: 0.8125rem;
-$fontSizeMedium: 0.875rem;
-$fontSizeLarge: 0.9375rem;
-
-// ============================================ Disable button animation ================================================
-
-button {
-  box-shadow: none !important;
-}
+$dm_skeletonLight: rgb(31, 31, 31);
+$dm_skeletonDark: rgb(25, 25, 25);
 
 // ================================================================================================================
 
 // ================================================================================================================
 
-// ================================================================================================================
-
-// ================================================================================================================
-
+$primaryText: $textPrimary;
+$secondaryText: $textPrimary;
+$neutralText: $textOpposite;
+$primaryTextOpposite: $textOpposite;
+$secondaryTextOpposite: $textOpposite;
+$neutralTextOpposite: $textPrimary;
+$errorText: $textOpposite;
+$successText: $textOpposite;
 $primaryDark: darken($primary, 4%);
 $primaryTooDark: darken($primary, 10%);
 $primaryLight: rgba($primary, 0.2);
 $primaryTooLight: rgba($primary, 0.1);
-
 $secondaryDark: darken($secondary, 4%);
 $secondaryTooDark: darken($secondary, 10%);
-
 $secondaryLight: rgba($secondary, 0.2);
 $secondaryTooLight: rgba($secondary, 0.1);
 $neutralDark: darken($neutral, 4%);
@@ -70,21 +72,54 @@ $darkGlassPrimary: rgba($primary, 0.08);
 $glassSecondary: rgba($secondary, 0.05);
 $darkGlassSecondary: rgba($secondary, 0.08);
 
+$dm_primaryText: $textBlack;
+$dm_secondaryText: $textBlack;
+$dm_neutralText: $textOpposite;
+$dm_primaryTextOpposite: $textOpposite;
+$dm_secondaryTextOpposite: $textOpposite;
+$dm_neutralTextOpposite: $textBlack;
+$dm_errorText: $textOpposite;
+$dm_successText: $textOpposite;
+$dm_primary: $primary;
+$dm_primaryDark: rgba($primary, 0.8);
+$dm_primaryTooDark: rgba($primary, 0.6);
+$dm_primaryLight: lighten($primary, 4%);
+$dm_primaryTooLight: lighten($primary, 10%);
+$dm_secondary: darken($secondary, 5%);
+$dm_secondaryDark: darken($dm_secondary, 15%);
+$dm_secondaryTooDark: darken($dm_secondary, 20%);
+$dm_secondaryLight: lighten($dm_secondary, 3%);
+$dm_secondaryTooLight: lighten($dm_secondary, 20%);
+$dm_darkGlassPrimary: rgba($primary, 0.08);
+$dm_darkGlassSecondary: rgba($secondary, 0.08);
+$dm_neutral: $neutral;
+$dm_neutralDark: rgba($neutral, 0.8);
+$dm_neutralTooDark: rgba($neutral, 0.6);
+$dm_neutralLight: lighten($neutral, 4%);
+$dm_neutralTooLight: lighten($neutral, 10%);
+
+// ================================================================================================================
+
+// ================================================================================================================
+
 :root {
   --fontSizeSmall: #{$fontSizeSmall};
   --fontSizeMedium: #{$fontSizeMedium};
   --fontSizeLarge: #{$fontSizeLarge};
-  --primary: #{$primary};
-  --primaryDark: darken($primary, 4%);
-  --primaryTooDark: darken($primary, 10%);
-  --primaryLight: rgba($primary, 0.2);
-  --primaryTooLight: rgba($primary, 0.1);
-  --secondary: #{$secondary};
 
-  --secondaryDark: darken($secondary, 4%);
-  --secondaryTooDark: rgba($secondary, 0.1);
-  --secondaryLight: rgba($secondary, 0.2);
-  --secondaryTooLight: rgba(var(--secondary), 0.1);
+  // =========================== Light Mode ==========================
+
+  --primary: #{$primary};
+  --primaryDark: #{$primaryDark};
+  --primaryTooDark: #{$primaryTooDark};
+  --primaryLight: #{$primaryLight};
+  --primaryTooLight: #{$primaryTooLight};
+
+  --secondary: #{$secondary};
+  --secondaryDark: #{$secondaryDark};
+  --secondaryTooDark: #{$secondaryTooDark};
+  --secondaryLight: #{$secondaryLight};
+  --secondaryTooLight: #{$secondaryTooLight};
 
   --neutral: #{$neutral};
   --neutralDark: #{$neutralDark};
@@ -108,126 +143,187 @@ $darkGlassSecondary: rgba($secondary, 0.08);
   --darkGlassPrimary: #{$darkGlassPrimary};
   --glassSecondary: #{$glassPrimary};
   --darkGlassSecondary: #{$darkGlassPrimary};
-  --skeletonLight: rgb(236, 235, 235);
-  --skeletonDark: rgb(243, 243, 243);
+  --skeletonLight: #{$skeletonLight};
+  --skeletonDark: #{$skeletonDark};
+
+  // --primaryText: #{$textOpposite};
+
+  --errorText: #{$textOpposite};
+  --successText: #{$textOpposite};
+
+  // =========== only customizable colors ================ Dark Mode ==========================
+
+  --dm_primary: #{$primary};
+  --dm_primaryDark: #{rgba($primary, 0.8)};
+  --dm_primaryTooDark: #{rgba($primary, 0.6)};
+  --dm_primaryLight: #{lighten($primary, 4%)};
+  --dm_primaryTooLight: #{lighten($primary, 10%)};
+  --dm_glassPrimary: #{$glassPrimary};
+  --dm_darkGlassPrimary: #{$darkGlassPrimary};
+
+  --dm_secondary: #{$dm_secondary};
+  --dm_secondaryDark: #{darken($dm_secondary, 15%)};
+  --dm_secondaryTooDark: #{darken($dm_secondary, 20%)};
+  --dm_secondaryLight: #{lighten($dm_secondary, 3%)};
+  --dm_secondaryTooLight: #{lighten($dm_secondary, 20%)};
+  --dm_darkGlassSecondary: #{rgba($secondary, 0.08)};
+
+  --dm_glassSecondary: #{$glassSecondary};
+  --dm_darkGlassSecondary: #{$darkGlassSecondary};
+
+  --dm_neutral: #{$dm_neutral};
+  --dm_neutralDark: #{darken($dm_neutral, 15%)};
+  --dm_neutralTooDark: #{darken($dm_neutral, 20%)};
+  --dm_neutralLight: #{lighten($dm_neutral, 3%)};
+  --dm_neutralTooLight: #{lighten($dm_neutral, 20%)};
+
+  --dm_disabled: #{rgb(82, 82, 82)};
+  --dm_background: #060606;
+  --dm_backgroundSecondary: rgb(28, 28, 28);
+  --dm_textPrimary: #{#ffffff};
+  --dm_textSecondary: #{#bcbcbc};
+  --dm_textOpposite: #{$textPrimary};
+  --dm_divider: #{rgb(57, 57, 57)};
+  --dm_link: #{rgb(31, 136, 241)};
+  --dm_error: #{#d02a35};
+  --dm_success: #{rgb(30, 158, 8)};
 }
 
-$dm_primary: $primary;
-$dm_primaryDark: rgba($primary, 0.8);
-$dm_primaryTooDark: rgba($primary, 0.6);
-$dm_primaryLight: lighten($primary, 4%);
-$dm_primaryTooLight: lighten($primary, 10%);
-$dm_secondary: darken($secondary, 5%);
-$dm_secondaryDark: darken($dm_secondary, 15%);
-$dm_secondaryTooDark: darken($dm_secondary, 20%);
-$dm_secondaryLight: lighten($dm_secondary, 3%);
-$dm_secondaryTooLight: lighten($dm_secondary, 20%);
-$dm_glassPrimary: rgba($primary, 0.05);
-$dm_darkGlassPrimary: rgba($primary, 0.08);
-$dm_glassSecondary: rgba($secondary, 0.05);
-$dm_darkGlassSecondary: rgba($secondary, 0.08);
+[data-theme='light'] {
+  // --primary: #{$primary};
+  // --primaryDark: #{$primaryDark};
+  // --primaryTooDark: #{$primaryTooDark};
+  // --primaryLight: #{$primaryLight};
+  // --primaryTooLight: #{$primaryTooLight};
+  // --secondary: #{$secondary};
+  // --secondaryDark: #{$secondaryDark};
+  // --secondaryTooDark: #{$secondaryTooDark};
+  // --secondaryLight: #{$secondaryLight};
+  // --secondaryTooLight: #{$secondaryTooLight};
+  // --neutral: #{$neutral};
+  // --neutralDark: #{$neutralDark};
+  // --neutralTooDark: #{$neutralTooDark};
+  // --neutralLight: #{$neutralLight};
+  // --neutralTooLight: #{$neutralTooLight};
+  // --disabled: #{$disabled};
+  // --error: #{$error};
+  // --success: #{$success};
+  // --link: #{$link};
+  // --background: #{$background};
+  // --backgroundSecondary: #{$backgroundSecondary};
+  // --textPrimary: #{$textPrimary};
+  // --textSecondary: #{$textSecondary};
+  // --textOpposite: #{$textOpposite};
+  // --textBlack: #{$textBlack};
+  // --textWhite: #{$textWhite};
+
+  --errorText: #{$textOpposite};
+  --successText: #{$textOpposite};
+  --primarytext: #{$textOpposite};
+  --secondarytext: #{$textBlack};
+  --neutralText: #{$textOpposite};
+  --primaryTextOpposite: #{$textOpposite};
+  --secondaryTextOpposite: #{$textOpposite};
+  --neutralTextOpposite: #{$textBlack};
+  --divider: #{$divider};
+  --glass: #{$glass};
+  --darkGlass: #{$darkGlass};
+  --glassPrimary: #{$glassPrimary};
+  --darkGlassPrimary: #{$darkGlassPrimary};
+  --glassSecondary: #{$glassSecondary};
+  --darkGlassSecondary: #{$darkGlassSecondary};
+  --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  --skeletonLight: #{$skeletonLight};
+  --skeletonDark: #{$skeletonDark};
+}
+
+[data-theme='dark'] {
+  --errorText: #{$textOpposite};
+  --successText: #{$textOpposite};
+  --primarytext: #{$textPrimary};
+  --secondarytext: #{$textPrimary};
+  --neutralText: #{$textOpposite};
+  --primaryTextOpposite: #{$textOpposite};
+  --secondaryTextOpposite: #{$textOpposite};
+  --neutralTextOpposite: #{$textPrimary};
+  // --primary: #{$dm_primary};
+  // --primaryDark: #{$dm_primaryDark};
+  // --primaryTooDark: #{$dm_primaryTooDark};
+  // --primaryLight: #{$dm_primaryLight};
+  // --primaryTooLight: #{$dm_primaryTooLight};
+  // --primaryTooLight: #{$dm_primaryTooLight};
+  // --secondary: #{$dm_secondary};
+  // --secondaryDark: #{$dm_secondaryDark};
+  // --secondaryTooDark: #{$dm_secondaryTooDark};
+  // --secondaryLight: #{$dm_secondaryLight};
+  // --secondaryTooLight: #{$dm_primaryTooDark};
+  --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  // --disabled: #{$dm_disabled};
+  --glass: #{$dm_glass};
+  --darkGlass: #{$dm_darkGlass};
+  // --glassPrimary: #{$glassPrimary};
+  // --darkGlassPrimary: #{$dm_darkGlassPrimary};
+  // --glassSecondary: #{$glassPrimary};
+  // --darkGlassSecondary: #{$dm_darkGlassPrimary};
+  // --background: #{$dm_background};
+  // --backgroundSecondary: #{$dm_backgroundSecondary};
+  // --textPrimary: #{$dm_textPrimary};
+  // --textSecondary: #{$dm_textSecondary};
+  // --textOpposite: #{$dm_textOpposite};
+  --primarytext: #{$textBlack};
+  --secondarytext: #{$textBlack};
+  --neutralText: #{$textOpposite};
+  --primaryTextOpposite: #{$textOpposite};
+  --secondaryTextOpposite: #{$textOpposite};
+  --neutralTextOpposite: #{$textBlack};
+
+  // --divider: #{$dm_divider};
+  // --link: #{$dm_link};
+  // --error: #{$dm_error};
+  // --success: #{$dm_success};
+  --skeletonLight: #{$dm_skeletonLight};
+  --skeletonDark: #{$dm_skeletonDark};
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #{$dm_primary};
-    --primaryDark: #{$dm_primaryDark};
-    --primaryTooDark: #{$dm_primaryTooDark};
-    --primaryLight: #{$dm_primaryLight};
-    --primaryTooLight: #{$dm_primaryTooLight};
-    --primaryTooLight: #{$dm_primaryTooLight};
-    --secondary: #{$dm_secondary};
-    --secondaryDark: #{$dm_secondaryDark};
-    --secondaryTooDark: #{$dm_secondaryTooDark};
-    --secondaryLight: #{$dm_secondaryLight};
-    --secondaryTooLight: #{$dm_primaryTooDark};
+    // --primary: #{$dm_primary};
+    // --primaryDark: #{$dm_primaryDark};
+    // --primaryTooDark: #{$dm_primaryTooDark};
+    // --primaryLight: #{$dm_primaryLight};
+    // --primaryTooLight: #{$dm_primaryTooLight};
+    // --primaryTooLight: #{$dm_primaryTooLight};
+    // --secondary: #{$dm_secondary};
+    // --secondaryDark: #{$dm_secondaryDark};
+    // --secondaryTooDark: #{$dm_secondaryTooDark};
+    // --secondaryLight: #{$dm_secondaryLight};
+    // --secondaryTooLight: #{$dm_primaryTooDark};
     --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    --disabled: #{$dm_disabled};
-    --glass: #{$dm_glass};
-    --darkGlass: #{$dm_darkGlass};
-    --glassPrimary: #{$dm_glassPrimary};
-    --darkGlassPrimary: #{$dm_darkGlassPrimary};
-    --glassSecondary: #{$dm_glassPrimary};
-    --darkGlassSecondary: #{$dm_darkGlassPrimary};
-    --background: #{$dm_background};
-    --backgroundSecondary: #{$dm_backgroundSecondary};
-    --textPrimary: #{$dm_textPrimary};
-    --textSecondary: #{$dm_textSecondary};
-    --textOpposite: #{$dm_textOpposite};
-    --divider: #{$dm_divider};
-    --link: #{$dm_link};
-    --error: #{$dm_error};
-    --success: #{$dm_success};
-    --skeletonLight: #{rgb(33, 33, 33)};
-    --skeletonDark: rgb(25, 25, 25);
+    // --disabled: #{$dm_disabled};
+    // --glass: #{$dm_glass};
+    // --darkGlass: #{$dm_darkGlass};
+    // --glassPrimary: #{$glassPrimary};
+    // --darkGlassPrimary: #{$darkGlassPrimary};
+    // --glassSecondary: #{$glassPrimary};
+    // --darkGlassSecondary: #{$dm_darkGlassPrimary};
+    // --background: #{$dm_background};
+    // --backgroundSecondary: #{$dm_backgroundSecondary};
+    // --textPrimary: #{$dm_textPrimary};
+    // --textSecondary: #{$dm_textSecondary};
+    // --textOpposite: #{$dm_textOpposite};
+    // --textBlack: #{$textBlack};
+    // --textWhite: #{$textWhite};
+    // --primarytext: #{$textBlack};
+    // --secondarytext: #{$textBlack};
+    // --neutralText: #{$textWhite};
+    // --primaryTextOpposite: #{$textWhite};
+    // --secondaryTextOpposite: #{$textWhite};
+    // --neutralTextOpposite: #{$textBlack};
+    // --divider: #{$dm_divider};
+    // --link: #{$dm_link};
+    // --error: #{$dm_error};
+    // --success: #{$dm_success};
+    --skeletonLight: #{$dm_skeletonLight};
+    --skeletonDark: #{$dm_skeletonDark};
   }
 }
-
-// [data-theme='light'] {
-//   --primary: #{$primary};
-//   --primaryDark: #{$primaryDark};
-//   --primaryTooDark: #{$primaryTooDark};
-//   --primaryLight: #{$primaryLight};
-//   --primaryTooLight: #{$primaryTooLight};
-//   --secondary: #{$secondary};
-//   --secondaryDark: #{$secondaryDark};
-//   --secondaryTooDark: #{$secondaryTooDark};
-//   --secondaryLight: #{$secondaryLight};
-//   --secondaryTooLight: #{$secondaryTooLight};
-//   --neutral: #{$neutral};
-//   --neutralDark: #{$neutralDark};
-//   --neutralTooDark: #{$neutralTooDark};
-//   --neutralLight: #{$neutralLight};
-//   --neutralTooLight: #{$neutralTooLight};
-//   --disabled: #{$disabled};
-//   --error: #{$error};
-//   --success: #{$success};
-//   --link: #{$link};
-//   --background: #{$background};
-//   --backgroundSecondary: #{$backgroundSecondary};
-//   --textPrimary: #{$textPrimary};
-//   --textSecondary: #{$textSecondary};
-//   --textOpposite: #{$textOpposite};
-//   --divider: #{$divider};
-//   --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
-//   --glass: #{$glass};
-//   --darkGlass: #{$darkGlass};
-//   --glassPrimary: #{$glassPrimary};
-//   --darkGlassPrimary: #{$darkGlassPrimary};
-//   --glassSecondary: #{$glassPrimary};
-//   --darkGlassSecondary: #{$darkGlassPrimary};
-//   --skeletonLight: rgb(236, 235, 235);
-//   --skeletonDark: rgb(243, 243, 243);
-// }
-
-// [data-theme='dark'] {
-//   --primary: #{$dm_primary};
-//   --primaryDark: #{$dm_primaryDark};
-//   --primaryTooDark: #{$dm_primaryTooDark};
-//   --primaryLight: #{$dm_primaryLight};
-//   --primaryTooLight: #{$dm_primaryTooLight};
-//   --primaryTooLight: #{$dm_primaryTooLight};
-//   --secondary: #{$dm_secondary};
-//   --secondaryDark: #{$dm_secondaryDark};
-//   --secondaryTooDark: #{$dm_secondaryTooDark};
-//   --secondaryLight: #{$dm_secondaryLight};
-//   --secondaryTooLight: #{$dm_primaryTooDark};
-//   --baseBoxShadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-//   --disabled: #{$dm_disabled};
-//   --glass: #{$dm_glass};
-//   --darkGlass: #{$dm_darkGlass};
-//   --glassPrimary: #{$dm_glassPrimary};
-//   --darkGlassPrimary: #{$dm_darkGlassPrimary};
-//   --glassSecondary: #{$dm_glassPrimary};
-//   --darkGlassSecondary: #{$dm_darkGlassPrimary};
-//   --background: #{$dm_background};
-//   --backgroundSecondary: #{$dm_backgroundSecondary};
-//   --textPrimary: #{$dm_textPrimary};
-//   --textSecondary: #{$dm_textSecondary};
-//   --textOpposite: #{$dm_textOpposite};
-//   --divider: #{$dm_divider};
-//   --link: #{$dm_link};
-//   --error: #{$dm_error};
-//   --success: #{$dm_success};
-//   --skeletonLight: #{rgb(31, 31, 31)};
-//   --skeletonDark: rgb(25, 25, 25);
-// }

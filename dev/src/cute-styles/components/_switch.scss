@@ -15,7 +15,6 @@
 }
 
 .CuteSwitch-wrapper {
-  background-color: blueviolet;
   border-radius: 20px;
   cursor: pointer;
   float: left;
@@ -68,11 +67,11 @@
 .CuteSwitch-success {
   background-color: var(--success);
 }
-.CuteSwitch-apple {
-  background-color: #4bd964;
-}
 .CuteSwitch-disabled {
   background-color: var(--disabled) !important;
+}
+.CuteSwitch-apple {
+  background-color: #4bd964;
 }
 .CuteSwitch-unchecked {
   background-color: var(--divider);
@@ -101,5 +100,53 @@
 
   & > input[type='checkbox']:checked + .CuteSwitch {
     transform: translateX(50%) translateX(-24px);
+  }
+}
+
+[data-theme='dark'] {
+  .CuteSwitch-primary {
+    background-color: var(--dm_primary);
+  }
+  .CuteSwitch-secondary {
+    background-color: var(--dm_secondary);
+  }
+  .CuteSwitch-neutral {
+    background-color: var(--dm_neutral);
+  }
+  .CuteSwitch-error {
+    background-color: var(--dm_error);
+  }
+  .CuteSwitch-success {
+    background-color: var(--dm_success);
+  }
+  .CuteSwitch-disabled {
+    background-color: var(--dm_disabled) !important;
+  }
+}
+
+[data-theme='light'] {
+  .CuteSwitch-primary {
+    background-color: var(--primary);
+  }
+  .CuteSwitch-secondary {
+    background-color: var(--secondary);
+  }
+  .CuteSwitch-black {
+    background-color: var(--black);
+  }
+  .CuteSwitch-white {
+    background-color: var(--white);
+  }
+  .CuteSwitch-neutral {
+    background-color: var(--neutral);
+  }
+  .CuteSwitch-error {
+    background-color: var(--error);
+  }
+  .CuteSwitch-success {
+    background-color: var(--success);
+  }
+  .CuteSwitch-disabled {
+    background-color: var(--disabled) !important;
   }
 }

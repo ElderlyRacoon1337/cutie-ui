@@ -17,9 +17,9 @@
 
 @keyframes toggle {
   0% {
-    background-color: var(--skeletonLight);
+    background-color: var(--skeletonDark);
   }
   100% {
-    background-color: var(--skeletonDark);
+    background-color: var(--skeletonLight);
   }
 }

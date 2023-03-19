@@ -24,7 +24,6 @@ import { ThemeContext } from './ThemeProvider';
 import { useContext, useEffect, useState } from 'react';
 import GradientText from './cute-components/GradientText';
 import { useSwitch } from './cute-hooks/useSwitch';
-// import { useTheme } from './cute-hooks/useTheme';
 
 function App() {
   const { popupOpen, handleClickPopup, handleClosePopup } = usePopup();
@@ -44,57 +43,37 @@ function App() {
     }
   }, [document.documentElement.dataset.theme, checkedSwitch]);
 
-  // useTheme();
-
   return (
     <div className="App">
       <div className="pl-10px pr-10px">
         <div className="df jcsb aic p-10px">
           <div className="left df aic pt-7px pb-7px">
             <a href="/" className="df aic">
-              <h1 className="m-0px">Cutie</h1>
-              <Icon
-                size="large"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                    />
-                  </svg>
-                }
-              />
+              <h1 className="m-0px">Cutie UI</h1>
             </a>
+            <Input
+              button={<Button>Search</Button>}
+              startIcon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              }
+              className="minw-250px"
+              classNameForWrapper="ml-50px"
+              placeholder="Choose your age"
+            />
           </div>
-          <Input
-            message="wefwef"
-            label
-            button={<Button>Search</Button>}
-            startIcon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
-            }
-            className="w-600px"
-            placeholder="Choose your age"
-          />
+
           <div className="right df aic">
             <IconButton
               size="medium"
@@ -169,7 +148,6 @@ function App() {
               <input hidden accept="image/*" multiple type="file" />
             </Button>
             <Button
-              color="secondary"
               endIcon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -449,9 +427,10 @@ function App() {
             <Tabs
               value={tabsValue}
               color="primary"
+              variant="contained"
               labels={['English', 'Russian', 'Swedish']}
               onChange={handleChangeTabs}
-              // fullWidth
+              fullWidth
               className="minw-550px"
             >
               <Tab className="pt-20px">
@@ -462,6 +441,54 @@ function App() {
                   height={100}
                 />
                 <Skeleton variant="rounded" width="500" height="100" />
+                <Icon color="neutral">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </Icon>
+                <Icon
+                  color="primary"
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  }
+                ></Icon>
+                <Icon color="secondary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </Icon>
               </Tab>
               <Tab className="pt-20px">
                 <div className="">
@@ -504,6 +531,77 @@ function App() {
                 >
                   Hello world
                 </GradientText>
+                <div className="mb-10px">
+                  <Button variant="text">Button</Button>
+                  <Button variant="outlined">Button</Button>
+                  <Button variant="contained">Button</Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="secondary">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="secondary">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="secondary">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="neutral">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="neutral">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="neutral">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="success">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="success">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="success">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="error">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="error">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="error">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="black">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="black">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="black">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="white">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="white">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="white">
+                    Button
+                  </Button>
+                </div>
               </Tab>
             </Tabs>
           </div>

@@ -27,11 +27,11 @@ const GradientText: React.FC<GradientTextProps> = ({
       className={clsx('CuteGradientText', className)}
       style={{
         background: `linear-gradient(${rotate}deg, ${firstColor}, ${secondColor})`,
+        backgroundClip: 'text',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         fontSize: fontSize + 'px',
         fontWeight: fontWeight,
-
         ...style,
       }}
     >
