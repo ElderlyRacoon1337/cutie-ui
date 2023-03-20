@@ -92,186 +92,28 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .CuteMenu {
-    backdrop-filter: blur(7px);
-    background-color: var(--dm_backgroundSecondary);
-    box-shadow: var(--baseBoxShadow);
-  }
+// =============================================================================================================================
 
+@media (prefers-color-scheme: dark) {
   .CuteMenuItem {
     &:hover {
-      background-color: var(--darkGlass) !important;
-      color: var(--textPrimary);
+      background-color: var(--darkGlass);
     }
 
     &:active {
-      background-color: var(--glass) !important;
-    }
-  }
-}
-
-.CuteMenuItem-divider {
-  border-bottom: 1px solid var(--divider);
-}
-
-// =============================================================================================================================
-
-[data-theme='light'] {
-  .CuteMenuBackground {
-    position: fixed;
-    z-index: 9;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: transparent;
-  }
-
-  .CuteMenu {
-    position: absolute;
-    z-index: 10;
-    border-radius: 7px;
-    border: 1px solid var(--divider);
-    background-color: var(--background);
-    min-width: 10px;
-    display: flex;
-    flex-direction: column;
-    padding: 7px 0;
-    background-color: var(--backgroundSecondary);
-    backdrop-filter: blur(7px);
-    box-shadow: var(--baseBoxShadow);
-
-    .CuteMenuItem {
-      padding: 9px 15px;
-      cursor: pointer;
-      user-select: none;
-      color: var(--textPrimary);
-      font-size: var(--fontSizeSmall);
-
-      &:hover {
-        background-color: var(--glass);
-      }
-
-      &:active {
-        background-color: var(--darkGlass);
-      }
-    }
-  }
-
-  .CuteMenuItem-iconStart {
-    display: flex;
-    align-items: center;
-
-    & > *:first-child {
-      margin-right: 10px;
-      color: var(--textPrimary);
-      width: 17px;
-      height: 17px;
-    }
-  }
-
-  .CuteMenuItem-iconEnd {
-    display: flex;
-    align-items: center;
-
-    & > *:first-child {
-      margin-right: 10px;
-    }
-
-    & > *:last-child {
-      margin-left: auto;
-      color: var(--textPrimary);
-      width: 17px;
-      height: 17px;
-      min-width: 17px;
-    }
-  }
-
-  .CuteMenuItem-icons {
-    display: flex;
-    align-items: center;
-    & > *:first-child {
-      margin-right: 10px;
-      color: var(--textPrimary);
-      width: 17px;
-      height: 17px;
-      min-width: 17px;
-    }
-
-    .CuteMenuItemChildren {
-      margin-right: 10px;
-    }
-
-    & > *:last-child {
-      color: var(--textPrimary);
-      width: 17px;
-      height: 17px;
-      min-width: 17px;
-      margin-left: auto;
+      background-color: var(--glass);
     }
   }
 }
 
 [data-theme='dark'] {
-  .CuteMenu {
-    backdrop-filter: blur(7px);
-    background-color: var(--dm_backgroundSecondary);
-    box-shadow: var(--baseBoxShadow);
-  }
-
   .CuteMenuItem {
     &:hover {
-      background-color: var(--darkGlass) !important;
-      color: var(--dm_textPrimary);
+      background-color: var(--darkGlass);
     }
 
     &:active {
-      background-color: var(--glass) !important;
+      background-color: var(--glass);
     }
   }
-
-  .CuteMenu {
-    border: 1px solid var(--dm_divider);
-    background-color: var(--dm_background);
-
-    background-color: var(--dm_backgroundSecondary);
-
-    box-shadow: var(--dm_baseBoxShadow);
-
-    .CuteMenuItem {
-      color: var(--dm_textPrimary);
-    }
-  }
-
-  .CuteMenuItem-iconStart {
-    & > *:first-child {
-      margin-right: 10px;
-      color: var(--dm_textPrimary);
-    }
-  }
-
-  .CuteMenuItem-iconEnd {
-    & > *:last-child {
-      color: var(--dm_textPrimary);
-    }
-  }
-
-  .CuteMenuItem-icons {
-    & > *:first-child {
-      color: var(--dm_textPrimary);
-    }
-
-    & > *:last-child {
-      color: var(--dm_textPrimary);
-    }
-  }
-
-  .CuteMenuItem-divider {
-    border-bottom: 1px solid var(--dm_divider);
-  }
-}
-
-.CuteMenuItem-divider {
-  border-bottom: 1px solid var(--divider);
 }

@@ -23,26 +23,3 @@
     z-index: 10;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .CutePupup {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-}
-
-// ===============
-
-[data-theme='light'] {
-  .CutePopup {
-    background-color: rgba(0, 0, 0, 0.38);
-  }
-}
-
-[data-theme='dark'] {
-  .CutePupup {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .CutePupupElement {
-    background-color: var(--dm_backgroundSecondary) !important;
-  }
-}

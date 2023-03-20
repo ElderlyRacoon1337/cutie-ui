@@ -64,6 +64,9 @@
   background-color: var(--darkGlassPrimary);
   color: var(--primary);
   font-weight: 600;
+  .CuteListItemChildren {
+    color: var(--primary);
+  }
   &:hover {
     background-color: var(--darkGlassPrimary);
     color: var(--primary);
@@ -84,9 +87,15 @@
 
 @media (prefers-color-scheme: dark) {
   .CuteListItemButton {
+    & > * {
+      color: var(--textPrimary);
+    }
+    .CuteListItemChildren {
+      color: var(--textPrimary);
+    }
     &:hover {
       background-color: var(--darkGlass);
-      color: var(--dm_textPrimary);
+      color: var(--textPrimary);
     }
     &:active {
       background-color: var(--glass);
@@ -94,21 +103,32 @@
   }
 
   .CuteListItem-active {
-    background-color: rgba($primary, 0.2);
-    color: var(--dm_textPrimary);
+    background-color: var(--glassPrimary);
+    color: var(--primary);
     font-weight: 600;
+    .CuteListItemChildren {
+      color: var(--primary);
+    }
+    & > * {
+      color: var(--primaryLight);
+    }
     &:hover {
-      background-color: rgba($primary, 0.2);
-      color: var(--dm_textPrimary);
+      background-color: var(--glassPrimary);
+      color: var(--primaryTooLight);
     }
   }
 
   .CuteListItem-activeFilled {
-    background-color: var(--dm_primaryDark);
-    color: var(--dm_textPrimary);
+    background-color: var(--primaryDark);
+    & > * {
+      color: var(--primaryText);
+    }
+    .CuteListItemChildren {
+      color: var(--primaryText);
+    }
     &:hover {
-      background-color: var(--dm_primaryDark);
-      color: var(--dm_textPrimary);
+      background-color: var(--primaryDark);
+      color: var(--primaryText);
     }
   }
 }
@@ -118,14 +138,14 @@
 [data-theme='dark'] {
   .CuteListItemButton {
     & > * {
-      color: var(--dm_textPrimary);
+      color: var(--textPrimary);
     }
     .CuteListItemChildren {
-      color: var(--dm_textPrimary);
+      color: var(--textPrimary);
     }
     &:hover {
       background-color: var(--darkGlass);
-      color: var(--dm_textPrimary);
+      color: var(--textPrimary);
     }
     &:active {
       background-color: var(--glass);
@@ -133,31 +153,32 @@
   }
 
   .CuteListItem-active {
-    background-color: var(--dm_glassPrimary);
-    color: var(--dm_primary);
+    background-color: var(--glassPrimary);
+    color: var(--primary);
     font-weight: 600;
-    & > * {
-      color: var(--dm_primaryLight) !important;
+    .CuteListItemChildren {
+      color: var(--primary);
     }
-
+    & > * {
+      color: var(--primaryLight);
+    }
     &:hover {
-      background-color: var(--dm_darkGlassPrimary);
-      color: var(--dm_primaryTooLight);
+      background-color: var(--glassPrimary);
+      color: var(--primaryTooLight);
     }
   }
 
   .CuteListItem-activeFilled {
-    background-color: var(--dm_primary);
+    background-color: var(--primaryDark);
     & > * {
-      color: var(--dm_primaryText);
+      color: var(--primaryText);
     }
     .CuteListItemChildren {
-      color: var(--dm_primaryText);
+      color: var(--primaryText);
     }
-
     &:hover {
-      background-color: var(--dm_primaryDark);
-      color: var(--dm_primaryText);
+      background-color: var(--primaryDark);
+      color: var(--primaryText);
     }
   }
 }
@@ -166,22 +187,24 @@
   .CuteListItemButton {
     &:hover {
       background-color: var(--glass);
-      color: var(--textBlack);
     }
+
     &:active {
       background-color: var(--darkGlass);
     }
   }
   .CuteListItem-active {
     background-color: var(--darkGlassPrimary);
-    color: var(--primaryDark);
+    color: var(--primary);
+    .CuteListItemChildren {
+      color: var(--primary);
+    }
     font-weight: 600;
     &:hover {
       background-color: var(--darkGlassPrimary);
       color: var(--primary);
     }
   }
-
   .CuteListItem-activeFilled {
     background-color: var(--primary);
     color: var(--primaryText);

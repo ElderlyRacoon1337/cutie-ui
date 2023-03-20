@@ -9,15 +9,3 @@
 .CuteLink-underlined {
   text-decoration: underline;
 }
-
-@media (prefer-color-scheme: dark) {
-  .CuteLink {
-    color: var(--dm_link);
-  }
-}
-
-[data-theme='dark'] {
-  .CuteLink {
-    color: var(--dm_link);
-  }
-}

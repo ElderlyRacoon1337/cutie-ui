@@ -18,46 +18,35 @@
 
 .CuteButton-primary-text {
   background-color: transparent;
-  color: var(--primaryDark);
+  color: var(--primary);
   border: 1px solid transparent;
-
   &:hover {
     background-color: var(--glassPrimary);
-    color: var(--primaryDark);
+    color: var(--primary);
   }
-
   &:active {
     background-color: var(--darkGlassPrimary);
   }
 }
-
 .CuteButton-primary-contained {
   background-color: var(--primary);
   color: var(--primaryText);
   border: 1px solid var(--primary);
-  position: relative;
 
   &:hover {
     background-color: var(--primaryDark);
-    // background-color: var(--primary) !important;
-    box-shadow: 3px 3px 0px 0px var(--primaryLight);
     border-color: var(--primaryDark);
-
-    // background-image: linear-gradient(rgb(0 0 0/8%) 0 0);
-
-    &:active {
-      background-color: var(--primaryTooDark);
-      // background-image: linear-gradient(rgb(0 0 0/12%) 0 0);
-      border-color: var(--primaryTooDark);
-    }
+    box-shadow: 3px 3px 0px 0px var(--primaryLight);
+  }
+  &:active {
+    background-color: var(--primaryTooDark);
+    border-color: var(--primaryTooDark);
   }
 }
-
 .CuteButton-primary-outlined {
   background-color: transparent;
   color: var(--textPrimary);
   border: 1px solid var(--textPrimary);
-
   &:hover {
     color: var(--primary);
     border: 1px solid var(--primary);
@@ -71,48 +60,36 @@
   background-color: transparent;
   color: var(--secondary);
   border: 1px solid transparent;
-
   &:hover {
-    background-color: var(--secondaryTooLight);
+    background-color: var(--glassSecondary);
     color: var(--secondary);
   }
-
   &:active {
-    background-color: var(--secondaryLight);
+    background-color: var(--darkGlassSecondary);
   }
 }
-
 .CuteButton-secondary-contained {
   background-color: var(--secondary);
   color: var(--secondaryText);
   border: 1px solid var(--secondary);
-
   &:hover {
-    color: white;
     background-color: var(--secondaryDark);
-    box-shadow: 3px 3px 0px 0px var(--secondaryTooLight);
     border-color: var(--secondaryDark);
+    box-shadow: 3px 3px 0px 0px var(--secondaryLight);
   }
   &:active {
     background-color: var(--secondaryTooDark);
     border-color: var(--secondaryTooDark);
   }
 }
-
 .CuteButton-secondary-outlined {
   background-color: transparent;
   color: var(--textPrimary);
   border: 1px solid var(--textPrimary);
-
   &:hover {
-    border-color: var(--secondary);
-    box-shadow: 3px 3px 0px 0px var(--secondaryTooLight);
     color: var(--secondary);
-    background-color: transparent;
-  }
-
-  &:active {
-    background-color: transparent;
+    border: 1px solid var(--secondary);
+    box-shadow: 3px 3px 0px 0px var(--secondaryLight);
   }
 }
 
@@ -184,47 +161,38 @@
 
 .CuteButton-neutral-text {
   background-color: transparent;
-  color: var(--textPrimary);
+  color: var(--neutral);
   border: 1px solid transparent;
-
   &:hover {
-    background-color: var(--neutralTooLight);
+    background-color: var(--glassNeutral);
     color: var(--neutral);
   }
-
   &:active {
-    background-color: var(--neutralLight);
+    background-color: var(--darkGlassNeutral);
   }
 }
-
 .CuteButton-neutral-contained {
   background-color: var(--neutral);
   color: var(--neutralText);
   border: 1px solid var(--neutral);
-
   &:hover {
-    color: white;
     background-color: var(--neutralDark);
-    box-shadow: 3px 3px 0px 0px var(--neutralTooLight);
+    border-color: var(--neutralDark);
+    box-shadow: 3px 3px 0px 0px var(--neutralLight);
   }
   &:active {
     background-color: var(--neutralTooDark);
+    border-color: var(--neutralTooDark);
   }
 }
-
 .CuteButton-neutral-outlined {
   background-color: transparent;
   color: var(--textPrimary);
   border: 1px solid var(--textPrimary);
-
   &:hover {
-    border-color: var(--neutral);
-    box-shadow: 3px 3px 0px 0px var(--neutralTooLight);
     color: var(--neutral);
-  }
-
-  &:active {
-    background-color: transparent;
+    border: 1px solid var(--neutral);
+    box-shadow: 3px 3px 0px 0px var(--neutralLight);
   }
 }
 
@@ -393,13 +361,13 @@
   border: 1px solid transparent;
 
   &:hover {
-    background-color: var(--glass);
+    background-color: var(--glassError);
 
     color: var(--error);
   }
 
   &:active {
-    background-color: var(--darkGlass);
+    background-color: var(--darkGlassError);
   }
 }
 
@@ -422,13 +390,13 @@
   border: 1px solid transparent;
 
   &:hover {
-    background-color: var(--glass);
+    background-color: var(--glassSuccess);
 
     color: var(--success);
   }
 
   &:active {
-    background-color: var(--darkGlass);
+    background-color: var(--darkGlassSuccess);
   }
 }
 
@@ -454,112 +422,98 @@
 
 @media (prefers-color-scheme: dark) {
   .CuteButton-primary-text {
-    color: var(--textPrimary);
+    color: var(--primary);
     &:hover {
-      color: var(--textPrimary);
-      background-color: var(--darkGlass);
+      background-color: var(--darkGlassPrimary);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--glassPrimary);
     }
   }
-
   .CuteButton-primary-contained {
-    background-color: var(--primary);
     border-color: var(--primary);
-    color: var(--dm_primaryText);
-
+    color: var(--primaryText);
     &:hover {
-      background-color: #fff;
-      background-color: var(--primaryText);
-      border-color: #fff;
-      color: var(--primary);
-      box-shadow: 3px 3px 0px 0px var(--primary);
+      background-color: var(--primaryLight);
+      color: var(--primaryText);
+      border-color: var(--primaryLight);
+      box-shadow: 3px 3px 0px 0px var(--primaryTooDark);
+    }
+    &:active {
+      background-color: var(--primaryTooLight);
+      border-color: var(--primaryTooLight);
     }
   }
-
   .CuteButton-primary-outlined {
     &:hover {
-      background-color: var(--darkGlass);
-      border-color: var(--white);
-      color: white;
-      box-shadow: 3px 3px 0px 0px var(--primary);
+      background-color: var(--darkGlassPrimary);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--glassPrimary);
     }
   }
 
   .CuteButton-secondary-text {
-    color: white;
+    color: var(--secondary);
     &:hover {
-      background-color: var(--darkGlass);
-      color: white;
+      background-color: var(--darkGlassSecondary);
     }
     &:active {
-      background-color: var(--glass);
-      color: white;
+      background-color: var(--glassSecondary);
     }
   }
-
   .CuteButton-secondary-contained {
-    background-color: var(--secondaryLight);
-    border-color: var(--secondaryLight);
-    color: var(--dm_secondaryText);
+    border-color: var(--secondary);
+    color: var(--secondaryText);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--secondary);
-      background-color: #fff;
-      color: var(--secondaryLight);
-      border-color: #fff;
+      background-color: var(--secondaryLight);
+      color: var(--secondaryText);
+      border-color: var(--secondaryLight);
+      box-shadow: 3px 3px 0px 0px var(--secondaryTooDark);
+    }
+    &:active {
+      background-color: var(--secondaryTooLight);
+      border-color: var(--secondaryTooLight);
     }
   }
-
   .CuteButton-secondary-outlined {
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--secondary);
-      border-color: var(--textPrimary);
-      color: var(--textPrimary);
-      background-color: var(--darkGlass);
+      background-color: var(--darkGlassSecondary);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--glassSecondary);
     }
   }
 
   .CuteButton-neutral-text {
-    color: white;
+    color: var(--neutral);
     &:hover {
-      background-color: var(--darkGlass);
-      color: white;
+      background-color: var(--darkGlassNeutral);
     }
     &:active {
-      background-color: var(--glass);
-      color: white;
+      background-color: var(--glassNeutral);
     }
   }
-
   .CuteButton-neutral-contained {
-    background-color: var(--dm_neutral);
-    border-color: var(--dm_neutralLight);
-    color: var(--dm_neutralText);
+    border-color: var(--neutral);
+    color: var(--neutralText);
     &:hover {
-      background-color: #fff;
-      color: var(--neutral);
-      border-color: #fff;
-      box-shadow: none;
-      box-shadow: 3px 3px 0px 0px var(--neutral);
+      background-color: var(--neutralLight);
+      color: var(--neutralText);
+      border-color: var(--neutralLight);
+      box-shadow: 3px 3px 0px 0px var(--neutralTooDark);
+    }
+    &:active {
+      background-color: var(--neutralTooLight);
+      border-color: var(--neutralTooLight);
     }
   }
-
   .CuteButton-neutral-outlined {
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--neutral);
-      border-color: var(--textPrimary);
-      color: var(--textPrimary);
-      background-color: var(--darkGlass);
+      background-color: var(--darkGlassNeutral);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--glassNeutral);
     }
   }
 
@@ -567,22 +521,18 @@
     background-color: transparent;
     color: white;
     border: 1px solid transparent;
-
     &:hover {
       background-color: var(--darkGlass);
       color: white;
     }
-
     &:active {
       background-color: var(--glass);
     }
   }
-
   .CuteButton-text-contained {
     background-color: white;
     color: black;
     border: 1px solid white;
-
     &:hover {
       color: black;
       background-color: white;
@@ -592,12 +542,10 @@
       background-color: white;
     }
   }
-
   .CuteButton-text-outlined {
     background-color: transparent;
     color: white;
     border: 1px solid white;
-
     &:hover {
       border-color: white;
       box-shadow: none;
@@ -605,233 +553,157 @@
       color: black;
     }
   }
+  .CuteButton-white-text {
+    &:hover {
+      background-color: var(--darkGlass);
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
 }
 
 // ============
 
 [data-theme='dark'] {
-  .CuteButton-success-contained {
-    color: var(--dm_successText);
-    background-color: var(--dm_success);
-    border-color: var(--dm_success);
-  }
-  .CuteButton-success-outlined {
-    color: var(--dm_success);
-    background-color: transparent;
-    border-color: var(--dm_success);
-  }
-  .CuteButton-success-text {
-    color: var(--dm_success);
-    border-color: transparent;
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-  .CuteButton-error-contained {
-    color: var(--dm_errorText);
-    background-color: var(--dm_error);
-    border-color: var(--dm_error);
-  }
-  .CuteButton-error-outlined {
-    color: var(--dm_error);
-    background-color: transparent;
-    border-color: var(--dm_error);
-  }
-  .CuteButton-error-text {
-    color: var(--dm_error);
-    border-color: transparent;
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteButton-text-disabled {
-    color: var(--dm_disabled) !important;
-  }
-
-  .CuteButton-outlined-disabled {
-    border-color: var(--dm_disabled) !important;
-    color: var(--dm_disabled) !important;
-  }
-
-  .CuteButton-contained-disabled {
-    color: var(--dm_disabled) !important;
-  }
-
   .CuteButton-primary-text {
-    color: var(--dm_primary);
+    color: var(--primary);
     &:hover {
-      color: var(--dm_primary);
-      background-color: var(--glassPrimary);
+      // background-color: var(--darkGlassPrimary);
     }
     &:active {
-      color: var(--dm_primary);
-      background-color: var(--darkGlassPrimary);
+      // background-color: var(--glassPrimary);
     }
   }
-
   .CuteButton-primary-contained {
-    background-color: var(--dm_primary);
-    border-color: var(--dm_primary);
-    color: var(--dm_primaryText);
+    border-color: var(--primary);
+    color: var(--primaryText);
     &:hover {
-      background-color: var(--dm_primaryText);
-      background-color: var(--dm_primaryLight);
-      border-color: var(--dm_primaryLight);
-      color: var(--dm_primaryText);
-      box-shadow: 3px 3px 0px 0px var(--dm_primaryTooDark);
+      background-color: var(--primaryLight);
+      color: var(--primaryText);
+      border-color: var(--primaryLight);
+      box-shadow: 3px 3px 0px 0px var(--primaryTooDark);
     }
     &:active {
-      background-color: var(--dm_primaryTooLight);
-      border-color: var(--dm_primaryTooLight);
+      background-color: var(--primaryTooLight);
+      border-color: var(--primaryTooLight);
     }
   }
-
   .CuteButton-primary-outlined {
-    color: var(--dm_textPrimary);
-    border-color: var(--dm_textPrimary);
     &:hover {
-      background-color: var(--glassPrimary);
-      border-color: var(--dm_primary);
-      color: var(--dm_primary);
-      box-shadow: 3px 3px 0px 0px var(--dm_primary);
+      // background-color: var(--darkGlassPrimary);
     }
     &:active {
-      background-color: var(--darkGlassPrimary);
+      // background-color: var(--glassPrimary);
     }
   }
 
   .CuteButton-secondary-text {
-    color: var(--dm_secondary);
+    color: var(--secondary);
     &:hover {
-      background-color: var(--glassSecondary);
-      color: var(--dm_secondary);
+      // background-color: var(--darkGlassSecondary);
     }
     &:active {
-      background-color: var(--darkGlassSecondary);
-      color: var(--dm_secondary);
+      // background-color: var(--glassSecondary);
     }
   }
-
   .CuteButton-secondary-contained {
-    background-color: var(--dm_secondary);
-    border-color: var(--dm_secondary);
-    color: var(--dm_secondaryText);
+    border-color: var(--secondary);
+    color: var(--secondaryText);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--dm_secondary);
-      background-color: var(--dm_secondaryLight);
-      color: var(--dm_secondaryText);
-      border-color: var(--dm_secondaryLight);
+      background-color: var(--secondaryLight);
+      color: var(--secondaryText);
+      border-color: var(--secondaryLight);
+      box-shadow: 3px 3px 0px 0px var(--secondaryTooDark);
     }
     &:active {
-      background-color: var(--dm_secondaryTooLight);
-      border-color: var(--dm_secondaryTooLight);
+      background-color: var(--secondaryTooLight);
+      border-color: var(--secondaryTooLight);
     }
   }
-
   .CuteButton-secondary-outlined {
-    color: var(--dm_textPrimary);
-    border-color: var(--dm_textPrimary);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--dm_secondary);
-      border-color: var(--dm_secondary);
-      color: var(--dm_secondary);
-      background-color: var(--glassSecondary);
+      // background-color: var(--darkGlassSecondary);
     }
     &:active {
-      background-color: var(--darkGlassSecondary);
+      // background-color: var(--glassSecondary);
     }
   }
 
   .CuteButton-neutral-text {
-    color: var(--dm_neutral);
-
+    color: var(--neutral);
     &:hover {
-      background-color: var(--dm_glassNeutral);
-      color: var(--dm_neutral);
+      // background-color: var(--darkGlassNeutral);
     }
     &:active {
-      background-color: var(--dm_darkGlassNeutral);
-      color: var(--dm_neutral);
+      // background-color: var(--glassNeutral);
     }
   }
-
   .CuteButton-neutral-contained {
-    background-color: var(--dm_neutral);
-    border-color: var(--dm_neutral);
-    color: var(--dm_neutralText);
+    border-color: var(--neutral);
+    color: var(--neutralText);
     &:hover {
-      background-color: var(--dm_neutralLight);
-      color: var(--dm_neutralText);
-      border-color: var(--dm_neutralLight);
-      box-shadow: 3px 3px 0px 0px var(--dm_neutral);
+      background-color: var(--neutralLight);
+      color: var(--neutralText);
+      border-color: var(--neutralLight);
+      box-shadow: 3px 3px 0px 0px var(--neutralTooDark);
     }
     &:active {
-      background-color: var(--dm_neutralTooLight);
-      border-color: var(--dm_neutralTooLight);
+      background-color: var(--neutralTooLight);
+      border-color: var(--neutralTooLight);
     }
   }
-
   .CuteButton-neutral-outlined {
-    color: var(--dm_textPrimary);
-    border-color: var(--dm_textPrimary);
     &:hover {
-      box-shadow: 3px 3px 0px 0px var(--dm_neutral);
-      border-color: var(--dm_neutral);
-      color: var(--dm_neutral);
-      background-color: var(--dm_glassNeutral);
+      // background-color: var(--darkGlassNeutral);
     }
     &:active {
-      background-color: var(--dm_darkGlassNeutral);
+      // background-color: var(--glassNeutral);
     }
   }
 
   .CuteButton-text-text {
     background-color: transparent;
-    color: var(--dm_textPrimary);
+    color: white;
     border: 1px solid transparent;
-
     &:hover {
       background-color: var(--darkGlass);
-      color: var(--dm_textPrimary);
+      color: white;
     }
-
     &:active {
       background-color: var(--glass);
     }
   }
-
   .CuteButton-text-contained {
-    background-color: var(--dm_textPrimary);
+    background-color: white;
     color: black;
-    border: 1px solid var(--dm_textPrimary);
-
+    border: 1px solid white;
     &:hover {
       color: black;
-      background-color: var(--dm_textPrimary);
+      background-color: white;
       box-shadow: none;
     }
     &:active {
-      background-color: var(--dm_textPrimary);
+      background-color: white;
     }
   }
-
   .CuteButton-text-outlined {
     background-color: transparent;
-    color: var(--dm_textPrimary);
-    border: 1px solid var(--dm_textPrimary);
-
+    color: white;
+    border: 1px solid white;
     &:hover {
-      border-color: var(--dm_textPrimary);
+      border-color: white;
       box-shadow: none;
-      background-color: var(--dm_textPrimary);
-      color: var(--dm_textOpposite);
+      background-color: white;
+      color: black;
+    }
+  }
+  .CuteButton-white-text {
+    &:hover {
+      background-color: var(--darkGlass);
+    }
+    &:active {
+      background-color: var(--glass);
     }
   }
 }

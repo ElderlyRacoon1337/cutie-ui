@@ -36,6 +36,26 @@
     }
   }
 }
+[data-theme='dark'] {
+  .CuteTab {
+    &:hover {
+      background-color: var(--darkGlass);
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+}
+[data-theme='light'] {
+  .CuteTab {
+    &:hover {
+      background-color: var(--glass);
+    }
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+}
 
 // ====================================================== Sizes =============================================================
 
@@ -121,85 +141,3 @@
 }
 
 // =================================
-
-[data-theme='light'] {
-  .CuteTab {
-    &:hover {
-      background-color: var(--glass);
-    }
-    &:active {
-      background-color: var(--darkGlass);
-    }
-  }
-}
-
-[data-theme='dark'] {
-  .CuteTab {
-    // color: var(--dm_textPrimary);
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteTab-active-contained-primary {
-    background-color: var(--dm_primary) !important;
-    color: var(--dm_primaryText);
-  }
-  .CuteTab-active-underlined-primary {
-    color: var(--dm_textPrimary);
-    border-color: var(--dm_primary);
-  }
-
-  .CuteTab-active-contained-secondary {
-    background-color: var(--dm_secondary) !important;
-    color: var(--dm_secondaryText);
-  }
-  .CuteTab-active-underlined-secondary {
-    border-color: var(--dm_secondary);
-  }
-
-  .CuteTab-active-contained-neutral {
-    background-color: var(--dm_neutral) !important;
-    color: var(--dm_neutralText);
-  }
-  .CuteTab-active-underlined-neutral {
-    border-color: var(--dm_neutral);
-    color: var(--dm_textPrimary);
-  }
-
-  .CuteTab-active-contained-black {
-    background-color: black !important;
-    color: var(--dm_textPrimary);
-  }
-  .CuteTab-active-underlined-black {
-    color: var(--dm_textPrimary);
-  }
-
-  .CuteTab-active-contained-white {
-    background-color: white !important;
-    color: var(--textPrimary);
-  }
-  .CuteTab-active-underlined-white {
-    border-color: white;
-  }
-
-  .CuteTab-active-contained-error {
-    background-color: var(--dm_error) !important;
-    color: var(--dm_errorText);
-  }
-  .CuteTab-active-underlined-error {
-    border-color: var(--dm_error);
-  }
-
-  .CuteTab-active-contained-success {
-    background-color: var(--dm_success) !important;
-    color: var(--dm_successText);
-  }
-  .CuteTab-active-underlined-success {
-    border-color: var(--dm_success);
-    color: var(--dm_textPrimary);
-  }
-}

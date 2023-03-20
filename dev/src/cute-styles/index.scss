@@ -67,27 +67,6 @@ li {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--dm_background);
-    color: var(--dm_textPrimary);
-  }
-}
-
-[data-theme='dark'] {
-  body {
-    background-color: var(--dm_background);
-    color: var(--dm_textPrimary);
-  }
-}
-
-[data-theme='light'] {
-  body {
-    background-color: var(--background);
-    color: var(--textPrimary);
-  }
-}
-
 // .CuteButton {
 //   box-shadow: none !important;
 // }

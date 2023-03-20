@@ -25,21 +25,6 @@
   border-top-color: var(--textPrimary);
 }
 
-[data-theme='dark'] {
-  .CuteLoader-primary {
-    border-top-color: var(--dm_primary);
-  }
-  .CuteLoader-secondary {
-    border-top-color: var(--dm_secondary);
-  }
-  .CuteLoader-neutral {
-    border-top-color: var(--dm_neutral);
-  }
-  .CuteLoader-text {
-    border-top-color: var(--dm_textPrimary);
-  }
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
