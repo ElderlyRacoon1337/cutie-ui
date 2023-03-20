@@ -147,7 +147,7 @@
   }
 
   .CuteListItem-activeFilled {
-    background-color: var(--dm_primaryDark);
+    background-color: var(--dm_primary);
     & > * {
       color: var(--dm_primaryText);
     }

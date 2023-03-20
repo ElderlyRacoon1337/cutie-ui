@@ -237,24 +237,21 @@ function App() {
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </Alert>
-            <Icon
-              className="mr-10px"
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
-              }
-            />
+            <Icon className="mr-10px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </Icon>
             <Avatar
               onClick={(e: any) => {
                 handleClickMenu(e);
@@ -405,7 +402,7 @@ function App() {
               Hello worldworldworld
             </ListItemButton>
           </List>
-          <div className="px-50px">
+          <div className="px-50px flex">
             <Button className="mr-10px mb-10px">Hello</Button>
             <Button className="mr-10px" variant="outlined">
               Hello
@@ -426,12 +423,11 @@ function App() {
 
             <Tabs
               value={tabsValue}
-              color="primary"
+              onChange={handleChangeTabs}
               variant="contained"
               labels={['English', 'Russian', 'Swedish']}
-              onChange={handleChangeTabs}
               fullWidth
-              className="minw-550px"
+              // className="minw-550px"
             >
               <Tab className="pt-20px">
                 <Skeleton
@@ -602,12 +598,27 @@ function App() {
                     Button
                   </Button>
                 </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="text">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="text">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="text">
+                    Button
+                  </Button>
+                </div>
               </Tab>
             </Tabs>
           </div>
         </div>
       </div>
       <Loader />
+      <div className="df fdc">
+        <Button variant="contained">Hello</Button>
+        <Button variant="outlined">Hello</Button>
+      </div>
     </div>
   );
 }

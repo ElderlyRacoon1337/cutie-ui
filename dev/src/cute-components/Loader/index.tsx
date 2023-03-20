@@ -28,7 +28,7 @@ const Loader: React.FC<LoaderProps> = ({
       {...other}
       style={{
         width: `${width}px`,
-        // borderTopColor: `var(--${color == 'text' ? 'textPrimary' : color})`,
+        borderTopColor: `var(--${color == 'text' ? 'textPrimary' : color})`,
         borderWidth: `${fatness}px`,
         ...style,
       }}

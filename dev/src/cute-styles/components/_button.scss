@@ -612,10 +612,45 @@
 [data-theme='dark'] {
   .CuteButton-success-contained {
     color: var(--dm_successText);
+    background-color: var(--dm_success);
+    border-color: var(--dm_success);
+  }
+  .CuteButton-success-outlined {
+    color: var(--dm_success);
+    background-color: transparent;
+    border-color: var(--dm_success);
+  }
+  .CuteButton-success-text {
+    color: var(--dm_success);
+    border-color: transparent;
+    &:hover {
+      background-color: var(--darkGlass);
+    }
+    &:active {
+      background-color: var(--glass);
+    }
   }
   .CuteButton-error-contained {
     color: var(--dm_errorText);
+    background-color: var(--dm_error);
+    border-color: var(--dm_error);
   }
+  .CuteButton-error-outlined {
+    color: var(--dm_error);
+    background-color: transparent;
+    border-color: var(--dm_error);
+  }
+  .CuteButton-error-text {
+    color: var(--dm_error);
+    border-color: transparent;
+    &:hover {
+      background-color: var(--darkGlass);
+    }
+    &:active {
+      background-color: var(--glass);
+    }
+  }
+
   .CuteButton-text-disabled {
     color: var(--dm_disabled) !important;
   }
@@ -630,13 +665,14 @@
   }
 
   .CuteButton-primary-text {
-    color: var(--dm_textPrimary);
+    color: var(--dm_primary);
     &:hover {
-      color: var(--dm_textPrimary);
-      background-color: var(--darkGlass);
+      color: var(--dm_primary);
+      background-color: var(--glassPrimary);
     }
     &:active {
-      background-color: var(--glass);
+      color: var(--dm_primary);
+      background-color: var(--darkGlassPrimary);
     }
   }
 
@@ -645,10 +681,15 @@
     border-color: var(--dm_primary);
     color: var(--dm_primaryText);
     &:hover {
-      background-color: var(--dm_textPrimary);
-      border-color: black;
-      color: black;
-      box-shadow: 3px 3px 0px 0px var(--dm_primary);
+      background-color: var(--dm_primaryText);
+      background-color: var(--dm_primaryLight);
+      border-color: var(--dm_primaryLight);
+      color: var(--dm_primaryText);
+      box-shadow: 3px 3px 0px 0px var(--dm_primaryTooDark);
+    }
+    &:active {
+      background-color: var(--dm_primaryTooLight);
+      border-color: var(--dm_primaryTooLight);
     }
   }
 
@@ -656,25 +697,25 @@
     color: var(--dm_textPrimary);
     border-color: var(--dm_textPrimary);
     &:hover {
-      background-color: var(--darkGlass);
-      border-color: var(--dm_textPrimary);
-      color: var(--dm_textPrimary);
+      background-color: var(--glassPrimary);
+      border-color: var(--dm_primary);
+      color: var(--dm_primary);
       box-shadow: 3px 3px 0px 0px var(--dm_primary);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--darkGlassPrimary);
     }
   }
 
   .CuteButton-secondary-text {
-    color: var(--dm_textPrimary);
+    color: var(--dm_secondary);
     &:hover {
-      background-color: var(--darkGlass);
-      color: var(--dm_textPrimary);
+      background-color: var(--glassSecondary);
+      color: var(--dm_secondary);
     }
     &:active {
-      background-color: var(--glass);
-      color: var(--dm_textPrimary);
+      background-color: var(--darkGlassSecondary);
+      color: var(--dm_secondary);
     }
   }
 
@@ -684,9 +725,13 @@
     color: var(--dm_secondaryText);
     &:hover {
       box-shadow: 3px 3px 0px 0px var(--dm_secondary);
-      background-color: var(--dm_textPrimary);
-      color: black;
-      border-color: black;
+      background-color: var(--dm_secondaryLight);
+      color: var(--dm_secondaryText);
+      border-color: var(--dm_secondaryLight);
+    }
+    &:active {
+      background-color: var(--dm_secondaryTooLight);
+      border-color: var(--dm_secondaryTooLight);
     }
   }
 
@@ -695,25 +740,25 @@
     border-color: var(--dm_textPrimary);
     &:hover {
       box-shadow: 3px 3px 0px 0px var(--dm_secondary);
-      border-color: var(--dm_textPrimary);
-      color: var(--dm_textPrimary);
-      background-color: var(--darkGlass);
+      border-color: var(--dm_secondary);
+      color: var(--dm_secondary);
+      background-color: var(--glassSecondary);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--darkGlassSecondary);
     }
   }
 
   .CuteButton-neutral-text {
-    color: var(--dm_textPrimary);
+    color: var(--dm_neutral);
 
     &:hover {
-      background-color: var(--darkGlass);
-      color: var(--dm_textPrimary);
+      background-color: var(--dm_glassNeutral);
+      color: var(--dm_neutral);
     }
     &:active {
-      background-color: var(--glass);
-      color: var(--dm_textPrimary);
+      background-color: var(--dm_darkGlassNeutral);
+      color: var(--dm_neutral);
     }
   }
 
@@ -722,10 +767,14 @@
     border-color: var(--dm_neutral);
     color: var(--dm_neutralText);
     &:hover {
-      background-color: var(--dm_textPrimary);
-      color: black;
-      border-color: black;
+      background-color: var(--dm_neutralLight);
+      color: var(--dm_neutralText);
+      border-color: var(--dm_neutralLight);
       box-shadow: 3px 3px 0px 0px var(--dm_neutral);
+    }
+    &:active {
+      background-color: var(--dm_neutralTooLight);
+      border-color: var(--dm_neutralTooLight);
     }
   }
 
@@ -734,12 +783,12 @@
     border-color: var(--dm_textPrimary);
     &:hover {
       box-shadow: 3px 3px 0px 0px var(--dm_neutral);
-      border-color: var(--dm_textPrimary);
-      color: var(--dm_textPrimary);
-      background-color: var(--darkGlass);
+      border-color: var(--dm_neutral);
+      color: var(--dm_neutral);
+      background-color: var(--dm_glassNeutral);
     }
     &:active {
-      background-color: var(--glass);
+      background-color: var(--dm_darkGlassNeutral);
     }
   }
 
@@ -812,7 +861,7 @@
 
     &:hover {
       background-color: var(--primaryDark);
-      box-shadow: 3px 3px 0px 0px var(--primaryLight);
+      box-shadow: 3px 3px 0px 0px var(--primaryTooLight);
       border-color: var(--primaryDark);
     }
 
@@ -830,7 +879,7 @@
     &:hover {
       color: var(--primary);
       border: 1px solid var(--primary);
-      box-shadow: 3px 3px 0px 0px var(--primaryLight);
+      box-shadow: 3px 3px 0px 0px var(--primaryTooLight);
     }
   }
 
@@ -840,12 +889,12 @@
     border: 1px solid transparent;
 
     &:hover {
-      background-color: var(--secondaryTooLight);
+      background-color: var(--glassSecondary);
       color: var(--secondary);
     }
 
     &:active {
-      background-color: var(--secondaryLight);
+      background-color: var(--darkGlassSecondary);
     }
   }
 
@@ -884,16 +933,16 @@
 
   .CuteButton-neutral-text {
     background-color: transparent;
-    color: var(--textPrimary);
+    color: var(--neutral);
     border: 1px solid transparent;
 
     &:hover {
-      background-color: var(--neutralTooLight);
+      background-color: var(--glass);
       color: var(--neutral);
     }
 
     &:active {
-      background-color: var(--neutralLight);
+      background-color: var(--darkGlass);
     }
   }
 
@@ -905,9 +954,11 @@
     &:hover {
       background-color: var(--neutralDark);
       box-shadow: 3px 3px 0px 0px var(--neutralTooLight);
+      border-color: var(--neutralDark);
     }
     &:active {
       background-color: var(--neutralTooDark);
+      border-color: var(--neutralTooDark);
     }
   }
 

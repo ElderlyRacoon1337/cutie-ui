@@ -5,42 +5,36 @@ import { ThemeProvider } from './ThemeProvider';
 
 const themeOptions = {
   colors: {
-    // textPrimary: 'purple',
+    // bebrik: 'violet',
     primary: '#2394fe',
     secondary: '#aa49ad',
     neutral: 'rgb(81, 94, 111)',
-    // link: 'rgb(24, 118, 209)',
-    error: '#ff9ca5',
-    success: '#2cd252',
-    // neutral: '#000',
   },
   lightMode: {
     backgroundSecondary: 'white',
+    // primary: '#000',
+    // secondary: '#000',
+    // neutral: '#000',
+    // error: '#000',
+    // success: '#000',
   },
   darkMode: {
-    // backgroundSecondary: 'grey',
-    // link: 'yellow',
-    // primary: 'green',
-    // secondary: '#bffffc',
-    // success: '#1c401c',
-    error: 'red',
-    // disabled: 'pink',
-    backgroundSecondary: 'black',
-    // divider: 'pink',
-    // textPrimary: 'grey',
+    backgroundSecondary: '#121212',
+    // primary: 'pink',
+    // bebrik: 'green',
+    // primary: '#fff',
+    // secondary: '#fff',
+    // neutral: '#fff',
+    // error: '#fff',
+    // success: '#fff',
   },
   font: {
-    fontSize: {
-      small: '20px',
-      large: '40px',
-      medium: '30px',
+    size: {
+      // small: '20px',
+      // large: '40px',
+      // medium: '2rem',
     },
-    fontFamily: 'sans serif',
-  },
-  breakPoints: {
-    sm: '600px',
-    md: '900px',
-    lg: '1200px',
+    // family: 'verdana',
   },
 };
 

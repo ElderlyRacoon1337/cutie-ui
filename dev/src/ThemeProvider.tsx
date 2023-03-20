@@ -27,7 +27,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   const colors = themeOptions.colors || {};
   const darkMode = themeOptions.darkMode || {};
   const lightMode = themeOptions.lightMode || {};
-  const font = themeOptions.colors || {};
+  const font = themeOptions.font || {};
   const localStorageTheme = window.localStorage.getItem('theme');
   const [theme, setTheme] = useState(
     localStorageTheme ? localStorageTheme : getDefaultTheme()
@@ -37,11 +37,30 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     setTheme(theme);
   }
 
+  if (font) {
+    if (font.size) {
+      for (let key in font.size) {
+        document.body.style.setProperty(
+          `--fontSize${key[0].toLocaleUpperCase()}${key.slice(1)}`,
+          font.size[key]
+        );
+        console.log(
+          `--fontSize${key[0].toLocaleUpperCase()}${key.slice(1)}`,
+          font.size[key]
+        );
+      }
+    }
+    if (font.family) {
+      document.body.style.setProperty(`--fontFamily`, font.family);
+      console.log(`--fontFamily`, font.family);
+    }
+  }
+
   if (colors.primary) {
-    colors.primaryLight = tinycolor2(colors.primary).lighten(10).toString();
-    colors.primaryTooLight = tinycolor2(colors.primary).lighten(20).toString();
+    colors.primaryLight = tinycolor2(colors.primary).lighten(7).toString();
+    colors.primaryTooLight = tinycolor2(colors.primary).lighten(10).toString();
     colors.primaryDark = tinycolor2(colors.primary).darken(7).toString();
-    colors.primaryTooDark = tinycolor2(colors.primary).darken(12).toString();
+    colors.primaryTooDark = tinycolor2(colors.primary).darken(10).toString();
     colors.primaryText = tinycolor2(colors.primary).isLight()
       ? 'var(--textPrimary)'
       : 'var(--textOpposite)';
@@ -53,12 +72,13 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       .setAlpha(0.12)
       .toString();
     // ===
-    colors.dm_primaryLight = tinycolor2(colors.primary).lighten(10).toString();
+    colors.dm_primary = tinycolor2(colors.primary);
+    colors.dm_primaryLight = tinycolor2(colors.primary).lighten(7).toString();
     colors.dm_primaryTooLight = tinycolor2(colors.primary)
-      .lighten(20)
+      .lighten(10)
       .toString();
     colors.dm_primaryDark = tinycolor2(colors.primary).darken(7).toString();
-    colors.dm_primaryTooDark = tinycolor2(colors.primary).darken(12).toString();
+    colors.dm_primaryTooDark = tinycolor2(colors.primary).darken(10).toString();
     colors.dm_primaryText = tinycolor2(colors.primary).isLight()
       ? 'var(--dm_textOpposite)'
       : 'var(--dm_textPrimary)';
@@ -73,13 +93,13 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       .toString();
   }
   if (colors.secondary) {
-    colors.secondaryLight = tinycolor2(colors.secondary).lighten(10).toString();
+    colors.secondaryLight = tinycolor2(colors.secondary).lighten(7).toString();
     colors.secondaryTooLight = tinycolor2(colors.secondary)
-      .lighten(20)
+      .lighten(10)
       .toString();
     colors.secondaryDark = tinycolor2(colors.secondary).darken(7).toString();
     colors.secondaryTooDark = tinycolor2(colors.secondary)
-      .darken(12)
+      .darken(10)
       .toString();
     colors.secondaryText = tinycolor2(colors.secondary).isLight()
       ? 'var(--textPrimary)'
@@ -94,15 +114,16 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       .setAlpha(0.12)
       .toString();
     // ===
+    colors.dm_secondary = tinycolor2(colors.secondary);
     colors.dm_secondaryLight = tinycolor2(colors.secondary)
-      .lighten(10)
+      .lighten(7)
       .toString();
     colors.dm_secondaryTooLight = tinycolor2(colors.secondary)
-      .lighten(20)
+      .lighten(10)
       .toString();
     colors.dm_secondaryDark = tinycolor2(colors.secondary).darken(7).toString();
     colors.dm_secondaryTooDark = tinycolor2(colors.secondary)
-      .darken(12)
+      .darken(10)
       .toString();
     colors.dm_secondaryText = tinycolor2(colors.secondary).isLight()
       ? 'var(--dm_textOpposite)'
@@ -118,10 +139,10 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       .toString();
   }
   if (colors.neutral) {
-    colors.neutralLight = tinycolor2(colors.neutral).lighten(10).toString();
-    colors.primaryTooLight = tinycolor2(colors.neutral).lighten(20).toString();
+    colors.neutralLight = tinycolor2(colors.neutral).lighten(7).toString();
+    colors.neutralTooLight = tinycolor2(colors.neutral).lighten(10).toString();
     colors.neutralDark = tinycolor2(colors.neutral).darken(7).toString();
-    colors.neutralTooDark = tinycolor2(colors.neutral).darken(12).toString();
+    colors.neutralTooDark = tinycolor2(colors.neutral).darken(10).toString();
     colors.neutralText = tinycolor2(colors.neutral).isLight()
       ? 'var(--textPrimary)'
       : 'var(--textOpposite)';
@@ -129,12 +150,13 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       ? 'var(--textOpposite)'
       : 'var(--textPrimary)';
     // ===
-    colors.dm_neutralLight = tinycolor2(colors.neutral).lighten(10).toString();
-    colors.dm_primaryTooLight = tinycolor2(colors.neutral)
-      .lighten(20)
+    colors.dm_neutral = tinycolor2(colors.neutral);
+    colors.dm_neutralLight = tinycolor2(colors.neutral).lighten(7).toString();
+    colors.dm_neutralTooLight = tinycolor2(colors.neutral)
+      .lighten(10)
       .toString();
     colors.dm_neutralDark = tinycolor2(colors.neutral).darken(7).toString();
-    colors.dm_neutralTooDark = tinycolor2(colors.neutral).darken(12).toString();
+    colors.dm_neutralTooDark = tinycolor2(colors.neutral).darken(10).toString();
     colors.dm_neutralText = tinycolor2(colors.neutral).isLight()
       ? 'var(--dm_textOpposite)'
       : 'var(--dm_textPrimary)';
@@ -144,7 +166,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     colors.dm_glassNeutral = tinycolor2(colors.neutral)
       .setAlpha(0.08)
       .toString();
-    colors.dm_glassNeutral = tinycolor2(colors.neutral)
+    colors.dm_darkGlassNeutral = tinycolor2(colors.neutral)
       .setAlpha(0.12)
       .toString();
   }
@@ -190,26 +212,112 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
 
   if (colors) {
     for (let key in colors) {
-      console.log(`${key}`, colors[key]);
-      document.documentElement.style.setProperty(`--${key}`, colors[key]);
+      // console.log(`${key}`, colors[key]);
+      document.body.style.setProperty(`--${key}`, colors[key]);
     }
   }
   if (lightMode) {
+    if (lightMode.primary) {
+      lightMode.primaryLight = tinycolor2(lightMode.primary)
+        .lighten(7)
+        .toString();
+      lightMode.primaryTooLight = tinycolor2(lightMode.primary)
+        .lighten(10)
+        .toString();
+      lightMode.primaryDark = tinycolor2(lightMode.primary)
+        .darken(7)
+        .toString();
+      lightMode.primaryTooDark = tinycolor2(lightMode.primary)
+        .darken(10)
+        .toString();
+      lightMode.primaryText = tinycolor2(lightMode.primary).isLight()
+        ? 'var(--textPrimary)'
+        : 'var(--textOpposite)';
+      lightMode.primaryTextOpposite = tinycolor2(lightMode.primary).isLight()
+        ? 'var(--textOpposite)'
+        : 'var(--textPrimary)';
+      lightMode.glassPrimary = tinycolor2(lightMode.primary)
+        .setAlpha(0.08)
+        .toString();
+      lightMode.darkGlassPrimary = tinycolor2(lightMode.primary)
+        .setAlpha(0.12)
+        .toString();
+    }
+    if (lightMode.secondary) {
+      lightMode.secondaryLight = tinycolor2(lightMode.secondary)
+        .lighten(7)
+        .toString();
+      lightMode.secondaryTooLight = tinycolor2(lightMode.secondary)
+        .lighten(10)
+        .toString();
+      lightMode.secondaryDark = tinycolor2(lightMode.secondary)
+        .darken(7)
+        .toString();
+      lightMode.secondaryTooDark = tinycolor2(lightMode.secondary)
+        .darken(10)
+        .toString();
+      lightMode.secondaryText = tinycolor2(lightMode.secondary).isLight()
+        ? 'var(--textPrimary)'
+        : 'var(--textOpposite)';
+      lightMode.secondaryTextOpposite = tinycolor2(
+        lightMode.secondary
+      ).isLight()
+        ? 'var(--textOpposite)'
+        : 'var(--textPrimary)';
+      lightMode.glassSecondary = tinycolor2(lightMode.secondary)
+        .setAlpha(0.08)
+        .toString();
+      lightMode.darkGlassSecondary = tinycolor2(lightMode.secondary)
+        .setAlpha(0.12)
+        .toString();
+    }
+
+    if (lightMode.neutral) {
+      lightMode.neutralLight = tinycolor2(lightMode.neutral)
+        .lighten(7)
+        .toString();
+      lightMode.neutralTooLight = tinycolor2(lightMode.neutral)
+        .lighten(10)
+        .toString();
+      lightMode.neutralDark = tinycolor2(lightMode.neutral)
+        .darken(7)
+        .toString();
+      lightMode.neutralTooDark = tinycolor2(lightMode.neutral)
+        .darken(10)
+        .toString();
+      lightMode.neutralText = tinycolor2(lightMode.neutral).isLight()
+        ? 'var(--textPrimary)'
+        : 'var(--textOpposite)';
+      lightMode.neutralTextOpposite = tinycolor2(lightMode.neutral).isLight()
+        ? 'var(--textOpposite)'
+        : 'var(--textPrimary)';
+    }
+    if (lightMode.error) {
+      lightMode.errorText = tinycolor2(lightMode.error).isLight()
+        ? 'var(--textPrimary)'
+        : 'var(--textOpposite)';
+    }
+    if (lightMode.success) {
+      lightMode.successText = tinycolor2(lightMode.success).isLight()
+        ? 'var(--textPrimary)'
+        : 'var(--textOpposite)';
+    }
+
     for (let key in lightMode) {
-      document.documentElement.style.setProperty(`--${key}`, lightMode[key]);
+      document.body.style.setProperty(`--${key}`, lightMode[key]);
     }
   }
   if (darkMode) {
     if (darkMode.primary) {
       darkMode.primaryLight = tinycolor2(darkMode.primary)
-        .lighten(10)
+        .lighten(7)
         .toString();
       darkMode.primaryTooLight = tinycolor2(darkMode.primary)
-        .lighten(20)
+        .lighten(10)
         .toString();
       darkMode.primaryDark = tinycolor2(darkMode.primary).darken(7).toString();
       darkMode.primaryTooDark = tinycolor2(darkMode.primary)
-        .darken(12)
+        .darken(10)
         .toString();
       darkMode.primaryText = tinycolor2(darkMode.primary).isLight()
         ? 'var(--dm_textOpposite)'
@@ -226,16 +334,16 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     }
     if (darkMode.secondary) {
       darkMode.secondaryLight = tinycolor2(darkMode.secondary)
-        .lighten(10)
+        .lighten(7)
         .toString();
       darkMode.secondaryTooLight = tinycolor2(darkMode.secondary)
-        .lighten(20)
+        .lighten(10)
         .toString();
       darkMode.secondaryDark = tinycolor2(darkMode.secondary)
         .darken(7)
         .toString();
       darkMode.secondaryTooDark = tinycolor2(darkMode.secondary)
-        .darken(12)
+        .darken(10)
         .toString();
       darkMode.secondaryText = tinycolor2(darkMode.secondary).isLight()
         ? 'var(--dm_textOpposite)'
@@ -252,14 +360,14 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     }
     if (darkMode.neutral) {
       darkMode.neutralLight = tinycolor2(darkMode.neutral)
-        .lighten(10)
+        .lighten(7)
         .toString();
       darkMode.neutralTooLight = tinycolor2(darkMode.neutral)
-        .lighten(20)
+        .lighten(10)
         .toString();
       darkMode.neutralDark = tinycolor2(darkMode.neutral).darken(7).toString();
       darkMode.neutralTooDark = tinycolor2(darkMode.neutral)
-        .darken(12)
+        .darken(10)
         .toString();
       darkMode.neutralText = tinycolor2(darkMode.neutral).isLight()
         ? 'var(--dm_textOpposite)'
@@ -285,8 +393,8 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
         : 'var(--dm_textPrimary)';
     }
     for (let key in darkMode) {
-      console.log(`--dm_${key}`, darkMode[key]);
-      document.documentElement.style.setProperty(`--dm_${key}`, darkMode[key]);
+      // console.log(`--dm_${key}`, darkMode[key]);
+      document.body.style.setProperty(`--dm_${key}`, darkMode[key]);
     }
   }
 

@@ -96,7 +96,7 @@
 
 .CuteTab-active-contained-error {
   background-color: var(--error) !important;
-  color: var(--textPrimary);
+  color: var(--errorText);
 }
 .CuteTab-active-underlined-error {
   border-color: var(--error);
@@ -104,7 +104,7 @@
 
 .CuteTab-active-contained-success {
   background-color: var(--success) !important;
-  color: var(--textPrimary);
+  color: var(--successText);
 }
 .CuteTab-active-underlined-success {
   border-color: var(--success);
@@ -135,7 +135,7 @@
 
 [data-theme='dark'] {
   .CuteTab {
-    color: var(--dm_textPrimary);
+    // color: var(--dm_textPrimary);
     &:hover {
       background-color: var(--darkGlass);
     }
@@ -146,7 +146,7 @@
 
   .CuteTab-active-contained-primary {
     background-color: var(--dm_primary) !important;
-    color: var(--dm_textPrimary);
+    color: var(--dm_primaryText);
   }
   .CuteTab-active-underlined-primary {
     color: var(--dm_textPrimary);
@@ -155,7 +155,7 @@
 
   .CuteTab-active-contained-secondary {
     background-color: var(--dm_secondary) !important;
-    color: var(--dm_textPrimary);
+    color: var(--dm_secondaryText);
   }
   .CuteTab-active-underlined-secondary {
     border-color: var(--dm_secondary);
@@ -163,7 +163,7 @@
 
   .CuteTab-active-contained-neutral {
     background-color: var(--dm_neutral) !important;
-    color: var(--dm_textPrimary);
+    color: var(--dm_neutralText);
   }
   .CuteTab-active-underlined-neutral {
     border-color: var(--dm_neutral);
@@ -188,7 +188,7 @@
 
   .CuteTab-active-contained-error {
     background-color: var(--dm_error) !important;
-    color: var(--textPrimary);
+    color: var(--dm_errorText);
   }
   .CuteTab-active-underlined-error {
     border-color: var(--dm_error);
@@ -196,7 +196,7 @@
 
   .CuteTab-active-contained-success {
     background-color: var(--dm_success) !important;
-    color: var(--dm_textPrimary);
+    color: var(--dm_successText);
   }
   .CuteTab-active-underlined-success {
     border-color: var(--dm_success);

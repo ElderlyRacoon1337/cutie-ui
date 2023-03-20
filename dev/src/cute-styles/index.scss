@@ -21,14 +21,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'system-ui', sans-serif;
+  font-family: var(--fontFamily);
 }
 
 body {
   min-height: 100vh;
   color: var(--textPrimary);
   background-color: var(--background);
-  font-size: 0.875rem;
+  font-size: var(--fontSizeMedium);
 }
 
 a {
@@ -87,3 +87,7 @@ li {
     color: var(--textPrimary);
   }
 }
+
+// .CuteButton {
+//   box-shadow: none !important;
+// }
