@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface MenuItemProps {
   className?: string;
@@ -11,7 +11,6 @@ interface MenuItemProps {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   divider?: boolean;
-  ref?: any;
   other?: object;
 }
 
@@ -24,13 +23,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   startIcon,
   endIcon,
   divider,
-  ref,
   other,
 }) => {
   return (
-    // @ts-ignore
     <li
-      ref={ref}
       onClick={
         onClick
           ? (e) => {

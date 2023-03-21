@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import './index.scss';
 import '../../cute-styles/index.scss';
 
 interface AvatarProps {
@@ -8,7 +9,6 @@ interface AvatarProps {
   src: string;
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<any>) => void;
-  ref?: any;
   other?: object;
 }
 
@@ -18,12 +18,10 @@ export const Avatar: React.FC<AvatarProps> = ({
   src,
   style,
   onClick,
-  ref,
   other,
 }) => {
   return (
     <div
-      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteAvatar',

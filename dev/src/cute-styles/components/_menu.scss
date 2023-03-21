@@ -93,27 +93,3 @@
 }
 
 // =============================================================================================================================
-
-@media (prefers-color-scheme: dark) {
-  .CuteMenuItem {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-
-[data-theme='dark'] {
-  .CuteMenuItem {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}

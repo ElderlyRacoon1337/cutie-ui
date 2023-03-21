@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { IconButton } from '../IconButton';
 import React, { useEffect } from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface AlertProps {
   children?: React.ReactNode;
@@ -20,7 +20,6 @@ interface AlertProps {
   startIcon?: React.ReactNode;
   withioutButton?: boolean;
   duration?: number;
-  ref?: any;
   other?: object;
 }
 
@@ -35,7 +34,7 @@ const Alert: React.FC<AlertProps> = ({
   withioutButton = false,
   duration = 3000,
   open,
-  ref,
+
   other,
 }) => {
   if (!startIcon) {
@@ -89,7 +88,6 @@ const Alert: React.FC<AlertProps> = ({
     <>
       {open && (
         <div
-          ref={ref}
           className={clsx(
             'CuteAlert',
             `CuteAlert-${position}`,

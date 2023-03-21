@@ -5,33 +5,20 @@ import { ThemeProvider } from './ThemeProvider';
 
 const themeOptions = {
   colors: {
-    bebrik: 'violet',
-    primary: '#7c00db',
-    secondary: '#00dba1',
-    neutral: 'rgb(81, 94, 111)',
+    primary: '#eb0066',
+    secondary: '#475979',
   },
-  lightMode: {
-    backgroundSecondary: 'white',
-    // primary: '#000',
-    // neutral: '#000',
-    // error: '#000',
-    // success: '#000',
-  },
+  lightMode: {},
   darkMode: {
-    bebrik: 'orange',
-    backgroundSecondary: '#121212',
-    primary: '#4aff89',
-    secondary: '#ff80f2',
-    neutral: '#6f79b0',
-    error: '#e000b7',
-    link: 'yellow',
-    success: '#c2ffd4',
+    // background: '#0a0d12',
+    success: '#25b847',
+    backgroundSecondary: '#141414',
   },
   font: {
     size: {
       // small: '20px',
       // large: '40px',
-      // medium: '1rem',
+      // medium: '2rem',
     },
     // family: 'verdana',
   },

@@ -423,12 +423,6 @@
 @media (prefers-color-scheme: dark) {
   .CuteButton-primary-text {
     color: var(--primary);
-    &:hover {
-      background-color: var(--darkGlassPrimary);
-    }
-    &:active {
-      background-color: var(--glassPrimary);
-    }
   }
   .CuteButton-primary-contained {
     border-color: var(--primary);
@@ -444,23 +438,9 @@
       border-color: var(--primaryTooLight);
     }
   }
-  .CuteButton-primary-outlined {
-    &:hover {
-      background-color: var(--darkGlassPrimary);
-    }
-    &:active {
-      background-color: var(--glassPrimary);
-    }
-  }
 
   .CuteButton-secondary-text {
     color: var(--secondary);
-    &:hover {
-      background-color: var(--darkGlassSecondary);
-    }
-    &:active {
-      background-color: var(--glassSecondary);
-    }
   }
   .CuteButton-secondary-contained {
     border-color: var(--secondary);
@@ -476,23 +456,9 @@
       border-color: var(--secondaryTooLight);
     }
   }
-  .CuteButton-secondary-outlined {
-    &:hover {
-      background-color: var(--darkGlassSecondary);
-    }
-    &:active {
-      background-color: var(--glassSecondary);
-    }
-  }
 
   .CuteButton-neutral-text {
     color: var(--neutral);
-    &:hover {
-      background-color: var(--darkGlassNeutral);
-    }
-    &:active {
-      background-color: var(--glassNeutral);
-    }
   }
   .CuteButton-neutral-contained {
     border-color: var(--neutral);
@@ -509,25 +475,10 @@
     }
   }
   .CuteButton-neutral-outlined {
-    &:hover {
-      background-color: var(--darkGlassNeutral);
-    }
-    &:active {
-      background-color: var(--glassNeutral);
-    }
   }
 
   .CuteButton-text-text {
-    background-color: transparent;
     color: white;
-    border: 1px solid transparent;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
   }
   .CuteButton-text-contained {
     background-color: white;
@@ -551,14 +502,6 @@
       box-shadow: none;
       background-color: white;
       color: black;
-    }
-  }
-  .CuteButton-white-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
     }
   }
 }
@@ -568,12 +511,6 @@
 [data-theme='dark'] {
   .CuteButton-primary-text {
     color: var(--primary);
-    &:hover {
-      // background-color: var(--darkGlassPrimary);
-    }
-    &:active {
-      // background-color: var(--glassPrimary);
-    }
   }
   .CuteButton-primary-contained {
     border-color: var(--primary);
@@ -589,23 +526,9 @@
       border-color: var(--primaryTooLight);
     }
   }
-  .CuteButton-primary-outlined {
-    &:hover {
-      // background-color: var(--darkGlassPrimary);
-    }
-    &:active {
-      // background-color: var(--glassPrimary);
-    }
-  }
 
   .CuteButton-secondary-text {
     color: var(--secondary);
-    &:hover {
-      // background-color: var(--darkGlassSecondary);
-    }
-    &:active {
-      // background-color: var(--glassSecondary);
-    }
   }
   .CuteButton-secondary-contained {
     border-color: var(--secondary);
@@ -621,23 +544,9 @@
       border-color: var(--secondaryTooLight);
     }
   }
-  .CuteButton-secondary-outlined {
-    &:hover {
-      // background-color: var(--darkGlassSecondary);
-    }
-    &:active {
-      // background-color: var(--glassSecondary);
-    }
-  }
 
   .CuteButton-neutral-text {
     color: var(--neutral);
-    &:hover {
-      // background-color: var(--darkGlassNeutral);
-    }
-    &:active {
-      // background-color: var(--glassNeutral);
-    }
   }
   .CuteButton-neutral-contained {
     border-color: var(--neutral);
@@ -653,26 +562,11 @@
       border-color: var(--neutralTooLight);
     }
   }
-  .CuteButton-neutral-outlined {
-    &:hover {
-      // background-color: var(--darkGlassNeutral);
-    }
-    &:active {
-      // background-color: var(--glassNeutral);
-    }
-  }
 
   .CuteButton-text-text {
-    background-color: transparent;
+    // background-color: transparent;
     color: white;
-    border: 1px solid transparent;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
+    // border: 1px solid transparent;
   }
   .CuteButton-text-contained {
     background-color: white;
@@ -696,14 +590,6 @@
       box-shadow: none;
       background-color: white;
       color: black;
-    }
-  }
-  .CuteButton-white-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
     }
   }
 }

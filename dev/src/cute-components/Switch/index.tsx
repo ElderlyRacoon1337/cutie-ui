@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface SwitchProps {
   checked?: boolean;
@@ -17,7 +17,6 @@ interface SwitchProps {
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
-  ref?: any;
   other?: object;
   onChange?: any;
 }
@@ -28,7 +27,6 @@ const Switch: React.FC<SwitchProps> = ({
   disabled = false,
   color = 'primary',
   onChange,
-  ref,
   other,
   className,
   style,
@@ -55,7 +53,6 @@ const Switch: React.FC<SwitchProps> = ({
             )}
           >
             <input
-              ref={ref}
               onChange={onChange}
               type="checkbox"
               checked={checked}

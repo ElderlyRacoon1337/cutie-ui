@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import './index.scss';
 
 interface GradientTextProps {
   children?: React.ReactNode;
@@ -10,6 +11,7 @@ interface GradientTextProps {
   fontSize?: number | string;
   fontWeight?: number | string;
   rotate?: number | string;
+  other?: object;
 }
 
 const GradientText: React.FC<GradientTextProps> = ({
@@ -21,6 +23,7 @@ const GradientText: React.FC<GradientTextProps> = ({
   fontSize,
   fontWeight,
   rotate = '90',
+  other,
 }) => {
   return (
     <p
@@ -34,6 +37,7 @@ const GradientText: React.FC<GradientTextProps> = ({
         fontWeight: fontWeight,
         ...style,
       }}
+      {...other}
     >
       {children}
     </p>

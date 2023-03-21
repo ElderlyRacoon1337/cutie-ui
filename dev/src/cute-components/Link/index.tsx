@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface LinkProps {
   children?: React.ReactNode;
@@ -9,7 +9,6 @@ interface LinkProps {
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLElement>;
   underlined?: boolean;
-  ref?: any;
   other?: object;
 }
 
@@ -20,12 +19,10 @@ const Link: React.FC<LinkProps> = ({
   style,
   onClick,
   underlined = false,
-  ref,
   other,
 }) => {
   return (
     <a
-      ref={ref}
       href={href}
       onClick={onClick}
       className={clsx(

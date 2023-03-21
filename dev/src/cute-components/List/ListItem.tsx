@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface ListItemProps {
   className?: string;
@@ -11,8 +11,8 @@ interface ListItemProps {
   onClick?: (event: React.MouseEvent<any>) => void;
   active?: boolean;
   activeFilled?: boolean;
-  ref?: any;
   other?: object;
+  square?: boolean;
 }
 
 export const ListItem: React.FC<ListItemProps> = ({
@@ -24,12 +24,11 @@ export const ListItem: React.FC<ListItemProps> = ({
   active,
   endIcon,
   activeFilled,
-  ref,
   other,
+  square,
 }) => {
   return (
     <li
-      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteListItem',
@@ -38,7 +37,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         startIcon && !endIcon && 'CuteListItem-iconStart',
         endIcon && !startIcon && 'CuteListItem-iconEnd',
         startIcon && endIcon && 'CuteListItem-icons',
-
+        square && 'CuteListItem-square',
         className
       )}
       {...other}

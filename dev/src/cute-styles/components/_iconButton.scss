@@ -255,12 +255,12 @@
   border: 1px solid transparent;
 
   &:hover {
-    background-color: var(--darkGlass);
+    background-color: var(--glass);
     color: white;
   }
 
   &:active {
-    background-color: var(--glass);
+    background-color: var(--darkGlass);
   }
 }
 
@@ -336,53 +336,3 @@
     box-shadow: 0px 0px 0px 3px var(--darkGlass);
   }
 }
-
-// ================================================= Dark mode =================================================
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-text-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-  .CuteIconButton-black-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-  .CuteIconButton-white-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-[data-theme='dark'] {
-  .CuteIconButton-text-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteIconButton-white-text {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-
-// ===============

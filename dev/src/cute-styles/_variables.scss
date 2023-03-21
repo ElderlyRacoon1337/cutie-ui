@@ -205,8 +205,8 @@ $darkGlassSuccess: rgba($success, 0.08);
     --neutralText: #{$textOpposite};
 
     --disabled: #{rgb(82, 82, 82)};
-    --background: #060606;
-    --backgroundSecondary: rgb(28, 28, 28);
+    --background: #000000;
+    --backgroundSecondary: #141414;
     --textPrimary: #{#ffffff};
     --textSecondary: #{#bcbcbc};
     --textOpposite: #{$textPrimary};
@@ -217,8 +217,8 @@ $darkGlassSuccess: rgba($success, 0.08);
     --success: #{rgb(30, 158, 8)};
     --errorText: #{$textOpposite};
     --successText: #{$textOpposite};
-    --glass: #{rgba(#fff, 0.08)};
-    --darkGlass: #{rgba(#fff, 0.05)};
+    --glass: #{rgba(#fff, 0.05)};
+    --darkGlass: #{rgba(#fff, 0.08)};
 
     --skeletonLight: #{rgb(31, 31, 31)};
     --skeletonDark: #{rgb(25, 25, 25)};
@@ -311,8 +311,8 @@ $darkGlassSuccess: rgba($success, 0.08);
   --neutralText: #{$textOpposite};
 
   --disabled: #{rgb(82, 82, 82)};
-  --background: #060606;
-  --backgroundSecondary: rgb(28, 28, 28);
+  --background: #000000;
+  --backgroundSecondary: #141414;
   --textPrimary: #{#ffffff};
   --textSecondary: #{#bcbcbc};
   --textOpposite: #{#{$textPrimary}};
@@ -323,8 +323,8 @@ $darkGlassSuccess: rgba($success, 0.08);
   --success: #{rgb(30, 158, 8)};
   --errorText: #{$textOpposite};
   --successText: #{$textOpposite};
-  --glass: #{rgba(#fff, 0.08)};
-  --darkGlass: #{rgba(#fff, 0.05)};
+  --glass: #{rgba(#fff, 0.05)};
+  --darkGlass: #{rgba(#fff, 0.08)};
 
   --skeletonLight: #{rgb(31, 31, 31)};
   --skeletonDark: #{rgb(25, 25, 25)};

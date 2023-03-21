@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface TabsProps {
   value: number;
@@ -9,7 +9,6 @@ interface TabsProps {
   labels: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  ref?: any;
   other?: object;
   variant?: 'contained' | 'underlined';
   fullWidth?: boolean;
@@ -32,7 +31,6 @@ const Tabs: React.FC<TabsProps> = ({
   labels,
   children,
   className,
-  ref,
   variant = 'underlined',
   color = 'primary',
   size = 'medium',
@@ -43,7 +41,6 @@ const Tabs: React.FC<TabsProps> = ({
   return (
     <div className="CuteTabs-wrapper">
       <div
-        ref={ref}
         className={clsx(
           'CuteTabs',
           fullWidth && 'CuteTabs-fullWidth',

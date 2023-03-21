@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import clsx from 'clsx';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface ButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -23,7 +23,6 @@ interface ButtonProps {
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   square?: boolean;
-  _ref?: React.MutableRefObject<null>;
   other?: object;
 }
 
@@ -40,14 +39,12 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   type = 'button',
   square,
-  _ref,
   other,
 }) => {
   return (
     <button
       disabled={disabled}
       type={type}
-      ref={_ref}
       className={clsx(
         'CuteButton',
         disabled && `CuteButton-${variant}-disabled`,

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface MenuProps {
   open: boolean;

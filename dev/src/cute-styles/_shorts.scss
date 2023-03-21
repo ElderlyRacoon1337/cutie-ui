@@ -63,6 +63,14 @@
   color: var(--neutral);
 }
 
+.colorError {
+  color: var(--error);
+}
+
+.colorSuccess {
+  color: var(--success);
+}
+
 .bgPrimary {
   background-color: var(--primary);
 }
@@ -73,6 +81,14 @@
 
 .bgNeutral {
   background-color: var(--neutral);
+}
+
+.bgError {
+  background-color: var(--error);
+}
+
+.bgSuccess {
+  background-color: var(--success);
 }
 
 .textSecondary {

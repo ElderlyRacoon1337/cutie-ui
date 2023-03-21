@@ -15,6 +15,19 @@
   }
 }
 
+.CuteList-square {
+  .CuteListItem {
+    border-radius: 0;
+  }
+  .CuteListItemButton {
+    border-radius: 0;
+  }
+}
+
+.CuteListItem-square {
+  border-radius: 0;
+}
+
 .CuteListItem-iconStart {
   display: flex;
   align-items: center;
@@ -94,16 +107,13 @@
       color: var(--textPrimary);
     }
     &:hover {
-      background-color: var(--darkGlass);
       color: var(--textPrimary);
     }
     &:active {
-      background-color: var(--glass);
     }
   }
 
   .CuteListItem-active {
-    background-color: var(--glassPrimary);
     color: var(--primary);
     font-weight: 600;
     .CuteListItemChildren {
@@ -113,7 +123,6 @@
       color: var(--primaryLight);
     }
     &:hover {
-      background-color: var(--glassPrimary);
       color: var(--primaryTooLight);
     }
   }
@@ -144,16 +153,13 @@
       color: var(--textPrimary);
     }
     &:hover {
-      background-color: var(--darkGlass);
       color: var(--textPrimary);
     }
     &:active {
-      background-color: var(--glass);
     }
   }
 
   .CuteListItem-active {
-    background-color: var(--glassPrimary);
     color: var(--primary);
     font-weight: 600;
     .CuteListItemChildren {
@@ -163,7 +169,6 @@
       color: var(--primaryLight);
     }
     &:hover {
-      background-color: var(--glassPrimary);
       color: var(--primaryTooLight);
     }
   }

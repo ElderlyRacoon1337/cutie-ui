@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface SkeletonProps {
   width: number | string;
@@ -8,7 +8,6 @@ interface SkeletonProps {
   variant?: 'square' | 'rounded' | 'circle';
   className?: string;
   style?: React.CSSProperties;
-  ref?: any;
   other?: object;
 }
 
@@ -18,13 +17,11 @@ const Skeleton: React.FC<SkeletonProps> = ({
   variant = 'square',
   className,
   style,
-  ref,
   other,
 }) => {
   return (
     <div
       className={clsx('CuteSkeleton', `CuteSkeleton-${variant}`, className)}
-      ref={ref}
       style={{
         width: width + 'px',
         height: height + 'px',

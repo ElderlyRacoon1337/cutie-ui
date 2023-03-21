@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -13,7 +13,6 @@ interface IconButtonProps {
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   children?: React.ReactNode;
-  ref?: any;
   other?: object;
 }
 
@@ -28,12 +27,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
   disabled,
   type = 'button',
   children,
-  ref,
   other,
 }) => {
   return (
     <button
-      ref={ref}
       type={type}
       disabled={disabled}
       onClick={onClick}

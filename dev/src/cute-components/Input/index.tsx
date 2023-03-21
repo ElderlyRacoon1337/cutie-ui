@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface InputProps {
   placeholder?: string;
@@ -11,7 +11,6 @@ interface InputProps {
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   classNameForWrapper?: string;
   styleForWrapper?: React.CSSProperties;
-  ref?: any;
 
   size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
@@ -49,7 +48,6 @@ export const Input: React.FC<InputProps> = ({
   autoFocus,
   defaultValue,
   autoComplete,
-  ref,
   maxLength,
   other,
   styleForWrapper,
@@ -78,7 +76,6 @@ export const Input: React.FC<InputProps> = ({
         <input
           minLength={maxLength}
           maxLength={maxLength}
-          ref={ref}
           autoComplete={autoComplete}
           defaultValue={defaultValue}
           autoFocus={autoFocus}

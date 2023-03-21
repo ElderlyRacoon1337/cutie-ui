@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import '../../cute-styles/index.scss';
+import './index.scss';
 
 interface IconProps {
   icon?: React.ReactNode;
@@ -10,7 +10,6 @@ interface IconProps {
   size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  ref?: any;
   other?: object;
   fontSize?: number | string;
 }
@@ -23,12 +22,10 @@ export const Icon: React.FC<IconProps> = ({
   style,
   onClick,
   children,
-  ref,
   other,
 }) => {
   return (
     <div
-      ref={ref}
       onClick={onClick}
       className={clsx(
         'CuteIcon',

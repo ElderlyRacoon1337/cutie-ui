@@ -38,7 +38,7 @@ const colors = {
     baseBoxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.15)',
     glass: tinycolor2('#000').setAlpha(0.03).toString(),
     darkGlass: tinycolor2('#000').setAlpha(0.05).toString(),
-    skeletonLight: '#rgb(236, 235, 235)',
+    skeletonLight: 'rgb(236, 235, 235)',
     skeletonDark: 'rgb(243, 243, 243)',
   },
   darkMode: {
@@ -49,15 +49,15 @@ const colors = {
     success: 'rgb(30, 158, 8)',
     disabled: 'rgb(82, 82, 82)',
     link: 'rgb(31, 136, 241)',
-    background: '#060606',
-    backgroundSecondary: 'rgb(28, 28, 28)',
+    background: '#000',
+    backgroundSecondary: '#141414',
     textPrimary: '#fff',
     textSecondary: '#bcbcbc',
     textOpposite: '#000',
     divider: 'rgb(57, 57, 57)',
     baseBoxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.5)',
-    glass: tinycolor2('#fff').setAlpha(0.08).toString(),
-    darkGlass: tinycolor2('#fff').setAlpha(0.05).toString(),
+    glass: tinycolor2('#fff').setAlpha(0.05).toString(),
+    darkGlass: tinycolor2('#fff').setAlpha(0.08).toString(),
     skeletonLight: 'rgb(31, 31, 31)',
     skeletonDark: 'rgb(25, 25, 25)',
   },
@@ -252,7 +252,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     colors.primaryTooLight = tinycolor2(colors.primary).lighten(10).toString();
     colors.primaryDark = tinycolor2(colors.primary).darken(7).toString();
     colors.primaryTooDark = tinycolor2(colors.primary).darken(10).toString();
-
     colors.glassPrimary = tinycolor2(colors.primary).setAlpha(0.08).toString();
     colors.darkGlassPrimary = tinycolor2(colors.primary)
       .setAlpha(0.12)
@@ -279,189 +278,21 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     colors.neutralTooLight = tinycolor2(colors.neutral).lighten(10).toString();
     colors.neutralDark = tinycolor2(colors.neutral).darken(7).toString();
     colors.neutralTooDark = tinycolor2(colors.neutral).darken(10).toString();
+    colors.glassNeutral = tinycolor2(colors.neutral).setAlpha(0.08).toString();
+    colors.darkGlassNeutral = tinycolor2(colors.neutral)
+      .setAlpha(0.12)
+      .toString();
   }
-
-  // if (lightMode) {
-  //   if (lightMode.primary) {
-  //     lightMode.primaryLight = tinycolor2(lightMode.primary)
-  //       .lighten(7)
-  //       .toString();
-  //     lightMode.primaryTooLight = tinycolor2(lightMode.primary)
-  //       .lighten(10)
-  //       .toString();
-  //     lightMode.primaryDark = tinycolor2(lightMode.primary)
-  //       .darken(7)
-  //       .toString();
-  //     lightMode.primaryTooDark = tinycolor2(lightMode.primary)
-  //       .darken(10)
-  //       .toString();
-  //     lightMode.primaryText = tinycolor2(lightMode.primary).isLight()
-  //       ? 'var(--textPrimary)'
-  //       : 'var(--textOpposite)';
-  //     lightMode.primaryTextOpposite = tinycolor2(lightMode.primary).isLight()
-  //       ? 'var(--textOpposite)'
-  //       : 'var(--textPrimary)';
-  //     lightMode.glassPrimary = tinycolor2(lightMode.primary)
-  //       .setAlpha(0.08)
-  //       .toString();
-  //     lightMode.darkGlassPrimary = tinycolor2(lightMode.primary)
-  //       .setAlpha(0.12)
-  //       .toString();
-  //   }
-  //   if (lightMode.secondary) {
-  //     lightMode.secondaryLight = tinycolor2(lightMode.secondary)
-  //       .lighten(7)
-  //       .toString();
-  //     lightMode.secondaryTooLight = tinycolor2(lightMode.secondary)
-  //       .lighten(10)
-  //       .toString();
-  //     lightMode.secondaryDark = tinycolor2(lightMode.secondary)
-  //       .darken(7)
-  //       .toString();
-  //     lightMode.secondaryTooDark = tinycolor2(lightMode.secondary)
-  //       .darken(10)
-  //       .toString();
-  //     lightMode.secondaryText = tinycolor2(lightMode.secondary).isLight()
-  //       ? 'var(--textPrimary)'
-  //       : 'var(--textOpposite)';
-  //     lightMode.secondaryTextOpposite = tinycolor2(
-  //       lightMode.secondary
-  //     ).isLight()
-  //       ? 'var(--textOpposite)'
-  //       : 'var(--textPrimary)';
-  //     lightMode.glassSecondary = tinycolor2(lightMode.secondary)
-  //       .setAlpha(0.08)
-  //       .toString();
-  //     lightMode.darkGlassSecondary = tinycolor2(lightMode.secondary)
-  //       .setAlpha(0.12)
-  //       .toString();
-  //   }
-
-  //   if (lightMode.neutral) {
-  //     lightMode.neutralLight = tinycolor2(lightMode.neutral)
-  //       .lighten(7)
-  //       .toString();
-  //     lightMode.neutralTooLight = tinycolor2(lightMode.neutral)
-  //       .lighten(10)
-  //       .toString();
-  //     lightMode.neutralDark = tinycolor2(lightMode.neutral)
-  //       .darken(7)
-  //       .toString();
-  //     lightMode.neutralTooDark = tinycolor2(lightMode.neutral)
-  //       .darken(10)
-  //       .toString();
-  //     lightMode.neutralText = tinycolor2(lightMode.neutral).isLight()
-  //       ? 'var(--textPrimary)'
-  //       : 'var(--textOpposite)';
-  //     lightMode.neutralTextOpposite = tinycolor2(lightMode.neutral).isLight()
-  //       ? 'var(--textOpposite)'
-  //       : 'var(--textPrimary)';
-  //   }
-  //   if (lightMode.error) {
-  //     lightMode.errorText = tinycolor2(lightMode.error).isLight()
-  //       ? 'var(--textPrimary)'
-  //       : 'var(--textOpposite)';
-  //   }
-  //   if (lightMode.success) {
-  //     lightMode.successText = tinycolor2(lightMode.success).isLight()
-  //       ? 'var(--textPrimary)'
-  //       : 'var(--textOpposite)';
-  //   }
-
-  //   for (let key in lightMode) {
-  //     document.body.style.setProperty(`--${key}`, lightMode[key]);
-  //   }
-  // }
-  // if (darkMode) {
-  //   if (darkMode.primary) {
-  //     darkMode.primaryLight = tinycolor2(darkMode.primary)
-  //       .lighten(7)
-  //       .toString();
-  //     darkMode.primaryTooLight = tinycolor2(darkMode.primary)
-  //       .lighten(10)
-  //       .toString();
-  //     darkMode.primaryDark = tinycolor2(darkMode.primary).darken(7).toString();
-  //     darkMode.primaryTooDark = tinycolor2(darkMode.primary)
-  //       .darken(10)
-  //       .toString();
-  //     darkMode.primaryText = tinycolor2(darkMode.primary).isLight()
-  //       ? 'var(--dm_textOpposite)'
-  //       : 'var(--dm_textPrimary)';
-  //     darkMode.primaryTextOpposite = tinycolor2(darkMode.primary).isLight()
-  //       ? 'var(--dm_textPrimary)'
-  //       : 'var(--dm_textOpposite)';
-  //     darkMode.glassPrimary = tinycolor2(darkMode.primary)
-  //       .setAlpha(0.08)
-  //       .toString();
-  //     darkMode.darkGlassPrimary = tinycolor2(darkMode.primary)
-  //       .setAlpha(0.12)
-  //       .toString();
-  //   }
-  //   if (darkMode.secondary) {
-  //     darkMode.secondaryLight = tinycolor2(darkMode.secondary)
-  //       .lighten(7)
-  //       .toString();
-  //     darkMode.secondaryTooLight = tinycolor2(darkMode.secondary)
-  //       .lighten(10)
-  //       .toString();
-  //     darkMode.secondaryDark = tinycolor2(darkMode.secondary)
-  //       .darken(7)
-  //       .toString();
-  //     darkMode.secondaryTooDark = tinycolor2(darkMode.secondary)
-  //       .darken(10)
-  //       .toString();
-  //     darkMode.secondaryText = tinycolor2(darkMode.secondary).isLight()
-  //       ? 'var(--dm_textOpposite)'
-  //       : 'var(--dm_textPrimary)';
-  //     darkMode.secondaryTextOpposite = tinycolor2(darkMode.secondary).isLight()
-  //       ? 'var(--dm_textPrimary)'
-  //       : 'var(--dm_textOpposite)';
-  //     darkMode.glassSecondary = tinycolor2(darkMode.secondary)
-  //       .setAlpha(0.08)
-  //       .toString();
-  //     darkMode.darkGlassSecondary = tinycolor2(darkMode.secondary)
-  //       .setAlpha(0.12)
-  //       .toString();
-  //   }
-  //   if (darkMode.neutral) {
-  //     darkMode.neutralLight = tinycolor2(darkMode.neutral)
-  //       .lighten(7)
-  //       .toString();
-  //     darkMode.neutralTooLight = tinycolor2(darkMode.neutral)
-  //       .lighten(10)
-  //       .toString();
-  //     darkMode.neutralDark = tinycolor2(darkMode.neutral).darken(7).toString();
-  //     darkMode.neutralTooDark = tinycolor2(darkMode.neutral)
-  //       .darken(10)
-  //       .toString();
-  //     darkMode.neutralText = tinycolor2(darkMode.neutral).isLight()
-  //       ? 'var(--dm_textOpposite)'
-  //       : 'var(--dm_textPrimary)';
-  //     darkMode.neutralTextOpposite = tinycolor2(darkMode.neutral).isLight()
-  //       ? 'var(--dm_textPrimary)'
-  //       : 'var(--dm_textOpposite)';
-  //     darkMode.glassNeutral = tinycolor2(darkMode.neutral)
-  //       .setAlpha(0.08)
-  //       .toString();
-  //     darkMode.darkGlassNeutral = tinycolor2(darkMode.neutral)
-  //       .setAlpha(0.12)
-  //       .toString();
-  //   }
-  //   if (darkMode.error) {
-  //     darkMode.errorText = tinycolor2(darkMode.error).isLight()
-  //       ? 'var(--dm_textOpposite)'
-  //       : 'var(--dm_textPrimary)';
-  //   }
-  //   if (darkMode.success) {
-  //     darkMode.successText = tinycolor2(darkMode.success).isLight()
-  //       ? 'var(--dm_textOpposite)'
-  //       : 'var(--dm_textPrimary)';
-  //   }
-  //   for (let key in darkMode) {
-  //     // console.log(`--dm_${key}`, darkMode[key]);
-  //     document.body.style.setProperty(`--dm_${key}`, darkMode[key]);
-  //   }
-  // }
+  if (colors.error) {
+    colors.glassError = tinycolor2(colors.error).setAlpha(0.08).toString();
+    colors.darkGlassError = tinycolor2(colors.error).setAlpha(0.12).toString();
+  }
+  if (colors.success) {
+    colors.glassSuccess = tinycolor2(colors.success).setAlpha(0.08).toString();
+    colors.darkGlassSuccess = tinycolor2(colors.success)
+      .setAlpha(0.12)
+      .toString();
+  }
 
   useEffect(() => {
     switch (theme) {
@@ -641,26 +472,26 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     }
 
     if (darkMode) {
-      if (colors.primary) {
-        darkMode.glassPrimary = colors.darkGlassPrimary;
-        darkMode.darkGlassPrimary = colors.glassPrimary;
-      }
-      if (colors.secondary) {
-        darkMode.glassSecondary = colors.darkGlassSecondary;
-        darkMode.darkGlassSecondary = colors.glassSecondary;
-      }
-      if (colors.neutral) {
-        darkMode.glassNeutral = colors.darkGlassNeutral;
-        darkMode.darkGlassNeutral = colors.glassNeutral;
-      }
-      if (colors.error) {
-        darkMode.glassError = colors.darkGlassError;
-        darkMode.darkGlassError = colors.glassError;
-      }
-      if (colors.success) {
-        darkMode.glassSuccess = colors.darkGlassSuccess;
-        darkMode.darkGlassSuccess = colors.glassSuccess;
-      }
+      // if (colors.primary) {
+      //   darkMode.glassPrimary = colors.glassPrimary;
+      //   darkMode.darkGlassPrimary = colors.darkGlassSecondary;
+      // }
+      // if (colors.secondary) {
+      //   darkMode.glassSecondary = colors.darkGlassSecondary;
+      //   darkMode.darkGlassSecondary = colors.glassSecondary;
+      // }
+      // if (colors.neutral) {
+      //   darkMode.glassNeutral = colors.darkGlassNeutral;
+      //   darkMode.darkGlassNeutral = colors.glassNeutral;
+      // }
+      // if (colors.error) {
+      //   darkMode.glassError = colors.darkGlassError;
+      //   darkMode.darkGlassError = colors.glassError;
+      // }
+      // if (colors.success) {
+      //   darkMode.glassSuccess = colors.darkGlassSuccess;
+      //   darkMode.darkGlassSuccess = colors.glassSuccess;
+      // }
 
       if (darkMode.primary) {
         darkMode.primaryLight = tinycolor2(darkMode.primary)

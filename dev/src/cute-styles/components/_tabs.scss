@@ -26,37 +26,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .CuteTab {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-[data-theme='dark'] {
-  .CuteTab {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-[data-theme='light'] {
-  .CuteTab {
-    &:hover {
-      background-color: var(--glass);
-    }
-    &:active {
-      background-color: var(--darkGlass);
-    }
-  }
-}
-
 // ====================================================== Sizes =============================================================
 
 .CuteTabs-small {
