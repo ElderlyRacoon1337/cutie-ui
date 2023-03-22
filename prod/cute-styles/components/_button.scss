@@ -104,6 +104,14 @@
     width: 20px;
     height: 20px;
   }
+  .CuteIcon {
+    & > * {
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+    }
+  }
 }
 
 .CuteButton-iconEnd {
@@ -116,11 +124,27 @@
     height: 20px;
     min-width: 20px;
   }
+  .CuteIcon {
+    & > * {
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+    }
+  }
 }
 
 .CuteButton-icons {
   display: flex;
   align-items: center;
+  .CuteIcon {
+    & > *:first-child {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+    }
+  }
   & > *:first-child {
     margin-right: 10px;
     width: 20px;
@@ -130,6 +154,15 @@
 
   .CuteButtonChildren {
     margin-right: 10px;
+  }
+
+  .CuteIcon {
+    & > *:last-child {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      margin-left: auto;
+    }
   }
 
   & > *:last-child {

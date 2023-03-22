@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './Link.module.scss';
 
 interface LinkProps {
   children?: React.ReactNode;
@@ -26,8 +26,8 @@ const Link: React.FC<LinkProps> = ({
       href={href}
       onClick={onClick}
       className={clsx(
-        'CuteLink',
-        underlined && 'CuteLink-underlined',
+        styles.CuteLink,
+        underlined && styles['CuteLink-underlined'],
         className
       )}
       {...other}

@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
-import '../../cute-styles/index.scss';
+import styles from './Avatar.module.scss';
 
 interface AvatarProps {
   variant?: 'rounded' | 'square' | 'circular';
@@ -24,10 +23,10 @@ export const Avatar: React.FC<AvatarProps> = ({
     <div
       onClick={onClick}
       className={clsx(
-        'CuteAvatar',
-        variant == 'square' && 'CuteAvatar-square',
-        variant == 'rounded' && 'CuteAvatar-rounded',
-        variant == 'circular' && 'CuteAvatar-circular',
+        styles.CuteAvatar,
+        variant == 'square' && styles['CuteAvatar-square'],
+        variant == 'rounded' && styles['CuteAvatar-rounded'],
+        variant == 'circular' && styles['CuteAvatar-circular'],
         className
       )}
       {...other}

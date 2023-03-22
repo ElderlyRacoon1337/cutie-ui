@@ -108,6 +108,9 @@
   & > * {
     color: var(--primaryText);
   }
+  .CuteListItemChildren {
+    color: var(--primaryText);
+  }
   &:hover {
     background-color: var(--primaryDark);
     color: var(--primaryText);
@@ -133,7 +136,7 @@
     color: var(--primary);
     font-weight: 600;
     .CuteListItemChildren {
-      color: var(--primary);
+      color: var(--primaryLight);
     }
     & > * {
       color: var(--primaryLight);
@@ -179,7 +182,7 @@
     color: var(--primary);
     font-weight: 600;
     .CuteListItemChildren {
-      color: var(--primary);
+      color: var(--primaryLight);
     }
     & > * {
       color: var(--primaryLight);
@@ -230,6 +233,9 @@
     background-color: var(--primary);
     color: var(--primaryText);
     & > * {
+      color: var(--primaryText);
+    }
+    .CuteListItemChildren {
       color: var(--primaryText);
     }
     &:hover {

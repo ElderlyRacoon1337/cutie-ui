@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './GradientText.module.scss';
 
 interface GradientTextProps {
   children?: React.ReactNode;
@@ -27,7 +27,7 @@ const GradientText: React.FC<GradientTextProps> = ({
 }) => {
   return (
     <p
-      className={clsx('CuteGradientText', className)}
+      className={clsx(className)}
       style={{
         background: `linear-gradient(${rotate}deg, ${firstColor}, ${secondColor})`,
         backgroundClip: 'text',

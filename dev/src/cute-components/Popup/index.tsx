@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
-import './index.scss';
+import styles from './Popup.module.scss';
 
 interface PopupProps {
   open: boolean;
@@ -34,9 +34,9 @@ export const Popup: React.FC<PopupProps> = ({
   return (
     <>
       {open && (
-        <div className="CutePopup" onClick={onClose}>
+        <div className={styles.CutePopup} onClick={onClose}>
           <div
-            className={clsx('CutePupupElement', className)}
+            className={clsx(styles.CutePupupElement, className)}
             onClick={(e) => e.stopPropagation()}
             {...other}
             style={style}

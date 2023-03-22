@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './Loader.module.scss';
 
 interface LoaderProps {
   width?: number | string;
@@ -21,7 +21,11 @@ const Loader: React.FC<LoaderProps> = ({
 }) => {
   return (
     <div
-      className={(clsx('CuteLoader'), `CuteLoader-${color}`, className)}
+      className={clsx(
+        styles.CuteLoader,
+        styles[`CuteLoader-${color}`],
+        className
+      )}
       {...other}
       style={{
         width: `${width}px`,

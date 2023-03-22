@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './IconButton.module.scss';
 
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -35,11 +35,11 @@ export const IconButton: React.FC<IconButtonProps> = ({
       disabled={disabled}
       onClick={onClick}
       className={clsx(
-        'CuteIconButton',
-        disabled && `CuteIconButton-${variant}-disabled`,
-        size && `CuteIconButton-${size}`,
-        `CuteIconButton-${variant}`,
-        color && variant && `CuteIconButton-${color}-${variant}`,
+        styles.CuteIconButton,
+        disabled && styles[`CuteIconButton-${variant}-disabled`],
+        size && styles[`CuteIconButton-${size}`],
+        styles[`CuteIconButton-${variant}`],
+        color && variant && styles[`CuteIconButton-${color}-${variant}`],
         className
       )}
       {...other}

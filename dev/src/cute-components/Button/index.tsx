@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import './index.scss';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -46,24 +46,30 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       type={type}
       className={clsx(
-        'CuteButton',
-        disabled && `CuteButton-${variant}-disabled`,
-        size && `CuteButton-${size}`,
-        startIcon && !endIcon && 'CuteButton-iconStart',
-        endIcon && !startIcon && 'CuteButton-iconEnd',
-        startIcon && endIcon && 'CuteButton-icons',
-        `CuteButton-${variant}`,
-        square && 'CuteButton-square',
-        color && variant && `CuteButton-${color}-${variant}`,
+        styles.CuteButton,
+        disabled && styles[`CuteButton-${variant}-disabled`],
+        size && styles[`CuteButton-${size}`],
+        startIcon && !endIcon && styles['CuteButton-iconStart'],
+        endIcon && !startIcon && styles['CuteButton-iconEnd'],
+        startIcon && endIcon && styles['CuteButton-icons'],
+        styles[`CuteButton-${variant}`],
+        square && styles['CuteButton-square'],
+        color && variant && styles[`CuteButton-${color}-${variant}`],
         className
       )}
       onClick={onClick}
       {...other}
       style={style}
     >
-      {startIcon}
-      <div className="CuteButtonChildren">{children}</div>
-      {endIcon}
+      {startIcon || endIcon ? (
+        <>
+          {startIcon}
+          <div className={styles.CuteButtonChildren}>{children}</div>
+          {endIcon}
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 };

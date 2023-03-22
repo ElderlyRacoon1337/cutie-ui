@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './Menu.module.scss';
 
 interface MenuItemProps {
   className?: string;
@@ -36,19 +36,25 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           : onClose
       }
       className={clsx(
-        'CuteMenuItem',
-        startIcon && !endIcon && 'CuteMenuItem-iconStart',
-        endIcon && !startIcon && 'CuteMenuItem-iconEnd',
-        startIcon && endIcon && 'CuteMenuItem-icons',
-        divider && 'CuteMenuItem-divider',
+        styles.CuteMenuItem,
+        startIcon && !endIcon && styles['CuteMenuItem-iconStart'],
+        endIcon && !startIcon && styles['CuteMenuItem-iconEnd'],
+        startIcon && endIcon && styles['CuteMenuItem-icons'],
+        divider && styles['CuteMenuItem-divider'],
         className
       )}
       {...other}
       style={style}
     >
-      {startIcon}
-      <div className="CuteMenuItemChildren">{children}</div>
-      {endIcon}
+      {startIcon || endIcon ? (
+        <>
+          {startIcon}
+          <div className={styles.CuteMenuItemChildren}>{children}</div>
+          {endIcon}
+        </>
+      ) : (
+        children
+      )}
     </li>
   );
 };

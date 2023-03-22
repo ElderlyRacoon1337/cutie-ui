@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './Switch.module.scss';
 
 interface SwitchProps {
   checked?: boolean;
@@ -45,11 +45,11 @@ const Switch: React.FC<SwitchProps> = ({
         <label>
           <div
             className={clsx(
-              `CuteSwitch-wrapper`,
-              `CuteSwitch-${size}`,
-              `CuteSwitch-${color}`,
-              disabled && 'CuteSwitch-disabled',
-              !checked && 'CuteSwitch-unchecked'
+              styles[`CuteSwitch-wrapper`],
+              styles[`CuteSwitch-${size}`],
+              styles[`CuteSwitch-${color}`],
+              disabled && styles['CuteSwitch-disabled'],
+              !checked && styles['CuteSwitch-unchecked']
             )}
           >
             <input
@@ -59,8 +59,8 @@ const Switch: React.FC<SwitchProps> = ({
               disabled={disabled}
               {...other}
             />
-            <span className={`CuteSwitch`}>
-              <span className="CuteSwitch-handle" />
+            <span className={styles.CuteSwitch}>
+              <span className={styles['CuteSwitch-handle']} />
             </span>
           </div>
         </label>

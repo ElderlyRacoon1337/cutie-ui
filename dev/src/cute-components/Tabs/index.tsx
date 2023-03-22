@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './Tabs.module.scss';
 
 interface TabsProps {
   value: number;
@@ -42,8 +42,8 @@ const Tabs: React.FC<TabsProps> = ({
     <div className="CuteTabs-wrapper">
       <div
         className={clsx(
-          'CuteTabs',
-          fullWidth && 'CuteTabs-fullWidth',
+          styles.CuteTabs,
+          fullWidth && styles['CuteTabs-fullWidth'],
           className
         )}
       >
@@ -52,18 +52,18 @@ const Tabs: React.FC<TabsProps> = ({
             key={i}
             onClick={(e) => onChange(e, i + 1)}
             className={clsx(
-              'CuteTab',
-              i == value - 1 && `CuteTab-active-${variant}-${color}`,
-              rounded && 'CuteTab-rounded',
-              circle && 'CuteTab-circle',
-              `CuteTabs-${size}`
+              styles.CuteTab,
+              i == value - 1 && styles[`CuteTab-active-${variant}-${color}`],
+              rounded && styles['CuteTab-rounded'],
+              circle && styles['CuteTab-circle'],
+              styles[`CuteTabs-${size}`]
             )}
           >
             {el}
           </div>
         ))}
       </div>
-      <div className="CutePanels">
+      <div className={styles.CutePanels}>
         {/* @ts-ignore */}
         {Array.from(children)?.filter((el: any, i) => i + 1 == value)}
       </div>

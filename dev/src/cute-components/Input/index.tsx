@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
-import './index.scss';
+import styles from './Input.module.scss';
 
 interface InputProps {
   placeholder?: string;
@@ -56,21 +56,23 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div
       className={clsx(
-        'CuteInputWrapper',
-        `CuteInput-${color}`,
-        `CuteInput-${variant}`,
-        `CuteInput-${size}`,
-        startIcon && !endIcon && 'CuteInput-iconStart',
-        endIcon && !startIcon && 'CuteInput-iconEnd',
-        startIcon && endIcon && 'CuteInput-icons',
-        square && 'CuteInput-square',
-        focused && `CuteInput-focused CuteInput-${color}-focused`,
+        styles.CuteInputWrapper,
+        styles[`CuteInput-${color}`],
+        styles[`CuteInput-${variant}`],
+        styles[`CuteInput-${size}`],
+        startIcon && !endIcon && styles['CuteInput-iconStart'],
+        endIcon && !startIcon && styles['CuteInput-iconEnd'],
+        startIcon && endIcon && styles['CuteInput-icons'],
+        square && styles['CuteInput-square'],
+        focused && styles[`CuteInput-focused CuteInput-${color}-focused`],
         classNameForWrapper
       )}
       style={styleForWrapper}
     >
-      {label && focused && <p className="CuteInput-label">{placeholder}</p>}
-      <div className="CuteInput-row">
+      {label && focused && (
+        <p className={styles['CuteInput-label']}>{placeholder}</p>
+      )}
+      <div className={styles['CuteInput-row']}>
         {startIcon}
         <input
           minLength={maxLength}
@@ -80,7 +82,7 @@ export const Input: React.FC<InputProps> = ({
           autoFocus={autoFocus}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          className={clsx('CuteInput', className)}
+          className={clsx(styles.CuteInput, className)}
           placeholder={label && focused ? '' : placeholder}
           type={type}
           value={value}
@@ -91,7 +93,7 @@ export const Input: React.FC<InputProps> = ({
         {endIcon}
         {button}
       </div>
-      {message && <p className="CuteInput-message">{message}</p>}
+      {message && <p className={styles['CuteInput-message']}>{message}</p>}
     </div>
   );
 };

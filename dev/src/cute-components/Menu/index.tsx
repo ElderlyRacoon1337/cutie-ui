@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
-import './index.scss';
+import styles from './Menu.module.scss';
 
 interface MenuProps {
   open: boolean;
@@ -34,7 +34,6 @@ export const Menu: React.FC<MenuProps> = ({
     if (anchorEl && menu.current) {
       // document.body.style.overflow = 'hidden';
       document.addEventListener('wheel', prevent, { passive: false });
-
       const clicked = anchorEl.getBoundingClientRect();
       const menuEl = menu.current.getBoundingClientRect();
       fullWidth && setWidthParent(clicked.width);
@@ -69,10 +68,10 @@ export const Menu: React.FC<MenuProps> = ({
   return (
     <>
       {open && (
-        <div className="CuteMenuBackground" onClick={onClose}>
+        <div className={styles.CuteMenuBackground} onClick={onClose}>
           <ul
             ref={menu}
-            className={clsx('CuteMenu', className)}
+            className={clsx(styles.CuteMenu, className)}
             onClick={(e) => e.stopPropagation()}
             {...other}
             style={

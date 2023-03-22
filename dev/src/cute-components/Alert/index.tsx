@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { IconButton } from '../IconButton';
 import React, { useEffect } from 'react';
-import './index.scss';
+import styles from './Alert.module.scss';
 
 interface AlertProps {
   children?: React.ReactNode;
@@ -89,15 +89,17 @@ const Alert: React.FC<AlertProps> = ({
       {open && (
         <div
           className={clsx(
-            'CuteAlert',
-            `CuteAlert-${position}`,
-            `CuteAlert-${color}`,
+            styles.CuteAlert,
+            styles[`CuteAlert-${position}`],
+            styles[`CuteAlert-${color}`],
             className
           )}
           {...other}
           style={style}
         >
-          {startIcon && <span className="CuteAlertIcon">{startIcon}</span>}
+          {startIcon && (
+            <span className={styles.CuteAlertIcon}>{startIcon}</span>
+          )}
           {children}
           {!withioutButton && (
             <IconButton color="white" onClick={onClose}>

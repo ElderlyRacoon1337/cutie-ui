@@ -2,15 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './ThemeProvider';
+import './cute-styles/_shorts.scss';
+import './cute-styles/index.scss';
 
 const themeOptions = {
   colors: {
-    primary: '#ECFF9B',
+    // primary: '#ECFF9B',
     logo: '#eb0066',
     // background: '#151515',
   },
   lightMode: {
-    primary: '#c90051',
+    // primary: '#c90051',
   },
   darkMode: {
     logo: '#fff',

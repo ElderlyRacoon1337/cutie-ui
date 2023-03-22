@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "cutie-ui": "^2.0.4",
+    "cutie-ui": "^2.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-router-dom": "^6.9.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "sass": "^1.59.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

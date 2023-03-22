@@ -1,0 +1,17 @@
+@import '../../cute-styles/normalize';
+@import '../../cute-styles/variables';
+
+.CuteLink {
+  color: var(--link);
+  cursor: pointer;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSizeMedium);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.CuteLink-underlined {
+  text-decoration: underline;
+}

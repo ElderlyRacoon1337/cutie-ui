@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './List.module.scss';
 
 interface ListItemProps {
   className?: string;
@@ -31,22 +31,28 @@ export const ListItemButton: React.FC<ListItemProps> = ({
     <li
       onClick={onClick}
       className={clsx(
-        'CuteListItem',
-        'CuteListItemButton',
-        active && 'CuteListItem-active',
-        activeFilled && 'CuteListItem-activeFilled',
-        startIcon && !endIcon && 'CuteListItem-iconStart',
-        endIcon && !startIcon && 'CuteListItem-iconEnd',
-        startIcon && endIcon && 'CuteListItem-icons',
-        square && 'CuteListItem-square',
+        styles.CuteListItem,
+        styles.CuteListItemButton,
+        active && styles['CuteListItem-active'],
+        activeFilled && styles['CuteListItem-activeFilled'],
+        startIcon && !endIcon && styles['CuteListItem-iconStart'],
+        endIcon && !startIcon && styles['CuteListItem-iconEnd'],
+        startIcon && endIcon && styles['CuteListItem-icons'],
+        square && styles['CuteListItem-square'],
         className
       )}
       {...other}
       style={style}
     >
-      {startIcon}
-      <div className="CuteListItemChildren">{children}</div>
-      {endIcon}
+      {startIcon || endIcon ? (
+        <>
+          {startIcon}
+          <div className={styles.CuteListItemChildren}>{children}</div>
+          {endIcon}
+        </>
+      ) : (
+        children
+      )}
     </li>
   );
 };

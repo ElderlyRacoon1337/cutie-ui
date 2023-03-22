@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './Icon.module.scss';
 
 interface IconProps {
   icon?: React.ReactNode;
@@ -28,9 +28,9 @@ export const Icon: React.FC<IconProps> = ({
     <div
       onClick={onClick}
       className={clsx(
-        'CuteIcon',
-        size && `CuteIcon-${size}`,
-        color && `CuteIcon-${color}`,
+        styles.CuteIcon,
+        size && styles[`CuteIcon-${size}`],
+        color && styles[`CuteIcon-${color}`],
         className
       )}
       {...other}

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import './index.scss';
+import styles from './List.module.scss';
 
 interface ListProps {
   className?: string;
@@ -19,7 +19,11 @@ export const List: React.FC<ListProps> = ({
 }) => {
   return (
     <ul
-      className={clsx('CuteList', square && 'CuteList-square', className)}
+      className={clsx(
+        styles.CuteList,
+        square && styles['CuteList-square'],
+        className
+      )}
       {...other}
       style={style}
     >
