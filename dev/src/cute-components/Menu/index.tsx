@@ -28,9 +28,13 @@ export const Menu: React.FC<MenuProps> = ({
   const [widthParent, setWidthParent] = useState(0);
   const menu = useRef<HTMLUListElement | null>(null);
 
+  const prevent = (ev: any) => ev.preventDefault();
+
   const setActualValues = () => {
     if (anchorEl && menu.current) {
-      document.body.style.overflow = 'hidden';
+      // document.body.style.overflow = 'hidden';
+      document.addEventListener('wheel', prevent, { passive: false });
+
       const clicked = anchorEl.getBoundingClientRect();
       const menuEl = menu.current.getBoundingClientRect();
       fullWidth && setWidthParent(clicked.width);
@@ -57,7 +61,8 @@ export const Menu: React.FC<MenuProps> = ({
       setHeight(0);
       setWidth(0);
       setWidthParent(0);
-      document.body.style.overflow = '';
+      // document.body.style.overflow = '';
+      document.removeEventListener('wheel', prevent);
     };
   }, [anchorEl]);
 

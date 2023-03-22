@@ -1,20 +1,20 @@
 const { useState } = require('react');
 
 const useMenu = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
+  const menuOpen = Boolean(menuAnchorEl);
+  const handleClickMenu = (event) => {
+    setMenuAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleCloseMenu = () => {
+    setMenuAnchorEl(null);
   };
-
   return {
-    anchorEl,
-    open,
-    handleClick,
-    handleClose,
+    menuAnchorEl,
+    menuOpen,
+    handleClickMenu,
+    handleCloseMenu,
+    setMenuAnchorEl,
   };
 };
 

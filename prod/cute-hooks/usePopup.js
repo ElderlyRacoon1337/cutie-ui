@@ -1,19 +1,18 @@
 const { useState } = require('react');
 
 const usePopup = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen(true);
+  const [popupOpen, setOpenPopup] = useState(false);
+  const handleClickPopup = () => {
+    setOpenPopup(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const handleClosePopup = () => {
+    setOpenPopup(false);
   };
-
   return {
-    open,
-    handleClick,
-    handleClose,
+    popupOpen,
+    handleClickPopup,
+    handleClosePopup,
+    setOpenPopup,
   };
 };
 

@@ -1,13 +1,27 @@
-import React from 'react';
-
 interface InputProps {
   placeholder?: string;
   className?: string;
   style?: React.CSSProperties;
-  startIcon?: JSX.Element | SVGElement;
   type?: any;
-  value?: string;
+  value?: any;
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   classNameForWrapper?: string;
+  styleForWrapper?: React.CSSProperties;
+  size?: 'small' | 'medium' | 'large';
+  color?: 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
+  square?: boolean;
+  variant?: 'filled' | 'outlined' | 'underlined' | 'basic';
+  message?: string;
+  label?: boolean;
+  autoFocus?: boolean;
+  defaultValue?: any;
+  autoComplete?: string;
+  minLength?: number;
+  maxLength?: number;
+  other?: object;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  button?: React.ReactNode;
 }
+
 export const Input: React.FC<InputProps>;

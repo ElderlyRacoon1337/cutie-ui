@@ -4,9 +4,13 @@
 }
 
 .CuteSwitch-wrapper > input[type='checkbox'] + .CuteSwitch {
+  -webkit-transform: translateX(5px);
+  -ms-transform: translateX(5px);
   transform: translateX(5px);
 }
 .CuteSwitch-wrapper > input[type='checkbox']:checked + .CuteSwitch {
+  -webkit-transform: translateX(50%) translateX(-19px);
+  -ms-transform: translateX(50%) translateX(-19px);
   transform: translateX(50%) translateX(-19px);
 }
 
@@ -22,17 +26,31 @@
   position: relative;
   height: 24px;
   width: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .CuteSwitch-wrapper > .CuteSwitch {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   color: #fff;
   height: 100%;
   left: -100%;
   position: relative;
+  -webkit-transition: 100ms linear;
+  -o-transition: 100ms linear;
   transition: 100ms linear;
   width: 200%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .CuteSwitch-wrapper > .CuteSwitch > .CuteSwitch-handle {
   background: #fff;
@@ -43,6 +61,7 @@
   position: relative;
   width: 20px;
   z-index: 3;
+  -webkit-box-shadow: 0px 3px 2px 0px rgba(black, 0.2);
   box-shadow: 0px 3px 2px 0px rgba(black, 0.2);
 }
 
@@ -86,6 +105,8 @@
   }
 
   & > input[type='checkbox']:checked + .CuteSwitch {
+    -webkit-transform: translateX(50%) translateX(-14px);
+    -ms-transform: translateX(50%) translateX(-14px);
     transform: translateX(50%) translateX(-14px);
   }
 }
@@ -99,6 +120,8 @@
   }
 
   & > input[type='checkbox']:checked + .CuteSwitch {
+    -webkit-transform: translateX(50%) translateX(-24px);
+    -ms-transform: translateX(50%) translateX(-24px);
     transform: translateX(50%) translateX(-24px);
   }
 }

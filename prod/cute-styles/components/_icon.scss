@@ -11,17 +11,17 @@
   }
 }
 
-.CuteIcon-large {
+.CuteIcon-medium {
   & > *:first-child {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
   }
 }
 
-.CuteIcon-medium {
+.CuteIcon-large {
   & > *:first-child {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -61,10 +61,12 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .CuteIcon-text {
-    & > *:first-child {
-      color: white;
-    }
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   .CuteIcon-text {
+//     & > *:first-child {
+//       color: var(--textWhite);
+//     }
+//   }
+// }
+
+// =================

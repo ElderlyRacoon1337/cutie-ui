@@ -15,20 +15,11 @@
 
     margin: auto;
     padding: 20px;
-    background-color: var(--background);
+    background-color: var(--backgroundSecondary);
     border-radius: 10px;
     min-width: 400px;
     min-height: 200px;
     box-shadow: var(--);
     z-index: 10;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CutePupup {
-    background-color: rgba(0, 0, 0, 0.5);
-    .CutePupupElement {
-      border: none;
-    }
   }
 }

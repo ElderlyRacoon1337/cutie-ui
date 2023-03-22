@@ -1,8 +1,12 @@
 .CuteListItem {
   padding: 8px 15px;
   border-radius: 7px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   margin-bottom: 7px;
+  cursor: pointer;
 }
 
 .CuteListItemButton {
@@ -29,7 +33,11 @@
 }
 
 .CuteListItem-iconStart {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   & > *:first-child {
@@ -40,7 +48,11 @@
 }
 
 .CuteListItem-iconEnd {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   & > *:last-child {
@@ -52,7 +64,11 @@
 }
 
 .CuteListItem-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   & > *:first-child {
     margin-right: 10px;

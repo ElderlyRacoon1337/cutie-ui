@@ -1,7 +1,7 @@
-const React = require('react');
-const { clsx } = require('clsx');
+var _jsxRuntime = require('react/jsx-runtime');
 const { useEffect } = require('react');
-const Popup = ({ open, onClose, children, style, className }) => {
+const { clsx } = require('clsx');
+const Popup = ({ open, onClose, children, style, className, other }) => {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
@@ -10,27 +10,21 @@ const Popup = ({ open, onClose, children, style, className }) => {
       document.body.style.overflow = '';
     };
   }, [open]);
-  return /*#__PURE__*/ React.createElement(
-    React.Fragment,
-    null,
-    open &&
-      /*#__PURE__*/ React.createElement(
-        'div',
-        {
-          className: 'CutePopup',
-          onClick: onClose,
-        },
-        /*#__PURE__*/ React.createElement(
-          'div',
-          {
-            className: clsx('CutePupupElement', className),
-            onClick: (e) => e.stopPropagation(),
-            style: style,
-          },
-          children
-        )
-      )
-  );
+  return /*#__PURE__*/ (0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+    children:
+      open &&
+      /*#__PURE__*/ (0, _jsxRuntime.jsx)('div', {
+        className: 'CutePopup',
+        onClick: onClose,
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)('div', {
+          className: clsx('CutePupupElement', className),
+          onClick: (e) => e.stopPropagation(),
+          ...other,
+          style: style,
+          children: children,
+        }),
+      }),
+  });
 };
 module.exports = {
   Popup,

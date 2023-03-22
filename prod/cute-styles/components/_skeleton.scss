@@ -1,5 +1,6 @@
 .CuteSkeleton {
   animation: toggle 0.5s infinite;
+  animation-duration: 1;
   animation-direction: alternate;
 }
 
@@ -17,20 +18,9 @@
 
 @keyframes toggle {
   0% {
-    background-color: rgb(236, 235, 235);
+    background-color: var(--skeletonDark);
   }
   100% {
-    background-color: rgb(243, 243, 243);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  @keyframes toggle {
-    0% {
-      background-color: rgb(33, 33, 33);
-    }
-    100% {
-      background-color: rgb(25, 25, 25);
-    }
+    background-color: var(--skeletonLight);
   }
 }

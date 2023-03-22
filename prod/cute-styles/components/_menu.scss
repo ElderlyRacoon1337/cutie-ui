@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   padding: 7px 0;
-  background-color: rgba($backgroundSecondary, 0.85);
+  background-color: var(--backgroundSecondary);
   backdrop-filter: blur(7px);
   box-shadow: var(--baseBoxShadow);
 
@@ -92,25 +92,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .CuteMenu {
-    backdrop-filter: blur(7px);
-    background-color: rgba($dm_backgroundSecondary, 0.85);
-    box-shadow: var(--baseBoxShadow);
-  }
-
-  .CuteMenuItem {
-    &:hover {
-      background-color: var(--darkGlass) !important;
-      color: var(--textPrimary);
-    }
-
-    &:active {
-      background-color: var(--glass) !important;
-    }
-  }
-}
-
-.CuteMenuItem-divider {
-  border-bottom: 1px solid var(--divider);
-}
+// =============================================================================================================================

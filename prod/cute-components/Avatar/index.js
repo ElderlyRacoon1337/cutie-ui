@@ -1,7 +1,14 @@
-const React = require('react');
+var _jsxRuntime = require('react/jsx-runtime');
 const { clsx } = require('clsx');
-const Avatar = ({ variant = 'circular', className, src, style, onClick }) => {
-  return /*#__PURE__*/ React.createElement('div', {
+const Avatar = ({
+  variant = 'circular',
+  className,
+  src,
+  style,
+  onClick,
+  other,
+}) => {
+  return /*#__PURE__*/ (0, _jsxRuntime.jsx)('div', {
     onClick: onClick,
     className: clsx(
       'CuteAvatar',
@@ -10,6 +17,7 @@ const Avatar = ({ variant = 'circular', className, src, style, onClick }) => {
       variant == 'circular' && 'CuteAvatar-circular',
       className
     ),
+    ...other,
     style: {
       ...style,
       backgroundImage: 'url(' + src + ')',

@@ -1,15 +1,14 @@
-import React from 'react';
-
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
-  svg: JSX.Element | SVGElement;
+  icon?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  color?: 'primary' | 'secondary' | 'neutral';
+  color?: 'primary' | 'secondary' | 'neutral' | 'white' | 'black' | 'text';
   size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
+  children?: React.ReactNode;
+  other?: object;
 }
-
 export const IconButton: React.FC<IconButtonProps>;

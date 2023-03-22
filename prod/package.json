@@ -1,14 +1,14 @@
 {
   "name": "cutie-ui",
-  "version": "1.8.3",
+  "version": "2.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {},
   "dependencies": {
     "clsx": "^1.2.1",
+    "react": "^18.2.0",
     "sass": "^1.59.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "tinycolor2": "^1.6.0"
   },
   "repository": {
     "type": "git",

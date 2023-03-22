@@ -22,9 +22,9 @@ interface ThemeProvider {
 
 const colors = {
   lightMode: {
-    primary: '#2394fe',
-    secondary: '#aa49ad',
-    neutral: 'rgb(81, 94, 111)',
+    primary: '#eb0066',
+    secondary: '#475979',
+    neutral: '#46505c',
     error: '#fe4739',
     success: '#2cd252',
     disabled: 'rgb(201, 201, 201)',
@@ -42,9 +42,9 @@ const colors = {
     skeletonDark: 'rgb(243, 243, 243)',
   },
   darkMode: {
-    primary: '#2394fe',
-    secondary: '#aa49ad',
-    neutral: 'rgb(81, 94, 111)',
+    primary: '#eb0066',
+    secondary: '#475979',
+    neutral: '#46505c',
     error: '#d02a35',
     success: 'rgb(30, 158, 8)',
     disabled: 'rgb(82, 82, 82)',
@@ -472,27 +472,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     }
 
     if (darkMode) {
-      // if (colors.primary) {
-      //   darkMode.glassPrimary = colors.glassPrimary;
-      //   darkMode.darkGlassPrimary = colors.darkGlassSecondary;
-      // }
-      // if (colors.secondary) {
-      //   darkMode.glassSecondary = colors.darkGlassSecondary;
-      //   darkMode.darkGlassSecondary = colors.glassSecondary;
-      // }
-      // if (colors.neutral) {
-      //   darkMode.glassNeutral = colors.darkGlassNeutral;
-      //   darkMode.darkGlassNeutral = colors.glassNeutral;
-      // }
-      // if (colors.error) {
-      //   darkMode.glassError = colors.darkGlassError;
-      //   darkMode.darkGlassError = colors.glassError;
-      // }
-      // if (colors.success) {
-      //   darkMode.glassSuccess = colors.darkGlassSuccess;
-      //   darkMode.darkGlassSuccess = colors.glassSuccess;
-      // }
-
       if (darkMode.primary) {
         darkMode.primaryLight = tinycolor2(darkMode.primary)
           .lighten(7)

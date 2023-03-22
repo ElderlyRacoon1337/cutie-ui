@@ -5,23 +5,24 @@ import { ThemeProvider } from './ThemeProvider';
 
 const themeOptions = {
   colors: {
-    primary: '#eb0066',
-    secondary: '#475979',
+    primary: '#ECFF9B',
+    logo: '#eb0066',
+    // background: '#151515',
   },
-  lightMode: {},
+  lightMode: {
+    primary: '#c90051',
+  },
   darkMode: {
-    // background: '#0a0d12',
-    success: '#25b847',
-    backgroundSecondary: '#141414',
+    logo: '#fff',
   },
-  font: {
-    size: {
-      // small: '20px',
-      // large: '40px',
-      // medium: '2rem',
-    },
-    // family: 'verdana',
-  },
+  // font: {
+  //   size: {
+  //     small: '20px',
+  //     large: '40px',
+  //     medium: '2rem',
+  //   },
+  //   family: 'verdana',
+  // },
 };
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

@@ -599,19 +599,16 @@
 [data-theme='light'] {
   .CuteButton-primary-text {
     background-color: transparent;
-    color: var(--primaryDark);
+    color: var(--primary);
     border: 1px solid transparent;
-
     &:hover {
       background-color: var(--glassPrimary);
-      color: var(--primaryDark);
+      color: var(--primary);
     }
-
     &:active {
       background-color: var(--darkGlassPrimary);
     }
   }
-
   .CuteButton-primary-contained {
     background-color: var(--primary);
     color: var(--primaryText);
@@ -619,84 +616,111 @@
 
     &:hover {
       background-color: var(--primaryDark);
-      box-shadow: 3px 3px 0px 0px var(--primaryTooLight);
       border-color: var(--primaryDark);
+      box-shadow: 3px 3px 0px 0px var(--primaryLight);
     }
-
     &:active {
       background-color: var(--primaryTooDark);
       border-color: var(--primaryTooDark);
     }
   }
-
   .CuteButton-primary-outlined {
     background-color: transparent;
     color: var(--textPrimary);
     border: 1px solid var(--textPrimary);
-
     &:hover {
       color: var(--primary);
       border: 1px solid var(--primary);
-      box-shadow: 3px 3px 0px 0px var(--primaryTooLight);
+      box-shadow: 3px 3px 0px 0px var(--primaryLight);
     }
   }
+
+  // ================================================= Secondary =================================================
 
   .CuteButton-secondary-text {
     background-color: transparent;
     color: var(--secondary);
     border: 1px solid transparent;
-
     &:hover {
       background-color: var(--glassSecondary);
       color: var(--secondary);
     }
-
     &:active {
       background-color: var(--darkGlassSecondary);
     }
   }
-
   .CuteButton-secondary-contained {
     background-color: var(--secondary);
     color: var(--secondaryText);
     border: 1px solid var(--secondary);
-
     &:hover {
       background-color: var(--secondaryDark);
-      box-shadow: 3px 3px 0px 0px var(--secondaryTooLight);
       border-color: var(--secondaryDark);
+      box-shadow: 3px 3px 0px 0px var(--secondaryLight);
     }
     &:active {
       background-color: var(--secondaryTooDark);
       border-color: var(--secondaryTooDark);
     }
   }
-
   .CuteButton-secondary-outlined {
     background-color: transparent;
     color: var(--textPrimary);
     border: 1px solid var(--textPrimary);
-
     &:hover {
-      border-color: var(--secondary);
-      box-shadow: 3px 3px 0px 0px var(--secondaryTooLight);
       color: var(--secondary);
-      background-color: transparent;
-    }
-
-    &:active {
-      background-color: transparent;
+      border: 1px solid var(--secondary);
+      box-shadow: 3px 3px 0px 0px var(--secondaryLight);
     }
   }
+  // ===================================================== Neutral =========================================================
 
   .CuteButton-neutral-text {
     background-color: transparent;
     color: var(--neutral);
     border: 1px solid transparent;
+    &:hover {
+      background-color: var(--glassNeutral);
+      color: var(--neutral);
+    }
+    &:active {
+      background-color: var(--darkGlassNeutral);
+    }
+  }
+  .CuteButton-neutral-contained {
+    background-color: var(--neutral);
+    color: var(--neutralText);
+    border: 1px solid var(--neutral);
+    &:hover {
+      background-color: var(--neutralDark);
+      border-color: var(--neutralDark);
+      box-shadow: 3px 3px 0px 0px var(--neutralLight);
+    }
+    &:active {
+      background-color: var(--neutralTooDark);
+      border-color: var(--neutralTooDark);
+    }
+  }
+  .CuteButton-neutral-outlined {
+    background-color: transparent;
+    color: var(--textPrimary);
+    border: 1px solid var(--textPrimary);
+    &:hover {
+      color: var(--neutral);
+      border: 1px solid var(--neutral);
+      box-shadow: 3px 3px 0px 0px var(--neutralLight);
+    }
+  }
+  // ===================================================== Black =========================================================
+
+  .CuteButton-black-text {
+    background-color: transparent;
+    color: black;
+    border: 1px solid transparent;
 
     &:hover {
       background-color: var(--glass);
-      color: var(--neutral);
+      color: black;
     }
 
     &:active {
@@ -704,37 +728,80 @@
     }
   }
 
-  .CuteButton-neutral-contained {
-    background-color: var(--neutral);
-    color: var(--neutralText);
-    border: 1px solid var(--neutral);
+  .CuteButton-black-contained {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
 
     &:hover {
-      background-color: var(--neutralDark);
-      box-shadow: 3px 3px 0px 0px var(--neutralTooLight);
-      border-color: var(--neutralDark);
+      color: white;
+      background-color: black;
+      box-shadow: none;
     }
     &:active {
-      background-color: var(--neutralTooDark);
-      border-color: var(--neutralTooDark);
+      background-color: black;
     }
   }
 
-  .CuteButton-neutral-outlined {
+  .CuteButton-black-outlined {
     background-color: transparent;
-    color: var(--textPrimary);
-    border: 1px solid var(--textPrimary);
+    color: black;
+    border: 1px solid black;
 
     &:hover {
-      border-color: var(--neutral);
-      box-shadow: 3px 3px 0px 0px var(--neutralTooLight);
-      color: var(--neutral);
+      border-color: black;
+      box-shadow: none;
+      background-color: black;
+      color: #fff;
+    }
+  }
+
+  // ===================================================== White =========================================================
+
+  .CuteButton-white-text {
+    background-color: transparent;
+    color: white;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glass);
+      color: white;
     }
 
     &:active {
-      background-color: transparent;
+      background-color: var(--darkGlass);
     }
   }
+
+  .CuteButton-white-contained {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+
+    &:hover {
+      color: black;
+      background-color: white;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: white;
+    }
+  }
+
+  .CuteButton-white-outlined {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+
+    &:hover {
+      border-color: white;
+      box-shadow: none;
+      background-color: white;
+      color: black;
+    }
+  }
+
+  // ===================================================== text =========================================================
 
   .CuteButton-text-text {
     background-color: transparent;
@@ -777,5 +844,69 @@
       background-color: black;
       color: #fff;
     }
+  }
+
+  // ================================================= Error ==================================================
+  .CuteButton-error-text {
+    background-color: transparent;
+    color: var(--error);
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glassError);
+
+      color: var(--error);
+    }
+
+    &:active {
+      background-color: var(--darkGlassError);
+    }
+  }
+
+  .CuteButton-error-contained {
+    background-color: var(--error);
+    color: var(--errorText);
+    border: 1px solid var(--error);
+  }
+
+  .CuteButton-error-outlined {
+    background-color: transparent;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  // ================================================= Success ==================================================
+  .CuteButton-success-text {
+    background-color: transparent;
+    color: var(--success);
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--glassSuccess);
+
+      color: var(--success);
+    }
+
+    &:active {
+      background-color: var(--darkGlassSuccess);
+    }
+  }
+
+  .CuteButton-success-contained {
+    background-color: var(--success);
+    color: var(--successText);
+    border: 1px solid var(--success);
+  }
+
+  .CuteButton-success-outlined {
+    background-color: transparent;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  // ========
+
+  .CuteButton-square {
+    border-radius: 0 !important;
   }
 }

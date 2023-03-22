@@ -1,8 +1,8 @@
-const React = require('react');
+var _jsxRuntime = require('react/jsx-runtime');
 const { clsx } = require('clsx');
 const IconButton = ({
   variant = 'text',
-  svg,
+  icon,
   className,
   onClick,
   size = 'medium',
@@ -10,24 +10,25 @@ const IconButton = ({
   style,
   disabled,
   type = 'button',
+  children,
+  other,
 }) => {
-  return /*#__PURE__*/ React.createElement(
-    'button',
-    {
-      type: type,
-      disabled: disabled,
-      onClick: onClick,
-      className: clsx(
-        'CuteIconButton',
-        disabled && 'CuteIconButton-disabled',
-        size && `CuteIconButton-${size}`,
-        color && variant && `CuteIconButton-${color}-${variant}`,
-        className
-      ),
-      style: style,
-    },
-    svg
-  );
+  return /*#__PURE__*/ (0, _jsxRuntime.jsxs)('button', {
+    type: type,
+    disabled: disabled,
+    onClick: onClick,
+    className: clsx(
+      'CuteIconButton',
+      disabled && `CuteIconButton-${variant}-disabled`,
+      size && `CuteIconButton-${size}`,
+      `CuteIconButton-${variant}`,
+      color && variant && `CuteIconButton-${color}-${variant}`,
+      className
+    ),
+    ...other,
+    style: style,
+    children: [icon, children],
+  });
 };
 module.exports = {
   IconButton,

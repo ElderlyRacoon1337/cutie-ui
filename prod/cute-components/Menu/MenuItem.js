@@ -1,20 +1,4 @@
-function _extends() {
-  _extends = Object.assign
-    ? Object.assign.bind()
-    : function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-  return _extends.apply(this, arguments);
-}
-const React = require('react');
+var _jsxRuntime = require('react/jsx-runtime');
 const { clsx } = require('clsx');
 const MenuItem = ({
   children,
@@ -22,22 +6,37 @@ const MenuItem = ({
   className,
   style,
   onClick,
-  ...rest
+  startIcon,
+  endIcon,
+  divider,
+  other,
 }) => {
-  return /*#__PURE__*/ React.createElement(
-    'li',
-    _extends({}, rest, {
-      onClick: onClick
-        ? (e) => {
-            onClick(e);
-            onClose(e);
-          }
-        : onClose,
-      className: clsx('CuteMenuItem', className),
-      style: style,
-    }),
-    children
-  );
+  return /*#__PURE__*/ (0, _jsxRuntime.jsxs)('li', {
+    onClick: onClick
+      ? (e) => {
+          onClick(e);
+          onClose && onClose(e);
+        }
+      : onClose,
+    className: clsx(
+      'CuteMenuItem',
+      startIcon && !endIcon && 'CuteMenuItem-iconStart',
+      endIcon && !startIcon && 'CuteMenuItem-iconEnd',
+      startIcon && endIcon && 'CuteMenuItem-icons',
+      divider && 'CuteMenuItem-divider',
+      className
+    ),
+    ...other,
+    style: style,
+    children: [
+      startIcon,
+      /*#__PURE__*/ (0, _jsxRuntime.jsx)('div', {
+        className: 'CuteMenuItemChildren',
+        children: children,
+      }),
+      endIcon,
+    ],
+  });
 };
 module.exports = {
   MenuItem,

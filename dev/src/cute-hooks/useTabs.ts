@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export const useTabs = (initialValue?: number) => {
   const [tabsValue, setTabsValue] = useState(initialValue || 1);

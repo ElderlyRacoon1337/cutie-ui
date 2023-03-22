@@ -15,16 +15,26 @@
   border: 1px solid var(--divider);
   background-color: var(--background);
   min-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   padding: 7px 0;
   background-color: var(--backgroundSecondary);
+  -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
+  -webkit-box-shadow: var(--baseBoxShadow);
   box-shadow: var(--baseBoxShadow);
 
   .CuteMenuItem {
     padding: 9px 15px;
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     color: var(--textPrimary);
     font-size: var(--fontSizeSmall);
@@ -40,7 +50,11 @@
 }
 
 .CuteMenuItem-iconStart {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   & > *:first-child {
@@ -52,7 +66,11 @@
 }
 
 .CuteMenuItem-iconEnd {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   & > *:first-child {
@@ -69,7 +87,11 @@
 }
 
 .CuteMenuItem-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   & > *:first-child {
     margin-right: 10px;
@@ -91,5 +113,3 @@
     margin-left: auto;
   }
 }
-
-// =============================================================================================================================

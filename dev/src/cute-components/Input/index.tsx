@@ -11,7 +11,6 @@ interface InputProps {
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   classNameForWrapper?: string;
   styleForWrapper?: React.CSSProperties;
-
   size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
   square?: boolean;

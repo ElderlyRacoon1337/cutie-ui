@@ -30,7 +30,7 @@
 // ================================================= Icon Buttons =================================================
 
 .CuteIconButton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -47,7 +47,10 @@
   &:hover {
     color: var(--primary);
     border: 1px solid var(--primary);
-    box-shadow: 0px 0px 0px 3px var(--primaryTooLight);
+    box-shadow: 0px 0px 0px 3px var(--glassPrimary);
+  }
+  &:active {
+    box-shadow: 0px 0px 0px 3px var(--darkGlassPrimary);
   }
 }
 
@@ -69,58 +72,14 @@
 .CuteIconButton-primary-contained {
   border: 1px solid var(--primary);
   background-color: var(--primary);
-  color: white;
-
+  color: var(--primaryText);
   &:hover {
     background-color: var(--primaryDark);
     border-color: var(--primaryDark);
   }
-
   &:active {
     border-color: var(--primaryTooDark);
     background-color: var(--primaryTooDark);
-  }
-}
-
-// ================================================= Dark mode =================================================
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-primary-outlined {
-    background-color: transparent;
-    border-color: #fff;
-    &:hover {
-      background-color: var(--darkGlass);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteIconButton-primary-contained {
-    background-color: var(--primary);
-    border-color: var(--primary);
-
-    &:hover {
-      border-color: white;
-      background-color: #fff;
-      color: var(--primary);
-    }
-  }
-
-  .CuteIconButton-primary-text {
-    color: white;
-    border-color: transparent;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
   }
 }
 
@@ -131,30 +90,28 @@
   color: var(--secondary);
   border: 1px solid transparent;
   &:hover {
-    background-color: var(--secondaryTooLight);
+    background-color: var(--glassSecondary);
     color: var(--secondary);
   }
 
   &:active {
-    background-color: var(--secondaryLight);
+    background-color: var(--darkGlassSecondary);
   }
 }
 
 .CuteIconButton-secondary-contained {
   background-color: var(--secondary);
   border: 1px solid var(--secondary);
-  color: #fff;
+  color: var(--secondaryText);
 
   &:hover {
     background-color: var(--secondaryDark);
     border-color: var(--secondaryDark);
-    color: #fff;
   }
 
   &:active {
     background-color: var(--secondaryTooDark);
     border-color: var(--secondaryTooDark);
-    color: #fff;
   }
 }
 
@@ -167,45 +124,10 @@
     background-color: transparent;
     color: var(--secondary);
     border: 1px solid var(--secondary);
-    box-shadow: 0px 0px 0px 3px var(--secondaryTooLight);
+    box-shadow: 0px 0px 0px 3px var(--glassSecondary);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-secondary-text {
-    color: white;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
-  }
-
-  .CuteIconButton-secondary-outlined {
-    background-color: transparent;
-    border-color: #fff;
-    &:hover {
-      background-color: var(--darkGlass);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteIconButton-secondary-contained {
-    border-color: var(--secondary);
-    &:hover {
-      border-color: white;
-      background-color: white;
-      box-shadow: none;
-      color: var(--secondaryLight);
-    }
+  &:active {
+    box-shadow: 0px 0px 0px 3px var(--darkGlassSecondary);
   }
 }
 
@@ -216,30 +138,28 @@
   color: var(--neutral);
   border: 1px solid transparent;
   &:hover {
-    background-color: var(--neutralTooLight);
+    background-color: var(--glassNeutral);
     color: var(--neutral);
   }
 
   &:active {
-    background-color: var(--neutralLight);
+    background-color: var(--darkGlassNeutral);
   }
 }
 
 .CuteIconButton-neutral-contained {
   background-color: var(--neutral);
-  color: #fff;
+  color: var(--neutralText);
   border: 1px solid var(--neutral);
 
   &:hover {
     background-color: var(--neutralDark);
     border-color: var(--neutralDark);
-    color: #fff;
   }
 
   &:active {
     background-color: var(--neutralTooDark);
     border-color: var(--neutralTooDark);
-    color: #fff;
   }
 }
 
@@ -252,46 +172,10 @@
     background-color: transparent;
     color: var(--neutral);
     border: 1px solid var(--neutral);
-    box-shadow: 0px 0px 0px 3px var(--neutralTooLight);
+    box-shadow: 0px 0px 0px 3px var(--glassNeutral);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-neutral-text {
-    color: white;
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-    &:active {
-      background-color: var(--glass);
-      color: white;
-    }
-  }
-
-  .CuteIconButton-neutral-contained {
-    background-color: var(--neutral);
-    border-color: var(--neutral);
-    &:hover {
-      background-color: #fff;
-      color: var(--neutral);
-      border-color: #fff;
-      box-shadow: none;
-    }
-  }
-
-  .CuteIconButton-neutral-outlined {
-    background-color: transparent;
-    border-color: #fff;
-    &:hover {
-      background-color: var(--darkGlass);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: var(--glass);
-    }
+  &:active {
+    box-shadow: 0px 0px 0px 3px var(--darkGlassNeutral);
   }
 }
 
@@ -316,12 +200,6 @@
   border-color: transparent !important;
   color: var(--disabled) !important;
   box-shadow: none !important;
-}
-
-@media (prefers-color-scheme: light) {
-  .CuteIconButton-contained-disabled {
-    background-color: var(--darkGlass) !important;
-  }
 }
 
 // ===================================================== Black =========================================================
@@ -418,12 +296,11 @@
 
 .CuteIconButton-text-text {
   background-color: transparent;
-  color: black;
+  color: var(--textPrimary);
   border: 1px solid transparent;
 
   &:hover {
     background-color: var(--glass);
-    color: black;
   }
 
   &:active {
@@ -432,74 +309,30 @@
 }
 
 .CuteIconButton-text-contained {
-  background-color: black;
-  color: white;
-  border: 1px solid black;
+  background-color: var(--textPrimary);
+  color: var(--textOpposite);
+  border: 1px solid var(--textPrimary);
 
   &:hover {
-    color: white;
-    background-color: black;
+    color: var(--textOpposite);
+    background-color: var(--textPrimary);
     box-shadow: none;
   }
   &:active {
-    background-color: black;
+    background-color: var(--textPrimary);
   }
 }
 
 .CuteIconButton-text-outlined {
   background-color: transparent;
-  color: black;
-  border: 1px solid black;
+  color: var(--textPrimary);
+  border: 1px solid var(--textPrimary);
 
   &:hover {
-    border-color: black;
-    box-shadow: none;
-    background-color: black;
-    color: #fff;
+    border-color: var(--textPrimary);
+    box-shadow: 0px 0px 0px 3px var(--glass);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CuteIconButton-text-text {
-    background-color: transparent;
-    color: white;
-    border: 1px solid transparent;
-
-    &:hover {
-      background-color: var(--darkGlass);
-      color: white;
-    }
-
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-
-  .CuteIconButton-text-contained {
-    background-color: white;
-    color: black;
-    border: 1px solid white;
-
-    &:hover {
-      color: black;
-      background-color: white;
-      box-shadow: none;
-    }
-    &:active {
-      background-color: white;
-    }
-  }
-
-  .CuteIconButton-text-outlined {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-
-    &:hover {
-      border-color: black;
-      box-shadow: none;
-      background-color: white;
-      color: black;
-    }
+  &:active {
+    box-shadow: 0px 0px 0px 3px var(--darkGlass);
   }
 }

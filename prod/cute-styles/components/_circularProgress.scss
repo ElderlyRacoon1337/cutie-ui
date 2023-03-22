@@ -12,6 +12,19 @@
   margin: auto;
 }
 
+.CuteLoader-primary {
+  border-top-color: var(--primary);
+}
+.CuteLoader-secondary {
+  border-top-color: var(--secondary);
+}
+.CuteLoader-neutral {
+  border-top-color: var(--neutral);
+}
+.CuteLoader-text {
+  border-top-color: var(--textPrimary);
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

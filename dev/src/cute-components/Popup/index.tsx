@@ -19,12 +19,15 @@ export const Popup: React.FC<PopupProps> = ({
   className,
   other,
 }) => {
+  const prevent = (ev: any) => ev.preventDefault();
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden';
+      document.addEventListener('wheel', prevent, { passive: false });
+      // document.body.style.overflow = 'hidden';
     }
     return () => {
-      document.body.style.overflow = '';
+      // document.body.style.overflow = '';
+      document.removeEventListener('wheel', prevent);
     };
   }, [open]);
 

@@ -26,17 +26,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .CuteTab {
-    &:hover {
-      background-color: var(--darkGlass);
-    }
-    &:active {
-      background-color: var(--glass);
-    }
-  }
-}
-
 // ====================================================== Sizes =============================================================
 
 .CuteTabs-small {
@@ -56,7 +45,7 @@
 
 .CuteTab-active-contained-primary {
   background-color: var(--primary) !important;
-  color: white;
+  color: var(--primaryText);
 }
 .CuteTab-active-underlined-primary {
   border-color: var(--primary);
@@ -64,7 +53,7 @@
 
 .CuteTab-active-contained-secondary {
   background-color: var(--secondary) !important;
-  color: white;
+  color: var(--secondaryText);
 }
 .CuteTab-active-underlined-secondary {
   border-color: var(--secondary);
@@ -72,7 +61,7 @@
 
 .CuteTab-active-contained-neutral {
   background-color: var(--neutral) !important;
-  color: white;
+  color: var(--neutralText);
 }
 .CuteTab-active-underlined-neutral {
   border-color: var(--neutral);
@@ -80,23 +69,23 @@
 
 .CuteTab-active-contained-black {
   background-color: black !important;
-  color: white;
+  color: var(--textOpposite);
 }
 .CuteTab-active-underlined-black {
   border-color: black;
 }
 
 .CuteTab-active-contained-white {
-  background-color: white !important;
-  color: black;
+  background-color: var(--textOpposite) !important;
+  color: var(--textPrimary);
 }
 .CuteTab-active-underlined-white {
-  border-color: white;
+  border-color: var(--textOpposite);
 }
 
 .CuteTab-active-contained-error {
   background-color: var(--error) !important;
-  color: white;
+  color: var(--errorText);
 }
 .CuteTab-active-underlined-error {
   border-color: var(--error);
@@ -104,7 +93,7 @@
 
 .CuteTab-active-contained-success {
   background-color: var(--success) !important;
-  color: white;
+  color: var(--successText);
 }
 .CuteTab-active-underlined-success {
   border-color: var(--success);
@@ -119,3 +108,5 @@
 .CuteTab-circle {
   border-radius: 20px;
 }
+
+// =================================

@@ -39,19 +39,13 @@
   outline: none;
   border: none;
   border-radius: 10px;
+  background-color: transparent;
 }
 
 .CuteInput-square {
   border-radius: 0 !important;
   .CuteButton {
     border-radius: 0 !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .CuteInput {
-    background-color: transparent;
-    // outline: 1px solid var(--divider);
   }
 }
 
@@ -147,8 +141,6 @@
 
 .CuteInput-outlined {
   outline: 1px solid;
-  input {
-  }
 }
 
 .CuteInput-filled {
@@ -160,11 +152,14 @@
     background-color: transparent;
   }
   .CuteInput-label {
-    color: var(--textSecondary) !important;
+    color: var(--textSecondary);
     top: -15px;
   }
   svg {
-    color: var(--textSecondary) !important;
+    color: var(--textSecondary);
+  }
+  .CuteButton {
+    border-radius: 0;
   }
 }
 
@@ -336,12 +331,6 @@
   outline-width: 1.5px;
   svg {
     color: var(--neutral) !important;
-  }
-}
-
-.CuteInput-filled {
-  svg {
-    color: var(--textSecondary) !important;
   }
 }
 

@@ -53,10 +53,10 @@ function App() {
                 <h1 className="m-0px" style={{ fontWeight: 'black' }}>
                   Cutie UI
                 </h1>
-                <Icon color="primary">
+                <Icon>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="var(--primary)"
+                    fill="var(--logo)"
                     height="800px"
                     width="800px"
                     version="1.1"
@@ -75,7 +75,7 @@ function App() {
                   </svg>
                 </Icon>
               </a>
-              <p className="mt-5px" style={{ color: 'var(--textSecondary)' }}>
+              <p className="" style={{ color: 'var(--textSecondary)' }}>
                 Cute ui framework for React
               </p>
             </div>

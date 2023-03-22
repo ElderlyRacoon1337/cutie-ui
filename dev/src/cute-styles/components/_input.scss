@@ -1,7 +1,12 @@
 // ======================================================= Wrapper =======================================================
 
 .CuteInputWrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
 
@@ -17,6 +22,8 @@
     position: absolute;
     z-index: 1;
     color: var(--textSecondary);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     border-radius: 7px;
     font-size: var(--fontSizeSmall);
@@ -53,7 +60,11 @@
 
 .CuteInput-iconStart {
   .CuteInput-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     & > *:nth-child(1) {
       color: var(--textSecondary);
@@ -70,7 +81,11 @@
 
 .CuteInput-iconEnd {
   .CuteInput-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     & > *:nth-child(2) {
       color: var(--textSecondary);
@@ -87,7 +102,11 @@
 
 .CuteInput-icons {
   .CuteInput-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     & > *:nth-child(1) {
       color: var(--textSecondary);

@@ -1,4 +1,5 @@
-const React = require('react');
+var _jsxRuntime = require('react/jsx-runtime');
+const { useState } = require('react');
 const { clsx } = require('clsx');
 const Input = ({
   placeholder,
@@ -7,37 +8,76 @@ const Input = ({
   type,
   value,
   onChange,
-  startIcon,
   classNameForWrapper,
+  color = 'primary',
+  variant = 'outlined',
+  size = 'medium',
+  square = false,
+  label,
+  startIcon,
+  endIcon,
+  message,
+  autoFocus,
+  defaultValue,
+  autoComplete,
+  maxLength,
+  other,
+  styleForWrapper,
+  button,
 }) => {
-  return /*#__PURE__*/ React.createElement(
-    React.Fragment,
-    null,
-    startIcon
-      ? /*#__PURE__*/ React.createElement(
-          'div',
-          {
-            className: clsx('CuteSearchInput', classNameForWrapper),
-            style: style,
-          },
+  const [focused, setFocused] = useState(false);
+  return /*#__PURE__*/ (0, _jsxRuntime.jsxs)('div', {
+    className: clsx(
+      'CuteInputWrapper',
+      `CuteInput-${color}`,
+      `CuteInput-${variant}`,
+      `CuteInput-${size}`,
+      startIcon && !endIcon && 'CuteInput-iconStart',
+      endIcon && !startIcon && 'CuteInput-iconEnd',
+      startIcon && endIcon && 'CuteInput-icons',
+      square && 'CuteInput-square',
+      focused && `CuteInput-focused CuteInput-${color}-focused`,
+      classNameForWrapper
+    ),
+    style: styleForWrapper,
+    children: [
+      label &&
+        focused &&
+        /*#__PURE__*/ (0, _jsxRuntime.jsx)('p', {
+          className: 'CuteInput-label',
+          children: placeholder,
+        }),
+      /*#__PURE__*/ (0, _jsxRuntime.jsxs)('div', {
+        className: 'CuteInput-row',
+        children: [
           startIcon,
-          /*#__PURE__*/ React.createElement('input', {
+          /*#__PURE__*/ (0, _jsxRuntime.jsx)('input', {
+            minLength: maxLength,
+            maxLength: maxLength,
+            autoComplete: autoComplete,
+            defaultValue: defaultValue,
+            autoFocus: autoFocus,
+            onFocus: () => setFocused(true),
+            onBlur: () => setFocused(false),
             className: clsx('CuteInput', className),
-            placeholder: placeholder,
+            placeholder: label && focused ? '' : placeholder,
             type: type,
             value: value,
             onChange: onChange,
-          })
-        )
-      : /*#__PURE__*/ React.createElement('input', {
-          className: clsx('CuteInput', className),
-          placeholder: placeholder,
-          type: type,
-          value: value,
-          onChange: onChange,
-          style: style,
-        })
-  );
+            ...other,
+            style: style,
+          }),
+          endIcon,
+          button,
+        ],
+      }),
+      message &&
+        /*#__PURE__*/ (0, _jsxRuntime.jsx)('p', {
+          className: 'CuteInput-message',
+          children: message,
+        }),
+    ],
+  });
 };
 module.exports = {
   Input,
