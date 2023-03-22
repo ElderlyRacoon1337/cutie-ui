@@ -1,0 +1,307 @@
+.df {
+  display: flex;
+}
+
+.db {
+  display: block;
+}
+
+.flex {
+  flex: 1;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
+.aic {
+  align-items: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcfs {
+  justify-content: flex-start;
+}
+
+.jcfe {
+  justify-content: flex-end;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.colorPrimary {
+  color: var(--primary);
+}
+
+.colorSecondary {
+  color: var(--secondary);
+}
+
+.colorNeutral {
+  color: var(--neutral);
+}
+
+.colorError {
+  color: var(--error);
+}
+
+.colorSuccess {
+  color: var(--success);
+}
+
+.bgPrimary {
+  background-color: var(--primary);
+}
+
+.bgSecondary {
+  background-color: var(--secondary);
+}
+
+.bgNeutral {
+  background-color: var(--neutral);
+}
+
+.bgError {
+  background-color: var(--error);
+}
+
+.bgSuccess {
+  background-color: var(--success);
+}
+
+.textSecondary {
+  color: var(--textSecondary);
+}
+
+.textPrimary {
+  color: var(--textPrimary);
+}
+
+.textOpposite {
+  color: var(--textOpposite);
+}
+
+.dn {
+  display: none;
+}
+
+.tac {
+  text-align: center;
+}
+
+.cup {
+  cursor: pointer;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.borderPrimary {
+  border-color: var(--primary);
+}
+
+.borderSecondary {
+  border-color: var(--secondary);
+}
+
+.borderNeutral {
+  border-color: var(--neutral);
+}
+
+.bgWhite {
+  background-color: white;
+}
+
+.bgBlack {
+  background-color: black;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.fssm {
+  font-size: var(--fontSizeSmall);
+}
+.fsmd {
+  font-size: var(--fontSizeMedium);
+}
+.fslg {
+  font-size: var(--fontSizeLarge);
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+.fw-200 {
+  font-weight: 200;
+}
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+.fw-900 {
+  font-weight: 900;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.fullHeight {
+  width: 100%;
+}
+
+.iconWhite {
+  svg {
+    color: white;
+  }
+}
+
+.iconBlack {
+  svg {
+    color: black;
+  }
+}
+
+.iconPrimary {
+  svg {
+    color: var(--primary);
+  }
+}
+
+.iconSecondary {
+  svg {
+    color: var(--secondary);
+  }
+}
+
+.iconNeutral {
+  svg {
+    color: var(--neutral);
+  }
+}
+
+.disableBoxShadow {
+  box-shadow: none;
+}
+
+@for $i from 0 through 1000 {
+  .m-#{$i}px {
+    margin: #{$i}px !important;
+  }
+  .ml-#{$i}px {
+    margin-left: #{$i}px !important;
+  }
+  .mr-#{$i}px {
+    margin-right: #{$i}px !important;
+  }
+  .mt-#{$i}px {
+    margin-top: #{$i}px !important;
+  }
+  .mb-#{$i}px {
+    margin-bottom: #{$i}px !important;
+  }
+  .mx-#{$i}px {
+    margin-left: #{$i}px !important;
+    margin-right: #{$i}px !important;
+  }
+  .my-#{$i}px {
+    margin-top: #{$i}px !important;
+    margin-bottom: #{$i}px !important;
+  }
+
+  .p-#{$i}px {
+    padding: #{$i}px !important;
+  }
+  .pl-#{$i}px {
+    padding-left: #{$i}px !important;
+  }
+  .pr-#{$i}px {
+    padding-right: #{$i}px !important;
+  }
+  .pt-#{$i}px {
+    padding-top: #{$i}px !important;
+  }
+  .pb-#{$i}px {
+    padding-bottom: #{$i}px !important;
+  }
+  .px-#{$i}px {
+    padding-left: #{$i}px !important;
+    padding-right: #{$i}px !important;
+  }
+  .py-#{$i}px {
+    padding-top: #{$i}px !important;
+    padding-bottom: #{$i}px !important;
+  }
+
+  .w-#{$i}px {
+    width: #{$i}px !important;
+  }
+  .h-#{$i}px {
+    height: #{$i}px !important;
+  }
+
+  .maxw-#{$i}px {
+    max-width: #{$i}px !important;
+  }
+  .maxh-#{$i}px {
+    max-height: #{$i}px !important;
+  }
+  .minw-#{$i}px {
+    min-width: #{$i}px !important;
+  }
+  .minh-#{$i}px {
+    min-height: #{$i}px !important;
+  }
+
+  .top-#{$i}px {
+    top: #{$i}px !important;
+  }
+  .bottom-#{$i}px {
+    bottom: #{$i}px !important;
+  }
+  .left-#{$i}px {
+    left: #{$i}px !important;
+  }
+  .right-#{$i}px {
+    right: #{$i}px !important;
+  }
+}

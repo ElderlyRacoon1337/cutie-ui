@@ -279,7 +279,11 @@ const ThemeProvider = ({ themeOptions = {}, children }) => {
       const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
       return localStorageTheme || browserDefault;
     };
+    console.log(isBrowserDefaultDark(), 'isBrowserDark');
+    console.log(getDefaultTheme(), 'default theme');
+    console.log(localStorage.getItem('theme'), 'localStorage');
     changeTheme(getDefaultTheme());
+    console.log(theme, 'theme in state');
     switch (getDefaultTheme()) {
       case 'light':
         document.documentElement.dataset.theme = 'light';
@@ -304,6 +308,14 @@ const ThemeProvider = ({ themeOptions = {}, children }) => {
       const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
       return localStorageTheme || browserDefault;
     };
+    console.log(
+      theme,
+      'useEffect 2 theme',
+      isBrowserDefaultDark(),
+      'useeFFect 2 isBrowserDark,',
+      localStorage.getItem('theme'),
+      'useEffect 2 localStorage'
+    );
     if (theme) {
       switch (theme) {
         case 'light':
@@ -585,6 +597,7 @@ const ThemeProvider = ({ themeOptions = {}, children }) => {
       if (colors) {
         for (let key in colors) {
           document.body.style.setProperty(`--${key}`, colors[key]);
+          console.log(`--${key}`, colors[key]);
         }
       }
       for (let key in lightMode) {
@@ -601,6 +614,7 @@ const ThemeProvider = ({ themeOptions = {}, children }) => {
       if (colors) {
         for (let key in colors) {
           document.body.style.setProperty(`--${key}`, colors[key]);
+          console.log(`--${key}`, colors[key]);
         }
       }
       for (let key in darkMode) {

@@ -1,29 +1,29 @@
-import Alert from './cute-components/Alert';
-import { Avatar } from './cute-components/Avatar';
-import { Button } from './cute-components/Button';
-import Loader from './cute-components/Loader';
-import { Icon } from './cute-components/Icon';
-import { IconButton } from './cute-components/IconButton';
-import { Input } from './cute-components/Input';
-import Link from './cute-components/Link';
-import { List } from './cute-components/List';
-import { ListItem } from './cute-components/List/ListItem';
-import { ListItemButton } from './cute-components/List/ListItemButton';
-import { Menu } from './cute-components/Menu';
-import { MenuItem } from './cute-components/Menu/MenuItem';
-import { Popup } from './cute-components/Popup';
-import Tabs from './cute-components/Tabs';
-import { useMenu } from './cute-hooks/useMenu';
-import { usePopup } from './cute-hooks/usePopup';
-import Switch from './cute-components/Switch';
-import Tab from './cute-components/Tabs/Tab';
-import { useAlert } from './cute-hooks/useAlert';
-import { useTabs } from './cute-hooks/useTabs';
-import Skeleton from './cute-components/Skeleton';
-import { ThemeContext } from './ThemeProvider';
-import { useContext, useEffect, useState } from 'react';
-import GradientText from './cute-components/GradientText';
-import { useSwitch } from './cute-hooks/useSwitch';
+const { Alert } = require('../cute-components/Alert');
+const { Avatar } = require('../cute-components/Avatar');
+const { Button } = require('../cute-components/Button');
+const { Loader } = require('../cute-components/Loader');
+const { Icon } = require('../cute-components/Icon');
+const { IconButton } = require('../cute-components/IconButton');
+const { Input } = require('../cute-components/Input');
+const { Link } = require('../cute-components/Link');
+const { List } = require('../cute-components/List');
+const { ListItem } = require('../cute-components/List/ListItem');
+const { ListItemButton } = require('../cute-components/List/ListItemButton');
+const { Menu } = require('../cute-components/Menu');
+const { MenuItem } = require('../cute-components/Menu/MenuItem');
+const { Popup } = require('../cute-components/Popup');
+const { Tabs } = require('../cute-components/Tabs');
+const { useMenu } = require('../cute-hooks/useMenu');
+const { usePopup } = require('../cute-hooks/usePopup');
+const { Switch } = require('../cute-components/Switch');
+const { Tab } = require('../cute-components/Tabs/Tab');
+const { useAlert } = require('../cute-hooks/useAlert');
+const { useTabs } = require('../cute-hooks/useTabs');
+const { Skeleton } = require('../cute-components/Skeleton');
+const { ThemeContext } = require('../ThemeProvider.js');
+const { useContext, useEffect, useState } = require('react');
+const { GradientText } = require('../cute-components/GradientText');
+const { useSwitch } = require('../cute-hooks/useSwitch');
 
 function App() {
   const { popupOpen, handleClickPopup, handleClosePopup } = usePopup();
@@ -80,6 +80,7 @@ function App() {
               </p>
             </div>
             <Input
+              variant="outlined"
               button={<Button>Search</Button>}
               startIcon={
                 <svg
@@ -104,7 +105,7 @@ function App() {
 
           <div className="right df aic">
             <Button
-              onClick={(e: any) => {
+              onClick={(e) => {
                 handleClickMenu(e);
               }}
               className="mr-10px"
@@ -222,7 +223,7 @@ function App() {
               </svg>
             </Icon>
             <Avatar
-              onClick={(e: any) => {
+              onClick={(e) => {
                 handleClickMenu(e);
               }}
               src="https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_4x3.jpg"
@@ -384,7 +385,7 @@ function App() {
             <Switch
               className="mb-10px"
               checked={checkedSwitch}
-              onChange={(e: any) => {
+              onChange={(e) => {
                 handleSwitch(e);
                 changeTheme(theme == 'dark' ? 'light' : 'dark');
               }}

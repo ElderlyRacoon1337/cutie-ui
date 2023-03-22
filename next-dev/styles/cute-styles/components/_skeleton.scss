@@ -1,0 +1,26 @@
+.CuteSkeleton {
+  animation: toggle 0.5s infinite;
+  animation-duration: 1;
+  animation-direction: alternate;
+}
+
+.CuteSkeleton-square {
+  border-radius: 0px;
+}
+.CuteSkeleton-rounded {
+  border-radius: 7px;
+}
+.CuteSkeleton-circle {
+  border-radius: 50%;
+  height: auto !important;
+  aspect-ratio: 1;
+}
+
+@keyframes toggle {
+  0% {
+    background-color: var(--skeletonDark);
+  }
+  100% {
+    background-color: var(--skeletonLight);
+  }
+}
