@@ -76,7 +76,7 @@ function App() {
                 </Icon>
               </a>
               <p className="" style={{ color: 'var(--textSecondary)' }}>
-                Cute ui framework for React
+                Cute framework for React
               </p>
             </div>
             <Input
