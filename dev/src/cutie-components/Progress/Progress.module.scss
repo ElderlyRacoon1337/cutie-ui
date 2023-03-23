@@ -1,0 +1,106 @@
+@import '../../cutie-styles/variables';
+
+.CuteProgress {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  & div:first-child {
+    height: 100%;
+  }
+}
+
+.CuteProgress-loader {
+  & div:first-child {
+    display: none;
+  }
+  & div:last-child {
+    height: 100%;
+    -webkit-animation: horizontalProgressBar 1.5s linear infinite;
+    animation: horizontalProgressBar 1.5s linear infinite;
+    z-index: 1;
+  }
+}
+
+.CuteProgress-primary {
+  div {
+    background-color: var(--primary);
+  }
+}
+.CuteProgress-secondary {
+  div {
+    background-color: var(--secondary);
+  }
+}
+.CuteProgress-neutral {
+  div {
+    background-color: var(--neutral);
+  }
+}
+.CuteProgress-success {
+  div {
+    background-color: var(--success);
+  }
+}
+.CuteProgress-error {
+  div {
+    background-color: var(--error);
+  }
+}
+.CuteProgress-text {
+  div {
+    background-color: var(--text);
+  }
+}
+.CuteProgress-white {
+  div {
+    background-color: var(--white);
+  }
+}
+.CuteProgress-black {
+  div {
+    background-color: var(--black);
+  }
+}
+
+@media (prefers-color-scheme=dark) {
+  .CuteProgress {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+[data-theme='dark'] {
+  .CuteProgress {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+[data-theme='light'] {
+  .CuteProgress {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes horizontalProgressBar {
+  0% {
+    margin-left: 0%;
+    margin-right: 100%;
+  }
+  20% {
+    margin-left: 0%;
+    margin-right: 60%;
+  }
+  40% {
+    margin-left: 40%;
+    margin-right: 20%;
+  }
+  60% {
+    margin-left: 80%;
+    margin-right: -20%;
+  }
+  80% {
+    margin-left: 100%;
+    margin-right: -60%;
+  }
+  100% {
+    margin-left: 100%;
+    margin-right: -80%;
+  }
+}

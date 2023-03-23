@@ -2,20 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './ThemeProvider';
-import './cute-styles/_shorts.scss';
-import CuteStyles from './cute-components/CuteStyles';
+import CutieStyles from './cutie-components/CutieStyles';
+import './index.scss';
 
 const themeOptions = {
   colors: {
-    // primary: '#ECFF9B',
-    logo: '#eb0066',
-    // background: '#151515',
+    primary: '#41f098',
+    logo: '#DA417E',
   },
   lightMode: {
-    // primary: '#c90051',
+    primary: '#DA417E',
+    background: '#FFFFFF',
   },
   darkMode: {
     logo: '#fff',
+    primary: '#ff8fbc',
+    // secondary: 'red',
   },
   // font: {
   //   size: {
@@ -23,14 +25,17 @@ const themeOptions = {
   //     large: '40px',
   //     medium: '2rem',
   //   },
-  //   family: 'verdana',
+  //   family: {
+  //     fontFamily: 'verdana',
+  //     customFamily: 'bebra',
+  //   },
   // },
 };
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider themeOptions={themeOptions}>
     <React.StrictMode>
-      <CuteStyles />
+      <CutieStyles />
       <App />
     </React.StrictMode>
   </ThemeProvider>

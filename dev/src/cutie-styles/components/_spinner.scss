@@ -1,0 +1,35 @@
+.CuteSpinner {
+  border: 3px solid var(--divider);
+  border-top: 3px solid var(--textPrimary);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  animation: spin 0.8s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.CuteSpinner-primary {
+  border-top-color: var(--primary);
+}
+.CuteSpinner-secondary {
+  border-top-color: var(--secondary);
+}
+.CuteSpinner-neutral {
+  border-top-color: var(--neutral);
+}
+.CuteSpinner-text {
+  border-top-color: var(--textPrimary);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

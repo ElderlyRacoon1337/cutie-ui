@@ -1,29 +1,30 @@
-import Alert from './cute-components/Alert';
-import { Avatar } from './cute-components/Avatar';
-import { Button } from './cute-components/Button';
-import Loader from './cute-components/Loader';
-import { Icon } from './cute-components/Icon';
-import { IconButton } from './cute-components/IconButton';
-import { Input } from './cute-components/Input';
-import Link from './cute-components/Link';
-import { List } from './cute-components/List';
-import { ListItem } from './cute-components/List/ListItem';
-import { ListItemButton } from './cute-components/List/ListItemButton';
-import { Menu } from './cute-components/Menu';
-import { MenuItem } from './cute-components/Menu/MenuItem';
-import { Popup } from './cute-components/Popup';
-import Tabs from './cute-components/Tabs';
-import { useMenu } from './cute-hooks/useMenu';
-import { usePopup } from './cute-hooks/usePopup';
-import Switch from './cute-components/Switch';
-import Tab from './cute-components/Tabs/Tab';
-import { useAlert } from './cute-hooks/useAlert';
-import { useTabs } from './cute-hooks/useTabs';
-import Skeleton from './cute-components/Skeleton';
+import Alert from './cutie-components/Alert';
+import { Avatar } from './cutie-components/Avatar';
+import { Button } from './cutie-components/Button';
+import Spinner from './cutie-components/Spinner';
+import { Icon } from './cutie-components/Icon';
+import { IconButton } from './cutie-components/IconButton';
+import { Input } from './cutie-components/Input';
+import Link from './cutie-components/Link';
+import { List } from './cutie-components/List';
+import { ListItem } from './cutie-components/List/ListItem';
+import { ListItemButton } from './cutie-components/List/ListItemButton';
+import { Menu } from './cutie-components/Menu';
+import { MenuItem } from './cutie-components/Menu/MenuItem';
+import { Popup } from './cutie-components/Popup';
+import Tabs from './cutie-components/Tabs';
+import { useMenu } from './cutie-hooks/useMenu';
+import { usePopup } from './cutie-hooks/usePopup';
+import Switch from './cutie-components/Switch';
+import Tab from './cutie-components/Tabs/Tab';
+import { useAlert } from './cutie-hooks/useAlert';
+import { useTabs } from './cutie-hooks/useTabs';
+import Skeleton from './cutie-components/Skeleton';
 import { ThemeContext } from './ThemeProvider';
 import { useContext, useEffect, useState } from 'react';
-import GradientText from './cute-components/GradientText';
-import { useSwitch } from './cute-hooks/useSwitch';
+import GradientText from './cutie-components/GradientText';
+import { useSwitch } from './cutie-hooks/useSwitch';
+import Progress from './cutie-components/Progress';
 
 function App() {
   const { popupOpen, handleClickPopup, handleClosePopup } = usePopup();
@@ -53,7 +54,7 @@ function App() {
                 <h1 className="m-0px mr-5px" style={{ fontWeight: 'black' }}>
                   Cutie UI
                 </h1>
-                <Icon fontSize={'1.3rem'}>
+                <Icon fontSize={'1.3rem'} style={{ color: 'var(--logo)' }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentcolor"
@@ -79,20 +80,25 @@ function App() {
             </div>
             <Input
               button={<Button>Search</Button>}
+              label
+              message="hello"
+              color="primary"
               startIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
+                <Icon fontSize={'1rem'}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                    />
+                  </svg>
+                </Icon>
               }
               className="minw-250px"
               classNameForWrapper="ml-50px"
@@ -153,9 +159,16 @@ function App() {
               //     </svg>
               //   </Icon>
               // }
-              endIcon={
-                <Loader circleLight color="white" size={'14px'} fatness="1.5" />
-              }
+              // endIcon={
+              //   <Spinner
+              //     duration={1.2}
+              //     variant={3}
+              //     circleLight
+              //     color="white"
+              //     size={'7px'}
+              //     fatness="1.5"
+              //   />
+              // }
               onClick={handleClickPopup}
               className="mr-10px"
               variant="contained"
@@ -299,6 +312,7 @@ function App() {
           <List>
             <ListItemButton
               // activeFilled
+              active
               startIcon={
                 <Icon>
                   <svg
@@ -468,7 +482,7 @@ function App() {
             />
 
             <Tabs
-              color="secondary"
+              color="neutral"
               value={tabsValue}
               onChange={handleChangeTabs}
               variant="contained"
@@ -559,6 +573,14 @@ function App() {
                     System
                   </Button>
                 </div>
+                <Progress
+                  loader
+                  duration={1.5}
+                  color="primary"
+                  height={3}
+                  value={10}
+                  className="mt-20px w-900px"
+                />
               </Tab>
               <Tab className="pt-10px">
                 <GradientText
@@ -653,9 +675,8 @@ function App() {
                   </Button>
                 </div>
                 <div className="mb-10px">
-                  <IconButton
-                    className="mr-10px"
-                    icon={
+                  <IconButton className="mr-10px">
+                    <Icon fontSize={20}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -669,12 +690,10 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
-                  <IconButton
-                    variant="outlined"
-                    className="mr-10px"
-                    icon={
+                    </Icon>
+                  </IconButton>
+                  <IconButton variant="outlined" className="mr-10px">
+                    <Icon fontSize={20}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -688,12 +707,10 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
-                  <IconButton
-                    variant="contained"
-                    className="mr-10px"
-                    icon={
+                    </Icon>
+                  </IconButton>
+                  <IconButton variant="contained" className="mr-10px">
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -707,14 +724,12 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                 </div>
                 <div className="mb-10px">
-                  <IconButton
-                    color="secondary"
-                    className="mr-10px"
-                    icon={
+                  <IconButton color="secondary" className="mr-10px">
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -728,13 +743,14 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                   <IconButton
                     color="secondary"
                     variant="outlined"
                     className="mr-10px"
-                    icon={
+                  >
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -748,13 +764,14 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                   <IconButton
                     color="secondary"
                     variant="contained"
                     className="mr-10px"
-                    icon={
+                  >
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -768,34 +785,33 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                 </div>
                 <div className="mb-10px">
+                  <IconButton color="neutral" className="mr-10px">
+                    <Icon>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                        />
+                      </svg>
+                    </Icon>
+                  </IconButton>
                   <IconButton
                     color="neutral"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                  <IconButton
-                    color="neutral"
                     variant="outlined"
                     className="mr-10px"
-                    icon={
+                  >
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -809,13 +825,14 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                   <IconButton
                     color="neutral"
                     variant="contained"
                     className="mr-10px"
-                    icon={
+                  >
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -829,14 +846,12 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                 </div>
                 <div className="mb-10px">
-                  <IconButton
-                    color="text"
-                    className="mr-10px"
-                    icon={
+                  <IconButton color="text" className="mr-10px">
+                    <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -850,177 +865,15 @@ function App() {
                           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                         />
                       </svg>
-                    }
-                  />
-                  <IconButton
-                    color="text"
-                    variant="outlined"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                  <IconButton
-                    color="text"
-                    variant="contained"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                </div>
-                <div className="mb-10px">
-                  <IconButton
-                    color="white"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                  <IconButton
-                    color="white"
-                    variant="outlined"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                  <IconButton
-                    color="white"
-                    variant="contained"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                </div>
-                <div className="mb-10px">
-                  <IconButton
-                    color="black"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                  <IconButton
-                    color="black"
-                    variant="outlined"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
-                  <IconButton
-                    color="black"
-                    variant="contained"
-                    className="mr-10px"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                      </svg>
-                    }
-                  />
+                    </Icon>
+                  </IconButton>
                 </div>
               </Tab>
             </Tabs>
           </div>
         </div>
       </div>
-      <Loader />
+      <Spinner size={200} />
       <div className="df fdc">
         <Button variant="contained">Hello</Button>
         <Button variant="outlined">Hello</Button>

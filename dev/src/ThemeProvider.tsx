@@ -1,14 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import tinycolor2 from 'tinycolor2';
 
-const isBrowserDefaultDark = () =>
-  window.matchMedia('(prefers-color-scheme: dark)').matches;
-const getDefaultTheme = (): string => {
-  const localStorageTheme = localStorage.getItem('default-theme');
-  const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
-  return localStorageTheme || browserDefault;
-};
-
 export const ThemeContext = createContext({
   theme: '',
   changeTheme: (theme: 'light' | 'dark' | 'system') => {},
@@ -19,14 +11,14 @@ interface ThemeProvider {
   children: React.ReactNode;
   themeOptions?: any;
 }
-const light = 7;
-const tooLight = 12;
-const dark = 7;
-const tooDark = 12;
+const light = 5;
+const tooLight = 10;
+const dark = 5;
+const tooDark = 10;
 const glass = 0.08;
 const darkGlass = 0.12;
-const dm_glass = 0.1;
-const dm_darkGlass = 0.15;
+const dm_glass = 0.15;
+const dm_darkGlass = 0.2;
 
 const colors = {
   lightMode: {
@@ -72,6 +64,9 @@ const colors = {
 };
 const calculatedColors: any = {
   lightMode: {
+    fontSizeMedium: '0.875rem',
+    fontSizeSmall: '0.8125rem',
+    fontSizeLarge: '0.9375rem',
     primary: colors.lightMode.primary,
     primaryDark: tinycolor2(colors.lightMode.primary).darken(dark).toString(),
     primaryTooDark: tinycolor2(colors.lightMode.primary)
@@ -179,6 +174,9 @@ const calculatedColors: any = {
     skeletonDark: colors.lightMode.skeletonDark,
   },
   darkMode: {
+    fontSizeMedium: '0.875rem',
+    fontSizeSmall: '0.8125rem',
+    fontSizeLarge: '0.9375rem',
     primary: colors.darkMode.primary,
     primaryDark: tinycolor2(colors.darkMode.primary).darken(dark).toString(),
     primaryTooDark: tinycolor2(colors.darkMode.primary)
@@ -291,11 +289,8 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   const darkMode = themeOptions.darkMode || {};
   const lightMode = themeOptions.lightMode || {};
   const font = themeOptions.font || {};
-  const localStorageTheme = window.localStorage.getItem('theme');
-  const [theme, setTheme] = useState(
-    localStorageTheme ? localStorageTheme : getDefaultTheme()
-  );
-  function changeTheme(theme: 'light' | 'dark' | 'system') {
+  const [theme, setTheme] = useState('');
+  function changeTheme(theme: any) {
     setTheme(theme);
   }
 
@@ -309,7 +304,9 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       }
     }
     if (font.family) {
-      document.body.style.setProperty(`--fontFamily`, font.family);
+      for (let key in font.family) {
+        document.body.style.setProperty(`--${key}`, font.family[key]);
+      }
     }
   }
 
@@ -387,7 +384,15 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   }
 
   useEffect(() => {
-    switch (theme) {
+    const isBrowserDefaultDark = () =>
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const getDefaultTheme = () => {
+      const localStorageTheme = localStorage.getItem('theme');
+      const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
+      return localStorageTheme || browserDefault;
+    };
+    changeTheme(getDefaultTheme());
+    switch (getDefaultTheme()) {
       case 'light':
         document.documentElement.dataset.theme = 'light';
         window.localStorage.setItem('theme', 'light');
@@ -402,7 +407,33 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
         window.localStorage.removeItem('theme');
         break;
     }
+  }, []);
 
+  useEffect(() => {
+    const isBrowserDefaultDark = () =>
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const getDefaultTheme = () => {
+      const localStorageTheme = localStorage.getItem('theme');
+      const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
+      return localStorageTheme || browserDefault;
+    };
+    if (theme) {
+      switch (theme) {
+        case 'light':
+          document.documentElement.dataset.theme = 'light';
+          window.localStorage.setItem('theme', 'light');
+          break;
+        case 'dark':
+          document.documentElement.dataset.theme = 'dark';
+          window.localStorage.setItem('theme', 'dark');
+          break;
+        case 'system':
+        default:
+          document.documentElement.dataset.theme = getDefaultTheme();
+          window.localStorage.removeItem('theme');
+          break;
+      }
+    }
     if (document.documentElement.dataset.theme == 'light') {
       if (colors.primary) {
         colors.primaryText = tinycolor2(colors.primary).isLight()
