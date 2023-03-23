@@ -2,68 +2,49 @@
 @import '../../cute-styles/variables';
 
 .CuteIcon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 7px;
+  // display: -webkit-box;
+  // display: -ms-flexbox;
+  // display: flex;
+  // -webkit-box-align: center;
+  // -ms-flex-align: center;
+  // align-items: center;
+  user-select: none;
+  width: 1em;
+  height: 1em;
 }
 
 .CuteIcon-small {
-  & > *:first-child {
-    width: 17px;
-    height: 17px;
-  }
+  font-size: 17px;
 }
 
 .CuteIcon-medium {
-  & > *:first-child {
-    width: 24px;
-    height: 24px;
-  }
+  font-size: 20px;
 }
 
 .CuteIcon-large {
-  & > *:first-child {
-    width: 30px;
-    height: 30px;
-  }
+  font-size: 25px;
 }
 
 .CuteIcon-secondary {
-  & > *:first-child {
-    color: var(--secondary);
-  }
+  color: var(--secondary);
 }
 
 .CuteIcon-neutral {
-  & > *:first-child {
-    color: var(--neutral);
-  }
+  color: var(--neutral);
 }
 
 .CuteIcon-primary {
-  & > *:first-child {
-    color: var(--primary);
-  }
+  color: var(--primary);
 }
 
 .CuteIcon-black {
-  & > *:first-child {
-    color: black;
-  }
+  color: black;
 }
 
 .CuteIcon-white {
-  & > *:first-child {
-    color: white;
-  }
+  color: white;
 }
 
 .CuteIcon-text {
-  & > *:first-child {
-    color: black;
-  }
+  color: black;
 }

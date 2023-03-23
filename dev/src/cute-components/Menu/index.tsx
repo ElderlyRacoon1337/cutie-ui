@@ -37,9 +37,9 @@ export const Menu: React.FC<MenuProps> = ({
       const clicked = anchorEl.getBoundingClientRect();
       const menuEl = menu.current.getBoundingClientRect();
       fullWidth && setWidthParent(clicked.width);
-      const rightOut = window.innerWidth - clicked.left - menuEl.width;
+      const rightOut = window.outerWidth - clicked.left - menuEl.width;
       if (rightOut < 0) {
-        setWidth(clicked.x + rightOut - 10);
+        setWidth(clicked.x + rightOut - 15);
       } else {
         setWidth(clicked.x);
       }

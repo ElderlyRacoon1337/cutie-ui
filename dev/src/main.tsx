@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './ThemeProvider';
 import './cute-styles/_shorts.scss';
-import './cute-styles/index.scss';
+import CuteStyles from './cute-components/CuteStyles';
 
 const themeOptions = {
   colors: {
@@ -30,6 +30,7 @@ const themeOptions = {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider themeOptions={themeOptions}>
     <React.StrictMode>
+      <CuteStyles />
       <App />
     </React.StrictMode>
   </ThemeProvider>

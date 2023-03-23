@@ -3,7 +3,6 @@ import React from 'react';
 import styles from './Icon.module.scss';
 
 interface IconProps {
-  icon?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: 'primary' | 'secondary' | 'neutral' | 'black' | 'white' | 'text';
@@ -11,33 +10,35 @@ interface IconProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   other?: object;
-  fontSize?: number | string;
+  fontSize?: string | number;
 }
 
 export const Icon: React.FC<IconProps> = ({
-  icon,
   className,
   size = 'medium',
-  color = 'primary',
+  color,
   style,
   onClick,
   children,
   other,
+  fontSize,
 }) => {
   return (
-    <div
-      onClick={onClick}
-      className={clsx(
-        styles.CuteIcon,
-        size && styles[`CuteIcon-${size}`],
-        color && styles[`CuteIcon-${color}`],
-        className
+    <>
+      {React.Children.map(children, (child) =>
+        // @ts-ignore
+        React.cloneElement(child, {
+          className: `${clsx(
+            styles.CuteIcon,
+            size && styles[`CuteIcon-${size}`],
+            color && styles[`CuteIcon-${color}`],
+            className
+          )}`,
+          style: { fontSize: fontSize, ...style },
+          other: other,
+          onClick: onClick,
+        })
       )}
-      {...other}
-      style={style}
-    >
-      {icon}
-      {children}
-    </div>
+    </>
   );
 };

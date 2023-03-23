@@ -19,6 +19,14 @@ interface ThemeProvider {
   children: React.ReactNode;
   themeOptions?: any;
 }
+const light = 7;
+const tooLight = 12;
+const dark = 7;
+const tooDark = 12;
+const glass = 0.08;
+const darkGlass = 0.12;
+const dm_glass = 0.1;
+const dm_darkGlass = 0.15;
 
 const colors = {
   lightMode: {
@@ -65,76 +73,96 @@ const colors = {
 const calculatedColors: any = {
   lightMode: {
     primary: colors.lightMode.primary,
-    primaryDark: tinycolor2(colors.lightMode.primary).darken(10).toString(),
-    primaryTooDark: tinycolor2(colors.lightMode.primary).darken(15).toString(),
-    primaryLight: tinycolor2(colors.lightMode.primary).lighten(10).toString(),
-    primaryTooLight: tinycolor2(colors.lightMode.primary)
-      .lighten(15)
+    primaryDark: tinycolor2(colors.lightMode.primary).darken(dark).toString(),
+    primaryTooDark: tinycolor2(colors.lightMode.primary)
+      .darken(tooDark)
       .toString(),
-    glassPrimary: tinycolor2(colors.lightMode.primary).setAlpha(0.1).toString(),
+    primaryLight: tinycolor2(colors.lightMode.primary)
+      .lighten(light)
+      .toString(),
+    primaryTooLight: tinycolor2(colors.lightMode.primary)
+      .lighten(tooLight)
+      .toString(),
+    glassPrimary: tinycolor2(colors.lightMode.primary)
+      .setAlpha(glass)
+      .toString(),
     darkGlassPrimary: tinycolor2(colors.lightMode.primary)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString(),
     primaryText: tinycolor2(colors.lightMode.primary).isLight()
       ? '#000'
       : '#fff',
     secondary: colors.lightMode.secondary,
-    secondaryDark: tinycolor2(colors.lightMode.secondary).darken(10).toString(),
+    secondaryDark: tinycolor2(colors.lightMode.secondary)
+      .darken(dark)
+      .toString(),
     secondaryTooDark: tinycolor2(colors.lightMode.secondary)
-      .darken(15)
+      .darken(tooDark)
       .toString(),
     secondaryLight: tinycolor2(colors.lightMode.secondary)
-      .lighten(10)
+      .lighten(light)
       .toString(),
     secondaryTooLight: tinycolor2(colors.lightMode.secondary)
-      .lighten(15)
+      .lighten(tooLight)
       .toString(),
     glassSecondary: tinycolor2(colors.lightMode.secondary)
-      .setAlpha(0.1)
+      .setAlpha(glass)
       .toString(),
     darkGlassSecondary: tinycolor2(colors.lightMode.secondary)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString(),
     secondaryText: tinycolor2(colors.lightMode.secondary).isLight()
       ? '#000'
       : '#fff',
     neutral: colors.lightMode.neutral,
-    neutralDark: tinycolor2(colors.lightMode.neutral).darken(10).toString(),
-    neutralTooDark: tinycolor2(colors.lightMode.neutral).darken(15).toString(),
-    neutralLight: tinycolor2(colors.lightMode.neutral).lighten(10).toString(),
-    neutralTooLight: tinycolor2(colors.lightMode.neutral)
-      .lighten(15)
+    neutralDark: tinycolor2(colors.lightMode.neutral).darken(dark).toString(),
+    neutralTooDark: tinycolor2(colors.lightMode.neutral)
+      .darken(tooDark)
       .toString(),
-    glassNeutral: tinycolor2(colors.lightMode.neutral).setAlpha(0.1).toString(),
+    neutralLight: tinycolor2(colors.lightMode.neutral)
+      .lighten(light)
+      .toString(),
+    neutralTooLight: tinycolor2(colors.lightMode.neutral)
+      .lighten(tooLight)
+      .toString(),
+    glassNeutral: tinycolor2(colors.lightMode.neutral)
+      .setAlpha(glass)
+      .toString(),
     darkGlassNeutral: tinycolor2(colors.lightMode.neutral)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString(),
     neutralText: tinycolor2(colors.lightMode.neutral).isLight()
       ? '#000'
       : '#fff',
     error: colors.lightMode.error,
-    errorDark: tinycolor2(colors.lightMode.error).darken(10),
-    errorTooDark: tinycolor2(colors.lightMode.error).darken(15),
-    errorLight: tinycolor2(colors.lightMode.error).lighten(10).toString(),
-    errorTooLight: tinycolor2(colors.lightMode.error).lighten(15).toString(),
+    errorDark: tinycolor2(colors.lightMode.error).darken(dark),
+    errorTooDark: tinycolor2(colors.lightMode.error).darken(tooDark),
+    errorLight: tinycolor2(colors.lightMode.error).lighten(light).toString(),
+    errorTooLight: tinycolor2(colors.lightMode.error)
+      .lighten(tooLight)
+      .toString(),
     errorText: tinycolor2(colors.lightMode.error).isLight() ? '#000' : '#fff',
-    glassError: tinycolor2(colors.lightMode.error).setAlpha(0.1).toString(),
+    glassError: tinycolor2(colors.lightMode.error).setAlpha(glass).toString(),
     darkGlassError: tinycolor2(colors.lightMode.error)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString(),
     success: colors.lightMode.success,
-    successDark: tinycolor2(colors.lightMode.success).darken(10),
-    successTooDark: tinycolor2(colors.lightMode.success).darken(15),
-    successLight: tinycolor2(colors.lightMode.success).lighten(10).toString(),
+    successDark: tinycolor2(colors.lightMode.success).darken(dark),
+    successTooDark: tinycolor2(colors.lightMode.success).darken(tooDark),
+    successLight: tinycolor2(colors.lightMode.success)
+      .lighten(light)
+      .toString(),
     successTooLight: tinycolor2(colors.lightMode.success)
-      .lighten(15)
+      .lighten(tooLight)
       .toString(),
     successText: tinycolor2(colors.lightMode.success).isLight()
       ? '#000'
       : '#fff',
-    glassSuccess: tinycolor2(colors.lightMode.success).setAlpha(0.1).toString(),
+    glassSuccess: tinycolor2(colors.lightMode.success)
+      .setAlpha(glass)
+      .toString(),
     darkGlassSuccess: tinycolor2(colors.lightMode.success)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString(),
     disabled: colors.lightMode.disabled,
     link: colors.lightMode.link,
@@ -152,68 +180,92 @@ const calculatedColors: any = {
   },
   darkMode: {
     primary: colors.darkMode.primary,
-    primaryDark: tinycolor2(colors.darkMode.primary).darken(10).toString(),
-    primaryTooDark: tinycolor2(colors.darkMode.primary).darken(15).toString(),
-    primaryLight: tinycolor2(colors.darkMode.primary).lighten(10).toString(),
-    primaryTooLight: tinycolor2(colors.darkMode.primary).lighten(15).toString(),
-    glassPrimary: tinycolor2(colors.darkMode.primary).setAlpha(0.15).toString(),
+    primaryDark: tinycolor2(colors.darkMode.primary).darken(dark).toString(),
+    primaryTooDark: tinycolor2(colors.darkMode.primary)
+      .darken(tooDark)
+      .toString(),
+    primaryLight: tinycolor2(colors.darkMode.primary).lighten(light).toString(),
+    primaryTooLight: tinycolor2(colors.darkMode.primary)
+      .lighten(tooLight)
+      .toString(),
+    glassPrimary: tinycolor2(colors.darkMode.primary)
+      .setAlpha(dm_glass)
+      .toString(),
     darkGlassPrimary: tinycolor2(colors.darkMode.primary)
-      .setAlpha(0.2)
+      .setAlpha(dm_darkGlass)
       .toString(),
     primaryText: tinycolor2(colors.darkMode.primary).isLight()
       ? '#000'
       : '#fff',
     secondary: colors.darkMode.secondary,
-    secondaryDark: tinycolor2(colors.darkMode.secondary).darken(10).toString(),
+    secondaryDark: tinycolor2(colors.darkMode.secondary)
+      .darken(dark)
+      .toString(),
     secondaryTooDark: tinycolor2(colors.darkMode.secondary)
-      .darken(15)
+      .darken(tooDark)
       .toString(),
     secondaryLight: tinycolor2(colors.darkMode.secondary)
-      .lighten(10)
+      .lighten(light)
       .toString(),
     secondaryTooLight: tinycolor2(colors.darkMode.secondary)
-      .lighten(15)
+      .lighten(tooLight)
       .toString(),
     glassSecondary: tinycolor2(colors.darkMode.secondary)
-      .setAlpha(0.15)
+      .setAlpha(dm_glass)
       .toString(),
     darkGlassSecondary: tinycolor2(colors.darkMode.secondary)
-      .setAlpha(0.2)
+      .setAlpha(dm_darkGlass)
       .toString(),
     secondaryText: tinycolor2(colors.darkMode.secondary).isLight()
       ? '#000'
       : '#fff',
     neutral: colors.darkMode.neutral,
-    neutralDark: tinycolor2(colors.darkMode.neutral).darken(10).toString(),
-    neutralTooDark: tinycolor2(colors.darkMode.neutral).darken(15).toString(),
-    neutralLight: tinycolor2(colors.darkMode.neutral).lighten(10).toString(),
-    neutralTooLight: tinycolor2(colors.darkMode.neutral).lighten(15).toString(),
-    glassNeutral: tinycolor2(colors.darkMode.neutral).setAlpha(0.15).toString(),
+    neutralDark: tinycolor2(colors.darkMode.neutral).darken(dark).toString(),
+    neutralTooDark: tinycolor2(colors.darkMode.neutral)
+      .darken(tooDark)
+      .toString(),
+    neutralLight: tinycolor2(colors.darkMode.neutral).lighten(light).toString(),
+    neutralTooLight: tinycolor2(colors.darkMode.neutral)
+      .lighten(tooLight)
+      .toString(),
+    glassNeutral: tinycolor2(colors.darkMode.neutral)
+      .setAlpha(dm_glass)
+      .toString(),
     darkGlassNeutral: tinycolor2(colors.darkMode.neutral)
-      .setAlpha(0.2)
+      .setAlpha(dm_darkGlass)
       .toString(),
     neutralText: tinycolor2(colors.darkMode.neutral).isLight()
       ? '#000'
       : '#fff',
     error: colors.darkMode.error,
-    errorDark: tinycolor2(colors.darkMode.error).darken(10).toString(),
-    errorTooDark: tinycolor2(colors.darkMode.error).darken(15).toString(),
-    errorLight: tinycolor2(colors.darkMode.error).lighten(10).toString(),
-    errorTooLight: tinycolor2(colors.darkMode.error).lighten(15).toString(),
+    errorDark: tinycolor2(colors.darkMode.error).darken(dark).toString(),
+    errorTooDark: tinycolor2(colors.darkMode.error).darken(tooDark).toString(),
+    errorLight: tinycolor2(colors.darkMode.error).lighten(light).toString(),
+    errorTooLight: tinycolor2(colors.darkMode.error)
+      .lighten(tooLight)
+      .toString(),
     errorText: tinycolor2(colors.darkMode.error).isLight() ? '#000' : '#fff',
-    glassError: tinycolor2(colors.darkMode.error).setAlpha(0.15).toString(),
-    darkGlassError: tinycolor2(colors.darkMode.error).setAlpha(0.2).toString(),
+    glassError: tinycolor2(colors.darkMode.error).setAlpha(dm_glass).toString(),
+    darkGlassError: tinycolor2(colors.darkMode.error)
+      .setAlpha(dm_darkGlass)
+      .toString(),
     success: colors.darkMode.success,
-    successDark: tinycolor2(colors.darkMode.success).darken(10).toString(),
-    successTooDark: tinycolor2(colors.darkMode.success).darken(15).toString(),
-    successLight: tinycolor2(colors.darkMode.success).lighten(10).toString(),
-    successTooLight: tinycolor2(colors.darkMode.success).lighten(15).toString(),
+    successDark: tinycolor2(colors.darkMode.success).darken(dark).toString(),
+    successTooDark: tinycolor2(colors.darkMode.success)
+      .darken(tooDark)
+      .toString(),
+    successLight: tinycolor2(colors.darkMode.success).lighten(light).toString(),
+    successTooLight: tinycolor2(colors.darkMode.success)
+      .lighten(tooLight)
+      .toString(),
     successText: tinycolor2(colors.darkMode.success).isLight()
       ? '#000'
       : '#fff',
-    glassSuccess: tinycolor2(colors.darkMode.success).setAlpha(0.15).toString(),
+    glassSuccess: tinycolor2(colors.darkMode.success)
+      .setAlpha(dm_glass)
+      .toString(),
     darkGlassSuccess: tinycolor2(colors.darkMode.success)
-      .setAlpha(0.2)
+      .setAlpha(dm_darkGlass)
       .toString(),
     disabled: colors.darkMode.disabled,
     link: colors.darkMode.link,
@@ -262,58 +314,76 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   }
 
   if (colors.primary) {
-    colors.primaryLight = tinycolor2(colors.primary).lighten(10).toString();
-    colors.primaryTooLight = tinycolor2(colors.primary).lighten(15).toString();
-    colors.primaryDark = tinycolor2(colors.primary).darken(10).toString();
-    colors.primaryTooDark = tinycolor2(colors.primary).darken(15).toString();
-    colors.glassPrimary = tinycolor2(colors.primary).setAlpha(0.1).toString();
+    colors.primaryLight = tinycolor2(colors.primary).lighten(light).toString();
+    colors.primaryTooLight = tinycolor2(colors.primary)
+      .lighten(tooLight)
+      .toString();
+    colors.primaryDark = tinycolor2(colors.primary).darken(dark).toString();
+    colors.primaryTooDark = tinycolor2(colors.primary)
+      .darken(tooDark)
+      .toString();
+    colors.glassPrimary = tinycolor2(colors.primary).setAlpha(glass).toString();
     colors.darkGlassPrimary = tinycolor2(colors.primary)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString();
   }
   if (colors.secondary) {
-    colors.secondaryLight = tinycolor2(colors.secondary).lighten(10).toString();
-    colors.secondaryTooLight = tinycolor2(colors.secondary)
-      .lighten(15)
+    colors.secondaryLight = tinycolor2(colors.secondary)
+      .lighten(light)
       .toString();
-    colors.secondaryDark = tinycolor2(colors.secondary).darken(10).toString();
+    colors.secondaryTooLight = tinycolor2(colors.secondary)
+      .lighten(tooLight)
+      .toString();
+    colors.secondaryDark = tinycolor2(colors.secondary).darken(dark).toString();
     colors.secondaryTooDark = tinycolor2(colors.secondary)
-      .darken(15)
+      .darken(tooDark)
       .toString();
     colors.glassSecondary = tinycolor2(colors.secondary)
-      .setAlpha(0.1)
+      .setAlpha(glass)
       .toString();
     colors.darkGlassSecondary = tinycolor2(colors.secondary)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString();
   }
   if (colors.neutral) {
-    colors.neutralLight = tinycolor2(colors.neutral).lighten(10).toString();
-    colors.neutralTooLight = tinycolor2(colors.neutral).lighten(15).toString();
-    colors.neutralDark = tinycolor2(colors.neutral).darken(10).toString();
-    colors.neutralTooDark = tinycolor2(colors.neutral).darken(15).toString();
-    colors.glassNeutral = tinycolor2(colors.neutral).setAlpha(0.1).toString();
+    colors.neutralLight = tinycolor2(colors.neutral).lighten(light).toString();
+    colors.neutralTooLight = tinycolor2(colors.neutral)
+      .lighten(tooLight)
+      .toString();
+    colors.neutralDark = tinycolor2(colors.neutral).darken(dark).toString();
+    colors.neutralTooDark = tinycolor2(colors.neutral)
+      .darken(tooDark)
+      .toString();
+    colors.glassNeutral = tinycolor2(colors.neutral).setAlpha(glass).toString();
     colors.darkGlassNeutral = tinycolor2(colors.neutral)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString();
   }
   if (colors.error) {
-    colors.glassError = tinycolor2(colors.error).setAlpha(0.1).toString();
-    colors.darkGlassError = tinycolor2(colors.error).setAlpha(0.15).toString();
-    colors.errorLight = tinycolor2(colors.error).lighten(10).toString();
-    colors.errorTooLight = tinycolor2(colors.error).lighten(15).toString();
-    colors.errorDark = tinycolor2(colors.error).darken(10).toString();
-    colors.errorTooDark = tinycolor2(colors.error).darken(15).toString();
+    colors.glassError = tinycolor2(colors.error).setAlpha(glass).toString();
+    colors.darkGlassError = tinycolor2(colors.error)
+      .setAlpha(darkGlass)
+      .toString();
+    colors.errorLight = tinycolor2(colors.error).lighten(light).toString();
+    colors.errorTooLight = tinycolor2(colors.error)
+      .lighten(tooLight)
+      .toString();
+    colors.errorDark = tinycolor2(colors.error).darken(dark).toString();
+    colors.errorTooDark = tinycolor2(colors.error).darken(tooDark).toString();
   }
   if (colors.success) {
-    colors.glassSuccess = tinycolor2(colors.success).setAlpha(0.1).toString();
+    colors.glassSuccess = tinycolor2(colors.success).setAlpha(glass).toString();
     colors.darkGlassSuccess = tinycolor2(colors.success)
-      .setAlpha(0.15)
+      .setAlpha(darkGlass)
       .toString();
-    colors.successLight = tinycolor2(colors.success).lighten(10).toString();
-    colors.successTooLight = tinycolor2(colors.success).lighten(15).toString();
-    colors.successDark = tinycolor2(colors.success).darken(10).toString();
-    colors.successTooDark = tinycolor2(colors.success).darken(15).toString();
+    colors.successLight = tinycolor2(colors.success).lighten(light).toString();
+    colors.successTooLight = tinycolor2(colors.success)
+      .lighten(tooLight)
+      .toString();
+    colors.successDark = tinycolor2(colors.success).darken(dark).toString();
+    colors.successTooDark = tinycolor2(colors.success)
+      .darken(tooDark)
+      .toString();
   }
 
   useEffect(() => {
@@ -408,16 +478,16 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     if (lightMode) {
       if (lightMode.primary) {
         lightMode.primaryLight = tinycolor2(lightMode.primary)
-          .lighten(10)
+          .lighten(light)
           .toString();
         lightMode.primaryTooLight = tinycolor2(lightMode.primary)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         lightMode.primaryDark = tinycolor2(lightMode.primary)
-          .darken(10)
+          .darken(dark)
           .toString();
         lightMode.primaryTooDark = tinycolor2(lightMode.primary)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         lightMode.primaryText = tinycolor2(lightMode.primary).isLight()
           ? 'var(--textPrimary)'
@@ -426,24 +496,24 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textOpposite)'
           : 'var(--textPrimary)';
         lightMode.glassPrimary = tinycolor2(lightMode.primary)
-          .setAlpha(0.1)
+          .setAlpha(glass)
           .toString();
         lightMode.darkGlassPrimary = tinycolor2(lightMode.primary)
-          .setAlpha(0.15)
+          .setAlpha(darkGlass)
           .toString();
       }
       if (lightMode.secondary) {
         lightMode.secondaryLight = tinycolor2(lightMode.secondary)
-          .lighten(10)
+          .lighten(light)
           .toString();
         lightMode.secondaryTooLight = tinycolor2(lightMode.secondary)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         lightMode.secondaryDark = tinycolor2(lightMode.secondary)
-          .darken(10)
+          .darken(dark)
           .toString();
         lightMode.secondaryTooDark = tinycolor2(lightMode.secondary)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         lightMode.secondaryText = tinycolor2(lightMode.secondary).isLight()
           ? 'var(--textPrimary)'
@@ -454,25 +524,25 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textOpposite)'
           : 'var(--textPrimary)';
         lightMode.glassSecondary = tinycolor2(lightMode.secondary)
-          .setAlpha(0.1)
+          .setAlpha(glass)
           .toString();
         lightMode.darkGlassSecondary = tinycolor2(lightMode.secondary)
-          .setAlpha(0.15)
+          .setAlpha(darkGlass)
           .toString();
       }
 
       if (lightMode.neutral) {
         lightMode.neutralLight = tinycolor2(lightMode.neutral)
-          .lighten(10)
+          .lighten(light)
           .toString();
         lightMode.neutralTooLight = tinycolor2(lightMode.neutral)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         lightMode.neutralDark = tinycolor2(lightMode.neutral)
-          .darken(10)
+          .darken(dark)
           .toString();
         lightMode.neutralTooDark = tinycolor2(lightMode.neutral)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         lightMode.neutralText = tinycolor2(lightMode.neutral).isLight()
           ? 'var(--textPrimary)'
@@ -481,10 +551,10 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textOpposite)'
           : 'var(--textPrimary)';
         lightMode.glassNeutral = tinycolor2(lightMode.neutral)
-          .setAlpha(0.1)
+          .setAlpha(glass)
           .toString();
         lightMode.glassNeutral = tinycolor2(lightMode.neutral)
-          .setAlpha(0.15)
+          .setAlpha(darkGlass)
           .toString();
       }
       if (lightMode.error) {
@@ -492,20 +562,22 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textPrimary)'
           : 'var(--textOpposite)';
         lightMode.errorLight = tinycolor2(lightMode.error)
-          .lighten(10)
+          .lighten(light)
           .toString();
         lightMode.errorTooLight = tinycolor2(lightMode.error)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
-        lightMode.errorDark = tinycolor2(lightMode.error).darken(10).toString();
+        lightMode.errorDark = tinycolor2(lightMode.error)
+          .darken(dark)
+          .toString();
         lightMode.errorTooDark = tinycolor2(lightMode.error)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         lightMode.glassError = tinycolor2(lightMode.error)
-          .setAlpha(0.1)
+          .setAlpha(glass)
           .toString();
         lightMode.glassError = tinycolor2(lightMode.error)
-          .setAlpha(0.15)
+          .setAlpha(darkGlass)
           .toString();
       }
       if (lightMode.success) {
@@ -513,22 +585,22 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textPrimary)'
           : 'var(--textOpposite)';
         lightMode.successLight = tinycolor2(lightMode.success)
-          .lighten(10)
+          .lighten(light)
           .toString();
         lightMode.successTooLight = tinycolor2(lightMode.success)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         lightMode.successDark = tinycolor2(lightMode.success)
-          .darken(10)
+          .darken(dark)
           .toString();
         lightMode.successTooDark = tinycolor2(lightMode.success)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         lightMode.glassSuccess = tinycolor2(lightMode.success)
-          .setAlpha(0.1)
+          .setAlpha(glass)
           .toString();
         lightMode.darkGlassSuccess = tinycolor2(lightMode.success)
-          .setAlpha(0.15)
+          .setAlpha(darkGlass)
           .toString();
       }
     }
@@ -536,16 +608,16 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     if (darkMode) {
       if (darkMode.primary) {
         darkMode.primaryLight = tinycolor2(darkMode.primary)
-          .lighten(10)
+          .lighten(light)
           .toString();
         darkMode.primaryTooLight = tinycolor2(darkMode.primary)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         darkMode.primaryDark = tinycolor2(darkMode.primary)
-          .darken(10)
+          .darken(dark)
           .toString();
         darkMode.primaryTooDark = tinycolor2(darkMode.primary)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         darkMode.primaryText = tinycolor2(darkMode.primary).isLight()
           ? 'var(--textOpposite)'
@@ -554,24 +626,24 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textPrimary)'
           : 'var(--textOpposite)';
         darkMode.glassPrimary = tinycolor2(darkMode.primary)
-          .setAlpha(0.15)
+          .setAlpha(dm_glass)
           .toString();
         darkMode.darkGlassPrimary = tinycolor2(darkMode.primary)
-          .setAlpha(0.2)
+          .setAlpha(dm_darkGlass)
           .toString();
       }
       if (darkMode.secondary) {
         darkMode.secondaryLight = tinycolor2(darkMode.secondary)
-          .lighten(10)
+          .lighten(light)
           .toString();
         darkMode.secondaryTooLight = tinycolor2(darkMode.secondary)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         darkMode.secondaryDark = tinycolor2(darkMode.secondary)
-          .darken(10)
+          .darken(dark)
           .toString();
         darkMode.secondaryTooDark = tinycolor2(darkMode.secondary)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         darkMode.secondaryText = tinycolor2(darkMode.secondary).isLight()
           ? 'var(--textOpposite)'
@@ -582,24 +654,24 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textPrimary)'
           : 'var(--textOpposite)';
         darkMode.glassSecondary = tinycolor2(darkMode.secondary)
-          .setAlpha(0.15)
+          .setAlpha(dm_glass)
           .toString();
         darkMode.darkGlassSecondary = tinycolor2(darkMode.secondary)
-          .setAlpha(0.2)
+          .setAlpha(dm_darkGlass)
           .toString();
       }
       if (darkMode.neutral) {
         darkMode.neutralLight = tinycolor2(darkMode.neutral)
-          .lighten(10)
+          .lighten(light)
           .toString();
         darkMode.neutralTooLight = tinycolor2(darkMode.neutral)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         darkMode.neutralDark = tinycolor2(darkMode.neutral)
-          .darken(10)
+          .darken(dark)
           .toString();
         darkMode.neutralTooDark = tinycolor2(darkMode.neutral)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         darkMode.neutralText = tinycolor2(darkMode.neutral).isLight()
           ? 'var(--textOpposite)'
@@ -608,29 +680,31 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textPrimary)'
           : 'var(--textOpposite)';
         darkMode.glassNeutral = tinycolor2(darkMode.neutral)
-          .setAlpha(0.15)
+          .setAlpha(dm_glass)
           .toString();
         darkMode.darkGlassNeutral = tinycolor2(darkMode.neutral)
-          .setAlpha(0.2)
+          .setAlpha(dm_darkGlass)
           .toString();
       }
       if (darkMode.error) {
         darkMode.errorText = tinycolor2(darkMode.error).isLight()
           ? 'var(--textOpposite)'
           : 'var(--textPrimary)';
-        darkMode.errorLight = tinycolor2(darkMode.error).lighten(10).toString();
-        darkMode.errorTooLight = tinycolor2(darkMode.error)
-          .lighten(15)
+        darkMode.errorLight = tinycolor2(darkMode.error)
+          .lighten(light)
           .toString();
-        darkMode.errorDark = tinycolor2(darkMode.error).darken(10).toString();
+        darkMode.errorTooLight = tinycolor2(darkMode.error)
+          .lighten(tooLight)
+          .toString();
+        darkMode.errorDark = tinycolor2(darkMode.error).darken(dark).toString();
         darkMode.errorTooDark = tinycolor2(darkMode.error)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         darkMode.glassError = tinycolor2(darkMode.error)
-          .setAlpha(0.15)
+          .setAlpha(dm_glass)
           .toString();
         darkMode.darkGlassError = tinycolor2(darkMode.error)
-          .setAlpha(0.2)
+          .setAlpha(dm_darkGlass)
           .toString();
       }
       if (darkMode.success) {
@@ -638,22 +712,22 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           ? 'var(--textOpposite)'
           : 'var(--textPrimary)';
         darkMode.successLight = tinycolor2(darkMode.success)
-          .lighten(10)
+          .lighten(light)
           .toString();
         darkMode.successTooLight = tinycolor2(darkMode.success)
-          .lighten(15)
+          .lighten(tooLight)
           .toString();
         darkMode.successDark = tinycolor2(darkMode.success)
-          .darken(10)
+          .darken(dark)
           .toString();
         darkMode.successTooDark = tinycolor2(darkMode.success)
-          .darken(15)
+          .darken(tooDark)
           .toString();
         darkMode.glassSuccess = tinycolor2(darkMode.success)
-          .setAlpha(0.15)
+          .setAlpha(dm_glass)
           .toString();
         darkMode.darkGlassSuccess = tinycolor2(darkMode.success)
-          .setAlpha(0.2)
+          .setAlpha(dm_darkGlass)
           .toString();
       }
 

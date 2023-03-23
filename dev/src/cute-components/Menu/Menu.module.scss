@@ -66,8 +66,6 @@
   & > *:first-child {
     margin-right: 10px;
     color: var(--textPrimary);
-    width: 17px;
-    height: 17px;
   }
 }
 
@@ -86,8 +84,6 @@
   & > *:last-child {
     margin-left: auto;
     color: var(--textPrimary);
-    width: 17px;
-    height: 17px;
     min-width: 17px;
   }
 }
@@ -102,9 +98,7 @@
   & > *:first-child {
     margin-right: 10px;
     color: var(--textPrimary);
-    width: 17px;
-    height: 17px;
-    min-width: 17px;
+    min-width: 10px;
   }
 
   .CuteMenuItemChildren {
@@ -113,9 +107,7 @@
 
   & > *:last-child {
     color: var(--textPrimary);
-    width: 17px;
-    height: 17px;
-    min-width: 17px;
+    min-width: 10px;
     margin-left: auto;
   }
 }
