@@ -9,7 +9,7 @@ import Link from './cutie-components/Link';
 import { List } from './cutie-components/List';
 import { ListItem } from './cutie-components/List/ListItem';
 import { ListItemButton } from './cutie-components/List/ListItemButton';
-import { Menu } from './cutie-components/Menu';
+import { Menu } from './cutie-components/Menu/index';
 import { MenuItem } from './cutie-components/Menu/MenuItem';
 import { Popup } from './cutie-components/Popup';
 import Tabs from './cutie-components/Tabs';
@@ -24,7 +24,8 @@ import { ThemeContext } from './ThemeProvider';
 import { useContext, useEffect, useState } from 'react';
 import GradientText from './cutie-components/GradientText';
 import { useSwitch } from './cutie-hooks/useSwitch';
-import Progress from './cutie-components/Progress';
+import Progress from './cutie-components/LinearProgress';
+import Tooltip from './cutie-components/Tooltip';
 
 function App() {
   const { popupOpen, handleClickPopup, handleClosePopup } = usePopup();
@@ -43,6 +44,8 @@ function App() {
       setTheme(theme);
     }
   }, [checkedSwitch]);
+
+  const [tooltipAnchorEl, setTooltipAnchorEl] = useState(null);
 
   return (
     <div className="App">
@@ -116,6 +119,7 @@ function App() {
               Hello
             </Button>
             <Button
+              onClick={handleClickAlert}
               endIcon={
                 <Icon size="small">
                   <svg
@@ -141,34 +145,6 @@ function App() {
               <input hidden accept="image/*" multiple type="file" />
             </Button>
             <Button
-              // startIcon={
-              //   <Icon size="small">
-              //     <svg
-              //       xmlns="http://www.w3.org/2000/svg"
-              //       fill="none"
-              //       viewBox="0 0 24 24"
-              //       strokeWidth={1.5}
-              //       stroke="currentColor"
-              //       className="w-6 h-6"
-              //     >
-              //       <path
-              //         strokeLinecap="round"
-              //         strokeLinejoin="round"
-              //         d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-              //       />
-              //     </svg>
-              //   </Icon>
-              // }
-              // endIcon={
-              //   <Spinner
-              //     duration={1.2}
-              //     variant={3}
-              //     circleLight
-              //     color="white"
-              //     size={'7px'}
-              //     fatness="1.5"
-              //   />
-              // }
               onClick={handleClickPopup}
               className="mr-10px"
               variant="contained"
@@ -285,7 +261,13 @@ function App() {
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </Alert>
-            <Icon className="mr-10px">
+            <Icon
+              className="mr-10px"
+              other={{
+                onMouseEnter: (e: any) => setTooltipAnchorEl(e.currentTarget),
+                onMouseLeave: (e: any) => setTooltipAnchorEl(null),
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -438,7 +420,9 @@ function App() {
             <ListItemButton className="mb-10px">
               Hello worldworldworld
             </ListItemButton>
-            <ListItem className="colorPrimary">Layout</ListItem>
+            <ListItem onClick={handleClickMenu} className="colorPrimary">
+              Layout
+            </ListItem>
             <ListItemButton>Hello</ListItemButton>
             <ListItemButton>Hello world</ListItemButton>
             <ListItemButton onClick={handleClickMenu}>
@@ -464,7 +448,14 @@ function App() {
           </List>
           <div className="px-50px flex">
             <Button className="mr-10px mb-10px">Hello</Button>
-            <Button className="mr-10px" variant="outlined">
+            <Button
+              other={{
+                onMouseEnter: (e: any) => setTooltipAnchorEl(e.currentTarget),
+                onMouseLeave: (e: any) => setTooltipAnchorEl(null),
+              }}
+              className="mr-10px"
+              variant="outlined"
+            >
               Hello
             </Button>
             <Button className="mr-10px" variant="contained">
@@ -544,7 +535,7 @@ function App() {
                 </Icon>
               </Tab>
               <Tab className="pt-20px">
-                <div className="">
+                <div>
                   <Button
                     size="large"
                     color="white"
@@ -573,14 +564,62 @@ function App() {
                     System
                   </Button>
                 </div>
-                <Progress
-                  loader
-                  duration={1.5}
-                  color="primary"
-                  height={3}
-                  value={10}
-                  className="mt-20px w-900px"
-                />
+                <div className="w-500px">
+                  <Progress
+                    duration={1.2}
+                    height={2}
+                    value={20}
+                    className="mt-20px"
+                  />
+                  <Progress
+                    variant={'1'}
+                    loader
+                    duration={2}
+                    // color="success"
+                    height={2}
+                    value={20}
+                    className="mt-20px"
+                  />
+                  <Progress
+                    variant={'2'}
+                    loader
+                    duration={2}
+                    // color="success"
+                    height={2}
+                    value={20}
+                    className="mt-20px"
+                  />
+                  <Progress
+                    variant={'3'}
+                    loader
+                    duration={2}
+                    // color="success"
+                    height={2}
+                    value={20}
+                    className="mt-20px"
+                  />
+                  <Spinner
+                    duration={1}
+                    variant={1}
+                    size={20}
+                    fatness={2}
+                    className="mt-20px"
+                  />
+                  <Spinner
+                    duration={1}
+                    variant={2}
+                    size={20}
+                    fatness={2}
+                    className="mt-20px"
+                  />
+                  <Spinner
+                    duration={1}
+                    variant={3}
+                    size={10}
+                    fatness={5}
+                    className="mt-20px"
+                  />
+                </div>
               </Tab>
               <Tab className="pt-10px">
                 <GradientText
@@ -878,6 +917,7 @@ function App() {
         <Button variant="contained">Hello</Button>
         <Button variant="outlined">Hello</Button>
       </div>
+      <Tooltip anchorEl={tooltipAnchorEl}>Hello Hello Hello Hello</Tooltip>
     </div>
   );
 }

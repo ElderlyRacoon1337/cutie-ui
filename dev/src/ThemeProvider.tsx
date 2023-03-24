@@ -778,7 +778,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       if (colors) {
         for (let key in colors) {
           document.body.style.setProperty(`--${key}`, colors[key]);
-          console.log(`--${key}`, colors[key]);
         }
       }
       for (let key in lightMode) {
@@ -795,7 +794,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       if (colors) {
         for (let key in colors) {
           document.body.style.setProperty(`--${key}`, colors[key]);
-          console.log(`--${key}`, colors[key]);
         }
       }
       for (let key in darkMode) {

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './ThemeProvider';
-import CutieStyles from './cutie-components/CutieStyles';
+import './cutie-styles/index.scss';
 import './index.scss';
 
 const themeOptions = {
@@ -35,7 +35,6 @@ const themeOptions = {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider themeOptions={themeOptions}>
     <React.StrictMode>
-      <CutieStyles />
       <App />
     </React.StrictMode>
   </ThemeProvider>

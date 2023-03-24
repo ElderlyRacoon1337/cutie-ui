@@ -1,0 +1,15 @@
+// @import '../../cutie-styles/variables';
+
+.CuteTooltip {
+  position: absolute;
+  background-color: var(--backgroundSecondary);
+  padding: 7px;
+  border-radius: 7px;
+  backdrop-filter: blur(7px);
+  font-size: var(--fontSizeSmall);
+  border: 1px solid var(--divider);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 20;
+}

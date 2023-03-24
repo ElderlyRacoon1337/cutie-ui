@@ -1,12 +1,11 @@
-import { Link, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
 import Components from '../Components';
 import GettingStarted from '../GettingStarted';
-import { Button, Input, Switch, ThemeContext, useSwitch } from 'cutie-ui';
+import { Button, Icon, Input, Switch, ThemeContext, useSwitch } from 'cutie-ui';
 import { useContext, useEffect, useState } from 'react';
 
 const Main = () => {
-  const navigate = useNavigate();
   const [theme, setTheme] = useState('light');
   // @ts-ignore
   const { changeTheme } = useContext(ThemeContext);
@@ -31,20 +30,22 @@ const Main = () => {
             className="minw-400px"
             placeholder="Search docs..."
             startIcon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
+              <Icon>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </Icon>
             }
           />
         </div>

@@ -1,0 +1,517 @@
+// @import '../../cutie-styles/variables';
+
+.CuteListItem {
+  padding: 8px 15px;
+  border-radius: 7px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 7px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSizeMedium);
+  font-weight: 400;
+}
+
+.CuteListItemButton {
+  &:hover {
+    background-color: var(--glass);
+  }
+
+  &:active {
+    background-color: var(--darkGlass);
+  }
+}
+
+.CuteList-square {
+  .CuteListItem {
+    border-radius: 0;
+  }
+  .CuteListItemButton {
+    border-radius: 0;
+  }
+}
+
+.CuteListItem-square {
+  border-radius: 0;
+}
+
+.CuteListItem-iconStart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  & > *:first-child {
+    margin-right: 10px;
+  }
+}
+
+.CuteListItem-iconEnd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  & > *:last-child {
+    margin-left: 10px;
+    min-width: 20px;
+  }
+}
+
+.CuteListItem-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  & > *:first-child {
+    margin-right: 10px;
+    min-width: 10px;
+  }
+
+  .CuteListItemChildren {
+    margin-right: 10px;
+  }
+
+  & > *:last-child {
+    min-width: 10px;
+    margin-left: auto;
+  }
+}
+
+.CuteListItem-active {
+  background-color: var(--glassPrimary);
+  color: var(--primaryTooDark);
+  .CuteListItemChildren {
+    color: var(--primaryTooDark);
+  }
+  &:hover {
+    background-color: var(--darkGlassPrimary);
+    color: var(--primaryTooDark);
+  }
+}
+
+.CuteListItem-activeFilled {
+  background-color: var(--primary);
+  color: var(--primaryText);
+  & > * {
+    color: var(--primaryText);
+  }
+  .CuteListItemChildren {
+    color: var(--primaryText);
+  }
+  &:hover {
+    background-color: var(--primaryDark);
+    color: var(--primaryText);
+  }
+}
+
+.CuteList-secondary {
+  .CuteListItem-active {
+    background-color: var(--glassSecondary);
+    color: var(--secondaryTooDark);
+    .CuteListItemChildren {
+      color: var(--secondaryTooDark);
+    }
+    & > * {
+      color: var(--secondaryTooDark);
+    }
+    .CuteIcon {
+      color: var(--secondaryTooDark);
+    }
+    &:hover {
+      background-color: var(--darkGlassSecondary);
+      color: var(--secondaryTooDark);
+    }
+  }
+
+  .CuteListItem-activeFilled {
+    background-color: var(--secondary);
+    color: var(--secondaryText);
+    & > * {
+      color: var(--secondaryText);
+    }
+    .CuteListItemChildren {
+      color: var(--secondaryText);
+    }
+    &:hover {
+      background-color: var(--secondaryDark);
+      color: var(--secondaryText);
+    }
+  }
+}
+
+.CuteList-neutral {
+  .CuteListItem-active {
+    background-color: var(--glassNeutral);
+    color: var(--neutralTooDark);
+    .CuteListItemChildren {
+      color: var(--neutralTooDark);
+    }
+    & > * {
+      color: var(--neutralTooDark);
+    }
+    .CuteIcon {
+      color: var(--neutralTooDark);
+    }
+    &:hover {
+      background-color: var(--darkGlassNeutral);
+      color: var(--neutralTooDark);
+    }
+  }
+
+  .CuteListItem-activeFilled {
+    background-color: var(--neutral);
+    color: var(--neutralText);
+    & > * {
+      color: var(--neutralText);
+    }
+    .CuteListItemChildren {
+      color: var(--neutralText);
+    }
+    &:hover {
+      background-color: var(--neutralDark);
+      color: var(--neutralText);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .CuteListItemButton {
+    & > * {
+      color: var(--textPrimary);
+    }
+    .CuteListItemChildren {
+      color: var(--textPrimary);
+    }
+    &:hover {
+      color: var(--textPrimary);
+    }
+  }
+
+  .CuteListItem-active {
+    color: var(--primaryTooLight);
+    .CuteListItemChildren {
+      color: var(--primaryTooLight);
+    }
+    & > * {
+      color: var(--primaryTooLight);
+    }
+    &:hover {
+      color: var(--primaryTooLight);
+    }
+  }
+
+  .CuteListItem-activeFilled {
+    background-color: var(--primary);
+    & > * {
+      color: var(--primaryText);
+    }
+    .CuteListItemChildren {
+      color: var(--primaryText);
+    }
+    &:hover {
+      background-color: var(--primaryDark);
+      color: var(--primaryText);
+    }
+  }
+  .CuteList-secondary {
+    .CuteListItem-active {
+      background-color: var(--glassSecondary);
+      color: var(--secondaryTooLight);
+      .CuteListItemChildren {
+        color: var(--secondaryTooLight);
+      }
+      & > * {
+        color: var(--secondaryTooLight);
+      }
+      .CuteIcon {
+        color: var(--secondaryTooLight);
+      }
+      &:hover {
+        background-color: var(--darkGlassSecondary);
+        color: var(--secondaryTooLight);
+      }
+    }
+
+    .CuteListItem-activeFilled {
+      background-color: var(--secondary);
+      color: var(--secondaryText);
+      & > * {
+        color: var(--secondaryText);
+      }
+      .CuteListItemChildren {
+        color: var(--secondaryText);
+      }
+      &:hover {
+        background-color: var(--secondaryDark);
+        color: var(--secondaryText);
+      }
+    }
+  }
+  .CuteList-neutral {
+    .CuteListItem-active {
+      background-color: var(--glassNeutral);
+      color: var(--neutralTooLight);
+      .CuteListItemChildren {
+        color: var(--neutralTooLight);
+      }
+      & > * {
+        color: var(--neutralTooLight);
+      }
+      .CuteIcon {
+        color: var(--neutralTooLight);
+      }
+      &:hover {
+        background-color: var(--darkGlassNeutral);
+        color: var(--neutralTooLight);
+      }
+    }
+
+    .CuteListItem-activeFilled {
+      background-color: var(--neutral);
+      color: var(--neutralText);
+      & > * {
+        color: var(--neutralText);
+      }
+      .CuteListItemChildren {
+        color: var(--neutralText);
+      }
+      &:hover {
+        background-color: var(--neutralDark);
+        color: var(--neutralText);
+      }
+    }
+  }
+}
+
+// ============
+
+[data-theme='dark'] {
+  .CuteListItemButton {
+    & > * {
+      color: var(--textPrimary);
+    }
+    .CuteListItemChildren {
+      color: var(--textPrimary);
+    }
+    &:hover {
+      color: var(--textPrimary);
+    }
+  }
+
+  .CuteListItem-active {
+    color: var(--primaryTooLight);
+    background-color: var(--darkGlassPrimary);
+
+    .CuteListItemChildren {
+      color: var(--primaryTooLight);
+    }
+    & > * {
+      color: var(--primaryTooLight);
+    }
+    &:hover {
+      color: var(--primaryTooLight);
+    }
+  }
+
+  .CuteListItem-activeFilled {
+    background-color: var(--primary);
+    & > * {
+      color: var(--primaryText);
+    }
+    .CuteListItemChildren {
+      color: var(--primaryText);
+    }
+    &:hover {
+      background-color: var(--primaryDark);
+      color: var(--primaryText);
+    }
+  }
+
+  .CuteList-secondary {
+    .CuteListItem-active {
+      background-color: var(--glassSecondary);
+      color: var(--secondaryTooLight);
+      .CuteListItemChildren {
+        color: var(--secondaryTooLight);
+      }
+      & > * {
+        color: var(--secondaryTooLight);
+      }
+      .CuteIcon {
+        color: var(--secondaryTooLight);
+      }
+      &:hover {
+        background-color: var(--darkGlassSecondary);
+        color: var(--secondaryTooLight);
+      }
+    }
+
+    .CuteListItem-activeFilled {
+      background-color: var(--secondary);
+      color: var(--secondaryText);
+      & > * {
+        color: var(--secondaryText);
+      }
+      .CuteListItemChildren {
+        color: var(--secondaryText);
+      }
+      &:hover {
+        background-color: var(--secondaryDark);
+        color: var(--secondaryText);
+      }
+    }
+  }
+  .CuteList-neutral {
+    .CuteListItem-active {
+      background-color: var(--glassNeutral);
+      color: var(--neutralTooLight);
+      .CuteListItemChildren {
+        color: var(--neutralTooLight);
+      }
+      & > * {
+        color: var(--neutralTooLight);
+      }
+      .CuteIcon {
+        color: var(--neutralTooLight);
+      }
+      &:hover {
+        background-color: var(--darkGlassNeutral);
+        color: var(--neutralTooLight);
+      }
+    }
+
+    .CuteListItem-activeFilled {
+      background-color: var(--neutral);
+      color: var(--neutralText);
+      & > * {
+        color: var(--neutralText);
+      }
+      .CuteListItemChildren {
+        color: var(--neutralText);
+      }
+      &:hover {
+        background-color: var(--neutralDark);
+        color: var(--neutralText);
+      }
+    }
+  }
+}
+
+[data-theme='light'] {
+  .CuteListItemButton {
+    &:hover {
+      background-color: var(--glass);
+    }
+
+    &:active {
+      background-color: var(--darkGlass);
+    }
+  }
+  .CuteListItem-active {
+    background-color: var(--glassPrimary);
+    color: var(--primaryTooDark);
+    .CuteListItemChildren {
+      color: var(--primaryTooDark);
+    }
+    & > * {
+      color: var(--primaryTooDark);
+    }
+    &:hover {
+      background-color: var(--darkGlassPrimary);
+      color: var(--primaryTooDark);
+    }
+  }
+  .CuteListItem-activeFilled {
+    background-color: var(--primary);
+    color: var(--primaryText);
+    & > * {
+      color: var(--primaryText);
+    }
+    .CuteListItemChildren {
+      color: var(--primaryText);
+    }
+    &:hover {
+      background-color: var(--primaryDark);
+      color: var(--primaryText);
+    }
+  }
+
+  .CuteList-secondary {
+    .CuteListItem-active {
+      background-color: var(--glassSecondary);
+      color: var(--secondaryTooDark);
+      .CuteListItemChildren {
+        color: var(--secondaryTooDark);
+      }
+      & > * {
+        color: var(--secondaryTooDark);
+      }
+      .CuteIcon {
+        color: var(--secondaryTooDark);
+      }
+      &:hover {
+        background-color: var(--darkGlassSecondary);
+        color: var(--secondaryTooDark);
+      }
+    }
+
+    .CuteListItem-activeFilled {
+      background-color: var(--secondary);
+      color: var(--secondaryText);
+      & > * {
+        color: var(--secondaryText);
+      }
+      .CuteListItemChildren {
+        color: var(--secondaryText);
+      }
+      &:hover {
+        background-color: var(--secondaryDark);
+        color: var(--secondaryText);
+      }
+    }
+  }
+  .CuteList-neutral {
+    .CuteListItem-active {
+      background-color: var(--glassNeutral);
+      color: var(--neutralTooDark);
+      .CuteListItemChildren {
+        color: var(--neutralTooDark);
+      }
+      & > * {
+        color: var(--neutralTooDark);
+      }
+      .CuteIcon {
+        color: var(--neutralTooDark);
+      }
+      &:hover {
+        background-color: var(--darkGlassNeutral);
+        color: var(--neutralTooDark);
+      }
+    }
+
+    .CuteListItem-activeFilled {
+      background-color: var(--neutral);
+      color: var(--neutralText);
+      & > * {
+        color: var(--neutralText);
+      }
+      .CuteListItemChildren {
+        color: var(--neutralText);
+      }
+      &:hover {
+        background-color: var(--neutralDark);
+        color: var(--neutralText);
+      }
+    }
+  }
+}

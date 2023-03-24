@@ -1,0 +1,23 @@
+// @import '../../cutie-styles/variables';
+.CuteAvatar {
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.CuteAvatar-square {
+  border-radius: 0;
+}
+
+.CuteAvatar-rouneded {
+  border-radius: 20%;
+}
+
+.CuteAvatar-circular {
+  border-radius: 50%;
+}

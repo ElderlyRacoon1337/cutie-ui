@@ -1,0 +1,41 @@
+@import '../../cutie-styles/variables';
+
+.CuteSkeleton {
+  -webkit-animation: toggle 0.5s infinite;
+  animation: toggle 0.5s infinite;
+  -webkit-animation-duration: 1;
+  background: var(--skeletonDark);
+  animation-duration: 1;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+.CuteSkeleton-square {
+  border-radius: 0px;
+}
+.CuteSkeleton-rounded {
+  border-radius: 7px;
+}
+.CuteSkeleton-circle {
+  border-radius: 50%;
+  height: auto !important;
+  aspect-ratio: 1;
+}
+
+@-webkit-keyframes toggle {
+  0% {
+    background: var(--skeletonDark);
+  }
+  100% {
+    background: var(--skeletonLight);
+  }
+}
+
+@keyframes toggle {
+  0% {
+    background: var(--skeletonDark);
+  }
+  100% {
+    background: var(--skeletonLight);
+  }
+}
