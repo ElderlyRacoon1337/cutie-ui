@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import styles from './Button.module.scss';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import { Fragment as _Fragment } from 'react/jsx-runtime';
+import { jsx as _jsx } from 'react/jsx-runtime';
 import { jsxs as _jsxs } from 'react/jsx-runtime';
 export const Button = ({
   variant = 'text',
@@ -19,6 +20,8 @@ export const Button = ({
   square,
   other,
 }) => {
+  const theme = useContext(ThemeContext);
+  if (theme && !Boolean(theme.colors)) return /*#__PURE__*/ _jsx(_Fragment, {});
   return /*#__PURE__*/ _jsx('button', {
     disabled: disabled,
     type: type,

@@ -7,7 +7,6 @@ import { useContext, useEffect, useState } from 'react';
 
 const Main = () => {
   const [theme, setTheme] = useState('light');
-  // @ts-ignore
   const { changeTheme } = useContext(ThemeContext);
   const { checkedSwitch, setCheckedSwitch, handleSwitch } = useSwitch();
   useEffect(() => {

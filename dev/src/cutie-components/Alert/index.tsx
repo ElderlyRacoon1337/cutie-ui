@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { IconButton } from '../IconButton';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from './Alert.module.scss';
 import { Icon } from '../Icon';
+import { ThemeContext } from '../../ThemeProvider';
 
 interface AlertProps {
   children?: React.ReactNode;
@@ -38,6 +39,7 @@ const Alert: React.FC<AlertProps> = ({
 
   other,
 }) => {
+  const theme = useContext(ThemeContext);
   if (!startIcon) {
     if (color == 'error') {
       startIcon = (

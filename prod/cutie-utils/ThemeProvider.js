@@ -21,7 +21,7 @@ const dm_glass = 0.15;
 const dm_darkGlass = 0.2;
 const colors = {
   lightMode: {
-    primary: '#eb0066',
+    primary: '#94ffb0',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#fe4739',
@@ -41,7 +41,7 @@ const colors = {
     skeletonDark: 'rgb(243, 243, 243)',
   },
   darkMode: {
-    primary: '#eb0066',
+    primary: '#94ffb0',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#d02a35',

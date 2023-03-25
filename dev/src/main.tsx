@@ -4,19 +4,14 @@ import App from './App';
 import { ThemeProvider } from './ThemeProvider';
 import './cutie-styles/index.scss';
 import './index.scss';
+import CssBaseline from './cutie-components/CssBaseline';
 
 const themeOptions = {
-  colors: {
-    primary: '#41f098',
-    logo: '#DA417E',
-  },
-  lightMode: {
-    primary: '#DA417E',
-    background: '#FFFFFF',
-  },
+  colors: {},
+  lightMode: {},
   darkMode: {
-    logo: '#fff',
-    primary: '#ff8fbc',
+    // logo: '#fff',
+    // primary: 'green',
     // secondary: 'red',
   },
   // font: {
@@ -34,8 +29,7 @@ const themeOptions = {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider themeOptions={themeOptions}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <CssBaseline />
+    <App />
   </ThemeProvider>
 );

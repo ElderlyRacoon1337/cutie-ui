@@ -12,4 +12,4 @@ interface ThemeProvider {
 }
 
 export const ThemeProvider: React.FC<ThemeProvider>;
-export const ThemeContext: React.createContext<ThemeContextType>;
+export const ThemeContext: React.Context<ThemeContextType>;
