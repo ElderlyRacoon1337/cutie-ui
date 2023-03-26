@@ -9,15 +9,16 @@ interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'white'
-    | 'black'
-    | 'text'
-    | 'error'
-    | 'success';
+  // color?:
+  //   | 'primary'
+  //   | 'secondary'
+  //   | 'neutral'
+  //   | 'white'
+  //   | 'black'
+  //   | 'text'
+  //   | 'error'
+  //   | 'success';
+  color?: any;
   size?: 'large' | 'small' | 'medium';
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -43,26 +44,25 @@ export const Button: React.FC<ButtonProps> = ({
   square,
   other,
 }) => {
-  const [variables, setVariables] = useState({});
-  const [mode, setMode] = useState('');
   const theme = useContext(ThemeContext);
-  useEffect(() => {
-    setVariables(theme.variables);
-    setMode(theme.theme);
-  }, [theme.variables, theme.theme]);
+  const variables = theme.variables;
+  const mode = theme.theme;
 
   const StyledButton = styled.button`
     cursor: pointer;
     border: none;
     border-radius: 7px;
     display: inline-block;
-    font-family: var(--fontFamily);
+    font-family: ${variables.fontFamily};
     white-space: nowrap;
     border: 1px solid transparent;
 
-    ${size == 'small' && 'font-size:var(--fontSizeSmall);padding: 6px 8px;'}
-    ${size == 'medium' && 'font-size:var(--fontSizeMedium);padding: 8px 12px;'}
-    ${size == 'large' && 'font-size:var(--fontSizeLarge);padding: 10px 16px;'}
+    ${size == 'small' &&
+    `font-size:${variables.fontSizeSmall};padding: 6px 8px;`}
+    ${size == 'medium' &&
+    `font-size:${variables.fontSizeMedium};padding: 8px 12px;`}
+    ${size == 'large' &&
+    `font-size:${variables.fontSizeLarge};padding: 10px 16px;`}
 
     ${square && 'border-radius: 0;'}
 

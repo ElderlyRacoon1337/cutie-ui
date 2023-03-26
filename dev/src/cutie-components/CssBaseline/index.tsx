@@ -1,16 +1,20 @@
 // @ts-nocheck
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import { createGlobalStyle } from 'styled-components';
 
-const Globals = createGlobalStyle`
+const CssBaseline = () => {
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
+
+  const Globals = createGlobalStyle`
   body {
     min-height: 100vh;
     width: 100%;
-    color: ${(props) => props.variables.textPrimary};
-    font-size: ${(props) => props.variables.fontSizeMedium};
-    background-color: ${(props) => props.background};
-    font-family: ${(props) => props.variables.fontFamily};
+    color: ${variables.textPrimary};
+    font-size: ${variables.fontSizeMedium};
+    background-color: ${variables.background};
+    font-family: ${variables.fontFamily};
   }
   .container {
     max-width: 1240px;
@@ -60,19 +64,6 @@ const Globals = createGlobalStyle`
   }
 `;
 
-const CssBaseline = () => {
-  const theme = useContext(ThemeContext);
-  const [variables, setVariables] = useState({});
-  const [background, setBackground] = useState('');
-  const [mode, setMode] = useState(theme.theme);
-
-  useEffect(() => {
-    setMode(theme.theme);
-    setVariables(theme.variables);
-    console.log(theme.theme, theme.variables.background);
-    setBackground(theme.variables.background);
-  }, [theme.variables.background, mode]);
-
-  return <Globals variables={variables} background={background} />;
+  return <Globals />;
 };
 export default CssBaseline;

@@ -7,7 +7,9 @@ import './index.scss';
 import CssBaseline from './cutie-components/CssBaseline';
 
 const themeOptions = {
-  colors: {},
+  colors: {
+    yellow: 'turquoise',
+  },
   lightMode: {},
   darkMode: {
     // logo: '#fff',

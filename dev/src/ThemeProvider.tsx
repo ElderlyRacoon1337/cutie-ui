@@ -1,6 +1,5 @@
 import { useState, useEffect, createContext } from 'react';
 import tinycolor2 from 'tinycolor2';
-import CssBaseline from './cutie-components/CssBaseline';
 
 export const ThemeContext = createContext({
   theme: '',
@@ -87,7 +86,8 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   const darkMode = themeOptions.darkMode || {};
   const lightMode = themeOptions.lightMode || {};
   const font = themeOptions.font || {};
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState('light');
+  const [isLightMode, setIsLightMode] = useState(true);
   function changeTheme(theme: any) {
     setTheme(theme);
   }
@@ -106,6 +106,33 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     }
   }
 
+  if (theme == 'light') {
+    for (let key in initialVariables.lightMode) {
+      variables[key] = initialVariables.lightMode[key];
+    }
+    if (colors) {
+      for (let key in colors) {
+        variables[key] = colors[key];
+      }
+    }
+    for (let key in lightMode) {
+      variables[key] = lightMode[key];
+    }
+  }
+  if (theme == 'dark') {
+    for (let key in initialVariables.darkMode) {
+      variables[key] = initialVariables.darkMode[key];
+    }
+    if (colors) {
+      for (let key in colors) {
+        variables[key] = colors[key];
+      }
+    }
+    for (let key in darkMode) {
+      variables[key] = darkMode[key];
+    }
+  }
+
   useEffect(() => {
     const isBrowserDefaultDark = () =>
       window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -119,14 +146,18 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       case 'light':
         document.documentElement.dataset.theme = 'light';
         window.localStorage.setItem('theme', 'light');
+        setIsLightMode(true);
         break;
       case 'dark':
         document.documentElement.dataset.theme = 'dark';
         window.localStorage.setItem('theme', 'dark');
+        setIsLightMode(false);
         break;
       case 'system':
-      default:
+        window.localStorage.removeItem('theme');
         document.documentElement.dataset.theme = getDefaultTheme();
+        setIsLightMode(getDefaultTheme() == 'light');
+      default:
         window.localStorage.removeItem('theme');
         break;
     }
@@ -146,14 +177,17 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
         case 'light':
           document.documentElement.dataset.theme = 'light';
           window.localStorage.setItem('theme', 'light');
+          setIsLightMode(true);
           break;
         case 'dark':
           document.documentElement.dataset.theme = 'dark';
           window.localStorage.setItem('theme', 'dark');
+          setIsLightMode(false);
           break;
         case 'system':
           window.localStorage.removeItem('theme');
           document.documentElement.dataset.theme = getDefaultTheme();
+          setIsLightMode(getDefaultTheme() == 'light');
         default:
           window.localStorage.removeItem('theme');
           break;
@@ -191,7 +225,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme: theme,
+        theme: isLightMode ? 'light' : 'dark',
         changeTheme: changeTheme,
         variables: variables,
       }}

@@ -44,7 +44,7 @@ function App() {
       setCheckedSwitch(theme == 'dark');
       setTheme(theme);
     }
-  }, [checkedSwitch]);
+  }, [checkedSwitch, document.documentElement.dataset.theme]);
   const [tooltipAnchorEl, setTooltipAnchorEl] = useState(null);
 
   return (
@@ -111,6 +111,7 @@ function App() {
 
           <div className="right df aic">
             <Button
+              color="yellow"
               onClick={(e: any) => {
                 handleClickMenu(e);
               }}
@@ -119,6 +120,7 @@ function App() {
               Hello
             </Button>
             <Button
+              color="yellow"
               onClick={handleClickAlert}
               endIcon={
                 <Icon size="small">
@@ -145,6 +147,7 @@ function App() {
               <input hidden accept="image/*" multiple type="file" />
             </Button>
             <Button
+              color="yellow"
               onClick={handleClickPopup}
               className="mr-10px"
               variant="contained"
