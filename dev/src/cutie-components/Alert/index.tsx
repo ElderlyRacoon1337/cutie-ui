@@ -1,9 +1,10 @@
-import clsx from 'clsx';
+// @ts-nocheck
 import { IconButton } from '../IconButton';
 import React, { useContext, useEffect } from 'react';
-import styles from './Alert.module.scss';
 import { Icon } from '../Icon';
 import { ThemeContext } from '../../ThemeProvider';
+import styled from '@emotion/styled';
+import tinycolor from 'tinycolor2';
 
 interface AlertProps {
   children?: React.ReactNode;
@@ -18,12 +19,82 @@ interface AlertProps {
     | 'bottomLeft'
     | 'topCenter'
     | 'bottomCenter';
-  color?: 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
+  color?: string;
   startIcon?: React.ReactNode;
   withioutButton?: boolean;
   duration?: number;
   other?: object;
 }
+
+const StyledAlert = styled.div`
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 45px;
+  padding: 15px;
+  ${(props) =>
+    `color: ${
+      tinycolor(props._color).isLight()
+        ? props.variables.black
+        : props.variables.white
+    };
+    svg {
+      color: ${
+        tinycolor(props._color).isLight()
+          ? props.variables.black
+          : props.variables.white
+      };
+    }
+    `}
+
+  ${(props) =>
+    props.startIcon &&
+    `& > svg {
+      margin-right:10px;
+    }
+    `}
+
+  min-width: 300px;
+  -webkit-box-shadow: ${(props) => props.variables.baseBoxShadow};
+  box-shadow: ${(props) => props.variables.baseBoxShadow};
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 1;
+  font-family: ${(props) => props.variables.baseFontFamily};
+  font-size: ${(props) => props.variables.fontSizeMedium};
+
+  button {
+    margin-left: auto;
+    position: relative;
+    right: -5px;
+  }
+
+  ${(props) => props.position == 'topRight' && 'top: 25px; right: 25px;'}
+  ${(props) => props.position == 'topLeft' && 'top: 25px; left: 25px;'}
+${(props) => props.position == 'bottomRight' && 'bottom: 25px; right: 25px;'}
+${(props) => props.position == 'bottomLeft' && 'bottom: 25px; left: 25px;'}
+${(props) =>
+    props.position == 'topCenter' &&
+    `top: 25px;
+right: 0;
+left: 0;
+margin-left: auto;
+margin-right: auto;`}
+${(props) =>
+    props.position == 'bottomCenter' &&
+    `bottom: 25px;
+right: 0;
+left: 0;
+margin-left: auto;
+margin-right: auto;`}
+  background-color: ${(props) => props._color};
+`;
 
 const Alert: React.FC<AlertProps> = ({
   children,
@@ -36,10 +107,11 @@ const Alert: React.FC<AlertProps> = ({
   withioutButton = false,
   duration = 3000,
   open,
-
   other,
 }) => {
   const theme = useContext(ThemeContext);
+  const variables = theme.variables;
+
   if (!startIcon) {
     if (color == 'error') {
       startIcon = (
@@ -82,6 +154,10 @@ const Alert: React.FC<AlertProps> = ({
     }
   }
 
+  if (Object.keys(variables).includes(color)) {
+    color = variables[color];
+  }
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       onClose();
@@ -94,22 +170,19 @@ const Alert: React.FC<AlertProps> = ({
   return (
     <>
       {open && (
-        <div
-          className={clsx(
-            styles.CuteAlert,
-            styles[`CuteAlert-${position}`],
-            styles[`CuteAlert-${color}`],
-            className
-          )}
+        <StyledAlert
+          startIcon={startIcon}
+          variables={variables}
+          position={position}
+          _color={color}
+          className={className}
           {...other}
           style={style}
         >
-          {startIcon && (
-            <span className={styles.CuteAlertIcon}>{startIcon}</span>
-          )}
+          {startIcon}
           {children}
           {!withioutButton && (
-            <IconButton color="white" onClick={onClose}>
+            <IconButton onClick={onClose}>
               <Icon>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +201,7 @@ const Alert: React.FC<AlertProps> = ({
               </Icon>
             </IconButton>
           )}
-        </div>
+        </StyledAlert>
       )}
     </>
   );

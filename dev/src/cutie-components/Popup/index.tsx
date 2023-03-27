@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import React, { useEffect } from 'react';
-import styles from './Popup.module.scss';
+import styled from '@emotion/styled';
+import React, { useContext, useEffect } from 'react';
+import { ThemeContext } from '../../ThemeProvider';
 
 interface PopupProps {
   open: boolean;
@@ -11,6 +11,38 @@ interface PopupProps {
   other?: object;
 }
 
+const StyledPopup = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.38);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 10;
+
+  div {
+    position: fixed;
+    margin: auto;
+    padding: 20px;
+    background-color: ${(props) => props.variables.backgroundSecondary};
+    border-radius: 10px;
+    min-width: 400px;
+    min-height: 200px;
+    z-index: 10;
+    font-family: ${(props) => props.variables.baseFontFamily};
+    font-size: ${(props) => props.variables.fontSizeMedium};
+  }
+`;
+
 export const Popup: React.FC<PopupProps> = ({
   open,
   onClose,
@@ -19,6 +51,9 @@ export const Popup: React.FC<PopupProps> = ({
   className,
   other,
 }) => {
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
+
   const prevent = (ev: any) => ev.preventDefault();
   useEffect(() => {
     if (open) {
@@ -32,16 +67,16 @@ export const Popup: React.FC<PopupProps> = ({
   return (
     <>
       {open && (
-        <div className={styles.CutePopup} onClick={onClose}>
+        <StyledPopup variables={variables} onClick={onClose}>
           <div
-            className={clsx(styles.CutePupupElement, className)}
+            className={className}
             onClick={(e) => e.stopPropagation()}
             {...other}
             style={style}
           >
             {children}
           </div>
-        </div>
+        </StyledPopup>
       )}
     </>
   );

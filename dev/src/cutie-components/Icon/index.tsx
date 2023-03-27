@@ -1,11 +1,10 @@
-import clsx from 'clsx';
-import React from 'react';
-import styles from './Icon.module.scss';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../ThemeProvider';
 
 interface IconProps {
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  color?: 'primary' | 'secondary' | 'neutral' | 'black' | 'white' | 'text';
+  color?: string;
   size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
   children?: React.ReactNode;
@@ -21,20 +20,26 @@ export const Icon: React.FC<IconProps> = ({
   onClick,
   children,
   other,
-  fontSize,
+  fontSize = '20px',
 }) => {
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
+  if (Object.keys(variables).includes(color)) {
+    color = variables[color];
+  }
   return (
     <>
       {React.Children.map(children, (child) =>
         // @ts-ignore
         React.cloneElement(child, {
-          className: `${clsx(
-            styles.CuteIcon,
-            size && styles[`CuteIcon-${size}`],
-            color && styles[`CuteIcon-${color}`],
-            className
-          )}`,
-          style: { fontSize: fontSize, ...style },
+          className: className,
+          style: {
+            fontSize: fontSize,
+            width: '1em',
+            height: '1em',
+            color: color,
+            ...style,
+          },
           ...other,
           onClick: onClick,
         })

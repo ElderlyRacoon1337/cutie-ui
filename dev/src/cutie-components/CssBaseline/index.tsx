@@ -3,18 +3,17 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import { createGlobalStyle } from 'styled-components';
 
-const CssBaseline = () => {
-  const theme = useContext(ThemeContext);
-  const variables = theme.variables;
-
-  const Globals = createGlobalStyle`
+const Globals = createGlobalStyle`
   body {
     min-height: 100vh;
     width: 100%;
-    color: ${variables.textPrimary};
-    font-size: ${variables.fontSizeMedium};
-    background-color: ${variables.background};
-    font-family: ${variables.fontFamily};
+    color: ${(props) => props.variables.textPrimary};
+    font-size: ${(props) => props.variables.fontSizeMedium};
+    background-color: ${(props) => props.background};
+    font-family: ${(props) => props.variables.baseFontFamily};
+  }
+  :root {
+    ${(props) => props.stringOfVariables}
   }
   .container {
     max-width: 1240px;
@@ -64,6 +63,20 @@ const CssBaseline = () => {
   }
 `;
 
-  return <Globals />;
+const CssBaseline = () => {
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
+
+  const stringOfVariables = Object.entries(variables)
+    .map((el) => `--${el[0]}: ${el[1]}`)
+    .join(';');
+
+  return (
+    <Globals
+      variables={variables}
+      background={variables.background}
+      stringOfVariables={stringOfVariables}
+    />
+  );
 };
 export default CssBaseline;

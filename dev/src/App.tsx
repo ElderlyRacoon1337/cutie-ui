@@ -26,12 +26,13 @@ import GradientText from './cutie-components/GradientText';
 import { useSwitch } from './cutie-hooks/useSwitch';
 import Progress from './cutie-components/LinearProgress';
 import Tooltip from './cutie-components/Tooltip';
-import CssBaseline from './cutie-components/CssBaseline';
 
 function App() {
   const { popupOpen, handleClickPopup, handleClosePopup } = usePopup();
+
   const { menuAnchorEl, menuOpen, handleClickMenu, handleCloseMenu } =
     useMenu();
+
   const { alertOpen, handleCloseAlert, handleClickAlert } = useAlert();
   const { handleChangeTabs, tabsValue } = useTabs(3);
 
@@ -57,7 +58,11 @@ function App() {
                 <h1 className="m-0px mr-5px" style={{ fontWeight: 'black' }}>
                   Cutie UI
                 </h1>
-                <Icon fontSize={'1.3rem'} style={{ color: 'var(--logo)' }}>
+                <Icon
+                  fontSize={'1.3rem'}
+                  size="small"
+                  style={{ color: 'var(--logo)' }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentcolor"
@@ -77,41 +82,59 @@ function App() {
                   </svg>
                 </Icon>
               </a>
-              <p className="" style={{ color: 'var(--textSecondary)' }}>
+              <p style={{ color: 'var(--textSecondary)' }}>
                 Cute ui framework for React
               </p>
             </div>
             <Input
               button={<Button>Search</Button>}
-              label
-              message="hello"
-              color="primary"
-              startIcon={
-                <Icon fontSize={'1rem'}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                    />
-                  </svg>
-                </Icon>
-              }
+              // label
+              // message="hello"
+              color="teal"
+              // endIcon={
+              //   <Icon>
+              //     <svg
+              //       xmlns="http://www.w3.org/2000/svg"
+              //       fill="none"
+              //       viewBox="0 0 24 24"
+              //       strokeWidth={1.5}
+              //       stroke="currentColor"
+              //     >
+              //       <path
+              //         strokeLinecap="round"
+              //         strokeLinejoin="round"
+              //         d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              //       />
+              //     </svg>
+              //   </Icon>
+              // }
+              // startIcon={
+              //   <Icon>
+              //     <svg
+              //       xmlns="http://www.w3.org/2000/svg"
+              //       fill="none"
+              //       viewBox="0 0 24 24"
+              //       strokeWidth={1.5}
+              //       stroke="currentColor"
+              //     >
+              //       <path
+              //         strokeLinecap="round"
+              //         strokeLinejoin="round"
+              //         d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              //       />
+              //     </svg>
+              //   </Icon>
+              // }
               className="minw-250px"
               classNameForWrapper="ml-50px"
               placeholder="Search docs"
             />
           </div>
-
+          <div className="" style={{ color: 'var(--bebrik)' }}>
+            efwfwefwef
+          </div>
           <div className="right df aic">
             <Button
-              color="yellow"
               onClick={(e: any) => {
                 handleClickMenu(e);
               }}
@@ -233,7 +256,7 @@ function App() {
               </MenuItem>
               <MenuItem
                 endIcon={
-                  <Icon fontSize={'1rem'}>
+                  <Icon>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -259,8 +282,8 @@ function App() {
             <Alert
               open={alertOpen}
               onClose={handleCloseAlert}
-              position="bottomLeft"
-              color="error"
+              position="bottomCenter"
+              color="success"
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </Alert>
@@ -405,14 +428,14 @@ function App() {
             >
               Features
             </ListItemButton>
-            <ListItem className="colorPrimary">Components</ListItem>
+            <ListItem activeFilled>Components</ListItem>
             <ListItemButton>Hello</ListItemButton>
             <ListItemButton active>Hello world</ListItemButton>
             <ListItemButton>Hello world</ListItemButton>
             <ListItemButton className="mb-10px">
               Hello worldworldworld
             </ListItemButton>
-            <ListItem onClick={handleClickMenu} className="colorPrimary">
+            <ListItem active onClick={handleClickMenu} className="colorPrimary">
               Layout
             </ListItem>
             <ListItemButton>Hello</ListItemButton>
@@ -450,30 +473,33 @@ function App() {
             </ListItemButton>
           </List>
           <div className="px-50px flex">
-            <Button className="mr-10px mb-10px">Hello</Button>
-            <Button
-              other={{
-                onMouseEnter: (e: any) => setTooltipAnchorEl(e.currentTarget),
-                onMouseLeave: (e: any) => setTooltipAnchorEl(null),
-              }}
-              className="mr-10px"
-              variant="outlined"
-            >
-              Hello
-            </Button>
-            <Button className="mr-10px" variant="contained">
-              Hello
-            </Button>
-            <Link className="ml-10px">Hello</Link>
-
-            <Switch
-              className="mb-10px"
-              checked={checkedSwitch}
-              onChange={(e: any) => {
-                handleSwitch(e);
-                changeTheme(theme == 'dark' ? 'light' : 'dark');
-              }}
-            />
+            <div className="df aic">
+              <Button className="mr-10px">Hello</Button>
+              <Button
+                other={{
+                  onMouseEnter: (e: any) => setTooltipAnchorEl(e.currentTarget),
+                  onMouseLeave: (e: any) => setTooltipAnchorEl(null),
+                }}
+                className="mr-10px"
+                variant="outlined"
+              >
+                Hello
+              </Button>
+              <Button className="mr-10px" variant="contained">
+                Hello
+              </Button>
+              <Link className="ml-10px">Hello</Link>
+              <Switch
+                icon={'3'}
+                size="medium"
+                className="ml-10px"
+                checked={checkedSwitch}
+                onChange={(e: any) => {
+                  handleSwitch(e);
+                  changeTheme(theme == 'dark' ? 'light' : 'dark');
+                }}
+              />
+            </div>
 
             <Tabs
               color="neutral"
@@ -487,10 +513,10 @@ function App() {
                 <Skeleton
                   className="mb-10px"
                   variant="circle"
-                  width={100}
-                  height={100}
+                  width={'100px'}
+                  height={'100px'}
                 />
-                <Skeleton variant="rounded" width="500" height="100" />
+                <Skeleton variant="rounded" width="500px" height="100px" />
                 <Icon color="neutral">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -604,7 +630,7 @@ function App() {
                     variant={'2'}
                     loader
                     duration={2}
-                    // color="success"
+                    color="success"
                     height={2}
                     value={20}
                     className="mt-20px"
@@ -613,7 +639,7 @@ function App() {
                     variant={'3'}
                     loader
                     duration={2}
-                    // color="success"
+                    color="pink"
                     height={2}
                     value={20}
                     className="mt-20px"
@@ -621,21 +647,19 @@ function App() {
                   <Spinner
                     duration={1}
                     variant={1}
-                    size={20}
                     fatness={2}
                     className="mt-20px"
                   />
                   <Spinner
                     duration={1}
                     variant={2}
-                    size={20}
-                    fatness={2}
+                    fatness={10}
                     className="mt-20px"
                   />
                   <Spinner
                     duration={1}
                     variant={3}
-                    size={10}
+                    size={'10px'}
                     fatness={5}
                     className="mt-20px"
                   />
@@ -643,11 +667,12 @@ function App() {
               </Tab>
               <Tab className="pt-10px">
                 <GradientText
-                  fontSize={50}
+                  fontSize={'50px'}
                   fontWeight={700}
-                  rotate={150}
-                  firstColor="var(--secondary)"
-                  secondColor="var(--primary)"
+                  component="h3"
+                  rotate={10}
+                  firstColor="primary"
+                  secondColor="neutral"
                 >
                   Hello world
                 </GradientText>
@@ -690,6 +715,39 @@ function App() {
                   </Button>
                 </div>
                 <div className="mb-10px">
+                  <Button variant="text" color="info">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="info">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="info">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="warning">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="warning">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="warning">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
+                  <Button variant="text" color="sky">
+                    Button
+                  </Button>
+                  <Button variant="outlined" color="sky">
+                    Button
+                  </Button>
+                  <Button variant="contained" color="#F73C8C">
+                    Button
+                  </Button>
+                </div>
+                <div className="mb-10px">
                   <Button variant="text" color="error">
                     Button
                   </Button>
@@ -723,19 +781,19 @@ function App() {
                   </Button>
                 </div>
                 <div className="mb-10px">
-                  <Button variant="text" color="text">
+                  <Button variant="text" color="textPrimary">
                     Button
                   </Button>
-                  <Button variant="outlined" color="text">
+                  <Button variant="outlined" color="textPrimary">
                     Button
                   </Button>
-                  <Button variant="contained" color="text">
+                  <Button variant="contained" color="textPrimary">
                     Button
                   </Button>
                 </div>
                 <div className="mb-10px">
                   <IconButton className="mr-10px">
-                    <Icon fontSize={20}>
+                    <Icon fontSize={'20px'}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -752,7 +810,7 @@ function App() {
                     </Icon>
                   </IconButton>
                   <IconButton variant="outlined" className="mr-10px">
-                    <Icon fontSize={20}>
+                    <Icon fontSize={'20px'}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -768,7 +826,11 @@ function App() {
                       </svg>
                     </Icon>
                   </IconButton>
-                  <IconButton variant="contained" className="mr-10px">
+                  <IconButton
+                    size="large"
+                    variant="contained"
+                    className="mr-10px"
+                  >
                     <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -787,7 +849,11 @@ function App() {
                   </IconButton>
                 </div>
                 <div className="mb-10px">
-                  <IconButton color="secondary" className="mr-10px">
+                  <IconButton
+                    size="large"
+                    color="secondary"
+                    className="mr-10px"
+                  >
                     <Icon>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -932,7 +998,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Spinner size={200} />
+      <Spinner size={'200px'} />
       <div className="df fdc">
         <Button variant="contained">Hello</Button>
         <Button variant="outlined">Hello</Button>

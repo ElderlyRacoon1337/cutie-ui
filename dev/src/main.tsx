@@ -15,6 +15,7 @@ const themeOptions = {
     // logo: '#fff',
     // primary: 'green',
     // secondary: 'red',
+    yellow: 'hotpink',
   },
   // font: {
   //   size: {

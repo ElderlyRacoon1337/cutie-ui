@@ -24,22 +24,38 @@ const dm_glass = 0.15;
 const dm_darkGlass = 0.2;
 
 const initialVariables: any = {
-  lightMode: {
-    fontFamily: '"system-ui", sans-serif',
-    fontSizeSmall: '0,8125rem',
+  variables: {
+    baseBorderRadius: '0.435rem',
+    baseFontFamily: '"system-ui", sans-serif',
+    fontSizeSmall: '0.8125rem',
     fontSizeMedium: '0.875rem',
     fontSizeLarge: '0.9375rem',
-    white: 'white',
-    black: 'black',
+    white: '#fff',
+    black: '#000',
+    sky: '#abcfe5',
+    instagram: '#F73C8C',
+    github: '#181515',
+    telegram: '#23A0DB',
+    facebook: '#3A5497',
+    vk: '#0173F6',
+    twitter: '#1E96E8',
+    viber: '#7D5FF6',
+    whatsapp: '#19D741',
+    youtube: '#FF0200',
+    odnoklassniki: '#EE8108',
+  },
+  lightMode: {
     primary: '#eb0066',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#fe4739',
     success: '#2cd252',
+    warning: '#f8e100',
+    info: '#00c8de',
     disabled: 'rgb(201, 201, 201)',
     link: 'rgb(24, 118, 209)',
     background: '#ffffff',
-    backgroundSecondary: 'rgba(246, 246, 246, 0.85)',
+    backgroundSecondary: 'rgba(255, 255, 255, 0.9)',
     textPrimary: '#000000',
     textSecondary: '#6a6a6a',
     textOpposite: '#fff',
@@ -51,17 +67,13 @@ const initialVariables: any = {
     skeletonDark: 'rgb(243, 243, 243)',
   },
   darkMode: {
-    fontFamily: '"system-ui", sans-serif',
-    fontSizeSmall: '0,8125rem',
-    fontSizeMedium: '0.875rem',
-    fontSizeLarge: '0.9375rem',
-    white: 'white',
-    black: 'black',
     primary: 'pink',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#d02a35',
     success: 'rgb(30, 158, 8)',
+    warning: '#e1cc00',
+    info: '#00adbf',
     disabled: 'rgb(82, 82, 82)',
     link: 'rgb(31, 136, 241)',
     background: '#000000',
@@ -104,6 +116,10 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
         variables[key] = font.family[key];
       }
     }
+  }
+
+  for (let key in initialVariables.variables) {
+    variables[key] = initialVariables.variables[key];
   }
 
   if (theme == 'light') {
@@ -192,6 +208,10 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           window.localStorage.removeItem('theme');
           break;
       }
+    }
+
+    for (let key in initialVariables.variables) {
+      variables[key] = initialVariables.variables[key];
     }
 
     if (document.documentElement.dataset.theme == 'light') {

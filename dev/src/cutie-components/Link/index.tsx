@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import React from 'react';
-import styles from './Link.module.scss';
+import styled from '@emotion/styled';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../ThemeProvider';
 
 interface LinkProps {
   children?: React.ReactNode;
@@ -10,7 +10,20 @@ interface LinkProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   underlined?: boolean;
   other?: object;
+  color?: string;
 }
+
+const StyledLink = styled.a`
+  color: ${(props) => props._color};
+  cursor: pointer;
+  font-family: ${(props) => props.variables.baseFontFamily};
+  font-size: ${(props) => props.variables.fontSizeMedium};
+  &:hover {
+    text-decoration: underline;
+  }
+
+  ${(props) => props.underlined && `text-decoration: underline;`}
+`;
 
 const Link: React.FC<LinkProps> = ({
   children,
@@ -20,21 +33,27 @@ const Link: React.FC<LinkProps> = ({
   onClick,
   underlined = false,
   other,
+  color = 'link',
 }) => {
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
+  if (Object.keys(variables).includes(color)) {
+    color = variables[color];
+  }
+
   return (
-    <a
+    <StyledLink
+      variables={variables}
+      _color={color}
+      underlined={underlined}
       href={href}
       onClick={onClick}
-      className={clsx(
-        styles.CuteLink,
-        underlined && styles['CuteLink-underlined'],
-        className
-      )}
-      {...other}
+      className={className}
       style={style}
+      {...other}
     >
       {children}
-    </a>
+    </StyledLink>
   );
 };
 

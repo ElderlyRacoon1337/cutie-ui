@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import React from 'react';
-import styles from './List.module.scss';
+import styled from '@emotion/styled';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../ThemeProvider';
 
 interface ListProps {
   className?: string;
@@ -8,8 +8,19 @@ interface ListProps {
   style?: React.CSSProperties;
   other?: object;
   square?: boolean;
-  color?: 'primary' | 'secondary' | 'neutral';
 }
+
+const StyledList = styled.ul`
+  list-style: 'none';
+  margin: 0;
+  padding: 0;
+
+  ${(props) =>
+    props.square &&
+    `li {
+      border-radius: 0;
+    }`}
+`;
 
 export const List: React.FC<ListProps> = ({
   children,
@@ -17,20 +28,10 @@ export const List: React.FC<ListProps> = ({
   style,
   other,
   square,
-  color,
 }) => {
   return (
-    <ul
-      className={clsx(
-        styles.CuteList,
-        styles[`CuteList-${color}`],
-        square && styles['CuteList-square'],
-        className
-      )}
-      {...other}
-      style={style}
-    >
+    <StyledList square={square} className={className} {...other} style={style}>
       {children}
-    </ul>
+    </StyledList>
   );
 };

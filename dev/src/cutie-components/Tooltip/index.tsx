@@ -1,7 +1,6 @@
-import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
-
-import styles from './Tooltip.module.scss';
+import styled from '@emotion/styled';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from '../../ThemeProvider';
 
 interface TooltipProps {
   anchorEl: any;
@@ -11,15 +10,41 @@ interface TooltipProps {
   style?: React.CSSProperties;
 }
 
+const StyledTooltip = styled.span`
+  position: absolute;
+  background-color: ${(props) => props.variables.backgroundSecondary};
+  padding: 5px;
+  border-radius: 7px;
+  backdrop-filter: blur(7px);
+  font-size: ${(props) => props.variables.fontSizeSmall};
+  font-size: 11px;
+  border: 1px solid ${(props) => props.variables.divider};
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 20;
+  ${(props) =>
+    props.ypos !== 0 && props.xpos !== 0
+      ? `top: ${props.ypos}px;
+  left: ${props.xpos}px;`
+      : 'visibility: hidden;'}
+  &:hover {
+    transition: 2s;
+  }
+`;
+
 const Tooltip: React.FC<TooltipProps> = ({
   anchorEl,
   position = 'top',
   children,
   style,
+  className,
 }) => {
   const [xpos, setXpos] = useState(0);
   const [ypos, setYpos] = useState(0);
   const tooltipRef = useRef<HTMLSpanElement>(null);
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
 
   const getPosition = () => {
     if (anchorEl && tooltipRef.current) {
@@ -65,13 +90,16 @@ const Tooltip: React.FC<TooltipProps> = ({
   }, [anchorEl]);
 
   return (
-    <span
+    <StyledTooltip
+      xpos={xpos}
+      ypos={ypos}
+      variables={variables}
       ref={tooltipRef}
-      className={clsx(styles.CuteTooltip)}
-      style={ypos ? { top: ypos + 'px', left: xpos + 'px', ...style } : style}
+      className={className}
+      style={style}
     >
       {children}
-    </span>
+    </StyledTooltip>
   );
 };
 
