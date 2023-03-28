@@ -1,11 +1,80 @@
-import clsx from 'clsx';
 import { IconButton } from '../IconButton';
-import React, { useEffect } from 'react';
-import styles from './Alert.module.scss';
+import { useContext, useEffect } from 'react';
 import { Icon } from '../Icon';
+import { ThemeContext } from '../../cutie-utils/ThemeProvider';
+import styled from '@emotion/styled';
+import tinycolor from 'tinycolor2';
 import { jsx as _jsx } from 'react/jsx-runtime';
 import { jsxs as _jsxs } from 'react/jsx-runtime';
 import { Fragment as _Fragment } from 'react/jsx-runtime';
+const StyledAlert = styled.div`
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 45px;
+  padding: 0 15px;
+  ${(props) => `color: ${
+    tinycolor(props._color).isLight()
+      ? props.variables.black
+      : props.variables.white
+  };
+    svg {
+      color: ${
+        tinycolor(props._color).isLight()
+          ? props.variables.black
+          : props.variables.white
+      };
+    }
+    `}
+
+  ${(props) =>
+    props.startIcon &&
+    `& > svg {
+      margin-right:10px;
+    }
+    `}
+
+  min-width: 300px;
+  -webkit-box-shadow: ${(props) => props.variables.baseBoxShadow};
+  box-shadow: ${(props) => props.variables.baseBoxShadow};
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 1;
+  font-family: ${(props) => props.variables.baseFontFamily};
+  font-size: ${(props) => props.variables.fontSizeMedium};
+
+  button {
+    margin-left: auto;
+    position: relative;
+    right: -5px;
+  }
+
+  ${(props) => props.position == 'topRight' && 'top: 25px; right: 25px;'}
+  ${(props) => props.position == 'topLeft' && 'top: 25px; left: 25px;'}
+${(props) => props.position == 'bottomRight' && 'bottom: 25px; right: 25px;'}
+${(props) => props.position == 'bottomLeft' && 'bottom: 25px; left: 25px;'}
+${(props) =>
+    props.position == 'topCenter' &&
+    `top: 25px;
+right: 0;
+left: 0;
+margin-left: auto;
+margin-right: auto;`}
+${(props) =>
+    props.position == 'bottomCenter' &&
+    `bottom: 25px;
+right: 0;
+left: 0;
+margin-left: auto;
+margin-right: auto;`}
+  background-color: ${(props) => props._color};
+`;
 export const Alert = ({
   children,
   position = 'bottomCenter',
@@ -19,6 +88,8 @@ export const Alert = ({
   open,
   other,
 }) => {
+  const theme = useContext(ThemeContext);
+  const variables = theme.variables;
   if (!startIcon) {
     if (color == 'error') {
       startIcon = /*#__PURE__*/ _jsx(Icon, {
@@ -52,7 +123,26 @@ export const Alert = ({
           }),
         }),
       });
+    } else if (color == 'warning') {
+      startIcon = /*#__PURE__*/ _jsx(Icon, {
+        children: /*#__PURE__*/ _jsx('svg', {
+          xmlns: 'http://www.w3.org/2000/svg',
+          fill: 'none',
+          viewBox: '0 0 24 24',
+          strokeWidth: 1.5,
+          stroke: 'currentColor',
+          className: 'w-6 h-6',
+          children: /*#__PURE__*/ _jsx('path', {
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            d: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z',
+          }),
+        }),
+      });
     }
+  }
+  if (Object.keys(variables).includes(color)) {
+    color = variables[color];
   }
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -65,25 +155,19 @@ export const Alert = ({
   return /*#__PURE__*/ _jsx(_Fragment, {
     children:
       open &&
-      /*#__PURE__*/ _jsxs('div', {
-        className: clsx(
-          styles.CuteAlert,
-          styles[`CuteAlert-${position}`],
-          styles[`CuteAlert-${color}`],
-          className
-        ),
+      /*#__PURE__*/ _jsxs(StyledAlert, {
+        startIcon: startIcon,
+        variables: variables,
+        position: position,
+        _color: color,
+        className: className,
         ...other,
         style: style,
         children: [
-          startIcon &&
-            /*#__PURE__*/ _jsx('span', {
-              className: styles.CuteAlertIcon,
-              children: startIcon,
-            }),
+          startIcon,
           children,
           !withioutButton &&
             /*#__PURE__*/ _jsx(IconButton, {
-              color: 'white',
               onClick: onClose,
               children: /*#__PURE__*/ _jsx(Icon, {
                 children: /*#__PURE__*/ _jsx('svg', {

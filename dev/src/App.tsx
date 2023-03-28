@@ -490,7 +490,6 @@ function App() {
               </Button>
               <Link className="ml-10px">Hello</Link>
               <Switch
-                icon={'3'}
                 size="medium"
                 className="ml-10px"
                 checked={checkedSwitch}
@@ -669,7 +668,6 @@ function App() {
                 <GradientText
                   fontSize={'50px'}
                   fontWeight={700}
-                  component="h3"
                   rotate={10}
                   firstColor="primary"
                   secondColor="neutral"

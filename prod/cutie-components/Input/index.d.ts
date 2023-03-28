@@ -9,7 +9,7 @@ interface InputProps {
   classNameForWrapper?: string;
   styleForWrapper?: React.CSSProperties;
   size?: 'small' | 'medium' | 'large';
-  color?: 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
+  color?: string;
   square?: boolean;
   variant?: 'filled' | 'outlined' | 'underlined' | 'basic';
   message?: string;

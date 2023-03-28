@@ -2,15 +2,7 @@ interface LoaderProps {
   size?: number | string;
   fatness?: number | string;
   style?: React.CSSProperties;
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'success'
-    | 'error'
-    | 'text'
-    | 'white'
-    | 'black';
+  color?: string;
   other?: object;
   className?: string;
   circleDark?: boolean;

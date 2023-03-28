@@ -3,15 +3,7 @@ import React from 'react';
 interface SwitchProps {
   checked?: boolean;
   size?: 'medium' | 'small' | 'large';
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'black'
-    | 'white'
-    | 'neutral'
-    | 'error'
-    | 'success'
-    | 'apple';
+  color?: string;
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;

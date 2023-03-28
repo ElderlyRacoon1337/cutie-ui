@@ -8,6 +8,7 @@ interface LinkProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   underlined?: boolean;
   other?: object;
+  color?: string;
 }
 
 export const Link: React.FC<LinkProps>;

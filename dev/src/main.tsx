@@ -32,7 +32,7 @@ const themeOptions = {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider themeOptions={themeOptions}>
-    <CssBaseline />
+    {/* <CssBaseline /> */}
     <App />
   </ThemeProvider>
 );

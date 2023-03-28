@@ -47,6 +47,7 @@ const StyledTab = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-family: ${(props) => props.variables.baseFontFamily};
 
   &:hover {
     background-color: ${tinycolor('#000').setAlpha(0.04).toString()};

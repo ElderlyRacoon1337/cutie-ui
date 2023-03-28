@@ -4,17 +4,17 @@ import { ThemeContext } from '../../ThemeProvider';
 import { createGlobalStyle } from 'styled-components';
 
 const Globals = createGlobalStyle`
+  :root {
+    ${(props) => props.stringOfVariables}
+  }
   body {
     min-height: 100vh;
-    width: 100%;
     color: ${(props) => props.variables.textPrimary};
     font-size: ${(props) => props.variables.fontSizeMedium};
     background-color: ${(props) => props.background};
     font-family: ${(props) => props.variables.baseFontFamily};
   }
-  :root {
-    ${(props) => props.stringOfVariables}
-  }
+  
   .container {
     max-width: 1240px;
     padding: 0 20px;

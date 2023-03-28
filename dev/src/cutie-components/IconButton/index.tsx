@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import clsx from 'clsx';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
-import styles from './IconButton.module.scss';
 import tinycolor from 'tinycolor2';
 
 interface IconButtonProps {

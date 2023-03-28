@@ -36,7 +36,7 @@ const StyledAlert = styled.div`
   align-items: center;
   border-radius: 10px;
   height: 45px;
-  padding: 15px;
+  padding: 0 15px;
   ${(props) =>
     `color: ${
       tinycolor(props._color).isLight()

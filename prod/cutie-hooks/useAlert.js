@@ -1,6 +1,6 @@
-const { useState } = require('react');
+import { useState } from 'react';
 
-const useAlert = () => {
+export const useAlert = () => {
   const [alertOpen, setAlertOpen] = useState(false);
 
   const handleCloseAlert = () => {
@@ -17,8 +17,4 @@ const useAlert = () => {
     handleClickAlert,
     setAlertOpen,
   };
-};
-
-module.exports = {
-  useAlert,
 };

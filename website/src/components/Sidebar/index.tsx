@@ -11,17 +11,13 @@ const Sidebar = () => {
           className="mb-10px"
           activeFilled={location.pathname == '/getting-started'}
           startIcon={
-            <Icon>
+            <Icon color="primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={
-                  location.pathname == '/getting-started'
-                    ? 'var(--primaryText)'
-                    : 'var(--primary)'
-                }
+                stroke="currentColor"
                 className="w-6 h-6"
               >
                 <path
@@ -40,17 +36,13 @@ const Sidebar = () => {
         <ListItemButton
           activeFilled={location.pathname.split('/')[1] == 'components'}
           startIcon={
-            <Icon>
+            <Icon color="primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={
-                  location.pathname.split('/')[1] == 'components'
-                    ? 'var(--primaryText)'
-                    : 'var(--primary)'
-                }
+                stroke="currentColor"
                 className="w-6 h-6"
               >
                 <path
@@ -69,17 +61,13 @@ const Sidebar = () => {
       <ListItemButton
         activeFilled={location.pathname == '/hooks'}
         startIcon={
-          <Icon>
+          <Icon color="primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke={
-                location.pathname == '/hooks'
-                  ? 'var(--primaryText)'
-                  : 'var(--primary)'
-              }
+              stroke="currentColor"
               className="w-6 h-6"
             >
               <path
@@ -97,17 +85,13 @@ const Sidebar = () => {
       <ListItemButton
         activeFilled={location.pathname == '/customization'}
         startIcon={
-          <Icon>
+          <Icon color="primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke={
-                location.pathname == '/customization'
-                  ? 'var(--primaryText)'
-                  : 'var(--primary)'
-              }
+              stroke="currentColor"
               className="w-6 h-6"
             >
               <path
@@ -125,17 +109,14 @@ const Sidebar = () => {
       <ListItemButton
         activeFilled={location.pathname == '/support'}
         startIcon={
-          <Icon>
+          <Icon color="primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke={
-                location.pathname == '/support'
-                  ? 'var(--primaryText)'
-                  : 'var(--primary)'
-              }
+              stroke="currentColor"
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"

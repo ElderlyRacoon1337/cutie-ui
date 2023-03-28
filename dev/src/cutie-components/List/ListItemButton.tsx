@@ -202,7 +202,7 @@ export const ListItemButton: React.FC<ListItemProps> = ({
   activeFilled,
   other,
   square,
-  color = 'neutral',
+  color = 'primary',
 }) => {
   const theme = useContext(ThemeContext);
   const mode = theme.theme;

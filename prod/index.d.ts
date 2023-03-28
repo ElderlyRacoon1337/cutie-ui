@@ -15,5 +15,6 @@ export * from './cutie-components/Tabs';
 export * from './cutie-components/Alert';
 export * from './cutie-components/LinearProgress';
 export * from './cutie-components/Tooltip';
+export * from './cutie-components/CssBaseline';
 export * from './cutie-hooks';
 export * from './cutie-utils';

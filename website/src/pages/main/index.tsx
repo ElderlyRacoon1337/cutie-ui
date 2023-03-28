@@ -15,7 +15,7 @@ const Main = () => {
       setCheckedSwitch(theme == 'dark');
       setTheme(theme);
     }
-  }, [checkedSwitch]);
+  }, [checkedSwitch, document.documentElement.dataset.theme]);
 
   return (
     <>
@@ -66,10 +66,13 @@ const Main = () => {
         </div>
       </header>
       <main className="df p-10px">
-        <div className="sideBar w-200px ">
+        <div className="sideBar w-200px">
           <Sidebar />
         </div>
-        <div className="content flex container maxw-1000px pt-50px">
+        <div
+          className="content flex container maxw-1000px"
+          style={{ maxWidth: '1000px' }}
+        >
           <Routes>
             <Route path="/" element={<Navigate to={'/getting-started'} />} />
             <Route path="/getting-started" element={<GettingStarted />} />

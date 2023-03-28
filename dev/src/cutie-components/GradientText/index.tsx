@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import clsx from 'clsx';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 
@@ -13,7 +12,6 @@ interface GradientTextProps {
   fontWeight?: number | string;
   rotate?: number | string;
   other?: object;
-  component?: any;
 }
 
 const StyledGradientText = styled.p`
@@ -28,6 +26,7 @@ const StyledGradientText = styled.p`
   text-fill-color: transparent;
   font-size: ${(props) => props._fontSize};
   font-weight: ${(props) => props._fontWeight};
+  font-family: ${(props) => props.variables.baseFontFamily};
 `;
 
 const GradientText: React.FC<GradientTextProps> = ({
@@ -40,7 +39,6 @@ const GradientText: React.FC<GradientTextProps> = ({
   fontWeight,
   rotate = '90',
   other,
-  component = 'p',
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
@@ -53,8 +51,8 @@ const GradientText: React.FC<GradientTextProps> = ({
 
   return (
     <StyledGradientText
-      component={component}
       _fontSize={fontSize}
+      variables={variables}
       firstColor={firstColor}
       _fontWeight={fontWeight}
       _rotate={rotate}

@@ -17,6 +17,7 @@ const { Skeleton } = require('./cutie-components/Skeleton');
 const { Switch } = require('./cutie-components/Switch');
 const { Tabs } = require('./cutie-components/Tabs');
 const { Tab } = require('./cutie-components/Tabs/Tab');
+const { CssBaseline } = require('./cutie-components/CssBaseline');
 const { LinearProgress } = require('./cutie-components/LinearProgress');
 const { Tooltip } = require('./cutie-components/Tooltip');
 const { useMenu } = require('./cutie-hooks/useMenu');
@@ -55,4 +56,5 @@ module.exports = {
   Tab,
   LinearProgress,
   Tooltip,
+  CssBaseline,
 };

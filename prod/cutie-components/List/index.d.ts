@@ -6,7 +6,6 @@ interface ListProps {
   style?: React.CSSProperties;
   other?: object;
   square?: boolean;
-  color?: 'primary' | 'secondary' | 'neutral';
 }
 
 interface ListItemProps {
@@ -20,6 +19,7 @@ interface ListItemProps {
   activeFilled?: boolean;
   other?: object;
   square?: boolean;
+  color?: string;
 }
 
 export const List: React.FC<ListProps>;

@@ -1,5 +1,6 @@
-const { useState } = require('react');
-const useSwitch = (checked) => {
+import { useState } from 'react';
+
+export const useSwitch = (checked) => {
   const [checkedSwitch, setCheckedSwitch] = useState(checked || false);
   const handleSwitch = (e) => {
     setCheckedSwitch(e.target.checked);
@@ -9,7 +10,4 @@ const useSwitch = (checked) => {
     setCheckedSwitch,
     handleSwitch,
   };
-};
-module.exports = {
-  useSwitch,
 };

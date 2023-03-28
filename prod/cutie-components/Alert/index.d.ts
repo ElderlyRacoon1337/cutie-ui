@@ -13,7 +13,7 @@ interface AlertProps {
     | 'bottomLeft'
     | 'topCenter'
     | 'bottomCenter';
-  color?: 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
+  color?: string;
   startIcon?: React.ReactNode;
   withioutButton?: boolean;
   duration?: number;

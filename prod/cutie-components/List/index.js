@@ -1,15 +1,20 @@
-import clsx from 'clsx';
-import React from 'react';
-import styles from './List.module.scss';
+import styled from '@emotion/styled';
 import { jsx as _jsx } from 'react/jsx-runtime';
-export const List = ({ children, className, style, other, square, color }) => {
-  return /*#__PURE__*/ _jsx('ul', {
-    className: clsx(
-      styles.CuteList,
-      styles[`CuteList-${color}`],
-      square && styles['CuteList-square'],
-      className
-    ),
+const StyledList = styled.ul`
+  list-style: 'none';
+  margin: 0;
+  padding: 0;
+
+  ${(props) =>
+    props.square &&
+    `li {
+      border-radius: 0;
+    }`}
+`;
+export const List = ({ children, className, style, other, square }) => {
+  return /*#__PURE__*/ _jsx(StyledList, {
+    square: square,
+    className: className,
     ...other,
     style: style,
     children: children,

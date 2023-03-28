@@ -6,16 +6,9 @@ interface LinearProgressProps {
   value?: number | string;
   style?: React.CSSProperties;
   loader?: boolean;
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'success'
-    | 'error'
-    | 'text'
-    | 'white'
-    | 'black';
+  color?: string;
   duration?: number | string;
-  variant?: 1 | 2 | 3 | '1' | '2' | '3';
+  variant?: 1 | 2 | 3;
 }
+
 export const LinearProgress: React.FC<LinearProgressProps>;

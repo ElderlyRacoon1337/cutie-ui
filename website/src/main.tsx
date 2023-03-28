@@ -1,8 +1,7 @@
+import { CssBaseline, ThemeProvider } from 'cutie-ui';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import 'cutie-ui/cutie-styles/index.scss';
-import { ThemeProvider } from 'cutie-ui';
 import './index.scss';
 
 const themeOptions = {
@@ -17,9 +16,10 @@ const themeOptions = {
 };
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <ThemeProvider themeOptions={themeOptions}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <ThemeProvider themeOptions={themeOptions}>
+      <CssBaseline />
       <App />
-    </React.StrictMode>
-  </ThemeProvider>
+    </ThemeProvider>
+  </React.StrictMode>
 );

@@ -12,14 +12,7 @@ interface TabsProps {
   fullWidth?: boolean;
   rounded?: boolean;
   circle?: boolean;
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'black'
-    | 'white'
-    | 'neutral'
-    | 'error'
-    | 'success';
+  color?: string;
   size?: 'small' | 'medium' | 'large';
 }
 

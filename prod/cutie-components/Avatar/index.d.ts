@@ -7,6 +7,7 @@ interface AvatarProps {
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<any>) => void;
   other?: object;
+  width?: string | number;
 }
 
 export const Avatar: React.FC<AvatarProps>;

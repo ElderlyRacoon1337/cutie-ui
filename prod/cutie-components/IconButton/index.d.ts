@@ -3,7 +3,7 @@ interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  color?: 'primary' | 'secondary' | 'neutral' | 'white' | 'black' | 'text';
+  color?: string;
   size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
   disabled?: boolean;
