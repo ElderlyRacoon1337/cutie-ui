@@ -126,7 +126,7 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
     if (localStorage.getItem('theme')) {
       changeTheme(localStorage.getItem('theme'));
     } else {
-      changeTheme(localStorage.getItem('system'));
+      changeTheme('system');
     }
   }, []);
 

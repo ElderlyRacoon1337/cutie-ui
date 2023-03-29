@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
-import clsx from 'clsx';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
-import styles from './Spinner.module.scss';
 
 interface LoaderProps {
   size?: number | string;
@@ -67,46 +65,49 @@ const StyledSpinner1 = styled.div`
     props._mode == 'dark' && `border-color: rgba(255, 255, 255, 0.1);`}
 
   border-top-color: ${(props) => props._color};
+
+  ${(props) => props.styleOverrides.loader1};
 `;
 
 const StyledSpinner2 = styled.div`
-  width: ${(props) => props.size};
+  border: 3px solid transparent;
+  border-top: 3px solid ${(props) => props.variables.textPrimary};
+  border-bottom: 3px solid ${(props) => props.variables.textPrimary};
+  border-radius: 50%;
+  aspect-ratio: 1 !important;
+  -webkit-animation: CuteSpinner1 0.8s linear infinite;
+  animation: CuteSpinner1 0.8s linear infinite;
   height: ${(props) => props.size};
-  div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    border: 8px solid #fff;
-    border-radius: 50%;
-    animation: CuteSpinner2 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    width: ${(props) => props.size};
-    height: ${(props) => props.size};
-    border-width: ${(props) => props.fatness}px;
-    animation-duration: ${(props) => props.duration};
-  }
+  width: ${(props) => props.size};
+  border-width: ${(props) => props.fatness};
+  animation-duration: ${(props) => props.duration}s;
 
-  div:nth-of-type(1) {
-    animation-delay: -0.45s;
-  }
-  div:nth-of-type(2) {
-    animation-delay: -0.3s;
-  }
-  div:nth-of-type(3) {
-    animation-delay: -0.15s;
-  }
-
-  & > * {
-    border-color: ${(props) => props._color} transparent transparent transparent !important;
-  }
-
-  @keyframes CuteSpinner2 {
+  @-webkit-keyframes CuteSpinner1 {
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
     }
     100% {
+      -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
   }
+
+  @keyframes CuteSpinner1 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  border-top-color: ${(props) => props._color};
+  border-bottom-color: ${(props) => props._color};
+
+  ${(props) => props.styleOverrides.loader1};
 `;
 
 const StyledSpinner3 = styled.div`
@@ -156,9 +157,11 @@ const StyledSpinner3 = styled.div`
       transform: scale(1);
     }
   }
+
+  ${(props) => props.styleOverrides.loader3};
 `;
 
-const Loader: React.FC<LoaderProps> = ({
+export const Loader: React.FC<LoaderProps> = ({
   size = '40px',
   color = 'primary',
   fatness = 4,
@@ -173,6 +176,8 @@ const Loader: React.FC<LoaderProps> = ({
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides;
+
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
@@ -181,6 +186,7 @@ const Loader: React.FC<LoaderProps> = ({
     <>
       {variant == 1 && (
         <StyledSpinner1
+          styleOverrides={styleOverrides}
           variables={variables}
           _mode={mode}
           _color={color}
@@ -196,21 +202,21 @@ const Loader: React.FC<LoaderProps> = ({
       )}
       {variant == 2 && (
         <StyledSpinner2
-          size={size}
+          styleOverrides={styleOverrides}
+          variables={variables}
+          _mode={mode}
           _color={color}
-          className={className}
-          style={style}
-          fatness={fatness}
           duration={duration}
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </StyledSpinner2>
+          className={className}
+          fatness={fatness}
+          size={size}
+          {...other}
+          style={style}
+        />
       )}
       {variant == 3 && (
         <StyledSpinner3
+          styleOverrides={styleOverrides}
           _color={color}
           size={size}
           fatness={fatness}
@@ -226,5 +232,3 @@ const Loader: React.FC<LoaderProps> = ({
     </>
   );
 };
-
-export default Loader;

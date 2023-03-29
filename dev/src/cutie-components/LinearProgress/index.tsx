@@ -146,6 +146,8 @@ const StyledLinearProgress = styled.div`
       margin-right: 0;
     }
   }
+
+  ${(props) => props.styleOverrides};
 `;
 
 const LinearProgress: React.FC<LinearProgressProps> = ({
@@ -161,12 +163,15 @@ const LinearProgress: React.FC<LinearProgressProps> = ({
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.linearProgress;
+
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledLinearProgress
+      styleOverrides={styleOverrides}
       variables={variables}
       _mode={mode}
       loader={loader}

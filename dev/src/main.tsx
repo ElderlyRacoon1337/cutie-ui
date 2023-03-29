@@ -9,30 +9,19 @@ import CssBaseline from './cutie-components/CssBaseline';
 const themeOptions = {
   colors: {
     yellow: 'turquoise',
+    primary: '#811af0',
   },
   lightMode: {},
   darkMode: {
-    // logo: '#fff',
-    // primary: 'green',
-    // secondary: 'red',
     yellow: 'hotpink',
+    primary: '#d9b5ff',
   },
-  // font: {
-  //   size: {
-  //     small: '20px',
-  //     large: '40px',
-  //     medium: '2rem',
-  //   },
-  //   family: {
-  //     fontFamily: 'verdana',
-  //     customFamily: 'bebra',
-  //   },
-  // },
+  styleOverrides: {},
 };
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider themeOptions={themeOptions}>
-    {/* <CssBaseline /> */}
+    <CssBaseline />
     <App />
   </ThemeProvider>
 );

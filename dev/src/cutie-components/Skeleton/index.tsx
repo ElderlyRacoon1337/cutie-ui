@@ -50,6 +50,8 @@ const StyledSkeleton = styled.div`
       background: ${(props) => props.variables.skeletonLight};
     }
   }
+
+  ${(props) => props.styleOverrides};
 `;
 
 const Skeleton: React.FC<SkeletonProps> = ({
@@ -62,9 +64,11 @@ const Skeleton: React.FC<SkeletonProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.skeleton;
 
   return (
     <StyledSkeleton
+      styleOverrides={styleOverrides}
       variables={variables}
       variant={variant}
       _width={width}

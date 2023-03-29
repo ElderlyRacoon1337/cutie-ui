@@ -59,7 +59,9 @@ const StyledMenuItem = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  
+    svg{
+      font-size:1.2rem;
+    }
     & > svg:first-of-type {
       margin-right: 10px;
       color: ${props.variables.textPrimary};
@@ -78,7 +80,9 @@ const StyledMenuItem = styled.li`
       & > div:first-of-type {
         margin-right: 10px;
       }
-    
+      svg{
+        font-size:1.2rem;
+      }
       & > svg:last-of-type {
         margin-left: auto;
         color: ${props.variables.textPrimary};
@@ -100,7 +104,9 @@ const StyledMenuItem = styled.li`
         color: ${props.variables.textPrimary};
         min-width: 10px;
       }
-    
+      svg{
+        font-size:1.2rem;
+      }
       div {
         margin-right: 10px;
       }
@@ -110,6 +116,8 @@ const StyledMenuItem = styled.li`
         min-width: 10px;
         margin-left: auto;
       }`}
+
+      ${(props) => props.styleOverrides};
 `;
 
 export const MenuItem: React.FC<MenuItemProps> = ({
@@ -126,9 +134,11 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.menuItem;
 
   return (
     <StyledMenuItem
+      styleOverrides={styleOverrides}
       variables={variables}
       _mode={mode}
       startIcon={startIcon}

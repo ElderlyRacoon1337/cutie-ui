@@ -41,7 +41,9 @@ const StyledListItem = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  
+    svg{
+      font-size:1.2rem;
+    }
     & > *:first-of-type {
       margin-right: 10px;
     }`}
@@ -54,7 +56,9 @@ const StyledListItem = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  
+    svg{
+      font-size:1.2rem;
+    }
     & > *:last-of-type {
       margin-left: 10px;
       min-width: 20px;
@@ -73,6 +77,9 @@ const StyledListItem = styled.li`
       margin-right: 10px;
       min-width: 10px;
     }
+    svg{
+      font-size:1.2rem;
+    }
     div {
       margin-right: 10px;
     }
@@ -86,23 +93,23 @@ const StyledListItem = styled.li`
     `background-color: ${tinycolor(props._color).setAlpha(0.08).toString()};
     color: ${
       tinycolor(props._color).isLight()
-        ? tinycolor(props._color).darken(10).toString()
+        ? tinycolor(props._color).darken(15).toString()
         : props._color
-    };
+    } !important;
     div {
       color:  ${
         tinycolor(props._color).isLight()
-          ? tinycolor(props._color).darken(10).toString()
+          ? tinycolor(props._color).darken(15).toString()
           : props._color
-      };
+      } !important;
     }
     &:hover {
       background-color:  ${tinycolor(props._color).setAlpha(0.12).toString()};
       color:  ${
         tinycolor(props._color).isLight()
-          ? tinycolor(props._color).darken(10).toString()
+          ? tinycolor(props._color).darken(15).toString()
           : props._color
-      };
+      } !important;
     }`}
 
     ${(props) =>
@@ -112,20 +119,20 @@ const StyledListItem = styled.li`
       tinycolor(props._color).isLight()
         ? props.variables.black
         : props.variables.white
-    };
+    } !important;
     & > * {
       color:  ${
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white
-      };
+      } !important;
     }
     div {
       color: ${
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white
-      };
+      } !important;
     }
     &:hover {
       background-color: ${tinycolor(props._color).darken(5).toString()};
@@ -133,7 +140,7 @@ const StyledListItem = styled.li`
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white
-      };
+      } !important;
     }`}
 
     ${(props) =>
@@ -145,27 +152,27 @@ const StyledListItem = styled.li`
         tinycolor(props._color).isLight()
           ? props._color
           : tinycolor(props._color).lighten(15).toString()
-      };
+      } !important;
       div {
         color:  ${
           tinycolor(props._color).isLight()
             ? props._color
             : tinycolor(props._color).lighten(15).toString()
-        };
+        } !important;
       }
       & > * {
         color:  ${
           tinycolor(props._color).isLight()
             ? props._color
             : tinycolor(props._color).lighten(15).toString()
-        };
+        } !important;
       }
       &:hover {
         color:  ${
           tinycolor(props._color).isLight()
             ? props._color
             : tinycolor(props._color).lighten(15).toString()
-        };
+        } !important;
       }`
     }
 
@@ -177,14 +184,14 @@ const StyledListItem = styled.li`
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white
-      };
+      } !important;
     }
     div {
       color:  ${
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white
-      };
+      } !important;
     }
     &:hover {
       background-color: ${tinycolor(props._color).darken(5).toString()};
@@ -192,11 +199,11 @@ const StyledListItem = styled.li`
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white
-      };
+      } !important;
     }`
     }
-
     `}
+    ${(props) => props.styleOverrides};
 `;
 
 export const ListItem: React.FC<ListItemProps> = ({
@@ -215,12 +222,14 @@ export const ListItem: React.FC<ListItemProps> = ({
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.listItem;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledListItem
+      styleOverrides={styleOverrides}
       onClick={onClick}
       className={className}
       variables={variables}

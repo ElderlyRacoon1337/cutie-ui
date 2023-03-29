@@ -39,6 +39,11 @@ const StyledInput = styled.div`
   flex-direction: column;
   position: relative;
 
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
   .label {
     position: absolute;
     z-index: 1;
@@ -73,11 +78,14 @@ const StyledInput = styled.div`
   }
 
   input {
+    appearance: none;
+
     outline: none;
     border: none;
     background-color: transparent;
     color: ${(props) => props.variables.textPrimary};
     font-family: ${(props) => props.variables.baseFontFamily};
+    font-size: ${(props) => props.variables.fontSizeMedium};
   }
 
   ${(props) =>
@@ -254,6 +262,8 @@ svg {
   color: ${props._color}
 }
 `}
+
+  ${(props) => props.styleOverrides};
 `;
 
 export const Input: React.FC<InputProps> = ({
@@ -284,12 +294,15 @@ export const Input: React.FC<InputProps> = ({
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.input;
+
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledInput
+      styleOverrides={styleOverrides}
       button={button}
       _mode={mode}
       variables={variables}

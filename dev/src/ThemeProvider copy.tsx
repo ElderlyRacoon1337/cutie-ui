@@ -36,9 +36,7 @@ interface StyleOverridesType {
   radio?: string;
   select?: string;
   skeleton?: string;
-  loader1?: string;
-  loader2?: string;
-  loader3?: string;
+  loader?: string;
   switch?: string;
   tabs?: string;
   tooltip?: string;
@@ -136,7 +134,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
   const darkMode = themeOptions.darkMode || {};
   const lightMode = themeOptions.lightMode || {};
   const font = themeOptions.font || {};
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState('light');
   const [isLightMode, setIsLightMode] = useState(true);
   function changeTheme(theme: any) {
     setTheme(theme);
@@ -166,7 +164,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     variables[key] = initialVariables.variables[key];
   }
 
-  if (isLightMode) {
+  if (theme == 'light') {
     for (let key in initialVariables.lightMode) {
       variables[key] = initialVariables.lightMode[key];
     }
@@ -179,12 +177,47 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       variables[key] = lightMode[key];
     }
   }
+  if (theme == 'dark') {
+    for (let key in initialVariables.darkMode) {
+      variables[key] = initialVariables.darkMode[key];
+    }
+    if (colors) {
+      for (let key in colors) {
+        variables[key] = colors[key];
+      }
+    }
+    for (let key in darkMode) {
+      variables[key] = darkMode[key];
+    }
+  }
 
   useEffect(() => {
-    if (localStorage.getItem('theme')) {
-      changeTheme(localStorage.getItem('theme'));
-    } else {
-      changeTheme('system');
+    const isBrowserDefaultDark = () =>
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const getDefaultTheme = () => {
+      const localStorageTheme = localStorage.getItem('theme');
+      const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
+      return localStorageTheme || browserDefault;
+    };
+    changeTheme(getDefaultTheme());
+    switch (theme) {
+      case 'light':
+        document.documentElement.dataset.theme = 'light';
+        window.localStorage.setItem('theme', 'light');
+        setIsLightMode(true);
+        break;
+      case 'dark':
+        document.documentElement.dataset.theme = 'dark';
+        window.localStorage.setItem('theme', 'dark');
+        setIsLightMode(false);
+        break;
+      case 'system':
+        window.localStorage.removeItem('theme');
+        document.documentElement.dataset.theme = getDefaultTheme();
+        setIsLightMode(getDefaultTheme() == 'light');
+      default:
+        window.localStorage.removeItem('theme');
+        break;
     }
   }, []);
 
@@ -196,6 +229,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
       return localStorageTheme || browserDefault;
     };
+
     if (theme) {
       switch (theme) {
         case 'light':
@@ -217,9 +251,11 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
           break;
       }
     }
+
     for (let key in initialVariables.variables) {
       variables[key] = initialVariables.variables[key];
     }
+
     if (document.documentElement.dataset.theme == 'light') {
       for (let key in initialVariables.lightMode) {
         variables[key] = initialVariables.lightMode[key];

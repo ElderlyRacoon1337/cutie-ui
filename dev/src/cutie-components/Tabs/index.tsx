@@ -27,6 +27,8 @@ const StyledTabsWrapper = styled.div`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  ${(props) => props.styleOverrides};
 `;
 
 const StyledTabs = styled.div`
@@ -131,6 +133,7 @@ const Tabs: React.FC<TabsProps> = ({
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.tabs;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
@@ -140,6 +143,7 @@ const Tabs: React.FC<TabsProps> = ({
       <StyledTabs className={className}>
         {labels?.map((el: any, i: number) => (
           <StyledTab
+            styleOverrides={styleOverrides}
             variant={variant}
             fullWidth={fullWidth}
             _mode={mode}

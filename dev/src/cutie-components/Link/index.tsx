@@ -23,6 +23,7 @@ const StyledLink = styled.a`
   }
 
   ${(props) => props.underlined && `text-decoration: underline;`}
+  ${(props) => props.styleOverrides};
 `;
 
 const Link: React.FC<LinkProps> = ({
@@ -37,12 +38,15 @@ const Link: React.FC<LinkProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.link;
+
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledLink
+      styleOverrides={styleOverrides}
       variables={variables}
       _color={color}
       underlined={underlined}

@@ -37,6 +37,7 @@ const StyledAlert = styled.div`
   border-radius: 10px;
   height: 45px;
   padding: 0 15px;
+  backdrop-filter: blur(10px);
   ${(props) =>
     `color: ${
       tinycolor(props._color).isLight()
@@ -94,6 +95,8 @@ left: 0;
 margin-left: auto;
 margin-right: auto;`}
   background-color: ${(props) => props._color};
+
+  ${(props) => props.styleOverrides};
 `;
 
 const Alert: React.FC<AlertProps> = ({
@@ -111,11 +114,12 @@ const Alert: React.FC<AlertProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.alert;
 
   if (!startIcon) {
     if (color == 'error') {
       startIcon = (
-        <Icon>
+        <Icon fontSize={'1.2rem'}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -134,7 +138,7 @@ const Alert: React.FC<AlertProps> = ({
       );
     } else if (color == 'success') {
       startIcon = (
-        <Icon>
+        <Icon fontSize={'1.2rem'}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -147,6 +151,44 @@ const Alert: React.FC<AlertProps> = ({
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M4.5 12.75l6 6 9-13.5"
+            />
+          </svg>
+        </Icon>
+      );
+    } else if (color == 'warning') {
+      startIcon = (
+        <Icon fontSize={'1.4rem'}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+            />
+          </svg>
+        </Icon>
+      );
+    } else if (color == 'info') {
+      startIcon = (
+        <Icon fontSize={'1.4rem'}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
             />
           </svg>
         </Icon>
@@ -171,6 +213,7 @@ const Alert: React.FC<AlertProps> = ({
     <>
       {open && (
         <StyledAlert
+          styleOverrides={styleOverrides}
           startIcon={startIcon}
           variables={variables}
           position={position}

@@ -90,13 +90,25 @@ const StyledListItemButton = styled.li`
     ${(props) =>
     props.active &&
     `background-color: ${tinycolor(props._color).setAlpha(0.08).toString()};
-    color: ${tinycolor(props._color).darken(10).toString()} !important;
+    color: ${
+      !tinycolor(props._color).isLight()
+        ? props._color
+        : tinycolor(props._color).darken(10).toString()
+    } !important;
     div {
-      color:  ${tinycolor(props._color).darken(10).toString()} !important;
+      color:  ${
+        !tinycolor(props._color).isLight()
+          ? props._color
+          : tinycolor(props._color).darken(10).toString()
+      } !important;
     }
     &:hover {
       background-color:  ${tinycolor(props._color).setAlpha(0.12).toString()};
-      color:  ${tinycolor(props._color).darken(10).toString()} !important;
+      color:  ${
+        !tinycolor(props._color).isLight()
+          ? props._color
+          : tinycolor(props._color).darken(10).toString()
+      } !important;
     }`}
 
     ${(props) =>

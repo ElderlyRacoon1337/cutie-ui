@@ -27,8 +27,8 @@ const StyledSwitch = styled.label`
   user-select: none;
 
   & > input[type='checkbox'] {
-    opacity: 0;
     position: absolute;
+    visibility: hidden;
   }
 
   & > input[type='checkbox'] + span {
@@ -80,11 +80,11 @@ const StyledSwitch = styled.label`
     -webkit-box-shadow: 0px 3px 2px 0px rgba(black, 0.2);
     box-shadow: 0px 3px 2px 0px rgba(black, 0.2);
   }
+  background-color: ${(props) => props.variables.divider};
 
-  background-color: ${(props) => props._color};
   ${(props) =>
-    !props.checked &&
-    `background-color: ${props.variables.divider};
+    props.checked &&
+    `background-color: ${props._color};
   `}
 
   ${(props) =>
@@ -118,6 +118,8 @@ const StyledSwitch = styled.label`
       -ms-transform: translateX(50%) translateX(-24px);
       transform: translateX(50%) translateX(-24px);
     }`}
+
+  ${(props) => props.styleOverrides};
 `;
 
 const Switch: React.FC<SwitchProps> = ({
@@ -132,12 +134,14 @@ const Switch: React.FC<SwitchProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.switch;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledSwitch
+      styleOverrides={styleOverrides}
       variables={variables}
       _color={color}
       checked={checked}

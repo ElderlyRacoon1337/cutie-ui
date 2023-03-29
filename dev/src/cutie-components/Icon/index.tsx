@@ -5,7 +5,6 @@ interface IconProps {
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: string;
-  size?: 'large' | 'small' | 'medium';
   style?: React.CSSProperties;
   children?: React.ReactNode;
   other?: object;
@@ -14,13 +13,12 @@ interface IconProps {
 
 export const Icon: React.FC<IconProps> = ({
   className,
-  size = 'medium',
   color,
   style,
   onClick,
   children,
   other,
-  fontSize = '20px',
+  fontSize,
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;

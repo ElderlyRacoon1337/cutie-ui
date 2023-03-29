@@ -20,6 +20,8 @@ const StyledList = styled.ul`
     `li {
       border-radius: 0;
     }`}
+
+  ${(props) => props.styleOverrides};
 `;
 
 export const List: React.FC<ListProps> = ({
@@ -29,8 +31,16 @@ export const List: React.FC<ListProps> = ({
   other,
   square,
 }) => {
+  const theme = useContext(ThemeContext);
+  const styleOverrides = theme.styleOverrides.list;
   return (
-    <StyledList square={square} className={className} {...other} style={style}>
+    <StyledList
+      styleOverrides={styleOverrides}
+      square={square}
+      className={className}
+      {...other}
+      style={style}
+    >
       {children}
     </StyledList>
   );

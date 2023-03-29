@@ -27,6 +27,8 @@ const StyledGradientText = styled.p`
   font-size: ${(props) => props._fontSize};
   font-weight: ${(props) => props._fontWeight};
   font-family: ${(props) => props.variables.baseFontFamily};
+
+  ${(props) => props.styleOverrides};
 `;
 
 const GradientText: React.FC<GradientTextProps> = ({
@@ -42,6 +44,7 @@ const GradientText: React.FC<GradientTextProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.gradientText;
   if (Object.keys(variables).includes(firstColor)) {
     firstColor = variables[firstColor];
   }
@@ -51,6 +54,7 @@ const GradientText: React.FC<GradientTextProps> = ({
 
   return (
     <StyledGradientText
+      styleOverrides={styleOverrides}
       _fontSize={fontSize}
       variables={variables}
       firstColor={firstColor}

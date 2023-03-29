@@ -41,6 +41,8 @@ const StyledPopup = styled.div`
     font-family: ${(props) => props.variables.baseFontFamily};
     font-size: ${(props) => props.variables.fontSizeMedium};
   }
+
+  ${(props) => props.styleOverrides};
 `;
 
 export const Popup: React.FC<PopupProps> = ({
@@ -53,6 +55,7 @@ export const Popup: React.FC<PopupProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.popup;
 
   const prevent = (ev: any) => ev.preventDefault();
   useEffect(() => {
@@ -67,7 +70,11 @@ export const Popup: React.FC<PopupProps> = ({
   return (
     <>
       {open && (
-        <StyledPopup variables={variables} onClick={onClose}>
+        <StyledPopup
+          styleOverrides={styleOverrides}
+          variables={variables}
+          onClick={onClose}
+        >
           <div
             className={className}
             onClick={(e) => e.stopPropagation()}

@@ -27,7 +27,7 @@ const StyledMenu = styled.div`
   z-index: 10;
   border-radius: ${(props) => props.variables.baseBorderRadius};
   border: 1px solid ${(props) => props.variables.divider};
-  background-color: ${(props) => props.variables.backgroundSecondary};
+  background-color: ${(props) => props.variables.backgroundBlur};
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,6 +50,8 @@ const StyledMenu = styled.div`
       ? `left: ${props.xpos}px;
     top: ${props.ypos}px;`
       : 'display: none;'}
+
+  ${(props) => props.styleOverrides};
 `;
 
 export const Menu: React.FC<MenuProps> = ({
@@ -70,6 +72,7 @@ export const Menu: React.FC<MenuProps> = ({
   const [ypos, setYpos] = useState(0);
   const [widthParent, setWidthParent] = useState(0);
   const prevent = (ev: any) => ev.preventDefault();
+  const styleOverrides = theme.styleOverrides.menu;
 
   const getAnchorPosition = () => {
     if (anchorEl && menu.current) {
@@ -114,8 +117,8 @@ export const Menu: React.FC<MenuProps> = ({
       if (
         menu.current &&
         anchorEl &&
-        !anchorEl.contains(event.target) &&
-        !menu.current.contains(event.target)
+        !menu.current.contains(event.target) &&
+        !anchorEl.contains(event.target)
       ) {
         onClose(event);
       }
@@ -129,6 +132,7 @@ export const Menu: React.FC<MenuProps> = ({
     <>
       {open && (
         <StyledMenu
+          styleOverrides={styleOverrides}
           widthParent={widthParent}
           variables={variables}
           xpos={xpos}

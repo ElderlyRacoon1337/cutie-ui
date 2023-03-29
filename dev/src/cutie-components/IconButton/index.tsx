@@ -136,6 +136,8 @@ const StyledIconButton = styled.button`
   &:active {
     background-color:  ${tinycolor(props._color).setAlpha(0.12)};
   }`}
+
+  ${(props) => props.styleOverrides};
 `;
 
 export const IconButton: React.FC<IconButtonProps> = ({
@@ -152,12 +154,14 @@ export const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.iconButton;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledIconButton
+      styleOverrides={styleOverrides}
       variables={variables}
       variant={variant}
       _color={color}
