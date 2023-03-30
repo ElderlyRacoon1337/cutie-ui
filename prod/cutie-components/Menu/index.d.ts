@@ -2,11 +2,11 @@ import React from 'react';
 
 interface MenuProps {
   open: boolean;
-  anchorEl: any;
-  onClose: any;
+  anchorEl: React.ReactNode;
+  onClose: () => void;
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   fullWidth?: boolean;
   other?: object;
   disableScroll?: boolean;
@@ -16,7 +16,7 @@ interface MenuItemProps {
   className?: string;
   onClose?: (event: React.MouseEvent<any, MouseEvent>) => void;
   children?: React.ReactNode;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onClick?: (event: React.MouseEvent<any>) => void;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;

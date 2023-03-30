@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface LoaderProps {
   size?: number | string;
   fatness?: number | string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   color?: string;
   other?: object;
   className?: string;
@@ -15,13 +17,13 @@ interface LoaderProps {
   variant?: 1 | 2 | 3;
 }
 
-const StyledSpinner1 = styled.div`
+const Loader1 = styled.div`
   border: 3px solid rgba(0, 0, 0, 0.1);
   border-top: 3px solid ${(props) => props.variables.textPrimary};
   border-radius: 50%;
   aspect-ratio: 1 !important;
-  -webkit-animation: CuteSpinner1 0.8s linear infinite;
-  animation: CuteSpinner1 0.8s linear infinite;
+  -webkit-animation: Loader1 0.8s linear infinite;
+  animation: Loader1 0.8s linear infinite;
   height: ${(props) => props.size};
   width: ${(props) => props.size};
   border-width: ${(props) => props.fatness};
@@ -39,7 +41,7 @@ const StyledSpinner1 = styled.div`
   border-left-color: rgba(255, 255, 255, 0.1) !important;
   border-right-color: rgba(255, 255, 255, 0.1) !important;`}
 
-  @-webkit-keyframes CuteSpinner1 {
+  @-webkit-keyframes Loader1 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -50,7 +52,7 @@ const StyledSpinner1 = styled.div`
     }
   }
 
-  @keyframes CuteSpinner1 {
+  @keyframes Loader1 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -69,20 +71,20 @@ const StyledSpinner1 = styled.div`
   ${(props) => props.styleOverrides.loader1};
 `;
 
-const StyledSpinner2 = styled.div`
+const Loader2 = styled.div`
   border: 3px solid transparent;
   border-top: 3px solid ${(props) => props.variables.textPrimary};
   border-bottom: 3px solid ${(props) => props.variables.textPrimary};
   border-radius: 50%;
   aspect-ratio: 1 !important;
-  -webkit-animation: CuteSpinner1 0.8s linear infinite;
-  animation: CuteSpinner1 0.8s linear infinite;
+  -webkit-animation: Loader2 0.8s linear infinite;
+  animation: Loader2 0.8s linear infinite;
   height: ${(props) => props.size};
   width: ${(props) => props.size};
   border-width: ${(props) => props.fatness};
   animation-duration: ${(props) => props.duration}s;
 
-  @-webkit-keyframes CuteSpinner1 {
+  @-webkit-keyframes Loader2 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -93,7 +95,7 @@ const StyledSpinner2 = styled.div`
     }
   }
 
-  @keyframes CuteSpinner1 {
+  @keyframes Loader2 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -110,15 +112,15 @@ const StyledSpinner2 = styled.div`
   ${(props) => props.styleOverrides.loader1};
 `;
 
-const StyledSpinner3 = styled.div`
+const Loader3 = styled.div`
   display: flex;
   align-items: center;
 
   & > div {
     border-radius: 100%;
     display: inline-block;
-    -webkit-animation: CuteSpinner3 1.4s infinite ease-in-out both;
-    animation: CuteSpinner3 1.4s infinite ease-in-out both;
+    -webkit-animation: Loader3 1.4s infinite ease-in-out both;
+    animation: Loader3 1.4s infinite ease-in-out both;
     background-color: ${(props) => props._color};
     animation-duration: ${(props) => props.duration};
     width: ${(props) => props.size};
@@ -134,7 +136,7 @@ const StyledSpinner3 = styled.div`
     animation-delay: -0.16s;
   }
 
-  @-webkit-keyframes CuteSpinner3 {
+  @-webkit-keyframes Loader3 {
     0%,
     80%,
     100% {
@@ -145,7 +147,7 @@ const StyledSpinner3 = styled.div`
     }
   }
 
-  @keyframes CuteSpinner3 {
+  @keyframes Loader3 {
     0%,
     80%,
     100% {
@@ -165,7 +167,7 @@ export const Loader: React.FC<LoaderProps> = ({
   size = '40px',
   color = 'primary',
   fatness = 4,
-  style,
+  sx,
   className,
   other,
   circleDark,
@@ -174,7 +176,10 @@ export const Loader: React.FC<LoaderProps> = ({
   variant = 1,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides;
 
@@ -185,7 +190,7 @@ export const Loader: React.FC<LoaderProps> = ({
   return (
     <>
       {variant == 1 && (
-        <StyledSpinner1
+        <Loader1
           styleOverrides={styleOverrides}
           variables={variables}
           _mode={mode}
@@ -197,11 +202,11 @@ export const Loader: React.FC<LoaderProps> = ({
           fatness={fatness}
           size={size}
           {...other}
-          style={style}
+          css={sx}
         />
       )}
       {variant == 2 && (
-        <StyledSpinner2
+        <Loader2
           styleOverrides={styleOverrides}
           variables={variables}
           _mode={mode}
@@ -211,23 +216,23 @@ export const Loader: React.FC<LoaderProps> = ({
           fatness={fatness}
           size={size}
           {...other}
-          style={style}
+          css={sx}
         />
       )}
       {variant == 3 && (
-        <StyledSpinner3
+        <Loader3
           styleOverrides={styleOverrides}
           _color={color}
           size={size}
           fatness={fatness}
           duration={duration}
           className={className}
-          style={style}
+          css={sx}
         >
           <div></div>
           <div></div>
           <div></div>
-        </StyledSpinner3>
+        </Loader3>
       )}
     </>
   );

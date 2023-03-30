@@ -15,7 +15,7 @@ const Main = () => {
       setCheckedSwitch(theme == 'dark');
       setTheme(theme);
     }
-  }, [checkedSwitch, document.documentElement.dataset.theme]);
+  }, [document.documentElement.dataset.theme]);
 
   return (
     <>

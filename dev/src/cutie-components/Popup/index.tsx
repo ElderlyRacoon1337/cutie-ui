@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
 import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface PopupProps {
   open: boolean;
   className?: string;
   onClose: (event: React.MouseEvent<any, MouseEvent>) => void;
   children?: React.ReactNode;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
 }
 
@@ -49,12 +51,15 @@ export const Popup: React.FC<PopupProps> = ({
   open,
   onClose,
   children,
-  style,
+  sx,
   className,
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.popup;
 
   const prevent = (ev: any) => ev.preventDefault();
@@ -79,7 +84,7 @@ export const Popup: React.FC<PopupProps> = ({
             className={className}
             onClick={(e) => e.stopPropagation()}
             {...other}
-            style={style}
+            css={sx}
           >
             {children}
           </div>

@@ -2,9 +2,11 @@ import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import tinycolor from 'tinycolor2';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledListItem = styled.li`
   padding: 8px 15px;
   border-radius: ${(props) => props.variables.baseBorderRadius};
@@ -29,7 +31,9 @@ const StyledListItem = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  
+    svg{
+      font-size:1.2rem;
+    }
     & > *:first-of-type {
       margin-right: 10px;
     }`}
@@ -42,7 +46,9 @@ const StyledListItem = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  
+    svg{
+      font-size:1.2rem;
+    }
     & > *:last-of-type {
       margin-left: 10px;
       min-width: 20px;
@@ -61,6 +67,9 @@ const StyledListItem = styled.li`
       margin-right: 10px;
       min-width: 10px;
     }
+    svg{
+      font-size:1.2rem;
+    }
     div {
       margin-right: 10px;
     }
@@ -74,13 +83,13 @@ const StyledListItem = styled.li`
     `background-color: ${tinycolor(props._color).setAlpha(0.08).toString()};
     color: ${
       tinycolor(props._color).isLight()
-        ? tinycolor(props._color).darken(10).toString()
+        ? tinycolor(props._color).darken(15).toString()
         : props._color
     } !important;
     div {
       color:  ${
         tinycolor(props._color).isLight()
-          ? tinycolor(props._color).darken(10).toString()
+          ? tinycolor(props._color).darken(15).toString()
           : props._color
       } !important;
     }
@@ -88,7 +97,7 @@ const StyledListItem = styled.li`
       background-color:  ${tinycolor(props._color).setAlpha(0.12).toString()};
       color:  ${
         tinycolor(props._color).isLight()
-          ? tinycolor(props._color).darken(10).toString()
+          ? tinycolor(props._color).darken(15).toString()
           : props._color
       } !important;
     }`}
@@ -183,13 +192,12 @@ const StyledListItem = styled.li`
       } !important;
     }`
     }
-
     `}
+    ${(props) => props.styleOverrides};
 `;
 export const ListItem = ({
   className,
   children,
-  style,
   startIcon,
   onClick,
   active,
@@ -198,14 +206,20 @@ export const ListItem = ({
   other,
   square,
   color = 'primary',
+  sx,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.listItem;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsx(StyledListItem, {
+  return _jsx(StyledListItem, {
+    styleOverrides: styleOverrides,
     onClick: onClick,
     className: className,
     variables: variables,
@@ -217,13 +231,13 @@ export const ListItem = ({
     square: square,
     endIcon: endIcon,
     ...other,
-    style: style,
+    css: sx,
     children:
       startIcon || endIcon
-        ? /*#__PURE__*/ _jsxs(_Fragment, {
+        ? _jsxs(_Fragment, {
             children: [
               startIcon,
-              /*#__PURE__*/ _jsx('div', {
+              _jsx('div', {
                 children: children,
               }),
               endIcon,

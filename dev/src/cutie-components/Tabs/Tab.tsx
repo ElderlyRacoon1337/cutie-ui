@@ -1,18 +1,17 @@
 import React from 'react';
+/** @jsxImportSource @emotion/react */
 
 interface TabProps {
   children?: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
 }
 
-const Tab: React.FC<TabProps> = ({ children, className, style, other }) => {
+export const Tab: React.FC<TabProps> = ({ children, className, other, sx }) => {
   return (
-    <div className={className} style={style} {...other}>
+    <div className={className} css={sx} {...other}>
       {children}
     </div>
   );
 };
-
-export default Tab;

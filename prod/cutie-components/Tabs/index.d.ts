@@ -6,7 +6,7 @@ interface TabsProps {
   children?: React.ReactNode;
   labels: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
   variant?: 'contained' | 'underlined';
   fullWidth?: boolean;
@@ -19,7 +19,7 @@ interface TabsProps {
 interface TabProps {
   children?: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
 }
 

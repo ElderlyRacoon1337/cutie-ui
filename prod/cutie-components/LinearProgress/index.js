@@ -1,13 +1,20 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledLinearProgress = styled.div`
   width: 100%;
   overflow: hidden;
   div:first-of-type {
     height: 100%;
+  }
+  height: ${(props) => props._height}px;
+
+  div:first-of-type {
+    width: ${(props) => props._value}%;
   }
 
   ${(props) =>
@@ -136,24 +143,31 @@ const StyledLinearProgress = styled.div`
       margin-right: 0;
     }
   }
+
+  ${(props) => props.styleOverrides};
 `;
 export const LinearProgress = ({
   value,
   className,
   height = 3,
-  style,
+  sx,
   color = 'textPrimary',
   loader,
   duration = 1,
   variant,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.linearProgress;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsxs(StyledLinearProgress, {
+  return _jsxs(StyledLinearProgress, {
+    styleOverrides: styleOverrides,
     variables: variables,
     _mode: mode,
     loader: loader,
@@ -161,17 +175,9 @@ export const LinearProgress = ({
     duration: duration,
     variant: variant,
     className: className,
-    style: {
-      height,
-      ...style,
-    },
-    children: [
-      /*#__PURE__*/ _jsx('div', {
-        style: {
-          width: value + '%',
-        },
-      }),
-      /*#__PURE__*/ _jsx('div', {}),
-    ],
+    css: sx,
+    _value: value,
+    _height: height,
+    children: [_jsx('div', {}), _jsx('div', {})],
   });
 };

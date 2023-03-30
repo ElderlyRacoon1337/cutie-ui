@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface SwitchProps {
   checked?: boolean;
@@ -8,9 +10,10 @@ interface SwitchProps {
   color?: string;
   disabled?: boolean;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
-  onChange?: any;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onClick?: React.MouseEventHandler<HTMLLabelElement>;
 }
 
 const StyledSwitch = styled.label`
@@ -122,7 +125,7 @@ const StyledSwitch = styled.label`
   ${(props) => props.styleOverrides};
 `;
 
-const Switch: React.FC<SwitchProps> = ({
+export const Switch: React.FC<SwitchProps> = ({
   checked,
   size = 'medium',
   disabled = false,
@@ -130,10 +133,14 @@ const Switch: React.FC<SwitchProps> = ({
   onChange,
   other,
   className,
-  style,
+  sx,
+  onClick,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.switch;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
@@ -148,7 +155,8 @@ const Switch: React.FC<SwitchProps> = ({
       disabled={disabled}
       className={className}
       size={size}
-      style={style}
+      css={sx}
+      onClick={onClick}
     >
       <input
         onChange={onChange}
@@ -163,5 +171,3 @@ const Switch: React.FC<SwitchProps> = ({
     </StyledSwitch>
   );
 };
-
-export default Switch;

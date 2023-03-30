@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import tinycolor from 'tinycolor2';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledInput = styled.div`
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -13,25 +15,12 @@ const StyledInput = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 
-  .label {
-    position: absolute;
-    z-index: 1;
-    color: ${(props) => props.variables.textSecondary};
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    border-radius: ${(props) => props.variables.baseBorderRadius};
-    font-size: ${(props) => props.variables.fontSizeSmall};
-    margin-left: 5px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 1px;
-    top: -8px;
-    background-color: ${(props) => props.variables.background};
-    font-size: 11px;
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
   }
-
   .message {
     font-size: ${(props) => props.variables.fontSizeSmall};
     margin-left: 10px;
@@ -45,14 +34,18 @@ const StyledInput = styled.div`
     border-bottom-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
     transition: none;
+    margin-left: auto;
   }
 
   input {
+    appearance: none;
+    flex: 1;
     outline: none;
     border: none;
     background-color: transparent;
     color: ${(props) => props.variables.textPrimary};
     font-family: ${(props) => props.variables.baseFontFamily};
+    font-size: ${(props) => props.variables.fontSizeMedium};
   }
 
   ${(props) =>
@@ -77,6 +70,8 @@ align-items: center;
   color: ${props.variables.textSecondary};
   margin-left: 8px;
 }
+
+
 }`}
 
 ${(props) =>
@@ -93,6 +88,7 @@ ${(props) =>
     color: ${props.variables.textSecondary};
     margin-right: 8px;
   }
+
 }`}
 
 ${(props) =>
@@ -109,6 +105,7 @@ ${(props) =>
     color:${props.variables.textSecondary};
     margin-left: 8px;
   }
+ 
   & > svg:nth-of-type(2) {
     color: ${props.variables.textSecondary};
     margin-right: 8px;
@@ -122,9 +119,7 @@ border-radius: 5px;
 input {
 padding: 6px 6px;
 }
-.label {
-font-size: 11px;
-}
+
 button {
 border-radius: 5px;
 }`}
@@ -150,15 +145,11 @@ input {
 ${(props) =>
     props.variant == 'filled' &&
     `outline: 1px solid transparent !important;
-border-bottom: 1.5px solid ${props.variables.divider};
+border-bottom: 1.5px solid;
 border-radius: 0;
 background-color: ${tinycolor('black').setAlpha(0.06).toString()};
 input {
 background-color: transparent;
-}
-.label {
-color: ${props.variables.textSecondary};
-top: -15px;
 }
 svg {
 color: ${props.variables.textSecondary};
@@ -175,21 +166,23 @@ ${(props) =>
 
 ${(props) =>
     props.variant == 'outlined' &&
-    `outline: 1px solid ${props.variables.divider};`}
+    `
+    // border: 1px solid ${props.variables.divider};
+    box-shadow:0 0 0 1px ${props.variables.divider};
+    button {
+      border-radius: 0;
+    }
+    `}
 
 ${(props) =>
     props.variant == 'underlined' &&
     `border-radius: 0;
 border: none;
-border-bottom: 1.5px solid ${props.variables.divider};
+border-bottom: 1.5px solid;
 input {
   border: none;
   padding-left: 0;
   padding-right: 0;
-}
-.label {
-  margin-left: 0;
-  padding-left: 0;
 }
 .message {
   margin-left: 0;
@@ -209,36 +202,29 @@ input {
   padding-right: 0;
 }`}
 
-outline-color: ${(props) => props.variables.divider}
-.label {
-    color: ${(props) => props._color};
-  }
+outline-color: ${(props) => props.variables.divider};
   ${(props) =>
     props.focused &&
     `border-color:${props._color};
-outline-color: ${props._color};
-outline-width: 1.5px;
+      box-shadow:0 0 0 1.5px ${props._color};
 svg {
   color: ${props._color} !important;
 }
-.label{
-  color: ${props._color}
-}
 `}
+
+  ${(props) => props.styleOverrides};
 `;
 export const Input = ({
   placeholder,
   className,
-  style,
+  sx,
   type,
   value,
   onChange,
-  classNameForWrapper,
   color = 'primary',
   variant = 'outlined',
   size = 'medium',
   square = false,
-  label,
   startIcon,
   endIcon,
   message,
@@ -247,17 +233,21 @@ export const Input = ({
   autoComplete,
   maxLength,
   other,
-  styleForWrapper,
   button,
 }) => {
   const [focused, setFocused] = useState(false);
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.input;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsxs(StyledInput, {
+  return _jsxs(StyledInput, {
+    styleOverrides: styleOverrides,
     button: button,
     _mode: mode,
     variables: variables,
@@ -267,21 +257,15 @@ export const Input = ({
     square: square,
     startIcon: startIcon,
     endIcon: endIcon,
-    className: classNameForWrapper,
-    style: styleForWrapper,
+    className: className,
+    css: sx,
     focused: focused,
     children: [
-      label &&
-        focused &&
-        /*#__PURE__*/ _jsx('p', {
-          className: 'label',
-          children: placeholder,
-        }),
-      /*#__PURE__*/ _jsxs('div', {
+      _jsxs('div', {
         className: 'row',
         children: [
           startIcon,
-          /*#__PURE__*/ _jsx('input', {
+          _jsx('input', {
             minLength: maxLength,
             maxLength: maxLength,
             autoComplete: autoComplete,
@@ -289,13 +273,11 @@ export const Input = ({
             autoFocus: autoFocus,
             onFocus: () => setFocused(true),
             onBlur: () => setFocused(false),
-            className: className,
-            placeholder: label && focused ? '' : placeholder,
+            placeholder: placeholder,
             type: type,
             value: value,
             onChange: onChange,
             ...other,
-            style: style,
           }),
           endIcon,
           React.Children.map(button, (child) =>
@@ -307,7 +289,7 @@ export const Input = ({
         ],
       }),
       message &&
-        /*#__PURE__*/ _jsx('p', {
+        _jsx('p', {
           className: 'message',
           children: message,
         }),

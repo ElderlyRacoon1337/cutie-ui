@@ -9,7 +9,7 @@ interface ThemeContextType {
 }
 
 export const ThemeContext: React.Context<ThemeContextType> = createContext({
-  theme: '',
+  theme: 'light',
   changeTheme: (theme: 'light' | 'dark' | 'system') => {},
   variables: {},
   styleOverrides: {},
@@ -81,7 +81,7 @@ const initialVariables: any = {
     odnoklassniki: '#EE8108',
   },
   lightMode: {
-    primary: 'teal',
+    primary: '#811af0',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#fe4739',
@@ -104,7 +104,7 @@ const initialVariables: any = {
     skeletonDark: 'rgb(243, 243, 243)',
   },
   darkMode: {
-    primary: '#eb0066',
+    primary: '#d9b5ff',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#d02a35',
@@ -247,7 +247,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       }
     }
   }, [theme]);
-
   return (
     <ThemeContext.Provider
       value={{

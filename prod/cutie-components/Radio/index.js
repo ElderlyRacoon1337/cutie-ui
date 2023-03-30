@@ -1,9 +1,10 @@
-import React, { useContext, useRef } from 'react';
+import { useContext, useRef } from 'react';
 import styled from '@emotion/styled';
-import { ThemeContext } from '../../ThemeProvider';
+import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import { initialVariables } from '../../variables';
 /** @jsxImportSource @emotion/react */
-
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledRadio = styled.div`
   width: fit-content;
   display: flex;
@@ -80,22 +81,7 @@ const StyledRadio = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-
-interface RadioProps {
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  currentValue: string;
-  value: string;
-  color?: string;
-  size?: 'small' | 'medium' | 'large';
-  width?: string | number;
-  disabled?: boolean;
-  label?: string;
-  className?: string;
-  other?: object;
-  sx?: React.CSSProperties | object;
-}
-
-export const Radio: React.FC<RadioProps> = ({
+export const Radio = ({
   onChange,
   currentValue,
   value,
@@ -115,36 +101,35 @@ export const Radio: React.FC<RadioProps> = ({
     variables = initialVariables;
   }
   const styleOverrides = theme.styleOverrides.radio;
-
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-
-  return (
-    <StyledRadio
-      styleOverrides={styleOverrides}
-      onClick={(e) => inputRef.current.click()}
-      variables={variables}
-      _width={width}
-      _disabled={disabled}
-      size={size}
-      _checked={value == currentValue}
-      _color={color}
-      css={sx}
-      className={className}
-      {...other}
-    >
-      <span />
-      <input
-        disabled={disabled}
-        name="radio"
-        value={value}
-        checked={value == currentValue}
-        ref={inputRef}
-        onChange={onChange}
-        type="radio"
-      />
-      <label>{label}</label>
-    </StyledRadio>
-  );
+  return _jsxs(StyledRadio, {
+    styleOverrides: styleOverrides,
+    onClick: (e) => inputRef.current.click(),
+    variables: variables,
+    _width: width,
+    _disabled: disabled,
+    size: size,
+    _checked: value == currentValue,
+    _color: color,
+    css: sx,
+    className: className,
+    ...other,
+    children: [
+      _jsx('span', {}),
+      _jsx('input', {
+        disabled: disabled,
+        name: 'radio',
+        value: value,
+        checked: value == currentValue,
+        ref: inputRef,
+        onChange: onChange,
+        type: 'radio',
+      }),
+      _jsx('label', {
+        children: label,
+      }),
+    ],
+  });
 };

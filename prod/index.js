@@ -20,6 +20,9 @@ const { Tab } = require('./cutie-components/Tabs/Tab');
 const { CssBaseline } = require('./cutie-components/CssBaseline');
 const { LinearProgress } = require('./cutie-components/LinearProgress');
 const { Tooltip } = require('./cutie-components/Tooltip');
+const { Checkbox } = require('./cutie-components/Checkbox');
+const { Radio } = require('./cutie-components/Radio');
+const { Select } = require('./cutie-components/Select');
 const { useMenu } = require('./cutie-hooks/useMenu');
 const { usePopup } = require('./cutie-hooks/usePopup');
 const { useAlert } = require('./cutie-hooks/useAlert');
@@ -57,4 +60,7 @@ module.exports = {
   LinearProgress,
   Tooltip,
   CssBaseline,
+  Checkbox,
+  Radio,
+  Select,
 };

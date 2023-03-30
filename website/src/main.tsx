@@ -7,11 +7,11 @@ import './index.scss';
 const themeOptions = {
   lightMode: {
     codeBg: '#141414',
-    primary: '#ed00ed',
+    // primary: '#ed00ed',
   },
   darkMode: {
     codeBg: '#141414',
-    primary: '#ffb5ff',
+    // primary: '#ffb5ff',
   },
 };
 

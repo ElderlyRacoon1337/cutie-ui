@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import tinycolor from 'tinycolor2';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface TabsProps {
   value: number;
@@ -9,7 +11,7 @@ interface TabsProps {
   children?: React.ReactNode;
   labels: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
   variant?: 'contained' | 'underlined';
   fullWidth?: boolean;
@@ -117,7 +119,7 @@ const StyledTab = styled.div`
   `}
 `;
 
-const Tabs: React.FC<TabsProps> = ({
+export const Tabs: React.FC<TabsProps> = ({
   value,
   onChange,
   labels,
@@ -129,9 +131,13 @@ const Tabs: React.FC<TabsProps> = ({
   fullWidth,
   rounded,
   circle,
+  sx,
 }: any) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.tabs;
   if (Object.keys(variables).includes(color)) {
@@ -144,6 +150,7 @@ const Tabs: React.FC<TabsProps> = ({
         {labels?.map((el: any, i: number) => (
           <StyledTab
             styleOverrides={styleOverrides}
+            css={sx}
             variant={variant}
             fullWidth={fullWidth}
             _mode={mode}
@@ -165,5 +172,3 @@ const Tabs: React.FC<TabsProps> = ({
     </StyledTabsWrapper>
   );
 };
-
-export default Tabs;

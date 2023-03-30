@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
 const StyledTooltip = styled.span`
   position: absolute;
-  background-color: ${(props) => props.variables.backgroundSecondary};
+  background-color: ${(props) => props.variables.backgroundBlur};
   padding: 5px;
   border-radius: 7px;
   backdrop-filter: blur(7px);
@@ -14,6 +16,7 @@ const StyledTooltip = styled.span`
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
   text-align: center;
+  max-width: 300px;
   z-index: 20;
   ${(props) =>
     props.ypos !== 0 && props.xpos !== 0
@@ -23,19 +26,25 @@ const StyledTooltip = styled.span`
   &:hover {
     transition: 2s;
   }
+
+  ${(props) => props.styleOverrides};
 `;
 export const Tooltip = ({
   anchorEl,
   position = 'top',
   children,
-  style,
+  sx,
   className,
 }) => {
   const [xpos, setXpos] = useState(0);
   const [ypos, setYpos] = useState(0);
   const tooltipRef = useRef(null);
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.tooltip;
   const getPosition = () => {
     if (anchorEl && tooltipRef.current) {
       const anchorData = anchorEl.getBoundingClientRect();
@@ -73,13 +82,14 @@ export const Tooltip = ({
       setYpos(0);
     };
   }, [anchorEl]);
-  return /*#__PURE__*/ _jsx(StyledTooltip, {
+  return _jsx(StyledTooltip, {
+    styleOverrides: styleOverrides,
     xpos: xpos,
     ypos: ypos,
     variables: variables,
     ref: tooltipRef,
     className: className,
-    style: style,
+    css: sx,
     children: children,
   });
 };

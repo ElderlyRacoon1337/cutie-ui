@@ -3,15 +3,14 @@ import React from 'react';
 interface ListProps {
   className?: string;
   children?: React.ReactNode;
-  style?: React.CSSProperties;
   other?: object;
   square?: boolean;
+  sx?: React.CSSProperties | object;
 }
 
 interface ListItemProps {
   className?: string;
   children: React.ReactNode;
-  style?: React.CSSProperties;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   onClick?: (event: React.MouseEvent<any>) => void;
@@ -20,6 +19,7 @@ interface ListItemProps {
   other?: object;
   square?: boolean;
   color?: string;
+  sx?: React.CSSProperties | object;
 }
 
 export const List: React.FC<ListProps>;

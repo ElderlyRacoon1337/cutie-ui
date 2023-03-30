@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
 const StyledSkeleton = styled.div`
   -webkit-animation: toggle 0.5s infinite;
   animation: toggle 0.5s infinite;
@@ -41,24 +43,31 @@ const StyledSkeleton = styled.div`
       background: ${(props) => props.variables.skeletonLight};
     }
   }
+
+  ${(props) => props.styleOverrides};
 `;
 export const Skeleton = ({
   width,
   height,
   variant = 'square',
   className,
-  style,
+  sx,
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
-  return /*#__PURE__*/ _jsx(StyledSkeleton, {
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.skeleton;
+  return _jsx(StyledSkeleton, {
+    styleOverrides: styleOverrides,
     variables: variables,
     variant: variant,
     _width: width,
     _height: height,
     className: className,
-    style: style,
+    css: sx,
     ...other,
   });
 };

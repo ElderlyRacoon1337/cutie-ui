@@ -1,5 +1,8 @@
 import styled from '@emotion/styled';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { useContext } from 'react';
+import { ThemeContext } from '../../cutie-utils/ThemeProvider';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
 const StyledList = styled.ul`
   list-style: 'none';
   margin: 0;
@@ -10,13 +13,18 @@ const StyledList = styled.ul`
     `li {
       border-radius: 0;
     }`}
+
+  ${(props) => props.styleOverrides};
 `;
-export const List = ({ children, className, style, other, square }) => {
-  return /*#__PURE__*/ _jsx(StyledList, {
+export const List = ({ children, className, other, square, sx }) => {
+  let theme = useContext(ThemeContext);
+  const styleOverrides = theme.styleOverrides.list;
+  return _jsx(StyledList, {
+    styleOverrides: styleOverrides,
     square: square,
     className: className,
     ...other,
-    style: style,
+    css: sx,
     children: children,
   });
 };

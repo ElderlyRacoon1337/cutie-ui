@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface MenuProps {
   open: boolean;
-  anchorEl: any;
-  onClose: any;
+  anchorEl: React.ReactNode;
+  onClose: () => void;
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   fullWidth?: boolean;
   other?: object;
   disableScroll?: boolean;
@@ -44,13 +46,11 @@ const StyledMenu = styled.div`
   list-style: none;
   font-size: ${(props) => props.variables.fontSizeMedium};
   min-width: ${(props) => props.widthParent}px;
-
   ${(props) =>
-    props.xpos !== 0
+    props.xpos !== 0 && props.ypos !== 0
       ? `left: ${props.xpos}px;
     top: ${props.ypos}px;`
-      : 'display: none;'}
-
+      : 'opacity:0;'}
   ${(props) => props.styleOverrides};
 `;
 
@@ -60,13 +60,16 @@ export const Menu: React.FC<MenuProps> = ({
   onClose,
   children,
   className,
-  style,
+  sx,
   fullWidth,
   other,
   disableScroll,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const menu = useRef<HTMLDivElement | null>(null);
   const [xpos, setXpos] = useState(0);
   const [ypos, setYpos] = useState(0);
@@ -120,7 +123,7 @@ export const Menu: React.FC<MenuProps> = ({
         !menu.current.contains(event.target) &&
         !anchorEl.contains(event.target)
       ) {
-        onClose(event);
+        onClose();
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -141,7 +144,7 @@ export const Menu: React.FC<MenuProps> = ({
           className={className}
           onClick={(e) => e.stopPropagation()}
           {...other}
-          style={style}
+          css={sx}
         >
           {children}
         </StyledMenu>

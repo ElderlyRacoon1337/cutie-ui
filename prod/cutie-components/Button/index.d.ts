@@ -1,7 +1,17 @@
 import React from 'react';
 
 interface ButtonProps {
-  variant?: 'contained' | 'outlined' | 'text';
+  variant?:
+    | 'contained'
+    | 'outlined'
+    | 'text'
+    | 'text2'
+    | 'outlined2'
+    | 'outlined3'
+    | 'outlined4'
+    | 'contained2'
+    | 'contained3'
+    | 'contained4';
   children?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -13,7 +23,7 @@ interface ButtonProps {
   type?: 'submit' | 'reset' | 'button';
   square?: boolean;
   other?: object;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
 }
 
 export const Button: React.FC<ButtonProps>;

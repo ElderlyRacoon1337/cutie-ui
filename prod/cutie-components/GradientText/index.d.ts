@@ -5,7 +5,7 @@ interface GradientTextProps {
   firstColor: string;
   secondColor?: string;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   fontSize?: number | string;
   fontWeight?: number | string;
   rotate?: number | string;

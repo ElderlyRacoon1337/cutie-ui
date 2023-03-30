@@ -3,9 +3,9 @@ import React from 'react';
 interface AlertProps {
   children?: React.ReactNode;
   open: boolean;
-  onClose?: any;
+  onClose?: () => void;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   position?:
     | 'topRight'
     | 'topLeft'
@@ -19,5 +19,4 @@ interface AlertProps {
   duration?: number;
   other?: object;
 }
-
 export const Alert: React.FC<AlertProps>;

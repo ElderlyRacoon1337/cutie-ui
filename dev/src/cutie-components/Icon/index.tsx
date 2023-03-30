@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface IconProps {
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   children?: React.ReactNode;
   other?: object;
   fontSize?: string | number;
@@ -14,21 +16,23 @@ interface IconProps {
 export const Icon: React.FC<IconProps> = ({
   className,
   color,
-  style,
+  sx,
   onClick,
   children,
   other,
   fontSize,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
   return (
     <>
       {React.Children.map(children, (child) =>
-        // @ts-ignore
         React.cloneElement(child, {
           className: className,
           style: {
@@ -36,8 +40,8 @@ export const Icon: React.FC<IconProps> = ({
             width: '1em',
             height: '1em',
             color: color,
-            ...style,
           },
+          css: sx,
           ...other,
           onClick: onClick,
         })

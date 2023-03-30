@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledSwitch = styled.label`
   border-radius: 20px;
   cursor: pointer;
@@ -17,8 +19,8 @@ const StyledSwitch = styled.label`
   user-select: none;
 
   & > input[type='checkbox'] {
-    opacity: 0;
     position: absolute;
+    visibility: hidden;
   }
 
   & > input[type='checkbox'] + span {
@@ -70,11 +72,11 @@ const StyledSwitch = styled.label`
     -webkit-box-shadow: 0px 3px 2px 0px rgba(black, 0.2);
     box-shadow: 0px 3px 2px 0px rgba(black, 0.2);
   }
+  background-color: ${(props) => props.variables.divider};
 
-  background-color: ${(props) => props._color};
   ${(props) =>
-    !props.checked &&
-    `background-color: ${props.variables.divider};
+    props.checked &&
+    `background-color: ${props._color};
   `}
 
   ${(props) =>
@@ -108,6 +110,8 @@ const StyledSwitch = styled.label`
       -ms-transform: translateX(50%) translateX(-24px);
       transform: translateX(50%) translateX(-24px);
     }`}
+
+  ${(props) => props.styleOverrides};
 `;
 export const Switch = ({
   checked,
@@ -117,31 +121,38 @@ export const Switch = ({
   onChange,
   other,
   className,
-  style,
+  sx,
+  onClick,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.switch;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsxs(StyledSwitch, {
+  return _jsxs(StyledSwitch, {
+    styleOverrides: styleOverrides,
     variables: variables,
     _color: color,
     checked: checked,
     disabled: disabled,
     className: className,
     size: size,
-    style: style,
+    css: sx,
+    onClick: onClick,
     children: [
-      /*#__PURE__*/ _jsx('input', {
+      _jsx('input', {
         onChange: onChange,
         type: 'checkbox',
         checked: checked,
         disabled: disabled,
         ...other,
       }),
-      /*#__PURE__*/ _jsx('span', {
-        children: /*#__PURE__*/ _jsx('span', {}),
+      _jsx('span', {
+        children: _jsx('span', {}),
       }),
     ],
   });

@@ -5,10 +5,11 @@ interface IconButtonProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: string;
   size?: 'large' | 'small' | 'medium';
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   children?: React.ReactNode;
   other?: object;
 }
+
 export const IconButton: React.FC<IconButtonProps>;

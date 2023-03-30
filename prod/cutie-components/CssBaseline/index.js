@@ -1,8 +1,12 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import { createGlobalStyle } from 'styled-components';
+import { initialVariables } from '../../variables';
 import { jsx as _jsx } from 'react/jsx-runtime';
 const Globals = createGlobalStyle`
+  :root {
+    ${(props) => props.stringOfVariables}
+  }
   body {
     min-height: 100vh;
     color: ${(props) => props.variables.textPrimary};
@@ -10,9 +14,7 @@ const Globals = createGlobalStyle`
     background-color: ${(props) => props.background};
     font-family: ${(props) => props.variables.baseFontFamily};
   }
-  :root {
-    ${(props) => props.stringOfVariables}
-  }
+  
   .container {
     max-width: 1240px;
     padding: 0 20px;
@@ -62,7 +64,10 @@ const Globals = createGlobalStyle`
 `;
 export const CssBaseline = () => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const stringOfVariables = Object.entries(variables)
     .map((el) => `--${el[0]}: ${el[1]}`)
     .join(';');

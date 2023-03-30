@@ -4,7 +4,7 @@ interface AvatarProps {
   variant?: 'rounded' | 'square' | 'circular';
   className?: string;
   src: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onClick?: (event: React.MouseEvent<any>) => void;
   other?: object;
   width?: string | number;

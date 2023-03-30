@@ -1,17 +1,17 @@
 import styled from '@emotion/styled';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import tinycolor from 'tinycolor2';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface InputProps {
   placeholder?: string;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   type?: any;
   value?: any;
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
-  classNameForWrapper?: string;
-  styleForWrapper?: React.CSSProperties;
   size?: 'small' | 'medium' | 'large';
   color?: string;
   square?: boolean;
@@ -38,30 +38,12 @@ const StyledInput = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 
   .row {
     display: flex;
     flex-wrap: nowrap;
   }
-
-  .label {
-    position: absolute;
-    z-index: 1;
-    color: ${(props) => props.variables.textSecondary};
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    border-radius: ${(props) => props.variables.baseBorderRadius};
-    font-size: ${(props) => props.variables.fontSizeSmall};
-    margin-left: 5px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 1px;
-    top: -8px;
-    background-color: ${(props) => props.variables.background};
-    font-size: 11px;
-  }
-
   .message {
     font-size: ${(props) => props.variables.fontSizeSmall};
     margin-left: 10px;
@@ -75,11 +57,12 @@ const StyledInput = styled.div`
     border-bottom-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
     transition: none;
+    margin-left: auto;
   }
 
   input {
     appearance: none;
-
+    flex: 1;
     outline: none;
     border: none;
     background-color: transparent;
@@ -159,9 +142,7 @@ border-radius: 5px;
 input {
 padding: 6px 6px;
 }
-.label {
-font-size: 11px;
-}
+
 button {
 border-radius: 5px;
 }`}
@@ -193,10 +174,6 @@ background-color: ${tinycolor('black').setAlpha(0.06).toString()};
 input {
 background-color: transparent;
 }
-.label {
-color: ${props.variables.textSecondary};
-top: -15px;
-}
 svg {
 color: ${props.variables.textSecondary};
 }
@@ -212,7 +189,13 @@ ${(props) =>
 
 ${(props) =>
     props.variant == 'outlined' &&
-    `outline: 1px solid ${props.variables.divider};`}
+    `
+    // border: 1px solid ${props.variables.divider};
+    box-shadow:0 0 0 1px ${props.variables.divider};
+    button {
+      border-radius: 0;
+    }
+    `}
 
 ${(props) =>
     props.variant == 'underlined' &&
@@ -223,10 +206,6 @@ input {
   border: none;
   padding-left: 0;
   padding-right: 0;
-}
-.label {
-  margin-left: 0;
-  padding-left: 0;
 }
 .message {
   margin-left: 0;
@@ -246,20 +225,13 @@ input {
   padding-right: 0;
 }`}
 
-outline-color: ${(props) => props.variables.divider}
-.label {
-    color: ${(props) => props._color};
-  }
+outline-color: ${(props) => props.variables.divider};
   ${(props) =>
     props.focused &&
     `border-color:${props._color};
-outline-color: ${props._color};
-outline-width: 1.5px;
+      box-shadow:0 0 0 1.5px ${props._color};
 svg {
   color: ${props._color} !important;
-}
-.label{
-  color: ${props._color}
 }
 `}
 
@@ -269,16 +241,14 @@ svg {
 export const Input: React.FC<InputProps> = ({
   placeholder,
   className,
-  style,
+  sx,
   type,
   value,
   onChange,
-  classNameForWrapper,
   color = 'primary',
   variant = 'outlined',
   size = 'medium',
   square = false,
-  label,
   startIcon,
   endIcon,
   message,
@@ -287,12 +257,14 @@ export const Input: React.FC<InputProps> = ({
   autoComplete,
   maxLength,
   other,
-  styleForWrapper,
   button,
 }) => {
   const [focused, setFocused] = useState(false);
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.input;
 
@@ -312,11 +284,10 @@ export const Input: React.FC<InputProps> = ({
       square={square}
       startIcon={startIcon}
       endIcon={endIcon}
-      className={classNameForWrapper}
-      style={styleForWrapper}
+      className={className}
+      css={sx}
       focused={focused}
     >
-      {label && focused && <p className={'label'}>{placeholder}</p>}
       <div className={'row'}>
         {startIcon}
         <input
@@ -327,13 +298,11 @@ export const Input: React.FC<InputProps> = ({
           autoFocus={autoFocus}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          className={className}
-          placeholder={label && focused ? '' : placeholder}
+          placeholder={placeholder}
           type={type}
           value={value}
           onChange={onChange}
           {...other}
-          style={style}
         />
         {endIcon}
         {React.Children.map(button, (child) =>

@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
-import clsx from 'clsx';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import tinycolor from 'tinycolor2';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface IconButtonProps {
   variant?: 'contained' | 'outlined' | 'text';
@@ -10,7 +11,7 @@ interface IconButtonProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   color?: string;
   size?: 'large' | 'small' | 'medium';
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   children?: React.ReactNode;
@@ -146,14 +147,17 @@ export const IconButton: React.FC<IconButtonProps> = ({
   onClick,
   size = 'medium',
   color = 'primary',
-  style,
+  sx,
   disabled,
   type,
   children,
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.iconButton;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
@@ -169,9 +173,9 @@ export const IconButton: React.FC<IconButtonProps> = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={clsx(className)}
+      className={className}
       {...other}
-      style={style}
+      css={sx}
     >
       {children}
     </StyledIconButton>

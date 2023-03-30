@@ -1,14 +1,16 @@
-// @ts-nocheck
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import styled from '@emotion/styled';
 import tinycolor from 'tinycolor2';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface ButtonProps {
   variant?:
     | 'contained'
     | 'outlined'
     | 'text'
+    | 'text2'
     | 'outlined2'
     | 'outlined3'
     | 'outlined4'
@@ -26,7 +28,7 @@ interface ButtonProps {
   type?: 'submit' | 'reset' | 'button';
   square?: boolean;
   other?: object;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
 }
 
 const StyledButton = styled.button`
@@ -39,7 +41,6 @@ const StyledButton = styled.button`
   border: 1px solid transparent;
   transition: 0.1s ease-in-out;
   transition-property: background-color, border-color, color;
-  backdrop-filter: blur(5px);
   ${(props) =>
     props.size == 'small' &&
     `font-size:${props.variables.fontSizeSmall}; padding: 6px 8px;`}
@@ -72,6 +73,7 @@ background-color:${tinycolor(props.variables.black)
     props.variant == 'outlined' &&
     `color:${props.variables.disabled} !important;
   border-color:${props.variables.disabled} !important;
+  background-color: transparent !important;
   `}
     ${(props) =>
     props.disabled &&
@@ -298,10 +300,9 @@ color: ${props.variables.textPrimary};
       ${(props) =>
     props.variant == 'text2' &&
     `
-      color:${props.variables.textPrimary};
+    color:${props._color};
       background-color:transparent;
       &:hover {
-        color:${props._color};
         text-decoration:underline;
       }
       `} 
@@ -318,23 +319,26 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   startIcon,
   endIcon,
-  style,
   disabled,
   type,
   square,
   other,
+  sx,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.button;
-
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
 
   return (
     <StyledButton
+      css={sx}
       styleOverrides={styleOverrides}
       _mode={mode}
       variables={variables}
@@ -348,7 +352,6 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       className={className}
       onClick={onClick}
-      style={style}
       {...other}
     >
       {startIcon || endIcon ? (

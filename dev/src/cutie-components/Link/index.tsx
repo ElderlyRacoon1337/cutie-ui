@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface LinkProps {
   children?: React.ReactNode;
   href?: string;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onClick?: React.MouseEventHandler<HTMLElement>;
   underlined?: boolean;
   other?: object;
@@ -26,18 +28,21 @@ const StyledLink = styled.a`
   ${(props) => props.styleOverrides};
 `;
 
-const Link: React.FC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
   children,
   href,
   className,
-  style,
+  sx,
   onClick,
   underlined = false,
   other,
   color = 'link',
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.link;
 
   if (Object.keys(variables).includes(color)) {
@@ -53,12 +58,10 @@ const Link: React.FC<LinkProps> = ({
       href={href}
       onClick={onClick}
       className={className}
-      style={style}
+      css={sx}
       {...other}
     >
       {children}
     </StyledLink>
   );
 };
-
-export default Link;

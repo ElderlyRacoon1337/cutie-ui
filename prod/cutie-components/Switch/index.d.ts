@@ -6,9 +6,9 @@ interface SwitchProps {
   color?: string;
   disabled?: boolean;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   other?: object;
-  onChange?: any;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onClick?: React.MouseEventHandler<HTMLLabelElement>;
 }
-
 export const Switch: React.FC<SwitchProps>;

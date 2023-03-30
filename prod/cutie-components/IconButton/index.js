@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import clsx from 'clsx';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import tinycolor from 'tinycolor2';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
 const StyledIconButton = styled.button`
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -123,6 +124,8 @@ const StyledIconButton = styled.button`
   &:active {
     background-color:  ${tinycolor(props._color).setAlpha(0.12)};
   }`}
+
+  ${(props) => props.styleOverrides};
 `;
 export const IconButton = ({
   variant = 'text',
@@ -130,18 +133,23 @@ export const IconButton = ({
   onClick,
   size = 'medium',
   color = 'primary',
-  style,
+  sx,
   disabled,
   type,
   children,
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.iconButton;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsx(StyledIconButton, {
+  return _jsx(StyledIconButton, {
+    styleOverrides: styleOverrides,
     variables: variables,
     variant: variant,
     _color: color,
@@ -149,9 +157,9 @@ export const IconButton = ({
     type: type,
     disabled: disabled,
     onClick: onClick,
-    className: clsx(className),
+    className: className,
     ...other,
-    style: style,
+    css: sx,
     children: children,
   });
 };

@@ -4,11 +4,10 @@ interface LinkProps {
   children?: React.ReactNode;
   href?: string;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onClick?: React.MouseEventHandler<HTMLElement>;
   underlined?: boolean;
   other?: object;
   color?: string;
 }
-
 export const Link: React.FC<LinkProps>;

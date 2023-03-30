@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
 const StyledLink = styled.a`
   color: ${(props) => props._color};
   cursor: pointer;
@@ -10,31 +12,38 @@ const StyledLink = styled.a`
   &:hover {
     text-decoration: underline;
   }
+
   ${(props) => props.underlined && `text-decoration: underline;`}
+  ${(props) => props.styleOverrides};
 `;
 export const Link = ({
   children,
   href,
   className,
-  style,
+  sx,
   onClick,
   underlined = false,
   other,
   color = 'link',
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.link;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsx(StyledLink, {
+  return _jsx(StyledLink, {
+    styleOverrides: styleOverrides,
     variables: variables,
     _color: color,
     underlined: underlined,
     href: href,
     onClick: onClick,
     className: className,
-    style: style,
+    css: sx,
     ...other,
     children: children,
   });

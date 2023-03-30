@@ -1,16 +1,18 @@
 import styled from '@emotion/styled';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
-const StyledSpinner1 = styled.div`
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
+const Loader1 = styled.div`
   border: 3px solid rgba(0, 0, 0, 0.1);
   border-top: 3px solid ${(props) => props.variables.textPrimary};
   border-radius: 50%;
   aspect-ratio: 1 !important;
-  -webkit-animation: CuteSpinner1 0.8s linear infinite;
-  animation: CuteSpinner1 0.8s linear infinite;
+  -webkit-animation: Loader1 0.8s linear infinite;
+  animation: Loader1 0.8s linear infinite;
   height: ${(props) => props.size};
   width: ${(props) => props.size};
   border-width: ${(props) => props.fatness};
@@ -28,7 +30,7 @@ const StyledSpinner1 = styled.div`
   border-left-color: rgba(255, 255, 255, 0.1) !important;
   border-right-color: rgba(255, 255, 255, 0.1) !important;`}
 
-  @-webkit-keyframes CuteSpinner1 {
+  @-webkit-keyframes Loader1 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -39,7 +41,7 @@ const StyledSpinner1 = styled.div`
     }
   }
 
-  @keyframes CuteSpinner1 {
+  @keyframes Loader1 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -54,55 +56,58 @@ const StyledSpinner1 = styled.div`
     props._mode == 'dark' && `border-color: rgba(255, 255, 255, 0.1);`}
 
   border-top-color: ${(props) => props._color};
+
+  ${(props) => props.styleOverrides.loader1};
 `;
-const StyledSpinner2 = styled.div`
-  width: ${(props) => props.size};
+const Loader2 = styled.div`
+  border: 3px solid transparent;
+  border-top: 3px solid ${(props) => props.variables.textPrimary};
+  border-bottom: 3px solid ${(props) => props.variables.textPrimary};
+  border-radius: 50%;
+  aspect-ratio: 1 !important;
+  -webkit-animation: Loader2 0.8s linear infinite;
+  animation: Loader2 0.8s linear infinite;
   height: ${(props) => props.size};
-  div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    border: 8px solid #fff;
-    border-radius: 50%;
-    animation: CuteSpinner2 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    width: ${(props) => props.size};
-    height: ${(props) => props.size};
-    border-width: ${(props) => props.fatness}px;
-    animation-duration: ${(props) => props.duration};
-  }
+  width: ${(props) => props.size};
+  border-width: ${(props) => props.fatness};
+  animation-duration: ${(props) => props.duration}s;
 
-  div:nth-of-type(1) {
-    animation-delay: -0.45s;
-  }
-  div:nth-of-type(2) {
-    animation-delay: -0.3s;
-  }
-  div:nth-of-type(3) {
-    animation-delay: -0.15s;
-  }
-
-  & > * {
-    border-color: ${(props) => props._color} transparent transparent transparent !important;
-  }
-
-  @keyframes CuteSpinner2 {
+  @-webkit-keyframes Loader2 {
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
     }
     100% {
+      -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
   }
+
+  @keyframes Loader2 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  border-top-color: ${(props) => props._color};
+  border-bottom-color: ${(props) => props._color};
+
+  ${(props) => props.styleOverrides.loader1};
 `;
-const StyledSpinner3 = styled.div`
+const Loader3 = styled.div`
   display: flex;
   align-items: center;
 
   & > div {
     border-radius: 100%;
     display: inline-block;
-    -webkit-animation: CuteSpinner3 1.4s infinite ease-in-out both;
-    animation: CuteSpinner3 1.4s infinite ease-in-out both;
+    -webkit-animation: Loader3 1.4s infinite ease-in-out both;
+    animation: Loader3 1.4s infinite ease-in-out both;
     background-color: ${(props) => props._color};
     animation-duration: ${(props) => props.duration};
     width: ${(props) => props.size};
@@ -118,7 +123,7 @@ const StyledSpinner3 = styled.div`
     animation-delay: -0.16s;
   }
 
-  @-webkit-keyframes CuteSpinner3 {
+  @-webkit-keyframes Loader3 {
     0%,
     80%,
     100% {
@@ -129,7 +134,7 @@ const StyledSpinner3 = styled.div`
     }
   }
 
-  @keyframes CuteSpinner3 {
+  @keyframes Loader3 {
     0%,
     80%,
     100% {
@@ -141,12 +146,14 @@ const StyledSpinner3 = styled.div`
       transform: scale(1);
     }
   }
+
+  ${(props) => props.styleOverrides.loader3};
 `;
 export const Loader = ({
   size = '40px',
   color = 'primary',
   fatness = 4,
-  style,
+  sx,
   className,
   other,
   circleDark,
@@ -155,15 +162,20 @@ export const Loader = ({
   variant = 1,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsxs(_Fragment, {
+  return _jsxs(_Fragment, {
     children: [
       variant == 1 &&
-        /*#__PURE__*/ _jsx(StyledSpinner1, {
+        _jsx(Loader1, {
+          styleOverrides: styleOverrides,
           variables: variables,
           _mode: mode,
           _color: color,
@@ -174,36 +186,31 @@ export const Loader = ({
           fatness: fatness,
           size: size,
           ...other,
-          style: style,
+          css: sx,
         }),
       variant == 2 &&
-        /*#__PURE__*/ _jsxs(StyledSpinner2, {
-          size: size,
+        _jsx(Loader2, {
+          styleOverrides: styleOverrides,
+          variables: variables,
+          _mode: mode,
           _color: color,
-          className: className,
-          style: style,
-          fatness: fatness,
           duration: duration,
-          children: [
-            /*#__PURE__*/ _jsx('div', {}),
-            /*#__PURE__*/ _jsx('div', {}),
-            /*#__PURE__*/ _jsx('div', {}),
-            /*#__PURE__*/ _jsx('div', {}),
-          ],
+          className: className,
+          fatness: fatness,
+          size: size,
+          ...other,
+          css: sx,
         }),
       variant == 3 &&
-        /*#__PURE__*/ _jsxs(StyledSpinner3, {
+        _jsxs(Loader3, {
+          styleOverrides: styleOverrides,
           _color: color,
           size: size,
           fatness: fatness,
           duration: duration,
           className: className,
-          style: style,
-          children: [
-            /*#__PURE__*/ _jsx('div', {}),
-            /*#__PURE__*/ _jsx('div', {}),
-            /*#__PURE__*/ _jsx('div', {}),
-          ],
+          css: sx,
+          children: [_jsx('div', {}), _jsx('div', {}), _jsx('div', {})],
         }),
     ],
   });

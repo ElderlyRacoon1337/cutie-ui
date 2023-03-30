@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface GradientTextProps {
   children?: React.ReactNode;
   firstColor: string;
   secondColor?: string;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   fontSize?: number | string;
   fontWeight?: number | string;
   rotate?: number | string;
@@ -31,19 +33,22 @@ const StyledGradientText = styled.p`
   ${(props) => props.styleOverrides};
 `;
 
-const GradientText: React.FC<GradientTextProps> = ({
+export const GradientText: React.FC<GradientTextProps> = ({
   children,
   firstColor,
   secondColor,
   className,
-  style,
+  sx,
   fontSize,
   fontWeight,
   rotate = '90',
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.gradientText;
   if (Object.keys(variables).includes(firstColor)) {
     firstColor = variables[firstColor];
@@ -62,12 +67,10 @@ const GradientText: React.FC<GradientTextProps> = ({
       _rotate={rotate}
       secondColor={secondColor}
       className={className}
-      style={style}
+      css={sx}
       {...other}
     >
       {children}
     </StyledGradientText>
   );
 };
-
-export default GradientText;

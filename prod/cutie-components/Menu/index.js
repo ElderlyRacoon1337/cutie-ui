@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
 const div = document.createElement('div');
 div.style.overflowY = 'scroll';
 div.style.width = '50px';
@@ -15,7 +17,7 @@ const StyledMenu = styled.div`
   z-index: 10;
   border-radius: ${(props) => props.variables.baseBorderRadius};
   border: 1px solid ${(props) => props.variables.divider};
-  background-color: ${(props) => props.variables.backgroundSecondary};
+  background-color: ${(props) => props.variables.backgroundBlur};
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,12 +34,12 @@ const StyledMenu = styled.div`
   list-style: none;
   font-size: ${(props) => props.variables.fontSizeMedium};
   min-width: ${(props) => props.widthParent}px;
-
   ${(props) =>
-    props.xpos !== 0
+    props.xpos !== 0 && props.ypos !== 0
       ? `left: ${props.xpos}px;
     top: ${props.ypos}px;`
-      : 'display: none;'}
+      : 'opacity:0;'}
+  ${(props) => props.styleOverrides};
 `;
 export const Menu = ({
   open,
@@ -45,18 +47,22 @@ export const Menu = ({
   onClose,
   children,
   className,
-  style,
+  sx,
   fullWidth,
   other,
   disableScroll,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const menu = useRef(null);
   const [xpos, setXpos] = useState(0);
   const [ypos, setYpos] = useState(0);
   const [widthParent, setWidthParent] = useState(0);
   const prevent = (ev) => ev.preventDefault();
+  const styleOverrides = theme.styleOverrides.menu;
   const getAnchorPosition = () => {
     if (anchorEl && menu.current) {
       disableScroll &&
@@ -99,10 +105,10 @@ export const Menu = ({
       if (
         menu.current &&
         anchorEl &&
-        !anchorEl.contains(event.target) &&
-        !menu.current.contains(event.target)
+        !menu.current.contains(event.target) &&
+        !anchorEl.contains(event.target)
       ) {
-        onClose(event);
+        onClose();
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -110,10 +116,11 @@ export const Menu = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [menu.current]);
-  return /*#__PURE__*/ _jsx(_Fragment, {
+  return _jsx(_Fragment, {
     children:
       open &&
-      /*#__PURE__*/ _jsx(StyledMenu, {
+      _jsx(StyledMenu, {
+        styleOverrides: styleOverrides,
         widthParent: widthParent,
         variables: variables,
         xpos: xpos,
@@ -122,7 +129,7 @@ export const Menu = ({
         className: className,
         onClick: (e) => e.stopPropagation(),
         ...other,
-        style: style,
+        css: sx,
         children: children,
       }),
   });

@@ -16,5 +16,8 @@ export * from './cutie-components/Alert';
 export * from './cutie-components/LinearProgress';
 export * from './cutie-components/Tooltip';
 export * from './cutie-components/CssBaseline';
+export * from './cutie-components/Checkbox';
+export * from './cutie-components/Radio';
+export * from './cutie-components/Select';
 export * from './cutie-hooks';
 export * from './cutie-utils';

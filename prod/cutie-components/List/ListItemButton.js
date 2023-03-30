@@ -2,9 +2,11 @@ import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import tinycolor from 'tinycolor2';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledListItemButton = styled.li`
   &:hover {
     background-color: ${tinycolor('#000').setAlpha(0.04).toString()};
@@ -47,7 +49,9 @@ const StyledListItemButton = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  
+    svg{
+      font-size:1.2rem;
+    }
     & > *:first-of-type {
       margin-right: 10px;
     }`}
@@ -60,6 +64,9 @@ const StyledListItemButton = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    svg{
+      font-size:1.2rem;
+    }
   
     & > *:last-of-type {
       margin-left: 10px;
@@ -79,6 +86,9 @@ const StyledListItemButton = styled.li`
       margin-right: 10px;
       min-width: 10px;
     }
+    svg{
+      font-size:1.2rem;
+    }
     div {
       margin-right: 10px;
     }
@@ -93,13 +103,13 @@ const StyledListItemButton = styled.li`
     color: ${
       !tinycolor(props._color).isLight()
         ? props._color
-        : tinycolor(props._color).darken(10).toString()
+        : tinycolor(props._color).darken(15).toString()
     } !important;
     div {
       color:  ${
         !tinycolor(props._color).isLight()
           ? props._color
-          : tinycolor(props._color).darken(10).toString()
+          : tinycolor(props._color).darken(15).toString()
       } !important;
     }
     &:hover {
@@ -107,7 +117,7 @@ const StyledListItemButton = styled.li`
       color:  ${
         !tinycolor(props._color).isLight()
           ? props._color
-          : tinycolor(props._color).darken(10).toString()
+          : tinycolor(props._color).darken(15).toString()
       } !important;
     }`}
 
@@ -201,13 +211,13 @@ const StyledListItemButton = styled.li`
       } !important;
     }`
     }
-
     `}
+    ${(props) => props.styleOverrides};
 `;
 export const ListItemButton = ({
   className,
   children,
-  style,
+  sx,
   startIcon,
   onClick,
   active,
@@ -219,11 +229,16 @@ export const ListItemButton = ({
 }) => {
   const theme = useContext(ThemeContext);
   const mode = theme.theme;
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.listItemButton;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsx(StyledListItemButton, {
+  return _jsx(StyledListItemButton, {
+    styleOverrides: styleOverrides,
     onClick: onClick,
     className: className,
     variables: variables,
@@ -235,13 +250,13 @@ export const ListItemButton = ({
     square: square,
     endIcon: endIcon,
     ...other,
-    style: style,
+    css: sx,
     children:
       startIcon || endIcon
-        ? /*#__PURE__*/ _jsxs(_Fragment, {
+        ? _jsxs(_Fragment, {
             children: [
               startIcon,
-              /*#__PURE__*/ _jsx('div', {
+              _jsx('div', {
                 children: children,
               }),
               endIcon,

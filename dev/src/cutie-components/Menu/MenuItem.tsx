@@ -2,12 +2,14 @@ import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import tinycolor from 'tinycolor2';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface MenuItemProps {
   className?: string;
   onClose?: (event: React.MouseEvent<any, MouseEvent>) => void;
   children?: React.ReactNode;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onClick?: (event: React.MouseEvent<any>) => void;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -124,7 +126,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   children,
   onClose,
   className,
-  style,
+  sx,
   onClick,
   startIcon,
   endIcon,
@@ -132,7 +134,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.menuItem;
 
@@ -154,7 +159,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
       }
       className={className}
       {...other}
-      style={style}
+      css={sx}
     >
       {startIcon || endIcon ? (
         <>

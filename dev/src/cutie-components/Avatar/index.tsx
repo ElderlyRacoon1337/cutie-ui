@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { ThemeContext } from '../../ThemeProvider';
+/** @jsxImportSource @emotion/react */
 
 interface AvatarProps {
   variant?: 'rounded' | 'square' | 'circular';
   className?: string;
   src: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onClick?: (event: React.MouseEvent<any>) => void;
   other?: object;
   width?: string | number;
@@ -34,12 +35,12 @@ export const Avatar: React.FC<AvatarProps> = ({
   variant = 'circular',
   className,
   src,
-  style,
+  sx,
   onClick,
   other,
   width = '40px',
 }) => {
-  const theme = useContext(ThemeContext);
+  let theme = useContext(ThemeContext);
   const styleOverrides = theme.styleOverrides.avatar;
   return (
     <StyledAvatar
@@ -47,7 +48,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       _width={width}
       variant={variant}
       className={className}
-      style={style}
+      css={sx}
       onClick={onClick}
       {...other}
     >

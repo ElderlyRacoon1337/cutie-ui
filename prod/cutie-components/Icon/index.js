@@ -1,32 +1,37 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
-import { jsx as _jsx } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
 export const Icon = ({
   className,
   color,
-  style,
+  sx,
   onClick,
   children,
   other,
-  fontSize = '20px',
+  fontSize,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsx(_Fragment, {
+  return _jsx(_Fragment, {
     children: React.Children.map(children, (child) =>
-      /*#__PURE__*/ React.cloneElement(child, {
+      React.cloneElement(child, {
         className: className,
         style: {
           fontSize: fontSize,
           width: '1em',
           height: '1em',
           color: color,
-          ...style,
         },
+        css: sx,
         ...other,
         onClick: onClick,
       })

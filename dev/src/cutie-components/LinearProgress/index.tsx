@@ -1,16 +1,18 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface LinearProgressProps {
   height?: number | string;
   className?: string;
   value?: number | string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   loader?: boolean;
   color?: string;
   duration?: number | string;
-  variant?: 1 | 2 | 3 | '1' | '2' | '3';
+  variant?: 1 | 2 | 3;
 }
 
 const StyledLinearProgress = styled.div`
@@ -19,10 +21,15 @@ const StyledLinearProgress = styled.div`
   div:first-of-type {
     height: 100%;
   }
+  height: ${(props) => props._height}px;
+
+  div:first-of-type {
+    width: ${(props) => props._value}%;
+  }
 
   ${(props) =>
     props.loader &&
-    (props.variant == '1' || props.variant == 1) &&
+    props.variant == 1 &&
     `div:first-of-type {
       display: none;
     }
@@ -35,7 +42,7 @@ const StyledLinearProgress = styled.div`
     `}
   ${(props) =>
     props.loader &&
-    (props.variant == '2' || props.variant == 2) &&
+    props.variant == 2 &&
     `div:first-of-type {
         display: none;
       }
@@ -48,7 +55,7 @@ const StyledLinearProgress = styled.div`
       `}
     ${(props) =>
     props.loader &&
-    (props.variant == '3' || props.variant == 3) &&
+    props.variant == 3 &&
     `div:first-of-type {
       display: none;
     }
@@ -150,18 +157,21 @@ const StyledLinearProgress = styled.div`
   ${(props) => props.styleOverrides};
 `;
 
-const LinearProgress: React.FC<LinearProgressProps> = ({
+export const LinearProgress: React.FC<LinearProgressProps> = ({
   value,
   className,
   height = 3,
-  style,
+  sx,
   color = 'textPrimary',
   loader,
   duration = 1,
   variant,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.linearProgress;
 
@@ -179,12 +189,12 @@ const LinearProgress: React.FC<LinearProgressProps> = ({
       duration={duration}
       variant={variant}
       className={className}
-      style={{ height, ...style }}
+      css={sx}
+      _value={value}
+      _height={height}
     >
-      <div style={{ width: value + '%' }} />
+      <div />
       <div />
     </StyledLinearProgress>
   );
 };
-
-export default LinearProgress;

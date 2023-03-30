@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface SkeletonProps {
   width: number | string;
   height: number | string;
   variant?: 'square' | 'rounded' | 'circle';
   className?: string;
-  style?: React.CSSProperties;
   other?: object;
+  sx?: React.CSSProperties | object;
 }
 
 const StyledSkeleton = styled.div`
@@ -54,16 +56,19 @@ const StyledSkeleton = styled.div`
   ${(props) => props.styleOverrides};
 `;
 
-const Skeleton: React.FC<SkeletonProps> = ({
+export const Skeleton: React.FC<SkeletonProps> = ({
   width,
   height,
   variant = 'square',
   className,
-  style,
+  sx,
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.skeleton;
 
   return (
@@ -74,10 +79,8 @@ const Skeleton: React.FC<SkeletonProps> = ({
       _width={width}
       _height={height}
       className={className}
-      style={style}
+      css={sx}
       {...other}
     />
   );
 };
-
-export default Skeleton;

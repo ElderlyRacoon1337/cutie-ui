@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import { Icon } from '../Icon';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 const StyledSelect = styled.select`
   background-color: transparent;
@@ -9,9 +11,9 @@ const StyledSelect = styled.select`
   border-radius: 5px;
   padding: 10px;
   padding-right: 30px;
-  border-color: var(--divider);
-  color: var(--textPrimary);
-  font-size: var(--fontSizeMedium);
+  border-color: ${(props) => props.variables.divider};
+  color: ${(props) => props.variables.textPrimary};
+  font-size: ${(props) => props.variables.fontSizeMedium};
   appearance: none;
   background-color: transparent;
   width: 100%;
@@ -35,28 +37,36 @@ const SelectWrapper = styled.div`
 interface SelectProps {
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
+  onClick?: React.MouseEventHandler<HTMLSelectElement>;
 }
 
 export const Select: React.FC<SelectProps> = ({
   children,
   className,
-  style,
+  sx,
   onChange,
+  onClick,
 }) => {
-  const selectRef = useRef(null);
   const theme = useContext(ThemeContext);
+  const selectRef = useRef(null);
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.select;
 
   return (
     <SelectWrapper
       styleOverrides={styleOverrides}
       className={className}
-      style={style}
+      css={sx}
       ref={selectRef}
     >
-      <StyledSelect onChange={onChange}>{children}</StyledSelect>
+      <StyledSelect variables={variables} onClick={onClick} onChange={onChange}>
+        {children}
+      </StyledSelect>
       <Icon fontSize={'1rem'} onClick={(e) => selectRef.current.click()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

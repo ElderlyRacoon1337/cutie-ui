@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface TooltipProps {
-  anchorEl: any;
+  anchorEl: React.ReactNode;
   position?: 'top' | 'bottom' | 'left' | 'right';
   children?: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
 }
 
 const StyledTooltip = styled.span`
@@ -36,18 +38,21 @@ const StyledTooltip = styled.span`
   ${(props) => props.styleOverrides};
 `;
 
-const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: React.FC<TooltipProps> = ({
   anchorEl,
   position = 'top',
   children,
-  style,
+  sx,
   className,
 }) => {
   const [xpos, setXpos] = useState(0);
   const [ypos, setYpos] = useState(0);
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.tooltip;
 
   const getPosition = () => {
@@ -101,11 +106,9 @@ const Tooltip: React.FC<TooltipProps> = ({
       variables={variables}
       ref={tooltipRef}
       className={className}
-      style={style}
+      css={sx}
     >
       {children}
     </StyledTooltip>
   );
 };
-
-export default Tooltip;

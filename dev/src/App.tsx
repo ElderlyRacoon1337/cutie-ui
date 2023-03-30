@@ -1,31 +1,31 @@
-import Alert from './cutie-components/Alert';
+import { Alert } from './cutie-components/Alert';
 import { Avatar } from './cutie-components/Avatar';
 import { Button } from './cutie-components/Button';
 import { Loader } from './cutie-components/Loader';
 import { Icon } from './cutie-components/Icon';
 import { IconButton } from './cutie-components/IconButton';
 import { Input } from './cutie-components/Input';
-import Link from './cutie-components/Link';
+import { Link } from './cutie-components/Link';
 import { List } from './cutie-components/List';
 import { ListItem } from './cutie-components/List/ListItem';
 import { ListItemButton } from './cutie-components/List/ListItemButton';
 import { Menu } from './cutie-components/Menu/index';
 import { MenuItem } from './cutie-components/Menu/MenuItem';
 import { Popup } from './cutie-components/Popup';
-import Tabs from './cutie-components/Tabs';
+import { Tabs } from './cutie-components/Tabs';
 import { useMenu } from './cutie-hooks/useMenu';
 import { usePopup } from './cutie-hooks/usePopup';
-import Switch from './cutie-components/Switch';
-import Tab from './cutie-components/Tabs/Tab';
+import { Switch } from './cutie-components/Switch';
+import { Tab } from './cutie-components/Tabs/Tab';
 import { useAlert } from './cutie-hooks/useAlert';
 import { useTabs } from './cutie-hooks/useTabs';
-import Skeleton from './cutie-components/Skeleton';
+import { Skeleton } from './cutie-components/Skeleton';
 import { ThemeContext } from './ThemeProvider';
 import { useContext, useEffect, useState } from 'react';
-import GradientText from './cutie-components/GradientText';
+import { GradientText } from './cutie-components/GradientText';
 import { useSwitch } from './cutie-hooks/useSwitch';
-import Progress from './cutie-components/LinearProgress';
-import Tooltip from './cutie-components/Tooltip';
+import { LinearProgress } from './cutie-components/LinearProgress';
+import { Tooltip } from './cutie-components/Tooltip';
 import { Select } from './cutie-components/Select';
 import { Checkbox } from './cutie-components/Checkbox';
 import { Radio } from './cutie-components/Radio';
@@ -73,9 +73,9 @@ function App() {
               </p>
             </div>
             <Input
+              label
               button={<Button>Search</Button>}
-              className="minw-250px"
-              classNameForWrapper="ml-50px"
+              className="minw-300px ml-50px"
               placeholder="Search docs"
             />
           </div>
@@ -113,11 +113,15 @@ function App() {
               variant="outlined"
             >
               More
-              <input hidden accept="image/*" multiple type="file" />
             </Button>
             <Button
               endIcon={
-                <Loader variant={2} size="1rem" color="black" fatness={'2px'} />
+                <Loader
+                  variant={2}
+                  size="1rem"
+                  color="textOpposite"
+                  fatness={'2px'}
+                />
               }
               onClick={handleClickPopup}
               className="mr-10px"
@@ -557,23 +561,22 @@ function App() {
                   </Button>
                 </div>
                 <div className="w-500px">
-                  <Progress
+                  <LinearProgress
                     duration={1.2}
                     height={2}
                     value={20}
                     className="mt-20px"
                   />
-                  <Progress
-                    variant={'1'}
+                  <LinearProgress
+                    variant={1}
                     loader
                     duration={2}
-                    // color="success"
                     height={2}
                     value={20}
                     className="mt-20px"
                   />
-                  <Progress
-                    variant={'2'}
+                  <LinearProgress
+                    variant={1}
                     loader
                     duration={2}
                     color="success"
@@ -581,8 +584,8 @@ function App() {
                     value={20}
                     className="mt-20px"
                   />
-                  <Progress
-                    variant={'3'}
+                  <LinearProgress
+                    variant={3}
                     loader
                     duration={2}
                     color="pink"
@@ -1029,12 +1032,28 @@ function App() {
                     className="mr-20px absolute right-60px bottom-80px"
                     color="rgba(0,0,0,0.5)"
                     variant="contained"
+                    sx={{
+                      '&:hover': {
+                        backgroundColor: 'rgba(0,0,0,0.7)',
+                      },
+                      '&:active': {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                      },
+                    }}
                   >
                     button4k
                   </Button>
                   <Button
                     className="mr-20px absolute right-170px bottom-80px"
                     color="rgba(255,255,255,0.5)"
+                    sx={{
+                      '&:hover': {
+                        backgroundColor: 'rgba(255,255,255,0.7)',
+                      },
+                      '&:active': {
+                        backgroundColor: 'rgba(255,255,255,0.8)',
+                      },
+                    }}
                     variant="contained"
                   >
                     button4k

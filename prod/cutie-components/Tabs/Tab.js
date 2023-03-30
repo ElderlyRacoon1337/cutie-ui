@@ -1,8 +1,9 @@
-import { jsx as _jsx } from 'react/jsx-runtime';
-export const Tab = ({ children, className, style, other }) => {
-  return /*#__PURE__*/ _jsx('div', {
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+/** @jsxImportSource @emotion/react */
+export const Tab = ({ children, className, other, sx }) => {
+  return _jsx('div', {
     className: className,
-    style: style,
+    css: sx,
     ...other,
     children: children,
   });

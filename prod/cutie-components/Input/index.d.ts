@@ -2,12 +2,10 @@ import React from 'react';
 interface InputProps {
   placeholder?: string;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   type?: any;
   value?: any;
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
-  classNameForWrapper?: string;
-  styleForWrapper?: React.CSSProperties;
   size?: 'small' | 'medium' | 'large';
   color?: string;
   square?: boolean;

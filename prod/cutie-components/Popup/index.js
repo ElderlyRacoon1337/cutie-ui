@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { useContext, useEffect } from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
 const StyledPopup = styled.div`
   position: fixed;
   top: 0;
@@ -33,10 +35,16 @@ const StyledPopup = styled.div`
     font-family: ${(props) => props.variables.baseFontFamily};
     font-size: ${(props) => props.variables.fontSizeMedium};
   }
+
+  ${(props) => props.styleOverrides};
 `;
-export const Popup = ({ open, onClose, children, style, className, other }) => {
+export const Popup = ({ open, onClose, children, sx, className, other }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
+  const styleOverrides = theme.styleOverrides.popup;
   const prevent = (ev) => ev.preventDefault();
   useEffect(() => {
     if (open) {
@@ -48,17 +56,18 @@ export const Popup = ({ open, onClose, children, style, className, other }) => {
       document.removeEventListener('wheel', prevent);
     };
   }, [open]);
-  return /*#__PURE__*/ _jsx(_Fragment, {
+  return _jsx(_Fragment, {
     children:
       open &&
-      /*#__PURE__*/ _jsx(StyledPopup, {
+      _jsx(StyledPopup, {
+        styleOverrides: styleOverrides,
         variables: variables,
         onClick: onClose,
-        children: /*#__PURE__*/ _jsx('div', {
+        children: _jsx('div', {
           className: className,
           onClick: (e) => e.stopPropagation(),
           ...other,
-          style: style,
+          css: sx,
           children: children,
         }),
       }),

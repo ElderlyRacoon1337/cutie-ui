@@ -1,17 +1,18 @@
-// @ts-nocheck
 import { IconButton } from '../IconButton';
 import React, { useContext, useEffect } from 'react';
 import { Icon } from '../Icon';
 import { ThemeContext } from '../../ThemeProvider';
 import styled from '@emotion/styled';
 import tinycolor from 'tinycolor2';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface AlertProps {
   children?: React.ReactNode;
   open: boolean;
-  onClose?: any;
+  onClose?: () => void;
   className?: string;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   position?:
     | 'topRight'
     | 'topLeft'
@@ -99,12 +100,12 @@ margin-right: auto;`}
   ${(props) => props.styleOverrides};
 `;
 
-const Alert: React.FC<AlertProps> = ({
+export const Alert: React.FC<AlertProps> = ({
   children,
   position = 'bottomCenter',
   color = 'primary',
   className,
-  style,
+  sx,
   startIcon,
   onClose,
   withioutButton = false,
@@ -113,8 +114,11 @@ const Alert: React.FC<AlertProps> = ({
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
   const styleOverrides = theme.styleOverrides.alert;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
 
   if (!startIcon) {
     if (color == 'error') {
@@ -220,7 +224,7 @@ const Alert: React.FC<AlertProps> = ({
           _color={color}
           className={className}
           {...other}
-          style={style}
+          css={sx}
         >
           {startIcon}
           {children}
@@ -249,5 +253,3 @@ const Alert: React.FC<AlertProps> = ({
     </>
   );
 };
-
-export default Alert;

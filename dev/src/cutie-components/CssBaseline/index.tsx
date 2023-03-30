@@ -1,7 +1,7 @@
-// @ts-nocheck
 import { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import { createGlobalStyle } from 'styled-components';
+import { initialVariables } from '../../variables';
 
 const Globals = createGlobalStyle`
   :root {
@@ -65,7 +65,10 @@ const Globals = createGlobalStyle`
 
 const CssBaseline = () => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
 
   const stringOfVariables = Object.entries(variables)
     .map((el) => `--${el[0]}: ${el[1]}`)

@@ -5,8 +5,7 @@ interface SkeletonProps {
   height: number | string;
   variant?: 'square' | 'rounded' | 'circle';
   className?: string;
-  style?: React.CSSProperties;
   other?: object;
+  sx?: React.CSSProperties | object;
 }
-
 export const Skeleton: React.FC<SkeletonProps>;

@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
-import clsx from 'clsx';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
-import styles from './List.module.scss';
 import tinycolor from 'tinycolor2';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
 
 interface ListItemProps {
   className?: string;
   children: React.ReactNode;
-  style?: React.CSSProperties;
+  sx?: React.CSSProperties | object;
   startIcon?: React.ReactNode;
   onClick?: (event: React.MouseEvent<any>) => void;
   active?: boolean;
@@ -230,7 +230,7 @@ const StyledListItemButton = styled.li`
 export const ListItemButton: React.FC<ListItemProps> = ({
   className,
   children,
-  style,
+  sx,
   startIcon,
   onClick,
   active,
@@ -242,7 +242,10 @@ export const ListItemButton: React.FC<ListItemProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const mode = theme.theme;
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const styleOverrides = theme.styleOverrides.listItemButton;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
@@ -262,7 +265,7 @@ export const ListItemButton: React.FC<ListItemProps> = ({
       square={square}
       endIcon={endIcon}
       {...other}
-      style={style}
+      css={sx}
     >
       {startIcon || endIcon ? (
         <>

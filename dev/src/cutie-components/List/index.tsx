@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../ThemeProvider';
+/** @jsxImportSource @emotion/react */
 
 interface ListProps {
   className?: string;
   children?: React.ReactNode;
-  style?: React.CSSProperties;
   other?: object;
   square?: boolean;
+  sx?: React.CSSProperties | object;
 }
 
 const StyledList = styled.ul`
@@ -27,11 +28,11 @@ const StyledList = styled.ul`
 export const List: React.FC<ListProps> = ({
   children,
   className,
-  style,
   other,
   square,
+  sx,
 }) => {
-  const theme = useContext(ThemeContext);
+  let theme = useContext(ThemeContext);
   const styleOverrides = theme.styleOverrides.list;
   return (
     <StyledList
@@ -39,7 +40,7 @@ export const List: React.FC<ListProps> = ({
       square={square}
       className={className}
       {...other}
-      style={style}
+      css={sx}
     >
       {children}
     </StyledList>

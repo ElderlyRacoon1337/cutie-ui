@@ -2,11 +2,13 @@ import { useState, useEffect, createContext } from 'react';
 import tinycolor2 from 'tinycolor2';
 import { jsx as _jsx } from 'react/jsx-runtime';
 export const ThemeContext = /*#__PURE__*/ createContext({
-  theme: '',
+  theme: 'light',
   changeTheme: (theme) => {},
   variables: {},
+  styleOverrides: {},
 });
 const variables = {};
+const styleOverrides = {};
 const light = 5;
 const tooLight = 10;
 const dark = 5;
@@ -37,7 +39,7 @@ const initialVariables = {
     odnoklassniki: '#EE8108',
   },
   lightMode: {
-    primary: '#eb0066',
+    primary: '#811af0',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#fe4739',
@@ -47,7 +49,8 @@ const initialVariables = {
     disabled: 'rgb(201, 201, 201)',
     link: 'rgb(24, 118, 209)',
     background: '#ffffff',
-    backgroundSecondary: 'rgba(255, 255, 255, 0.9)',
+    backgroundBlur: 'rgba(245, 245, 245, 0.9)',
+    backgroundSecondary: 'rgba(245, 245, 245)',
     textPrimary: '#000000',
     textSecondary: '#6a6a6a',
     textOpposite: '#fff',
@@ -59,7 +62,7 @@ const initialVariables = {
     skeletonDark: 'rgb(243, 243, 243)',
   },
   darkMode: {
-    primary: 'pink',
+    primary: '#d9b5ff',
     secondary: '#475979',
     neutral: '#46505c',
     error: '#d02a35',
@@ -69,7 +72,8 @@ const initialVariables = {
     disabled: 'rgb(82, 82, 82)',
     link: 'rgb(31, 136, 241)',
     background: '#000000',
-    backgroundSecondary: '#141414',
+    backgroundBlur: 'rgba(18, 18, 18, 0.9)',
+    backgroundSecondary: 'rgba(15, 15, 15)',
     textPrimary: '#fff',
     textSecondary: '#bcbcbc',
     textOpposite: '#000',
@@ -104,10 +108,14 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
       }
     }
   }
+  if (themeOptions.styleOverrides) {
+    for (let i in themeOptions.styleOverrides) {
+      styleOverrides[i] = themeOptions.styleOverrides[i];
+    }
+  }
   for (let key in initialVariables.variables) {
     variables[key] = initialVariables.variables[key];
   }
-
   if (isLightMode) {
     for (let key in initialVariables.lightMode) {
       variables[key] = initialVariables.lightMode[key];
@@ -121,7 +129,6 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
       variables[key] = lightMode[key];
     }
   }
-
   useEffect(() => {
     if (localStorage.getItem('theme')) {
       changeTheme(localStorage.getItem('theme'));
@@ -129,7 +136,6 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
       changeTheme('system');
     }
   }, []);
-
   useEffect(() => {
     const isBrowserDefaultDark = () =>
       window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -194,6 +200,7 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
       theme: isLightMode ? 'light' : 'dark',
       changeTheme: changeTheme,
       variables: variables,
+      styleOverrides: styleOverrides,
     },
     children: children,
   });

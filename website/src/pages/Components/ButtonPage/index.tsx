@@ -17,6 +17,10 @@ const ButtonPage = () => {
   const [isShow3, setIsShow3] = useState(false);
   const timeout3 = useRef<any>(null);
 
+  const [isCopied4, setIsCopied4] = useState(false);
+  const [isShow4, setIsShow4] = useState(false);
+  const timeout4 = useRef<any>(null);
+
   return (
     <>
       <h1 className="m-0px mb-35px" style={{ fontSize: '50px' }}>
@@ -37,7 +41,6 @@ const ButtonPage = () => {
             {"import { Button } from 'cutie-ui'"}
           </SyntaxHighlighter>
           <Button
-            style={{ transition: 'none' }}
             onClick={() => {
               navigator.clipboard.writeText(
                 "import { Button } from 'cutie-ui'"
@@ -63,13 +66,38 @@ const ButtonPage = () => {
           Variants
         </p>
         <div className={styles.area}>
-          <div className="df aic">
-            <Button className="mr-20px">Text</Button>
-            <Button variant="outlined" className="mr-20px">
-              Outlined
+          <div className="df aic mb-20px">
+            <Button className="mr-20px">text</Button>
+            <Button variant="text2" className="mr-20px">
+              text2
             </Button>
+          </div>
+          <div className="df aic mb-20px">
+            <Button variant="outlined" className="mr-20px">
+              outlined
+            </Button>
+            <Button variant="outlined2" className="mr-20px">
+              outlined2
+            </Button>
+            <Button variant="outlined3" className="mr-20px">
+              outlined3
+            </Button>
+            <Button variant="outlined4" className="mr-20px">
+              outlined4
+            </Button>
+          </div>
+          <div className="df aic">
             <Button variant="contained" className="mr-20px">
-              Contained
+              contained
+            </Button>
+            <Button variant="contained2" className="mr-20px">
+              contained2
+            </Button>
+            <Button variant="contained3" className="mr-20px">
+              contained3
+            </Button>
+            <Button variant="contained4" className="mr-20px">
+              contained4
             </Button>
           </div>
         </div>
@@ -114,25 +142,77 @@ const ButtonPage = () => {
               language="jsx"
               style={tomorrow}
             >
-              {`<Button className="mr-20px">Text</Button>
-<Button variant="outlined" className="mr-20px">
-  Outlined
-</Button>
-<Button variant="contained" className="mr-20px">
-  Contained
-</Button>`}
+              {`<div className="df aic mb-20px">
+  <Button className="mr-20px">text</Button>
+  <Button variant="text2" className="mr-20px">
+    text2
+  </Button>
+</div>
+<div className="df aic mb-20px">
+  <Button variant="outlined" className="mr-20px">
+    outlined
+  </Button>
+  <Button variant="outlined2" className="mr-20px">
+    outlined2
+  </Button>
+  <Button variant="outlined3" className="mr-20px">
+    outlined3
+  </Button>
+  <Button variant="outlined4" className="mr-20px">
+    outlined4
+  </Button>
+</div>
+<div className="df aic">
+  <Button variant="contained" className="mr-20px">
+    contained
+  </Button>
+  <Button variant="contained2" className="mr-20px">
+    contained2
+  </Button>
+  <Button variant="contained3" className="mr-20px">
+    contained3
+  </Button>
+  <Button variant="contained4" className="mr-20px">
+    contained4
+  </Button>
+</div>`}
             </SyntaxHighlighter>
             <Button
-              style={{ transition: 'none' }}
               onClick={() => {
                 navigator.clipboard.writeText(
                   `<Button className="mr-20px">Text</Button>
-<Button variant="outlined" className="mr-20px">
-  Outlined
-</Button>
-<Button variant="contained" className="mr-20px">
-  Contained
-</Button>`
+  <Button variant="text2" className="mr-20px">
+    text2
+  </Button>
+</div>
+<div className="df aic mb-20px">
+  <Button variant="outlined" className="mr-20px">
+    outlined
+  </Button>
+  <Button variant="outlined2" className="mr-20px">
+    outlined2
+  </Button>
+  <Button variant="outlined3" className="mr-20px">
+    outlined3
+  </Button>
+  <Button variant="outlined4" className="mr-20px">
+    outlined4
+  </Button>
+</div>
+<div className="df aic">
+  <Button variant="contained" className="mr-20px">
+    contained
+  </Button>
+  <Button variant="contained2" className="mr-20px">
+    contained2
+  </Button>
+  <Button variant="contained3" className="mr-20px">
+    contained3
+  </Button>
+  <Button variant="contained4" className="mr-20px">
+    contained4
+  </Button>
+</div>`
                 );
                 setIsCopied2(true);
                 clearTimeout(timeout2.current);
@@ -157,7 +237,7 @@ const ButtonPage = () => {
         </p>
         <p className="mb-15px fslg">Variables as colors</p>
         <div className={styles.area}>
-          <div className="df aic">
+          <div className="df aic mb-20px">
             <Button color="primary" variant="contained" className="mr-20px">
               primary
             </Button>
@@ -181,6 +261,36 @@ const ButtonPage = () => {
             </Button>
             <Button color="textPrimary" variant="contained" className="mr-20px">
               textPrimary
+            </Button>
+          </div>
+          <div className="df aic">
+            <Button color="twitter" variant="contained" className="mr-20px">
+              twitter
+            </Button>
+            <Button color="facebook" variant="contained" className="mr-20px">
+              facebook
+            </Button>
+            <Button color="telegram" variant="contained" className="mr-20px">
+              telegram
+            </Button>
+            <Button color="whatsapp" variant="contained" className="mr-20px">
+              whatsapp
+            </Button>
+            <Button color="viber" variant="contained" className="mr-20px">
+              viber
+            </Button>
+            <Button color="vk" variant="contained" className="mr-20px">
+              vk
+            </Button>
+            <Button
+              color="odnoklassniki"
+              variant="contained"
+              className="mr-20px"
+            >
+              odnoklassniki
+            </Button>
+            <Button color="youtube" variant="contained" className="mr-20px">
+              youtube
             </Button>
           </div>
         </div>
@@ -211,7 +321,7 @@ const ButtonPage = () => {
         >
           {!isShow3 ? 'Show code' : 'Hide code'}
         </Button>
-        {isShow3 && (
+        {isShow4 && (
           <div className="relative">
             <SyntaxHighlighter
               customStyle={{
@@ -225,69 +335,132 @@ const ButtonPage = () => {
               language="jsx"
               style={tomorrow}
             >
-              {`<Button color="primary" variant="contained" className="mr-20px">
-  primary
-</Button>
-<Button color="secondary" variant="contained" className="mr-20px">
-  secondary
-</Button>
-<Button color="neutral" variant="contained" className="mr-20px">
-  neutral
-</Button>
-<Button color="success" variant="contained" className="mr-20px">
-  success
-</Button>
-<Button color="error" variant="contained" className="mr-20px">
-  error
-</Button>
-<Button color="warning" variant="contained" className="mr-20px">
-  warning
-</Button>
-<Button color="info" variant="contained" className="mr-20px">
-  info
-</Button>
-<Button color="textPrimary" variant="contained" className="mr-20px">
-  textPrimary
-</Button>`}
+              {`<div className="df aic mb-20px">
+  <Button color="primary" variant="contained" className="mr-20px">
+    primary
+  </Button>
+  <Button color="secondary" variant="contained" className="mr-20px">
+    secondary
+  </Button>
+  <Button color="neutral" variant="contained" className="mr-20px">
+    neutral
+  </Button>
+  <Button color="success" variant="contained" className="mr-20px">
+    success
+  </Button>
+  <Button color="error" variant="contained" className="mr-20px">
+    error
+  </Button>
+  <Button color="warning" variant="contained" className="mr-20px">
+    warning
+  </Button>
+  <Button color="info" variant="contained" className="mr-20px">
+    info
+  </Button>
+  <Button color="textPrimary" variant="contained" className="mr-20px">
+    textPrimary
+  </Button>
+</div>
+<div className="df aic">
+  <Button color="twitter" variant="contained" className="mr-20px">
+    twitter
+  </Button>
+  <Button color="facebook" variant="contained" className="mr-20px">
+    facebook
+  </Button>
+  <Button color="telegram" variant="contained" className="mr-20px">
+    telegram
+  </Button>
+  <Button color="whatsapp" variant="contained" className="mr-20px">
+    whatsapp
+  </Button>
+  <Button color="viber" variant="contained" className="mr-20px">
+    viber
+  </Button>
+  <Button color="vk" variant="contained" className="mr-20px">
+    vk
+  </Button>
+  <Button
+    color="odnoklassniki"
+    variant="contained"
+    className="mr-20px"
+  >
+    odnoklassniki
+  </Button>
+  <Button color="youtube" variant="contained" className="mr-20px">
+    youtube
+  </Button>
+</div>`}
             </SyntaxHighlighter>
             <Button
-              style={{ transition: 'none' }}
               onClick={() => {
                 navigator.clipboard.writeText(
-                  `<Button color="primary" variant="contained" className="mr-20px">
-  primary
-</Button>
-<Button color="secondary" variant="contained" className="mr-20px">
-  secondary
-</Button>
-<Button color="neutral" variant="contained" className="mr-20px">
-  neutral
-</Button>
-<Button color="success" variant="contained" className="mr-20px">
-  success
-</Button>
-<Button color="error" variant="contained" className="mr-20px">
-  error
-</Button>
-<Button color="warning" variant="contained" className="mr-20px">
-  warning
-</Button>
-<Button color="info" variant="contained" className="mr-20px">
-  info
-</Button>
-<Button color="textPrimary" variant="contained" className="mr-20px">
-  textPrimary
-</Button>`
+                  `<div className="df aic mb-20px">
+  <Button color="primary" variant="contained" className="mr-20px">
+    primary
+  </Button>
+  <Button color="secondary" variant="contained" className="mr-20px">
+    secondary
+  </Button>
+  <Button color="neutral" variant="contained" className="mr-20px">
+    neutral
+  </Button>
+  <Button color="success" variant="contained" className="mr-20px">
+    success
+  </Button>
+  <Button color="error" variant="contained" className="mr-20px">
+    error
+  </Button>
+  <Button color="warning" variant="contained" className="mr-20px">
+    warning
+  </Button>
+  <Button color="info" variant="contained" className="mr-20px">
+    info
+  </Button>
+  <Button color="textPrimary" variant="contained" className="mr-20px">
+    textPrimary
+  </Button>
+</div>
+<div className="df aic">
+  <Button color="twitter" variant="contained" className="mr-20px">
+    twitter
+  </Button>
+  <Button color="facebook" variant="contained" className="mr-20px">
+    facebook
+  </Button>
+  <Button color="telegram" variant="contained" className="mr-20px">
+    telegram
+  </Button>
+  <Button color="whatsapp" variant="contained" className="mr-20px">
+    whatsapp
+  </Button>
+  <Button color="viber" variant="contained" className="mr-20px">
+    viber
+  </Button>
+  <Button color="vk" variant="contained" className="mr-20px">
+    vk
+  </Button>
+  <Button
+    color="odnoklassniki"
+    variant="contained"
+    className="mr-20px"
+  >
+    odnoklassniki
+  </Button>
+  <Button color="youtube" variant="contained" className="mr-20px">
+    youtube
+  </Button>
+</div>`
                 );
                 setIsCopied3(true);
                 clearTimeout(timeout3.current);
-                timeout3.current = setTimeout(() => {
+                timeout4.current = setTimeout(() => {
                   setIsCopied3(false);
                 }, 2000);
               }}
               size="small"
               variant="contained"
-              color={!isCopied3 ? 'primary' : 'success'}
+              color={!isCopied4 ? 'primary' : 'success'}
               className="absolute top-10px right-10px"
             >
               {!isCopied3 ? 'Copy' : 'Copied'}
@@ -321,62 +494,103 @@ const ButtonPage = () => {
             </Button>
           </div>
         </div>
-        <div className="relative">
-          <SyntaxHighlighter
-            customStyle={{
-              backgroundColor: 'var(--codeBg)',
-              padding: '20px',
-              borderRadius: '10px',
-              marginBottom: '20px',
-              lineHeight: '1.3rem',
-            }}
-            language="jsx"
-            style={tomorrow}
-          >
-            {`<Button color="primary" variant="contained" className="mr-20px">
-    Primary
+        {isShow4 && (
+          <div className="relative">
+            <SyntaxHighlighter
+              customStyle={{
+                backgroundColor: 'var(--codeBg)',
+                padding: '20px',
+                borderRadius: '10px',
+                marginBottom: '20px',
+                lineHeight: '1.3rem',
+              }}
+              language="jsx"
+              style={tomorrow}
+            >
+              {`<Button color="hotpink" variant="contained" className="mr-20px">
+  hotpink
 </Button>
-<Button color="secondary" variant="contained" className="mr-20px">
-    Secondary
+<Button color="turquoise" variant="contained" className="mr-20px">
+  turquoise
 </Button>
-<Button color="neutral" variant="contained" className="mr-20px">
-    Neutral
+<Button color="#3aeb34" variant="contained" className="mr-20px">
+  #3aeb34
 </Button>
-<Button color="success" variant="contained" className="mr-20px">
-    Success
+<Button color="#e332d1" variant="contained" className="mr-20px">
+  #e332d1
 </Button>
-<Button color="error" variant="contained" className="mr-20px">
-    Error
-</Button>
-<Button color="text" variant="contained" className="mr-20px">
-    Text
-</Button>
-<Button color="white" variant="contained" className="mr-20px">
-    White
-</Button>
-<Button color="black" variant="contained" className="mr-20px">
-    Black
+<Button
+  color="rgb(0, 65, 217)"
+  variant="contained"
+  className="mr-20px"
+>
+  rgb(0, 65, 217)
 </Button>`}
-          </SyntaxHighlighter>
-          <Button
-            style={{ transition: 'none' }}
-            onClick={() => {
-              navigator.clipboard.writeText(
-                "import { Button } from 'cutie-ui'"
-              );
-              setIsCopied1(true);
-              setTimeout(() => {
-                setIsCopied1(false);
-              }, 2000);
-            }}
-            size="small"
-            variant="contained"
-            color={!isCopied1 ? 'primary' : 'success'}
-            className="absolute top-10px right-10px"
-          >
-            {!isCopied1 ? 'Copy' : 'Copied'}
-          </Button>
-        </div>
+            </SyntaxHighlighter>
+            <Button
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  `<Button color="hotpink" variant="contained" className="mr-20px">
+  hotpink
+</Button>
+<Button color="turquoise" variant="contained" className="mr-20px">
+  turquoise
+</Button>
+<Button color="#3aeb34" variant="contained" className="mr-20px">
+  #3aeb34
+</Button>
+<Button color="#e332d1" variant="contained" className="mr-20px">
+  #e332d1
+</Button>
+<Button
+  color="rgb(0, 65, 217)"
+  variant="contained"
+  className="mr-20px"
+>
+  rgb(0, 65, 217)
+</Button>`
+                );
+                setIsCopied4(true);
+                setTimeout(() => {
+                  setIsCopied4(false);
+                }, 2000);
+              }}
+              size="small"
+              variant="contained"
+              color={!isCopied4 ? 'primary' : 'success'}
+              className="absolute top-10px right-10px"
+            >
+              {!isCopied4 ? 'Copy' : 'Copied'}
+            </Button>
+          </div>
+        )}
+        <Button
+          className={'mb-15px'}
+          color="neutral"
+          variant="outlined"
+          size="small"
+          onClick={() => setIsShow4(!isShow4)}
+          endIcon={
+            <Icon fontSize={'1rem'}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                />
+              </svg>
+            </Icon>
+          }
+        >
+          {!isShow4 ? 'Show code' : 'Hide code'}
+        </Button>
       </div>
 
       <div className="sizes">

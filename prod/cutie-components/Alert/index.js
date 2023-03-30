@@ -4,9 +4,11 @@ import { Icon } from '../Icon';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import styled from '@emotion/styled';
 import tinycolor from 'tinycolor2';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
-import { Fragment as _Fragment } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
+import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
 const StyledAlert = styled.div`
   position: fixed;
   display: -webkit-box;
@@ -18,6 +20,7 @@ const StyledAlert = styled.div`
   border-radius: 10px;
   height: 45px;
   padding: 0 15px;
+  backdrop-filter: blur(10px);
   ${(props) => `color: ${
     tinycolor(props._color).isLight()
       ? props.variables.black
@@ -74,13 +77,15 @@ left: 0;
 margin-left: auto;
 margin-right: auto;`}
   background-color: ${(props) => props._color};
+
+  ${(props) => props.styleOverrides};
 `;
 export const Alert = ({
   children,
   position = 'bottomCenter',
   color = 'primary',
   className,
-  style,
+  sx,
   startIcon,
   onClose,
   withioutButton = false,
@@ -89,18 +94,23 @@ export const Alert = ({
   other,
 }) => {
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  const styleOverrides = theme.styleOverrides.alert;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   if (!startIcon) {
     if (color == 'error') {
-      startIcon = /*#__PURE__*/ _jsx(Icon, {
-        children: /*#__PURE__*/ _jsx('svg', {
+      startIcon = _jsx(Icon, {
+        fontSize: '1.2rem',
+        children: _jsx('svg', {
           xmlns: 'http://www.w3.org/2000/svg',
           fill: 'none',
           viewBox: '0 0 24 24',
           strokeWidth: 1.5,
           stroke: 'currentColor',
           className: 'w-6 h-6',
-          children: /*#__PURE__*/ _jsx('path', {
+          children: _jsx('path', {
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
             d: 'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z',
@@ -108,15 +118,16 @@ export const Alert = ({
         }),
       });
     } else if (color == 'success') {
-      startIcon = /*#__PURE__*/ _jsx(Icon, {
-        children: /*#__PURE__*/ _jsx('svg', {
+      startIcon = _jsx(Icon, {
+        fontSize: '1.2rem',
+        children: _jsx('svg', {
           xmlns: 'http://www.w3.org/2000/svg',
           fill: 'none',
           viewBox: '0 0 24 24',
           strokeWidth: 1.5,
           stroke: 'currentColor',
           className: 'w-6 h-6',
-          children: /*#__PURE__*/ _jsx('path', {
+          children: _jsx('path', {
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
             d: 'M4.5 12.75l6 6 9-13.5',
@@ -124,18 +135,36 @@ export const Alert = ({
         }),
       });
     } else if (color == 'warning') {
-      startIcon = /*#__PURE__*/ _jsx(Icon, {
-        children: /*#__PURE__*/ _jsx('svg', {
+      startIcon = _jsx(Icon, {
+        fontSize: '1.4rem',
+        children: _jsx('svg', {
           xmlns: 'http://www.w3.org/2000/svg',
           fill: 'none',
           viewBox: '0 0 24 24',
           strokeWidth: 1.5,
           stroke: 'currentColor',
           className: 'w-6 h-6',
-          children: /*#__PURE__*/ _jsx('path', {
+          children: _jsx('path', {
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
             d: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z',
+          }),
+        }),
+      });
+    } else if (color == 'info') {
+      startIcon = _jsx(Icon, {
+        fontSize: '1.4rem',
+        children: _jsx('svg', {
+          xmlns: 'http://www.w3.org/2000/svg',
+          fill: 'none',
+          viewBox: '0 0 24 24',
+          strokeWidth: 1.5,
+          stroke: 'currentColor',
+          className: 'w-6 h-6',
+          children: _jsx('path', {
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            d: 'M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z',
           }),
         }),
       });
@@ -152,32 +181,33 @@ export const Alert = ({
       clearTimeout(timeout);
     };
   }, [open]);
-  return /*#__PURE__*/ _jsx(_Fragment, {
+  return _jsx(_Fragment, {
     children:
       open &&
-      /*#__PURE__*/ _jsxs(StyledAlert, {
+      _jsxs(StyledAlert, {
+        styleOverrides: styleOverrides,
         startIcon: startIcon,
         variables: variables,
         position: position,
         _color: color,
         className: className,
         ...other,
-        style: style,
+        css: sx,
         children: [
           startIcon,
           children,
           !withioutButton &&
-            /*#__PURE__*/ _jsx(IconButton, {
+            _jsx(IconButton, {
               onClick: onClose,
-              children: /*#__PURE__*/ _jsx(Icon, {
-                children: /*#__PURE__*/ _jsx('svg', {
+              children: _jsx(Icon, {
+                children: _jsx('svg', {
                   xmlns: 'http://www.w3.org/2000/svg',
                   fill: 'none',
                   viewBox: '0 0 24 24',
                   strokeWidth: 1.5,
                   stroke: 'currentColor',
                   className: 'w-6 h-6',
-                  children: /*#__PURE__*/ _jsx('path', {
+                  children: _jsx('path', {
                     strokeLinecap: 'round',
                     strokeLinejoin: 'round',
                     d: 'M6 18L18 6M6 6l12 12',

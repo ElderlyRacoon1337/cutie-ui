@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
-import React, { useContext, useRef } from 'react';
+import { useContext, useRef } from 'react';
 import tinycolor from 'tinycolor2';
-import { ThemeContext } from '../../ThemeProvider';
+import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import { Icon } from '../Icon';
 import { initialVariables } from '../../variables';
 /** @jsxImportSource @emotion/react */
-
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledCheckbox = styled.div`
   div {
     position: relative;
@@ -85,22 +86,7 @@ const StyledCheckbox = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-
-interface CheckboxProps {
-  size?: 'small' | 'medium' | 'large';
-  color?: string;
-  sx?: React.CSSProperties | object;
-  className?: string;
-  other?: object;
-  width?: string;
-  disabled?: boolean;
-  checked: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  onClick?: React.MouseEventHandler<HTMLInputElement>;
-  label?: string;
-}
-
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox = ({
   size = 'medium',
   width,
   color = 'primary',
@@ -123,62 +109,66 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-
-  return (
-    <StyledCheckbox
-      styleOverrides={styleOverrides}
-      onClick={(e) => ref.current.click()}
-      _color={color}
-      variables={variables}
-      size={size}
-      _width={width}
-      _disabled={disabled}
-      css={sx}
-      {...other}
-      className={className}
-    >
-      <div onClick={(e) => ref.current.click()}>
-        <input
-          disabled={disabled}
-          width={width}
-          ref={ref}
-          checked={checked}
-          onClick={onClick}
-          onChange={onChange}
-          type="checkbox"
-        />
-        {checked && (
-          <Icon
-            onClick={(e) => ref.current.click()}
-            fontSize={
-              width
+  return _jsxs(StyledCheckbox, {
+    styleOverrides: styleOverrides,
+    onClick: (e) => ref.current.click(),
+    _color: color,
+    variables: variables,
+    size: size,
+    _width: width,
+    _disabled: disabled,
+    css: sx,
+    ...other,
+    className: className,
+    children: [
+      _jsxs('div', {
+        onClick: (e) => ref.current.click(),
+        children: [
+          _jsx('input', {
+            disabled: disabled,
+            width: width,
+            ref: ref,
+            checked: checked,
+            onClick: onClick,
+            onChange: onChange,
+            type: 'checkbox',
+          }),
+          checked &&
+            _jsx(Icon, {
+              onClick: (e) => ref.current.click(),
+              fontSize: width
                 ? width
                 : size == 'small'
                 ? '0.9rem'
                 : size == 'medium'
                 ? '1rem'
-                : '1.2rem'
-            }
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 256"
-              id="check"
-            >
-              <rect width="256" height="256" fill="none"></rect>
-              <polyline
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="24"
-                points="216 72.005 104 184 48 128.005"
-              ></polyline>
-            </svg>
-          </Icon>
-        )}
-      </div>
-      <label>{label}</label>
-    </StyledCheckbox>
-  );
+                : '1.2rem',
+              children: _jsxs('svg', {
+                xmlns: 'http://www.w3.org/2000/svg',
+                viewBox: '0 0 256 256',
+                id: 'check',
+                children: [
+                  _jsx('rect', {
+                    width: '256',
+                    height: '256',
+                    fill: 'none',
+                  }),
+                  _jsx('polyline', {
+                    fill: 'none',
+                    stroke: 'currentColor',
+                    strokeLinecap: 'round',
+                    strokeLinejoin: 'round',
+                    strokeWidth: '24',
+                    points: '216 72.005 104 184 48 128.005',
+                  }),
+                ],
+              }),
+            }),
+        ],
+      }),
+      _jsx('label', {
+        children: label,
+      }),
+    ],
+  });
 };

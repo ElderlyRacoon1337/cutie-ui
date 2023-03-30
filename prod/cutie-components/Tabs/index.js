@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import { useContext } from 'react';
 import tinycolor from 'tinycolor2';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { jsx as _jsx } from 'react/jsx-runtime';
-import { jsxs as _jsxs } from 'react/jsx-runtime';
+import { initialVariables } from '../../variables';
+/** @jsxImportSource @emotion/react */
+import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledTabsWrapper = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,6 +14,8 @@ const StyledTabsWrapper = styled.div`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  ${(props) => props.styleOverrides};
 `;
 const StyledTabs = styled.div`
   display: -webkit-box;
@@ -109,26 +113,33 @@ export const Tabs = ({
   fullWidth,
   rounded,
   circle,
+  sx,
 }) => {
   var _Array$from;
   const theme = useContext(ThemeContext);
-  const variables = theme.variables;
+  let variables = theme.variables;
+  if (Object.keys(variables).length === 0) {
+    variables = initialVariables;
+  }
   const mode = theme.theme;
+  const styleOverrides = theme.styleOverrides.tabs;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return /*#__PURE__*/ _jsxs(StyledTabsWrapper, {
+  return _jsxs(StyledTabsWrapper, {
     className: 'CuteTabs-wrapper',
     children: [
-      /*#__PURE__*/ _jsx(StyledTabs, {
+      _jsx(StyledTabs, {
         className: className,
         children:
           labels === null || labels === void 0
             ? void 0
             : labels.map((el, i) =>
-                /*#__PURE__*/ _jsx(
+                _jsx(
                   StyledTab,
                   {
+                    styleOverrides: styleOverrides,
+                    css: sx,
                     variant: variant,
                     fullWidth: fullWidth,
                     _mode: mode,
@@ -146,7 +157,7 @@ export const Tabs = ({
                 )
               ),
       }),
-      /*#__PURE__*/ _jsx('div', {
+      _jsx('div', {
         children:
           (_Array$from = Array.from(children)) === null ||
           _Array$from === void 0
