@@ -10,7 +10,11 @@ import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
 const StyledCheckbox = styled.div`
   div {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  cursor: pointer;
 
   label {
     margin-left: 0.5rem;
@@ -23,7 +27,6 @@ const StyledCheckbox = styled.div`
       props.size == 'large' && `font-size: ${props.variables.fontSizeLarge};`}
   }
 
-  width: fit-content;
   display: flex;
   input[type='checkbox'] {
     appearance: none;
@@ -37,6 +40,7 @@ const StyledCheckbox = styled.div`
     align-items: center;
     justify-content: center;
     background-color: transparent;
+    cursor: pointer;
   }
 
   input[type='checkbox']:checked {
@@ -77,11 +81,16 @@ const StyledCheckbox = styled.div`
 
   ${(props) =>
     props._disabled &&
-    `
+    `cursor: not-allowed;
     input[type='checkbox']{
     border-color: ${props.variables.disabled};
       cursor: not-allowed;
     }
+    input[type='checkbox']:checked{
+      border-color: ${props.variables.disabled};
+      background-color: ${props.variables.disabled};
+      cursor: not-allowed;
+      }
   `}
 
   ${(props) => props.styleOverrides};
@@ -166,9 +175,10 @@ export const Checkbox = ({
             }),
         ],
       }),
-      _jsx('label', {
-        children: label,
-      }),
+      label &&
+        _jsx('label', {
+          children: label,
+        }),
     ],
   });
 };

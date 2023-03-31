@@ -7,10 +7,11 @@ import { initialVariables } from '../../variables';
 const StyledRadio = styled.div`
   width: fit-content;
   display: flex;
+  align-items: center;
+  cursor: pointer;
 
   input {
     opacity: 0;
-    cursor: pointer;
     appearance: none;
   }
 
@@ -35,7 +36,7 @@ const StyledRadio = styled.div`
 
   ${(props) =>
     props.size == 'medium' &&
-    `span {width:1.1rem; height:1.1rem;}
+    `span {width:1.12rem; height:1.12rem;}
     `}
 
   ${(props) => props.size == 'small' && `span {width:1rem; height:1rem;}`}

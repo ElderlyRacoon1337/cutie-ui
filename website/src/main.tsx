@@ -13,6 +13,9 @@ const themeOptions = {
     codeBg: '#141414',
     // primary: '#ffb5ff',
   },
+  styleOverrides: {
+    button: ``,
+  },
 };
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

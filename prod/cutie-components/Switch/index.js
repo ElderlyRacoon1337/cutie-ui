@@ -80,7 +80,10 @@ const StyledSwitch = styled.label`
   `}
 
   ${(props) =>
-    props.disabled && `background-color: var(--disabled) !important;`}
+    props.disabled &&
+    `background-color: var(--disabled) !important;
+    cursor: not-allowed;
+    `}
 
     ${(props) =>
     props.size == 'small' &&

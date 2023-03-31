@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { ThemeContext } from '../../ThemeProvider';
 import { initialVariables } from '../../variables';
 /** @jsxImportSource @emotion/react */
@@ -54,6 +60,24 @@ const StyledMenu = styled.div`
   ${(props) => props.styleOverrides};
 `;
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+}
+
+function ShowWindowDimensions() {
+  const [width, height] = useWindowSize();
+  return { width, height };
+}
+
 export const Menu: React.FC<MenuProps> = ({
   open,
   anchorEl,
@@ -76,6 +100,7 @@ export const Menu: React.FC<MenuProps> = ({
   const [widthParent, setWidthParent] = useState(0);
   const prevent = (ev: any) => ev.preventDefault();
   const styleOverrides = theme.styleOverrides.menu;
+  const windowSize = ShowWindowDimensions();
 
   const getAnchorPosition = () => {
     if (anchorEl && menu.current) {
@@ -97,7 +122,7 @@ export const Menu: React.FC<MenuProps> = ({
         anchorPosition.top -
         menuPosition.height -
         menuPosition.height / 2 -
-        10;
+        20;
       if (bottomOut < 0) {
         setYpos(anchorPosition.y + window.scrollY - menuPosition.height);
       } else {
@@ -105,7 +130,6 @@ export const Menu: React.FC<MenuProps> = ({
       }
     }
   };
-
   useEffect(() => {
     getAnchorPosition();
     return () => {
@@ -113,8 +137,7 @@ export const Menu: React.FC<MenuProps> = ({
       setXpos(0);
       setYpos(0);
     };
-  }, [anchorEl, menu.current]);
-
+  }, [anchorEl, menu.current, windowSize]);
   useEffect(() => {
     function handleClickOutside(event: any) {
       if (

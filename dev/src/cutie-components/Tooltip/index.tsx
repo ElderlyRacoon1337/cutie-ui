@@ -30,7 +30,7 @@ const StyledTooltip = styled.span`
     props.ypos !== 0 && props.xpos !== 0
       ? `top: ${props.ypos}px;
   left: ${props.xpos}px;`
-      : 'visibility: hidden;'}
+      : 'opacity:0;'}
   &:hover {
     transition: 2s;
   }

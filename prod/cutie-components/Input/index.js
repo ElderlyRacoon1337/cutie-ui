@@ -144,8 +144,7 @@ input {
 
 ${(props) =>
     props.variant == 'filled' &&
-    `outline: 1px solid transparent !important;
-border-bottom: 1.5px solid;
+    `border-bottom: 1.5px solid ${props.variables.divider};
 border-radius: 0;
 background-color: ${tinycolor('black').setAlpha(0.06).toString()};
 input {
@@ -162,7 +161,8 @@ border-radius: 0;
 ${(props) =>
     props.variant == 'filled' &&
     props._mode == 'dark' &&
-    `background-color: ${tinycolor('white').setAlpha(0.06).toString()};`}
+    `background-color: ${tinycolor('white').setAlpha(0.06).toString()};
+    `}
 
 ${(props) =>
     props.variant == 'outlined' &&
@@ -178,7 +178,7 @@ ${(props) =>
     props.variant == 'underlined' &&
     `border-radius: 0;
 border: none;
-border-bottom: 1.5px solid;
+border-bottom: 1.5px solid ${props.variables.divider};
 input {
   border: none;
   padding-left: 0;
@@ -196,19 +196,30 @@ button {
 ${(props) =>
     props.variant == 'basic' &&
     `border-radius: 0;
+    button{
+      border-radius:0;
+    }
 input {
   border: none;
   padding-left: 0;
   padding-right: 0;
 }`}
 
-outline-color: ${(props) => props.variables.divider};
   ${(props) =>
     props.focused &&
     `border-color:${props._color};
-      box-shadow:0 0 0 1.5px ${props._color};
 svg {
   color: ${props._color} !important;
+}
+`}
+
+${(props) =>
+    props.focused &&
+    props.variant == 'outlined' &&
+    `border-color:${props._color};
+    box-shadow:0 0 0 1.5px ${props._color};
+svg {
+color: ${props._color} !important;
 }
 `}
 

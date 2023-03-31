@@ -15,7 +15,7 @@ const GettingStarted = () => {
   const timeout3 = useRef<any>(null);
 
   return (
-    <>
+    <div className="pb-100px">
       <h1 className="m-0px mb-5px" style={{ fontSize: '50px' }}>
         Getting Started
       </h1>
@@ -175,7 +175,7 @@ const GettingStarted = () => {
           Components
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

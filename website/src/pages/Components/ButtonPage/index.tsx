@@ -1,28 +1,17 @@
-import { Button, Icon } from 'cutie-ui';
+import { Button, Icon, Loader } from 'cutie-ui';
 import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles from './ButtonPage.module.scss';
+import { Section } from '../../../components/Section';
 
 const ButtonPage = () => {
   SyntaxHighlighter.supportedLanguages = ['jsx', 'javascript', 'react', 'node'];
   const [isCopied1, setIsCopied1] = useState(false);
   const timeout1 = useRef<any>(null);
 
-  const [isCopied2, setIsCopied2] = useState(false);
-  const [isShow2, setIsShow2] = useState(false);
-  const timeout2 = useRef<any>(null);
-
-  const [isCopied3, setIsCopied3] = useState(false);
-  const [isShow3, setIsShow3] = useState(false);
-  const timeout3 = useRef<any>(null);
-
-  const [isCopied4, setIsCopied4] = useState(false);
-  const [isShow4, setIsShow4] = useState(false);
-  const timeout4 = useRef<any>(null);
-
   return (
-    <>
+    <div>
       <h1 className="m-0px mb-35px" style={{ fontSize: '50px' }}>
         Button
       </h1>
@@ -60,89 +49,47 @@ const ButtonPage = () => {
           </Button>
         </div>
       </div>
-
-      <div className="variants">
-        <p className="mt-30px mb-10px fw-600" style={{ fontSize: '22px' }}>
-          Variants
-        </p>
-        <div className={styles.area}>
-          <div className="df aic mb-20px">
-            <Button className="mr-20px">text</Button>
-            <Button variant="text2" className="mr-20px">
-              text2
-            </Button>
-          </div>
-          <div className="df aic mb-20px">
-            <Button variant="outlined" className="mr-20px">
-              outlined
-            </Button>
-            <Button variant="outlined2" className="mr-20px">
-              outlined2
-            </Button>
-            <Button variant="outlined3" className="mr-20px">
-              outlined3
-            </Button>
-            <Button variant="outlined4" className="mr-20px">
-              outlined4
-            </Button>
-          </div>
-          <div className="df aic">
-            <Button variant="contained" className="mr-20px">
-              contained
-            </Button>
-            <Button variant="contained2" className="mr-20px">
-              contained2
-            </Button>
-            <Button variant="contained3" className="mr-20px">
-              contained3
-            </Button>
-            <Button variant="contained4" className="mr-20px">
-              contained4
-            </Button>
-          </div>
-        </div>
-        <Button
-          className={isShow2 ? 'mb-15px' : ''}
-          color="neutral"
-          variant="outlined"
-          size="small"
-          onClick={() => setIsShow2(!isShow2)}
-          endIcon={
-            <Icon fontSize={'1rem'}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                />
-              </svg>
-            </Icon>
-          }
-        >
-          {!isShow2 ? 'Show code' : 'Hide code'}
-        </Button>
-        {isShow2 && (
-          <div className="relative">
-            <SyntaxHighlighter
-              customStyle={{
-                backgroundColor: 'var(--codeBg)',
-                padding: '20px',
-                borderRadius: '10px',
-                marginBottom: '20px',
-                lineHeight: '1.3rem',
-                margin: 0,
-              }}
-              language="jsx"
-              style={tomorrow}
-            >
-              {`<div className="df aic mb-20px">
+      <Section
+        title="Variants"
+        area={
+          <>
+            <div className="df aic mb-20px">
+              <Button className="mr-20px">text</Button>
+              <Button variant="text2" className="mr-20px">
+                text2
+              </Button>
+            </div>
+            <div className="df aic mb-20px">
+              <Button variant="outlined" className="mr-20px">
+                outlined
+              </Button>
+              <Button variant="outlined2" className="mr-20px">
+                outlined2
+              </Button>
+              <Button variant="outlined3" className="mr-20px">
+                outlined3
+              </Button>
+              <Button variant="outlined4" className="mr-20px">
+                outlined4
+              </Button>
+            </div>
+            <div className="df aic">
+              <Button variant="contained" className="mr-20px">
+                contained
+              </Button>
+              <Button variant="contained2" className="mr-20px">
+                contained2
+              </Button>
+              <Button variant="contained3" className="mr-20px">
+                contained3
+              </Button>
+              <Button variant="contained4" className="mr-20px">
+                contained4
+              </Button>
+            </div>
+          </>
+        }
+        code='<div className="df aic mb-20px">
   <Button className="mr-20px">text</Button>
   <Button variant="text2" className="mr-20px">
     text2
@@ -175,167 +122,76 @@ const ButtonPage = () => {
   <Button variant="contained4" className="mr-20px">
     contained4
   </Button>
-</div>`}
-            </SyntaxHighlighter>
-            <Button
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  `<Button className="mr-20px">Text</Button>
-  <Button variant="text2" className="mr-20px">
-    text2
-  </Button>
-</div>
-<div className="df aic mb-20px">
-  <Button variant="outlined" className="mr-20px">
-    outlined
-  </Button>
-  <Button variant="outlined2" className="mr-20px">
-    outlined2
-  </Button>
-  <Button variant="outlined3" className="mr-20px">
-    outlined3
-  </Button>
-  <Button variant="outlined4" className="mr-20px">
-    outlined4
-  </Button>
-</div>
-<div className="df aic">
-  <Button variant="contained" className="mr-20px">
-    contained
-  </Button>
-  <Button variant="contained2" className="mr-20px">
-    contained2
-  </Button>
-  <Button variant="contained3" className="mr-20px">
-    contained3
-  </Button>
-  <Button variant="contained4" className="mr-20px">
-    contained4
-  </Button>
-</div>`
-                );
-                setIsCopied2(true);
-                clearTimeout(timeout2.current);
-                timeout2.current = setTimeout(() => {
-                  setIsCopied2(false);
-                }, 2000);
-              }}
-              size="small"
-              variant="contained"
-              color={!isCopied2 ? 'primary' : 'success'}
-              className="absolute top-10px right-10px"
-            >
-              {!isCopied2 ? 'Copy' : 'Copied'}
-            </Button>
-          </div>
-        )}
-      </div>
-
-      <div className="colors">
-        <p className="mt-30px mb-20px fw-600" style={{ fontSize: '22px' }}>
-          Colors
-        </p>
-        <p className="mb-15px fslg">Variables as colors</p>
-        <div className={styles.area}>
-          <div className="df aic mb-20px">
-            <Button color="primary" variant="contained" className="mr-20px">
-              primary
-            </Button>
-            <Button color="secondary" variant="contained" className="mr-20px">
-              secondary
-            </Button>
-            <Button color="neutral" variant="contained" className="mr-20px">
-              neutral
-            </Button>
-            <Button color="success" variant="contained" className="mr-20px">
-              success
-            </Button>
-            <Button color="error" variant="contained" className="mr-20px">
-              error
-            </Button>
-            <Button color="warning" variant="contained" className="mr-20px">
-              warning
-            </Button>
-            <Button color="info" variant="contained" className="mr-20px">
-              info
-            </Button>
-            <Button color="textPrimary" variant="contained" className="mr-20px">
-              textPrimary
-            </Button>
-          </div>
-          <div className="df aic">
-            <Button color="twitter" variant="contained" className="mr-20px">
-              twitter
-            </Button>
-            <Button color="facebook" variant="contained" className="mr-20px">
-              facebook
-            </Button>
-            <Button color="telegram" variant="contained" className="mr-20px">
-              telegram
-            </Button>
-            <Button color="whatsapp" variant="contained" className="mr-20px">
-              whatsapp
-            </Button>
-            <Button color="viber" variant="contained" className="mr-20px">
-              viber
-            </Button>
-            <Button color="vk" variant="contained" className="mr-20px">
-              vk
-            </Button>
-            <Button
-              color="odnoklassniki"
-              variant="contained"
-              className="mr-20px"
-            >
-              odnoklassniki
-            </Button>
-            <Button color="youtube" variant="contained" className="mr-20px">
-              youtube
-            </Button>
-          </div>
-        </div>
-        <Button
-          className={'mb-15px'}
-          color="neutral"
-          variant="outlined"
-          size="small"
-          onClick={() => setIsShow3(!isShow3)}
-          endIcon={
-            <Icon fontSize={'1rem'}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+</div>'
+      />
+      <Section
+        title="Colors"
+        text="Variables as colors"
+        area={
+          <>
+            <div className="df aic mb-20px">
+              <Button color="primary" variant="contained" className="mr-20px">
+                primary
+              </Button>
+              <Button color="secondary" variant="contained" className="mr-20px">
+                secondary
+              </Button>
+              <Button color="neutral" variant="contained" className="mr-20px">
+                neutral
+              </Button>
+              <Button color="success" variant="contained" className="mr-20px">
+                success
+              </Button>
+              <Button color="error" variant="contained" className="mr-20px">
+                error
+              </Button>
+              <Button color="warning" variant="contained" className="mr-20px">
+                warning
+              </Button>
+              <Button color="info" variant="contained" className="mr-20px">
+                info
+              </Button>
+              <Button
+                color="textPrimary"
+                variant="contained"
+                className="mr-20px"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                />
-              </svg>
-            </Icon>
-          }
-        >
-          {!isShow3 ? 'Show code' : 'Hide code'}
-        </Button>
-        {isShow4 && (
-          <div className="relative">
-            <SyntaxHighlighter
-              customStyle={{
-                backgroundColor: 'var(--codeBg)',
-                padding: '20px',
-                borderRadius: '10px',
-                marginBottom: '20px',
-                lineHeight: '1.3rem',
-                margin: 0,
-              }}
-              language="jsx"
-              style={tomorrow}
-            >
-              {`<div className="df aic mb-20px">
+                textPrimary
+              </Button>
+            </div>
+            <div className="df aic">
+              <Button color="twitter" variant="contained" className="mr-20px">
+                twitter
+              </Button>
+              <Button color="facebook" variant="contained" className="mr-20px">
+                facebook
+              </Button>
+              <Button color="telegram" variant="contained" className="mr-20px">
+                telegram
+              </Button>
+              <Button color="whatsapp" variant="contained" className="mr-20px">
+                whatsapp
+              </Button>
+              <Button color="viber" variant="contained" className="mr-20px">
+                viber
+              </Button>
+              <Button color="vk" variant="contained" className="mr-20px">
+                vk
+              </Button>
+              <Button
+                color="odnoklassniki"
+                variant="contained"
+                className="mr-20px"
+              >
+                odnoklassniki
+              </Button>
+              <Button color="youtube" variant="contained" className="mr-20px">
+                youtube
+              </Button>
+            </div>
+          </>
+        }
+        code={`<div className="df aic mb-20px">
   <Button color="primary" variant="contained" className="mr-20px">
     primary
   </Button>
@@ -391,87 +247,11 @@ const ButtonPage = () => {
     youtube
   </Button>
 </div>`}
-            </SyntaxHighlighter>
-            <Button
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  `<div className="df aic mb-20px">
-  <Button color="primary" variant="contained" className="mr-20px">
-    primary
-  </Button>
-  <Button color="secondary" variant="contained" className="mr-20px">
-    secondary
-  </Button>
-  <Button color="neutral" variant="contained" className="mr-20px">
-    neutral
-  </Button>
-  <Button color="success" variant="contained" className="mr-20px">
-    success
-  </Button>
-  <Button color="error" variant="contained" className="mr-20px">
-    error
-  </Button>
-  <Button color="warning" variant="contained" className="mr-20px">
-    warning
-  </Button>
-  <Button color="info" variant="contained" className="mr-20px">
-    info
-  </Button>
-  <Button color="textPrimary" variant="contained" className="mr-20px">
-    textPrimary
-  </Button>
-</div>
-<div className="df aic">
-  <Button color="twitter" variant="contained" className="mr-20px">
-    twitter
-  </Button>
-  <Button color="facebook" variant="contained" className="mr-20px">
-    facebook
-  </Button>
-  <Button color="telegram" variant="contained" className="mr-20px">
-    telegram
-  </Button>
-  <Button color="whatsapp" variant="contained" className="mr-20px">
-    whatsapp
-  </Button>
-  <Button color="viber" variant="contained" className="mr-20px">
-    viber
-  </Button>
-  <Button color="vk" variant="contained" className="mr-20px">
-    vk
-  </Button>
-  <Button
-    color="odnoklassniki"
-    variant="contained"
-    className="mr-20px"
-  >
-    odnoklassniki
-  </Button>
-  <Button color="youtube" variant="contained" className="mr-20px">
-    youtube
-  </Button>
-</div>`
-                );
-                setIsCopied3(true);
-                clearTimeout(timeout3.current);
-                timeout4.current = setTimeout(() => {
-                  setIsCopied3(false);
-                }, 2000);
-              }}
-              size="small"
-              variant="contained"
-              color={!isCopied4 ? 'primary' : 'success'}
-              className="absolute top-10px right-10px"
-            >
-              {!isCopied3 ? 'Copy' : 'Copied'}
-            </Button>
-          </div>
-        )}
-        <p className="mb-15px fslg">
-          The color can be anything, and the text color will automatically
-          change depending on the tone.
-        </p>
-        <div className={styles.area}>
+      />
+      <Section
+        text="The color can be anything, and the text color will automatically
+          change depending on the tone."
+        area={
           <div className="df aic">
             <Button color="hotpink" variant="contained" className="mr-20px">
               hotpink
@@ -493,21 +273,8 @@ const ButtonPage = () => {
               rgb(0, 65, 217)
             </Button>
           </div>
-        </div>
-        {isShow4 && (
-          <div className="relative">
-            <SyntaxHighlighter
-              customStyle={{
-                backgroundColor: 'var(--codeBg)',
-                padding: '20px',
-                borderRadius: '10px',
-                marginBottom: '20px',
-                lineHeight: '1.3rem',
-              }}
-              language="jsx"
-              style={tomorrow}
-            >
-              {`<Button color="hotpink" variant="contained" className="mr-20px">
+        }
+        code={`<Button color="hotpink" variant="contained" className="mr-20px">
   hotpink
 </Button>
 <Button color="turquoise" variant="contained" className="mr-20px">
@@ -526,384 +293,375 @@ const ButtonPage = () => {
 >
   rgb(0, 65, 217)
 </Button>`}
-            </SyntaxHighlighter>
+      />
+      <Section
+        text="Transparent buttons"
+        area={
+          <span className="relative">
+            <img
+              width={'350px'}
+              height="auto"
+              src="https://cdn.oneesports.gg/cdn-data/2021/10/Dota2_NetflixDotaDragonsBlood_Marci_Hero_2.jpg"
+            />
             <Button
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  `<Button color="hotpink" variant="contained" className="mr-20px">
-  hotpink
-</Button>
-<Button color="turquoise" variant="contained" className="mr-20px">
-  turquoise
-</Button>
-<Button color="#3aeb34" variant="contained" className="mr-20px">
-  #3aeb34
-</Button>
-<Button color="#e332d1" variant="contained" className="mr-20px">
-  #e332d1
+              className="mr-20px absolute right-60px bottom-80px"
+              color="rgba(0,0,0,0.5)"
+              variant="contained"
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'rgba(0,0,0,0.7)',
+                },
+                '&:active': {
+                  backgroundColor: 'rgba(0,0,0,0.8)',
+                },
+              }}
+            >
+              Button
+            </Button>
+            <Button
+              className="mr-20px absolute right-170px bottom-80px"
+              color="rgba(255,255,255,0.5)"
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.7)',
+                },
+                '&:active': {
+                  backgroundColor: 'rgba(255,255,255,0.8)',
+                },
+              }}
+              variant="contained"
+            >
+              Button
+            </Button>
+          </span>
+        }
+        code={`<Button
+  className="mr-20px absolute right-60px bottom-80px"
+  color="rgba(0,0,0,0.5)"
+  variant="contained"
+  sx={{
+    '&:hover': {
+      backgroundColor: 'rgba(0,0,0,0.7)',
+    },
+    '&:active': {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+    },
+  }}
+>
+Button
 </Button>
 <Button
-  color="rgb(0, 65, 217)"
+  className="mr-20px absolute right-170px bottom-80px"
+  color="rgba(255,255,255,0.5)"
+  sx={{
+    '&:hover': {
+      backgroundColor: 'rgba(255,255,255,0.7)',
+    },
+    '&:active': {
+      backgroundColor: 'rgba(255,255,255,0.8)',
+    },
+  }}
   variant="contained"
-  className="mr-20px"
->
-  rgb(0, 65, 217)
-</Button>`
-                );
-                setIsCopied4(true);
-                setTimeout(() => {
-                  setIsCopied4(false);
-                }, 2000);
-              }}
-              size="small"
-              variant="contained"
-              color={!isCopied4 ? 'primary' : 'success'}
-              className="absolute top-10px right-10px"
-            >
-              {!isCopied4 ? 'Copy' : 'Copied'}
-            </Button>
-          </div>
-        )}
-        <Button
-          className={'mb-15px'}
-          color="neutral"
-          variant="outlined"
-          size="small"
-          onClick={() => setIsShow4(!isShow4)}
-          endIcon={
-            <Icon fontSize={'1rem'}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                />
-              </svg>
-            </Icon>
-          }
-        >
-          {!isShow4 ? 'Show code' : 'Hide code'}
-        </Button>
-      </div>
-
-      <div className="sizes">
-        <p className="mt-30px mb-20px fw-600" style={{ fontSize: '22px' }}>
-          Sizes
-        </p>
-        <div className={styles.area}>
+  >
+  Button
+</Button>`}
+      />
+      <Section
+        title="Sizes"
+        area={
           <div className="df aic">
             <Button size="small" variant="contained" className="mr-20px">
-              Small
+              small
             </Button>
-            <Button size="medium" variant="contained" className="mr-20px">
-              Medium
+            <Button variant="contained" className="mr-20px">
+              medium
             </Button>
             <Button size="large" variant="contained" className="mr-20px">
-              Large
+              large
             </Button>
           </div>
-        </div>
-        <div className="relative">
-          <SyntaxHighlighter
-            language="jsx"
-            style={tomorrow}
-            customStyle={{
-              backgroundColor: 'var(--codeBg)',
-              padding: '20px',
-              borderRadius: '10px',
-              marginBottom: '20px',
-            }}
-          >
-            {`<Button size="small" variant="contained" className="mr-20px">
-    Small
+        }
+        code={`<Button size="small" variant="contained" className="mr-20px">
+  small
 </Button>
-<Button size="medium" variant="contained" className="mr-20px">
-    Medium
+<Button variant="contained" className="mr-20px">
+  medium
 </Button>
 <Button size="large" variant="contained" className="mr-20px">
-    Large
+  large
 </Button>`}
-          </SyntaxHighlighter>
-          <Button
-            style={{ transition: 'none' }}
-            onClick={() => {
-              navigator.clipboard.writeText(
-                "import { Button } from 'cutie-ui'"
-              );
-              setIsCopied1(true);
-              clearTimeout(timeout1.current);
-              timeout1.current = setTimeout(() => {
-                setIsCopied1(false);
-              }, 2000);
-            }}
-            size="small"
-            variant="contained"
-            color={!isCopied1 ? 'primary' : 'success'}
-            className="absolute top-10px right-10px"
-          >
-            {!isCopied1 ? 'Copy' : 'Copied'}
-          </Button>
-        </div>
-      </div>
+      />
 
-      <div className="square">
-        <p className="mt-30px mb-20px fw-600" style={{ fontSize: '22px' }}>
-          Square
-        </p>
-        <div className={styles.area}>
-          <Button square className="mr-20px">
-            Square
-          </Button>
-          <Button square variant="outlined" className="mr-20px">
-            Square
-          </Button>
-          <Button square variant="contained" className="mr-20px">
-            Square
-          </Button>
-        </div>
-        <div className="relative">
-          <SyntaxHighlighter
-            language="jsx"
-            style={tomorrow}
-            customStyle={{
-              backgroundColor: 'var(--codeBg)',
-              padding: '20px',
-              borderRadius: '10px',
-              marginBottom: '20px',
-            }}
-          >
-            {`<Button square className="mr-20px">
-    Square
-</Button>
-<Button square variant="outlined" className="mr-20px">
-    Square
-</Button>
-<Button square variant="contained" className="mr-20px">
-    Square
-</Button>`}
-          </SyntaxHighlighter>
-          <Button
-            style={{ transition: 'none' }}
-            onClick={() => {
-              navigator.clipboard.writeText(
-                "import { Button } from 'cutie-ui'"
-              );
-              setIsCopied1(true);
-              clearTimeout(timeout1.current);
-              timeout1.current = setTimeout(() => {
-                setIsCopied1(false);
-              }, 2000);
-            }}
-            size="small"
-            variant="contained"
-            color={!isCopied1 ? 'primary' : 'success'}
-            className="absolute top-10px right-10px"
-          >
-            {!isCopied1 ? 'Copy' : 'Copied'}
-          </Button>
-        </div>
-      </div>
-
-      <div className="icons">
-        <p className="mt-30px mb-20px fw-600" style={{ fontSize: '22px' }}>
-          Icons
-        </p>
-        <div className={styles.area}>
+      <Section
+        title="Disabled"
+        area={
           <div className="df aic">
-            <Button
-              startIcon={
-                <Icon>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
-                    />
-                  </svg>
-                </Icon>
-              }
-              variant="contained"
-              className="mr-20px"
-            >
-              Start-icon
-            </Button>
-            <Button
-              endIcon={
-                <Icon>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                    />
-                  </svg>
-                </Icon>
-              }
-              variant="contained"
-              className="mr-20px"
-            >
-              End-icon
-            </Button>
-            <Button
-              startIcon={
-                <Icon>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </Icon>
-              }
-              endIcon={
-                <Icon>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-                </Icon>
-              }
-              variant="contained"
-              className="mr-20px"
-            >
-              Both
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      <div className="disabled">
-        <p className="mt-30px mb-20px fw-600" style={{ fontSize: '22px' }}>
-          Disabled
-        </p>
-        <div className={styles.area}>
-          <div className="df aic">
-            <Button disabled className="mr-20px">
-              Disabled
+            <Button disabled variant="text" className="mr-20px">
+              disabled
             </Button>
             <Button disabled variant="outlined" className="mr-20px">
-              Disabled
+              disabled
             </Button>
             <Button disabled variant="contained" className="mr-20px">
-              Disabled
+              disabled
             </Button>
           </div>
-        </div>
-        <div className="relative">
-          <SyntaxHighlighter
-            customStyle={{
-              backgroundColor: 'var(--codeBg)',
-              padding: '20px',
-              borderRadius: '10px',
-              marginBottom: '20px',
-              lineHeight: '1.3rem',
-            }}
-            language="jsx"
-            style={tomorrow}
-          >
-            {`<Button disabled className="mr-20px">
-    Disabled
+        }
+        code={`<Button disabled variant="text" className="mr-20px">
+  disabled
 </Button>
 <Button disabled variant="outlined" className="mr-20px">
-    Disabled
+  disabled
 </Button>
 <Button disabled variant="contained" className="mr-20px">
-    Disabled
+  disabled
 </Button>`}
-          </SyntaxHighlighter>
-          <Button
-            style={{ transition: 'none' }}
-            onClick={() => {
-              navigator.clipboard.writeText(
-                "import { Button } from 'cutie-ui'"
-              );
-              setIsCopied1(true);
-              setTimeout(() => {
-                setIsCopied1(false);
-              }, 2000);
-            }}
-            size="small"
-            variant="contained"
-            color={!isCopied1 ? 'primary' : 'success'}
-            className="absolute top-10px right-10px"
-          >
-            {!isCopied1 ? 'Copy' : 'Copied'}
-          </Button>
-        </div>
-      </div>
+      />
+
+      <Section
+        title="Icons"
+        area={
+          <div className="df aic">
+            <Button
+              className="mr-20px"
+              variant="contained"
+              startIcon={
+                <Icon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                    />
+                  </svg>
+                </Icon>
+              }
+            >
+              startIcon
+            </Button>
+            <Button
+              variant="contained"
+              className="mr-20px"
+              endIcon={
+                <Icon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+                    />
+                  </svg>
+                </Icon>
+              }
+            >
+              endIcon
+            </Button>
+            <Button
+              variant="contained"
+              className="mr-20px"
+              startIcon={
+                <Icon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                    />
+                  </svg>
+                </Icon>
+              }
+              endIcon={
+                <Icon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </Icon>
+              }
+            >
+              both
+            </Button>
+            <Button
+              variant="contained"
+              endIcon={
+                <Loader
+                  size={'0.7rem'}
+                  variant={2}
+                  fatness={'1.5px'}
+                  color="textOpposite"
+                />
+              }
+            >
+              loader
+            </Button>
+          </div>
+        }
+        code={`<Button
+  className="mr-20px"
+  variant="contained"
+  startIcon={
+    <Icon>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+        />
+      </svg>
+    </Icon>
+  }
+>
+  startIcon
+</Button>
+<Button
+  variant="contained"
+  className="mr-20px"
+  endIcon={
+    <Icon>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+        />
+      </svg>
+    </Icon>
+  }
+>
+  endIcon
+</Button>
+<Button
+  variant="contained"
+  className="mr-20px"
+  startIcon={
+    <Icon>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+        />
+      </svg>
+    </Icon>
+  }
+  endIcon={
+    <Icon>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+        />
+      </svg>
+    </Icon>
+  }
+>
+  both
+</Button>
+<Button
+  variant="contained"
+  endIcon={
+    <Loader
+      size={'0.7rem'}
+      variant={2}
+      fatness={'1.5px'}
+      color="textOpposite"
+    />
+  }
+>
+  loader
+</Button>`}
+      />
 
       <div className="df jcfe">
-        <Button
-          size="large"
-          color="secondary"
-          variant="contained"
-          endIcon={
-            <Icon>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </Icon>
-          }
-        >
-          Icon Button
-        </Button>
+        <Link to={'/components/icon-button'}>
+          <Button
+            size="large"
+            color="secondary"
+            variant="contained"
+            endIcon={
+              <Icon>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </Icon>
+            }
+          >
+            Icon Button
+          </Button>
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

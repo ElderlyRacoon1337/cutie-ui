@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
-import { useContext, useEffect, useRef, useState } from 'react';
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { ThemeContext } from '../../cutie-utils/ThemeProvider';
 import { initialVariables } from '../../variables';
 /** @jsxImportSource @emotion/react */
@@ -41,6 +47,25 @@ const StyledMenu = styled.div`
       : 'opacity:0;'}
   ${(props) => props.styleOverrides};
 `;
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+}
+function ShowWindowDimensions() {
+  const [width, height] = useWindowSize();
+  return {
+    width,
+    height,
+  };
+}
 export const Menu = ({
   open,
   anchorEl,
@@ -63,6 +88,7 @@ export const Menu = ({
   const [widthParent, setWidthParent] = useState(0);
   const prevent = (ev) => ev.preventDefault();
   const styleOverrides = theme.styleOverrides.menu;
+  const windowSize = ShowWindowDimensions();
   const getAnchorPosition = () => {
     if (anchorEl && menu.current) {
       disableScroll &&
@@ -84,7 +110,7 @@ export const Menu = ({
         anchorPosition.top -
         menuPosition.height -
         menuPosition.height / 2 -
-        10;
+        20;
       if (bottomOut < 0) {
         setYpos(anchorPosition.y + window.scrollY - menuPosition.height);
       } else {
@@ -99,7 +125,7 @@ export const Menu = ({
       setXpos(0);
       setYpos(0);
     };
-  }, [anchorEl, menu.current]);
+  }, [anchorEl, menu.current, windowSize]);
   useEffect(() => {
     function handleClickOutside(event) {
       if (

@@ -21,9 +21,9 @@ const themeOptions = {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <>
-    {/* <ThemeProvider themeOptions={themeOptions}> */}
-    <CssBaseline />
-    <App />
-    {/* </ThemeProvider> */}
+    <ThemeProvider themeOptions={themeOptions}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </>
 );

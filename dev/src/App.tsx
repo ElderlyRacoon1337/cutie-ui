@@ -74,6 +74,7 @@ function App() {
             </div>
             <Input
               label
+              variant="filled"
               button={<Button>Search</Button>}
               className="minw-300px ml-50px"
               placeholder="Search docs"
@@ -959,6 +960,7 @@ function App() {
                   label="Agree with terms"
                 />
                 <Radio
+                  size="small"
                   className="mb-10px"
                   currentValue={currentValue}
                   onChange={(e: any) => {
@@ -979,6 +981,7 @@ function App() {
                   label="dark"
                 />
                 <Radio
+                  size="large"
                   className="mb-10px"
                   currentValue={currentValue}
                   onChange={(e: any) => {
@@ -1069,6 +1072,55 @@ function App() {
                   atque molestias voluptates incidunt cupiditate veniam, dolore
                   aspernatur veritatis minima iste perspiciatis. Quis.
                 </p>
+                <Input
+                  label
+                  variant="basic"
+                  button={<Button>Search</Button>}
+                  className="minw-300px"
+                  placeholder="Search docs"
+                />
+                <Input
+                  label
+                  variant="underlined"
+                  button={<Button>Search</Button>}
+                  className="minw-300px ml-50px"
+                  placeholder="Search docs"
+                />
+                <Input
+                  label
+                  variant="filled"
+                  button={<Button>Search</Button>}
+                  className="minw-300px ml-50px"
+                  placeholder="Search docs"
+                />
+                <Input
+                  other={{
+                    onMouseEnter: (e: any) =>
+                      setTooltipAnchorEl(e.currentTarget),
+                    onMouseLeave: (e: any) => setTooltipAnchorEl(null),
+                  }}
+                  label
+                  button={<Button>Search</Button>}
+                  className="minw-300px mt-50px"
+                  placeholder="Search docs"
+                />
+                <Button
+                  other={{
+                    onMouseEnter: (e: any) =>
+                      setTooltipAnchorEl(e.currentTarget),
+                    onMouseLeave: (e: any) => setTooltipAnchorEl(null),
+                  }}
+                >
+                  Hello
+                </Button>
+                <Radio
+                  className="mt-50px"
+                  other={{
+                    onMouseEnter: (e: any) =>
+                      setTooltipAnchorEl(e.currentTarget),
+                    onMouseLeave: (e: any) => setTooltipAnchorEl(null),
+                  }}
+                />
               </Tab>
             </Tabs>
           </div>
@@ -1079,9 +1131,7 @@ function App() {
         <Button variant="contained">Hello</Button>
         <Button variant="outlined">Hello</Button>
       </div>
-      <Tooltip anchorEl={tooltipAnchorEl}>
-        Lorem ipsum, dolor sit amet consectetur
-      </Tooltip>
+      <Tooltip anchorEl={tooltipAnchorEl}>Lorem</Tooltip>
     </div>
   );
 }

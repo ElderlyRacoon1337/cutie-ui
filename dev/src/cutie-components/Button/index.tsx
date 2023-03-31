@@ -53,7 +53,10 @@ const StyledButton = styled.button`
     ${(props) => props.square && 'border-radius: 0;'}
     ${(props) =>
     props.disabled &&
-    props.variant == 'contained' &&
+    (props.variant == 'contained' ||
+      props.variant == 'contained2' ||
+      props.variant == 'contained3' ||
+      props.variant == 'contained4') &&
     `color: ${props.variables.disabled} !important;
 background-color:${tinycolor(props.variables.black)
       .setAlpha(0.04)
@@ -62,7 +65,10 @@ background-color:${tinycolor(props.variables.black)
     ${(props) =>
     props.disabled &&
     props._mode == 'dark' &&
-    props.variant == 'contained' &&
+    (props.variant == 'contained' ||
+      props.variant == 'contained2' ||
+      props.variant == 'contained3' ||
+      props.variant == 'contained4') &&
     `color:${props.variables.disabled} !important;
   background-color:${tinycolor(props.variables.white)
     .setAlpha(0.1)
@@ -70,14 +76,17 @@ background-color:${tinycolor(props.variables.black)
   `}
     ${(props) =>
     props.disabled &&
-    props.variant == 'outlined' &&
+    (props.variant == 'outlined' ||
+      props.variant == 'outlined2' ||
+      props.variant == 'outlined3' ||
+      props.variant == 'outlined4') &&
     `color:${props.variables.disabled} !important;
   border-color:${props.variables.disabled} !important;
   background-color: transparent !important;
   `}
     ${(props) =>
     props.disabled &&
-    props.variant == 'text' &&
+    (props.variant == 'text' || props.variant == 'tex2') &&
     `color:${props.variables.disabled} !important;
 background-color: transparent !important;
       `}

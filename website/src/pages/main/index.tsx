@@ -26,10 +26,11 @@ const Main = () => {
             <p className="textSecondary">Cute library for react</p>
           </Link>
           <Input
+            button={<Button>Search</Button>}
             className="minw-400px"
             placeholder="Search docs..."
             startIcon={
-              <Icon>
+              <Icon fontSize={'1.2rem'}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

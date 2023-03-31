@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const location = useLocation();
-
   return (
     <List>
       <Link to={'/getting-started'}>
@@ -133,21 +132,128 @@ const Sidebar = () => {
       {location.pathname.split('/')[1] == 'components' && (
         <>
           <ListItem className="colorPrimary">Components</ListItem>
-          <ListItemButton active>Button</ListItemButton>
-          <ListItemButton>IconButton</ListItemButton>
-          <ListItemButton>Icon</ListItemButton>
-          <ListItemButton>Input</ListItemButton>
-          <ListItemButton>Switch</ListItemButton>
-          <ListItemButton>Link</ListItemButton>
-          <ListItemButton>List</ListItemButton>
-          <ListItemButton>Menu</ListItemButton>
-          <ListItemButton>Tabs</ListItemButton>
-          <ListItemButton>Avatar</ListItemButton>
-          <ListItemButton>Alert</ListItemButton>
-          <ListItemButton>Popup</ListItemButton>
-          <ListItemButton>Gradient text</ListItemButton>
-          <ListItemButton>Loader</ListItemButton>
-          <ListItemButton>Gradient text</ListItemButton>
+          <Link to={'/components/button'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'button'}
+            >
+              Button
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/icon-button'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'icon-button'}
+            >
+              IconButton
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/icon'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'icon'}>
+              Icon
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/input'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'input'}>
+              Input
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/switch'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'switch'}
+            >
+              Switch
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/checkbox'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'checkbox'}
+            >
+              Checkbox
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/radio'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'radio'}>
+              Radio
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/select'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'select'}
+            >
+              Select
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/tooltip'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'tooltip'}
+            >
+              Tooltip
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/link'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'link'}>
+              Link
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/list'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'list'}>
+              List
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/menu'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'menu'}>
+              Menu
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/tabs'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'tabs'}>
+              Tabs
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/avatar'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'avatar'}
+            >
+              Avatar
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/alert'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'alert'}>
+              Alert
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/popup'}>
+            <ListItemButton active={location.pathname.split('/')[2] == 'popup'}>
+              Popup
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/gradient-text'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'gradient-text'}
+            >
+              Gradient text
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/loader'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'loader'}
+            >
+              Loader
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/linear-progress'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'linear-progress'}
+            >
+              Linear progress
+            </ListItemButton>
+          </Link>
+          <Link to={'/components/skeleton'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'skeleton'}
+            >
+              Skeleton
+            </ListItemButton>
+          </Link>
         </>
       )}
       {location.pathname == '/hooks' && (
