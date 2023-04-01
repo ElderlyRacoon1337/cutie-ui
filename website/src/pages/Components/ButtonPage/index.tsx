@@ -399,10 +399,10 @@ Button
             <Button disabled variant="text" className="mr-20px">
               disabled
             </Button>
-            <Button disabled variant="outlined" className="mr-20px">
+            <Button disabled variant="outlined2" className="mr-20px">
               disabled
             </Button>
-            <Button disabled variant="contained" className="mr-20px">
+            <Button disabled variant="contained4" className="mr-20px">
               disabled
             </Button>
           </div>
@@ -629,6 +629,32 @@ Button
   }
 >
   loader
+</Button>`}
+      />
+
+      <Section
+        title="Square"
+        area={
+          <div className="df aic">
+            <Button square className="mr-20px">
+              square
+            </Button>
+            <Button square variant="outlined" className="mr-20px">
+              square
+            </Button>
+            <Button square variant="contained" className="mr-20px">
+              square
+            </Button>
+          </div>
+        }
+        code={`<Button square className="mr-20px">
+  square
+</Button>
+<Button square variant="outlined" className="mr-20px">
+  square
+</Button>
+<Button square variant="contained" className="mr-20px">
+  square
 </Button>`}
       />
 

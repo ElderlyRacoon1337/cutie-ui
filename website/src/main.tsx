@@ -13,6 +13,16 @@ const themeOptions = {
     codeBg: '#141414',
     // primary: '#ffb5ff',
   },
+  // font: {
+  //   size: {
+  //     small: '0.5rem',
+  //     medium: '1rem',
+  //     large: '1.5rem',
+  //   },
+  //   family: {
+  //     baseFontFamily: 'Courier',
+  //   },
+  // },
   styleOverrides: {
     button: ``,
   },

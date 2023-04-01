@@ -4,6 +4,8 @@ import Components from '../Components';
 import GettingStarted from '../GettingStarted';
 import { Button, Icon, Input, Switch, ThemeContext, useSwitch } from 'cutie-ui';
 import { useContext, useEffect, useState } from 'react';
+import { Support } from '../Support';
+import { Customization } from '../Customization';
 
 const Main = () => {
   const [theme, setTheme] = useState('light');
@@ -26,8 +28,8 @@ const Main = () => {
             <p className="textSecondary">Cute library for react</p>
           </Link>
           <Input
-            button={<Button>Search</Button>}
-            className="minw-400px"
+            // button={<Button>Search</Button>}
+            className="minw-250px"
             placeholder="Search docs..."
             startIcon={
               <Icon fontSize={'1.2rem'}>
@@ -79,8 +81,8 @@ const Main = () => {
             <Route path="/getting-started" element={<GettingStarted />} />
             <Route path="/components/*" element={<Components />} />
             <Route path="/hooks" element={<Components />} />
-            <Route path="/customisation" element={<Components />} />
-            <Route path="/styling" element={<Components />} />
+            <Route path="/customization/*" element={<Customization />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </div>
       </main>

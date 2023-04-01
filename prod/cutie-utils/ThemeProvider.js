@@ -95,19 +95,6 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
   function changeTheme(theme) {
     setTheme(theme);
   }
-  if (font) {
-    if (font.size) {
-      for (let key in font.size) {
-        variables[`fontSize${key[0].toLocaleUpperCase()}${key.slice(1)}`] =
-          font.size[key];
-      }
-    }
-    if (font.family) {
-      for (let key in font.family) {
-        variables[key] = font.family[key];
-      }
-    }
-  }
   if (themeOptions.styleOverrides) {
     for (let i in themeOptions.styleOverrides) {
       styleOverrides[i] = themeOptions.styleOverrides[i];
@@ -127,6 +114,19 @@ export const ThemeProvider = ({ themeOptions = {}, children }) => {
     }
     for (let key in lightMode) {
       variables[key] = lightMode[key];
+    }
+  }
+  if (font) {
+    if (font.size) {
+      for (let key in font.size) {
+        variables[`fontSize${key[0].toLocaleUpperCase()}${key.slice(1)}`] =
+          font.size[key];
+      }
+    }
+    if (font.family) {
+      for (let key in font.family) {
+        variables[key] = font.family[key];
+      }
     }
   }
   useEffect(() => {

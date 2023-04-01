@@ -142,20 +142,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     setTheme(theme);
   }
 
-  if (font) {
-    if (font.size) {
-      for (let key in font.size) {
-        variables[`fontSize${key[0].toLocaleUpperCase()}${key.slice(1)}`] =
-          font.size[key];
-      }
-    }
-    if (font.family) {
-      for (let key in font.family) {
-        variables[key] = font.family[key];
-      }
-    }
-  }
-
   if (themeOptions.styleOverrides) {
     for (let i in themeOptions.styleOverrides) {
       styleOverrides[i] = themeOptions.styleOverrides[i];
@@ -177,6 +163,20 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
     }
     for (let key in lightMode) {
       variables[key] = lightMode[key];
+    }
+  }
+
+  if (font) {
+    if (font.size) {
+      for (let key in font.size) {
+        variables[`fontSize${key[0].toLocaleUpperCase()}${key.slice(1)}`] =
+          font.size[key];
+      }
+    }
+    if (font.family) {
+      for (let key in font.family) {
+        variables[key] = font.family[key];
+      }
     }
   }
 
@@ -231,19 +231,6 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({
       }
       for (let key in lightMode) {
         variables[key] = lightMode[key];
-      }
-    }
-    if (document.documentElement.dataset.theme == 'dark') {
-      for (let key in initialVariables.darkMode) {
-        variables[key] = initialVariables.darkMode[key];
-      }
-      if (colors) {
-        for (let key in colors) {
-          variables[key] = colors[key];
-        }
-      }
-      for (let key in darkMode) {
-        variables[key] = darkMode[key];
       }
     }
   }, [theme]);

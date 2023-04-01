@@ -55,6 +55,7 @@ const StyledListItemButton = styled.li`
 
   ${(props) =>
     props.startIcon &&
+    !props.endIcon &&
     `display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -64,27 +65,30 @@ const StyledListItemButton = styled.li`
     svg{
       font-size:1.2rem;
     }
-    & > *:first-of-type {
+    & > svg:first-of-type {
       margin-right: 10px;
     }`}
 
     ${(props) =>
     props.endIcon &&
+    !props.startIcon &&
     `display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    svg{
-      font-size:1.2rem;
-    }
-  
-    & > *:last-of-type {
-      margin-left: 10px;
-      min-width: 20px;
-    }`}
-
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      svg{
+        font-size:1.2rem;
+      }
+      div {
+        margin-right: 10px;
+      }
+      & > svg:last-of-type {
+        margin-left: auto;
+        min-width: 20px;
+      }`}
+      
     ${(props) =>
     props.startIcon &&
     props.endIcon &&
@@ -94,7 +98,7 @@ const StyledListItemButton = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    & > *:first-of-type {
+    & > svg:first-of-type {
       margin-right: 10px;
       min-width: 10px;
     }
@@ -104,10 +108,11 @@ const StyledListItemButton = styled.li`
     div {
       margin-right: 10px;
     }
-    & > *:last-of-type {
+    & > svg:last-of-type {
       min-width: 10px;
       margin-left: auto;
     }`}
+
 
     ${(props) =>
     props.active &&

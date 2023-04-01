@@ -16,6 +16,13 @@ const themeOptions = {
     yellow: 'hotpink',
     primary: '#cff1ff',
   },
+  font: {
+    size: {
+      small: '2rem',
+      medium: '3rem',
+      large: '3rem',
+    },
+  },
   // styleOverrides: {},
 };
 

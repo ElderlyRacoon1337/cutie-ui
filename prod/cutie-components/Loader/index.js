@@ -112,7 +112,7 @@ const Loader3 = styled.div`
     animation-duration: ${(props) => props.duration};
     width: ${(props) => props.size};
     height: ${(props) => props.size};
-    margin-right: ${(props) => props.fatness}px;
+    margin-right: ${(props) => props.fatness};
   }
   div:nth-of-type(1) {
     -webkit-animation-delay: -0.32s;

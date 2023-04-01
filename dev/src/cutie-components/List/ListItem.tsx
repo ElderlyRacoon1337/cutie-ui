@@ -27,7 +27,6 @@ const StyledListItem = styled.li`
   -ms-user-select: none;
   user-select: none;
   margin-bottom: 7px;
-  cursor: pointer;
   list-style: none;
   font-family: ${(props) => props.variables.baseFontFamily};
   font-size: ${(props) => props.variables.fontSizeMedium};
@@ -37,6 +36,7 @@ const StyledListItem = styled.li`
 
   ${(props) =>
     props.startIcon &&
+    !props.endIcon &&
     `display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -46,25 +46,29 @@ const StyledListItem = styled.li`
     svg{
       font-size:1.2rem;
     }
-    & > *:first-of-type {
+    & > svg:first-of-type {
       margin-right: 10px;
     }`}
 
     ${(props) =>
     props.endIcon &&
+    !props.startIcon &&
     `display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    svg{
-      font-size:1.2rem;
-    }
-    & > *:last-of-type {
-      margin-left: 10px;
-      min-width: 20px;
-    }`}
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      svg{
+        font-size:1.2rem;
+      }
+      div {
+        margin-right: 10px;
+      }
+      & > svg:last-of-type {
+        margin-left: auto;
+        min-width: 20px;
+      }`}
 
     ${(props) =>
     props.startIcon &&
@@ -75,7 +79,7 @@ const StyledListItem = styled.li`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    & > *:first-of-type {
+    & > svg:first-of-type {
       margin-right: 10px;
       min-width: 10px;
     }
@@ -85,33 +89,16 @@ const StyledListItem = styled.li`
     div {
       margin-right: 10px;
     }
-    & > *:last-of-type {
+    & > svg:last-of-type {
       min-width: 10px;
       margin-left: auto;
     }`}
 
     ${(props) =>
     props.active &&
-    `background-color: ${tinycolor(props._color).setAlpha(0.08).toString()};
-    color: ${
-      tinycolor(props._color).isLight()
-        ? tinycolor(props._color).darken(15).toString()
-        : props._color
-    } !important;
+    `color: ${props._color} !important;
     div {
-      color:  ${
-        tinycolor(props._color).isLight()
-          ? tinycolor(props._color).darken(15).toString()
-          : props._color
-      } !important;
-    }
-    &:hover {
-      background-color:  ${tinycolor(props._color).setAlpha(0.12).toString()};
-      color:  ${
-        tinycolor(props._color).isLight()
-          ? tinycolor(props._color).darken(15).toString()
-          : props._color
-      } !important;
+      color: ${props._color} !important;
     }`}
 
     ${(props) =>
@@ -135,14 +122,6 @@ const StyledListItem = styled.li`
           ? props.variables.black
           : props.variables.white
       } !important;
-    }
-    &:hover {
-      background-color: ${tinycolor(props._color).darken(5).toString()};
-      color: ${
-        tinycolor(props._color).isLight()
-          ? props.variables.black
-          : props.variables.white
-      } !important;
     }`}
 
     ${(props) =>
@@ -150,31 +129,12 @@ const StyledListItem = styled.li`
     `
     ${
       props.active &&
-      `color: ${
-        tinycolor(props._color).isLight()
-          ? props._color
-          : tinycolor(props._color).lighten(15).toString()
-      } !important;
+      `color: ${props._color} !important;
       div {
-        color:  ${
-          tinycolor(props._color).isLight()
-            ? props._color
-            : tinycolor(props._color).lighten(15).toString()
-        } !important;
+        color: ${props._color} !important;
       }
       & > * {
-        color:  ${
-          tinycolor(props._color).isLight()
-            ? props._color
-            : tinycolor(props._color).lighten(15).toString()
-        } !important;
-      }
-      &:hover {
-        color:  ${
-          tinycolor(props._color).isLight()
-            ? props._color
-            : tinycolor(props._color).lighten(15).toString()
-        } !important;
+        color: ${props._color} !important;
       }`
     }
 
@@ -190,14 +150,6 @@ const StyledListItem = styled.li`
     }
     div {
       color:  ${
-        tinycolor(props._color).isLight()
-          ? props.variables.black
-          : props.variables.white
-      } !important;
-    }
-    &:hover {
-      background-color: ${tinycolor(props._color).darken(5).toString()};
-      color: ${
         tinycolor(props._color).isLight()
           ? props.variables.black
           : props.variables.white

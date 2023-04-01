@@ -22,7 +22,7 @@ const StyledTooltip = styled.span`
     props.ypos !== 0 && props.xpos !== 0
       ? `top: ${props.ypos}px;
   left: ${props.xpos}px;`
-      : 'opacity: 0;'}
+      : 'opacity:0; left:2000px;'}
   &:hover {
     transition: 2s;
   }

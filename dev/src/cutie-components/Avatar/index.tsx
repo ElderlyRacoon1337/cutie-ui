@@ -20,15 +20,16 @@ const StyledAvatar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
-    height: 100%;
-    width: auto;
-  }
   ${(props) => props.variant == 'square' && `border-radius: 0;`}
   ${(props) => props.variant == 'circular' && `border-radius: 50%;`}
 ${(props) => props.variant == 'rounded' && `border-radius: 20%;`}
 
-${(props) => props.styleOverrides};
+background-image: url(${(props) => props._src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  ${(props) => props.styleOverrides};
 `;
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -49,10 +50,9 @@ export const Avatar: React.FC<AvatarProps> = ({
       variant={variant}
       className={className}
       css={sx}
+      _src={src}
       onClick={onClick}
       {...other}
-    >
-      <img src={src} alt="Avatar" />
-    </StyledAvatar>
+    />
   );
 };

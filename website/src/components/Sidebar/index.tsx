@@ -81,54 +81,58 @@ const Sidebar = () => {
       >
         Hooks
       </ListItemButton>
-      <ListItemButton
-        activeFilled={location.pathname == '/customization'}
-        startIcon={
-          <Icon color="primary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
-              />
-            </svg>
-          </Icon>
-        }
-        className="mb-10px"
-      >
-        Customization
-      </ListItemButton>
-      <ListItemButton
-        activeFilled={location.pathname == '/support'}
-        startIcon={
-          <Icon color="primary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </Icon>
-        }
-        className="mb-10px"
-      >
-        Support
-      </ListItemButton>
+      <Link to="/customization">
+        <ListItemButton
+          activeFilled={location.pathname.split('/')[1] == 'customization'}
+          startIcon={
+            <Icon color="primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+                />
+              </svg>
+            </Icon>
+          }
+          className="mb-10px"
+        >
+          Customization
+        </ListItemButton>
+      </Link>
+      <Link to={'/support'}>
+        <ListItemButton
+          activeFilled={location.pathname == '/support'}
+          startIcon={
+            <Icon color="primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </Icon>
+          }
+          className="mb-10px"
+        >
+          Support
+        </ListItemButton>
+      </Link>
       {location.pathname.split('/')[1] == 'components' && (
         <>
           <ListItem className="colorPrimary">Components</ListItem>
@@ -266,10 +270,37 @@ const Sidebar = () => {
           <ListItemButton>useTabs</ListItemButton>
         </>
       )}
-      {location.pathname == '/customization' && (
+      {location.pathname.split('/')[1] == 'customization' && (
         <>
           <ListItem className="colorPrimary">Customization</ListItem>
-          <ListItemButton>Themming</ListItemButton>
+          <Link to={'/customization/themming'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'themming'}
+            >
+              Themming
+            </ListItemButton>
+          </Link>
+          <Link to={'/customization/sx-prop'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'sx-prop'}
+            >
+              The sx prop
+            </ListItemButton>
+          </Link>
+          <Link to={'/customization/style-overrides'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'style-overrides'}
+            >
+              Style overrides
+            </ListItemButton>
+          </Link>
+          <Link to={'/customization/className-shortcuts'}>
+            <ListItemButton
+              active={location.pathname.split('/')[2] == 'className-shortcuts'}
+            >
+              ClassName shortcuts
+            </ListItemButton>
+          </Link>
         </>
       )}
       {location.pathname == '/styling' && (

@@ -24,8 +24,8 @@ const StyledTabs = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: var(--fontFamily);
-  font-size: var(--fontSizeMedium);
+  font-family: ${(props) => props.variables.baseFontFamily};
+  font-size: ${(props) => props.variables.fontSizeMedium};
 `;
 const StyledTab = styled.div`
   border-bottom: 2px solid transparent;
@@ -77,6 +77,7 @@ const StyledTab = styled.div`
 
   ${(props) =>
     props.i == props.value - 1 &&
+    props.variant == 'contained' &&
     `background-color: ${props._color};
   color: ${
     tinycolor(props._color).isLight()
@@ -96,9 +97,16 @@ const StyledTab = styled.div`
     tinycolor(props._color).isLight()
       ? props.variables.black
       : props.variables.white
-  };
+  };}
   }
-  }
+  `}
+
+  ${(props) =>
+    props.i == props.value - 1 &&
+    props.variant == 'underlined' &&
+    `border-color: ${props._color};
+  color:${props.variables.textPrimary};
+  background-color:transparent;
   `}
 `;
 export const Tabs = ({
@@ -131,6 +139,7 @@ export const Tabs = ({
     children: [
       _jsx(StyledTabs, {
         className: className,
+        variables: variables,
         children:
           labels === null || labels === void 0
             ? void 0

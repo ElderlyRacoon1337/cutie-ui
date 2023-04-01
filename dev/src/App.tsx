@@ -1121,6 +1121,25 @@ function App() {
                     onMouseLeave: (e: any) => setTooltipAnchorEl(null),
                   }}
                 />
+                <Avatar
+                  width={'2.5rem'}
+                  className="mr-20px"
+                  src={
+                    'https://img.championat.com/news/big/p/y/v-dota-2-poyavilsya-pervyj-chestnyj-igrok-s-grandmasterom-na-marci-viktoriya-bonya_1637747390104987094.jpg'
+                  }
+                />
+                <Avatar
+                  width={'3rem'}
+                  className="mr-20px"
+                  src={'https://dota2.ru/img/heroes/anti_mage/portrait.jpg'}
+                />
+                <Avatar
+                  width={'4rem'}
+                  className="mr-20px"
+                  src={
+                    'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/wrarcana/wr_portrait.png'
+                  }
+                />
               </Tab>
             </Tabs>
           </div>

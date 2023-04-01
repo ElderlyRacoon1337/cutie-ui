@@ -47,6 +47,7 @@ const StyledIconButton = styled.button`
     color: ${props.variables.disabled} !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+    cursor: not-allowed;
     `}
 
     ${(props) =>
@@ -57,6 +58,7 @@ const StyledIconButton = styled.button`
     color: var(--disabled) !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+    cursor: not-allowed;
       `}
 
       ${(props) =>
@@ -67,6 +69,7 @@ const StyledIconButton = styled.button`
     color: var(--disabled) !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+    cursor: not-allowed;
         `}
     
     ${(props) =>
