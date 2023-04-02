@@ -1,9 +1,15 @@
-import { useContext } from 'react';
-import styled from '@emotion/styled';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
+'use strict';
+
+var _react = require('react');
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-const StyledAvatar = styled.div`
+
+const StyledAvatar = _styled.default.div`
   width: ${(props) => props._width};
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -21,7 +27,7 @@ background-image: url(${(props) => props._src});
 
   ${(props) => props.styleOverrides};
 `;
-export const Avatar = ({
+const Avatar = ({
   variant = 'circular',
   className,
   src,
@@ -30,9 +36,9 @@ export const Avatar = ({
   other,
   width = '40px',
 }) => {
-  let theme = useContext(ThemeContext);
+  let theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   const styleOverrides = theme.styleOverrides.avatar;
-  return _jsx(StyledAvatar, {
+  return (0, _jsxRuntime.jsx)(StyledAvatar, {
     styleOverrides: styleOverrides,
     _width: width,
     variant: variant,
@@ -42,4 +48,7 @@ export const Avatar = ({
     onClick: onClick,
     ...other,
   });
+};
+module.exports = {
+  Avatar,
 };

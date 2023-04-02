@@ -1,10 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-const StyledSkeleton = styled.div`
+
+const StyledSkeleton = _styled.default.div`
   -webkit-animation: toggle 0.5s infinite;
   animation: toggle 0.5s infinite;
   -webkit-animation-duration: 1;
@@ -46,7 +52,7 @@ const StyledSkeleton = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-export const Skeleton = ({
+const Skeleton = ({
   width,
   height,
   variant = 'square',
@@ -54,13 +60,13 @@ export const Skeleton = ({
   sx,
   other,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.skeleton;
-  return _jsx(StyledSkeleton, {
+  return (0, _jsxRuntime.jsx)(StyledSkeleton, {
     styleOverrides: styleOverrides,
     variables: variables,
     variant: variant,
@@ -70,4 +76,7 @@ export const Skeleton = ({
     css: sx,
     ...other,
   });
+};
+module.exports = {
+  Skeleton,
 };

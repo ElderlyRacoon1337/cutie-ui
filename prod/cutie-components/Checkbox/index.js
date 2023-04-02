@@ -1,13 +1,18 @@
-import styled from '@emotion/styled';
-import { useContext, useRef } from 'react';
-import tinycolor from 'tinycolor2';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { Icon } from '../Icon';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _tinycolor = _interopRequireDefault(require('tinycolor2'));
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _Icon = require('../Icon');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-const StyledCheckbox = styled.div`
+
+const StyledCheckbox = _styled.default.div`
   div {
     position: relative;
     display: flex;
@@ -58,12 +63,12 @@ const StyledCheckbox = styled.div`
     `input[type='checkbox'] {width:0.9rem; height:0.9rem;}`}
 
       ${(props) =>
-    props.size == 'large' &&
-    `input[type='checkbox'] {width:1.2rem; height:1.2rem;}`}
+        props.size == 'large' &&
+        `input[type='checkbox'] {width:1.2rem; height:1.2rem;}`}
 
     ${(props) =>
-    props._width &&
-    `input[type='checkbox'] {width: ${props._width}; height: ${props._width};}`}
+      props._width &&
+      `input[type='checkbox'] {width: ${props._width}; height: ${props._width};}`}
   
     
   svg {
@@ -76,7 +81,7 @@ const StyledCheckbox = styled.div`
     bottom: 0;
     margin: auto;
     color: ${(props) =>
-      tinycolor(props._color).isLight() ? 'black' : 'white'};
+      (0, _tinycolor.default)(props._color).isLight() ? 'black' : 'white'};
   }
 
   ${(props) =>
@@ -95,7 +100,7 @@ const StyledCheckbox = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-export const Checkbox = ({
+const Checkbox = ({
   size = 'medium',
   width,
   color = 'primary',
@@ -108,17 +113,17 @@ export const Checkbox = ({
   onClick,
   label,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
-  const ref = useRef(null);
+  const ref = (0, _react.useRef)(null);
   const styleOverrides = theme.styleOverrides.checkbox;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return _jsxs(StyledCheckbox, {
+  return (0, _jsxRuntime.jsxs)(StyledCheckbox, {
     styleOverrides: styleOverrides,
     onClick: (e) => ref.current.click(),
     _color: color,
@@ -130,10 +135,10 @@ export const Checkbox = ({
     ...other,
     className: className,
     children: [
-      _jsxs('div', {
+      (0, _jsxRuntime.jsxs)('div', {
         onClick: (e) => ref.current.click(),
         children: [
-          _jsx('input', {
+          (0, _jsxRuntime.jsx)('input', {
             disabled: disabled,
             width: width,
             ref: ref,
@@ -143,7 +148,7 @@ export const Checkbox = ({
             type: 'checkbox',
           }),
           checked &&
-            _jsx(Icon, {
+            (0, _jsxRuntime.jsx)(_Icon.Icon, {
               onClick: (e) => ref.current.click(),
               fontSize: width
                 ? width
@@ -152,17 +157,17 @@ export const Checkbox = ({
                 : size == 'medium'
                 ? '1rem'
                 : '1.2rem',
-              children: _jsxs('svg', {
+              children: (0, _jsxRuntime.jsxs)('svg', {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 256 256',
                 id: 'check',
                 children: [
-                  _jsx('rect', {
+                  (0, _jsxRuntime.jsx)('rect', {
                     width: '256',
                     height: '256',
                     fill: 'none',
                   }),
-                  _jsx('polyline', {
+                  (0, _jsxRuntime.jsx)('polyline', {
                     fill: 'none',
                     stroke: 'currentColor',
                     strokeLinecap: 'round',
@@ -176,9 +181,12 @@ export const Checkbox = ({
         ],
       }),
       label &&
-        _jsx('label', {
+        (0, _jsxRuntime.jsx)('label', {
           children: label,
         }),
     ],
   });
+};
+module.exports = {
+  Checkbox,
 };

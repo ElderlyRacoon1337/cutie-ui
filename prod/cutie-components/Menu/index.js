@@ -1,24 +1,16 @@
-import styled from '@emotion/styled';
-import {
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
-const div = document.createElement('div');
-div.style.overflowY = 'scroll';
-div.style.width = '50px';
-div.style.height = '50px';
-document.body.append(div);
-const scrollWidth = div.offsetWidth - div.clientWidth;
-div.remove();
-const StyledMenu = styled.div`
+
+const StyledMenu = _styled.default.div`
   position: absolute;
   z-index: 10;
   border-radius: ${(props) => props.variables.baseBorderRadius};
@@ -48,8 +40,8 @@ const StyledMenu = styled.div`
   ${(props) => props.styleOverrides};
 `;
 function useWindowSize() {
-  const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
+  const [size, setSize] = (0, _react.useState)([0, 0]);
+  (0, _react.useLayoutEffect)(() => {
     function updateSize() {
       setSize([window.innerWidth, window.innerHeight]);
     }
@@ -66,7 +58,7 @@ function ShowWindowDimensions() {
     height,
   };
 }
-export const Menu = ({
+const Menu = ({
   open,
   anchorEl,
   onClose,
@@ -77,19 +69,26 @@ export const Menu = ({
   other,
   disableScroll,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
-  const menu = useRef(null);
-  const [xpos, setXpos] = useState(0);
-  const [ypos, setYpos] = useState(0);
-  const [widthParent, setWidthParent] = useState(0);
+  const menu = (0, _react.useRef)(null);
+  const [xpos, setXpos] = (0, _react.useState)(0);
+  const [ypos, setYpos] = (0, _react.useState)(0);
+  const [widthParent, setWidthParent] = (0, _react.useState)(0);
   const prevent = (ev) => ev.preventDefault();
   const styleOverrides = theme.styleOverrides.menu;
   const windowSize = ShowWindowDimensions();
   const getAnchorPosition = () => {
+    const div = document.createElement('div');
+    div.style.overflowY = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+    document.body.append(div);
+    const scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
     if (anchorEl && menu.current) {
       disableScroll &&
         document.addEventListener('wheel', prevent, {
@@ -118,7 +117,7 @@ export const Menu = ({
       }
     }
   };
-  useEffect(() => {
+  (0, _react.useEffect)(() => {
     getAnchorPosition();
     return () => {
       document.removeEventListener('wheel', prevent);
@@ -126,7 +125,7 @@ export const Menu = ({
       setYpos(0);
     };
   }, [anchorEl, menu.current, windowSize]);
-  useEffect(() => {
+  (0, _react.useEffect)(() => {
     function handleClickOutside(event) {
       if (
         menu.current &&
@@ -142,10 +141,10 @@ export const Menu = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [menu.current]);
-  return _jsx(_Fragment, {
+  return (0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
     children:
       open &&
-      _jsx(StyledMenu, {
+      (0, _jsxRuntime.jsx)(StyledMenu, {
         styleOverrides: styleOverrides,
         widthParent: widthParent,
         variables: variables,
@@ -159,4 +158,7 @@ export const Menu = ({
         children: children,
       }),
   });
+};
+module.exports = {
+  Menu,
 };

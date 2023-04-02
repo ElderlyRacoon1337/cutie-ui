@@ -1,11 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-const StyledLinearProgress = styled.div`
+
+const StyledLinearProgress = _styled.default.div`
   width: 100%;
   overflow: hidden;
   div:first-of-type {
@@ -44,9 +49,9 @@ const StyledLinearProgress = styled.div`
       }
       `}
     ${(props) =>
-    props.loader &&
-    props.variant == 3 &&
-    `div:first-of-type {
+      props.loader &&
+      props.variant == 3 &&
+      `div:first-of-type {
       display: none;
     }
     div:last-of-type {
@@ -146,7 +151,7 @@ const StyledLinearProgress = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-export const LinearProgress = ({
+const LinearProgress = ({
   value,
   className,
   height = 3,
@@ -156,17 +161,17 @@ export const LinearProgress = ({
   duration = 1,
   variant,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.linearProgress;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return _jsxs(StyledLinearProgress, {
+  return (0, _jsxRuntime.jsxs)(StyledLinearProgress, {
     styleOverrides: styleOverrides,
     variables: variables,
     _mode: mode,
@@ -178,6 +183,12 @@ export const LinearProgress = ({
     css: sx,
     _value: value,
     _height: height,
-    children: [_jsx('div', {}), _jsx('div', {})],
+    children: [
+      (0, _jsxRuntime.jsx)('div', {}),
+      (0, _jsxRuntime.jsx)('div', {}),
+    ],
   });
+};
+module.exports = {
+  LinearProgress,
 };

@@ -1,13 +1,17 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import tinycolor from 'tinycolor2';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _tinycolor = _interopRequireDefault(require('tinycolor2'));
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-const StyledMenuItem = styled.li`
+
+const StyledMenuItem = _styled.default.li`
   padding: 9px 15px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -23,22 +27,30 @@ const StyledMenuItem = styled.li`
     border-bottom: 1px solid ${props.variables.divider};`}
 
   &:hover {
-    background-color: ${tinycolor('#000').setAlpha(0.04).toString()};
+    background-color: ${(0, _tinycolor.default)('#000')
+      .setAlpha(0.04)
+      .toString()};
   }
 
   &:active {
-    background-color: ${tinycolor('#000').setAlpha(0.06).toString()};
+    background-color: ${(0, _tinycolor.default)('#000')
+      .setAlpha(0.06)
+      .toString()};
   }
 
   ${(props) =>
     props._mode == 'dark' &&
     `
     &:hover {
-      background-color: ${tinycolor('#fff').setAlpha(0.07).toString()};
+      background-color: ${(0, _tinycolor.default)('#fff')
+        .setAlpha(0.07)
+        .toString()};
     }
 
     &:active {
-      background-color: ${tinycolor('#fff').setAlpha(0.1).toString()};
+      background-color: ${(0, _tinycolor.default)('#fff')
+        .setAlpha(0.1)
+        .toString()};
     }
     `}
 
@@ -60,9 +72,9 @@ const StyledMenuItem = styled.li`
     }`}
 
     ${(props) =>
-    props.endIcon &&
-    !props.startIcon &&
-    `display: -webkit-box;
+      props.endIcon &&
+      !props.startIcon &&
+      `display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
@@ -82,9 +94,9 @@ const StyledMenuItem = styled.li`
       }`}
 
       ${(props) =>
-    props.startIcon &&
-    props.endIcon &&
-    `display: -webkit-box;
+        props.startIcon &&
+        props.endIcon &&
+        `display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
@@ -111,7 +123,7 @@ const StyledMenuItem = styled.li`
 
       ${(props) => props.styleOverrides};
 `;
-export const MenuItem = ({
+const MenuItem = ({
   children,
   onClose,
   className,
@@ -122,14 +134,14 @@ export const MenuItem = ({
   divider,
   other,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.menuItem;
-  return _jsx(StyledMenuItem, {
+  return (0, _jsxRuntime.jsx)(StyledMenuItem, {
     styleOverrides: styleOverrides,
     variables: variables,
     _mode: mode,
@@ -147,10 +159,10 @@ export const MenuItem = ({
     css: sx,
     children:
       startIcon || endIcon
-        ? _jsxs(_Fragment, {
+        ? (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
             children: [
               startIcon,
-              _jsx('div', {
+              (0, _jsxRuntime.jsx)('div', {
                 children: children,
               }),
               endIcon,
@@ -158,4 +170,7 @@ export const MenuItem = ({
           })
         : children,
   });
+};
+module.exports = {
+  MenuItem,
 };

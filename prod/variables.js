@@ -1,4 +1,4 @@
-export const initialVariables = {
+const initialVariables = {
   background: '#ffffff',
   backgroundBlur: 'rgba(245, 245, 245, 0.9)',
   backgroundSecondary: 'rgba(245, 245, 245)',
@@ -39,3 +39,4 @@ export const initialVariables = {
   white: '#fff',
   youtube: '#FF0200',
 };
+module.exports = { initialVariables };

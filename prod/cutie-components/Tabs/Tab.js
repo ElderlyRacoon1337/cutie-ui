@@ -1,10 +1,15 @@
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
+'use strict';
+
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
 /** @jsxImportSource @emotion/react */
-export const Tab = ({ children, className, other, sx }) => {
-  return _jsx('div', {
+const Tab = ({ children, className, other, sx }) => {
+  return (0, _jsxRuntime.jsx)('div', {
     className: className,
     css: sx,
     ...other,
     children: children,
   });
+};
+module.exports = {
+  Tab,
 };

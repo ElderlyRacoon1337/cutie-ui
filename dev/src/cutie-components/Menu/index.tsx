@@ -22,14 +22,6 @@ interface MenuProps {
   disableScroll?: boolean;
 }
 
-const div = document.createElement('div');
-div.style.overflowY = 'scroll';
-div.style.width = '50px';
-div.style.height = '50px';
-document.body.append(div);
-const scrollWidth = div.offsetWidth - div.clientWidth;
-div.remove();
-
 const StyledMenu = styled.div`
   position: absolute;
   z-index: 10;
@@ -131,6 +123,14 @@ export const Menu: React.FC<MenuProps> = ({
     }
   };
   useEffect(() => {
+    const div = document.createElement('div');
+    div.style.overflowY = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+    document.body.append(div);
+    const scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+
     getAnchorPosition();
     return () => {
       document.removeEventListener('wheel', prevent);

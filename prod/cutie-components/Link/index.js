@@ -1,10 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-const StyledLink = styled.a`
+
+const StyledLink = _styled.default.a`
   color: ${(props) => props._color};
   cursor: pointer;
   font-family: ${(props) => props.variables.baseFontFamily};
@@ -16,7 +22,7 @@ const StyledLink = styled.a`
   ${(props) => props.underlined && `text-decoration: underline;`}
   ${(props) => props.styleOverrides};
 `;
-export const Link = ({
+const Link = ({
   children,
   href,
   className,
@@ -26,16 +32,16 @@ export const Link = ({
   other,
   color = 'link',
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.link;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return _jsx(StyledLink, {
+  return (0, _jsxRuntime.jsx)(StyledLink, {
     styleOverrides: styleOverrides,
     variables: variables,
     _color: color,
@@ -47,4 +53,7 @@ export const Link = ({
     ...other,
     children: children,
   });
+};
+module.exports = {
+  Link,
 };

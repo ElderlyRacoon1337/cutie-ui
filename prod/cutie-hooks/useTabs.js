@@ -1,6 +1,6 @@
-import { useState } from 'react';
+const { useState } = require('react');
 
-export const useTabs = (initialValue) => {
+const useTabs = (initialValue) => {
   const [tabsValue, setTabsValue] = useState(initialValue || 1);
   const handleChangeTabs = (event, newValue) => {
     setTabsValue(newValue);
@@ -11,3 +11,4 @@ export const useTabs = (initialValue) => {
     handleChangeTabs,
   };
 };
+module.exports = { useTabs };

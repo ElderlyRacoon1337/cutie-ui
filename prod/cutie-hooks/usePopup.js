@@ -1,6 +1,6 @@
-import { useState } from 'react';
+const { useState } = require('react');
 
-export const usePopup = () => {
+const usePopup = () => {
   const [popupOpen, setOpenPopup] = useState(false);
   const handleClickPopup = () => {
     setOpenPopup(true);
@@ -15,3 +15,4 @@ export const usePopup = () => {
     setOpenPopup,
   };
 };
+module.exports = { usePopup };

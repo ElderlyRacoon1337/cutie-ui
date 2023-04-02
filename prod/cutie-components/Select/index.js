@@ -1,12 +1,17 @@
-import styled from '@emotion/styled';
-import { useContext, useRef } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { Icon } from '../Icon';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _Icon = require('../Icon');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-const StyledSelect = styled.select`
+
+const StyledSelect = _styled.default.select`
   background-color: transparent;
   outline: none;
   border-radius: 5px;
@@ -20,7 +25,7 @@ const StyledSelect = styled.select`
   width: 100%;
   cursor: pointer;
 `;
-const SelectWrapper = styled.div`
+const SelectWrapper = _styled.default.div`
   position: relative;
   svg {
     position: absolute;
@@ -33,37 +38,37 @@ const SelectWrapper = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-export const Select = ({ children, className, sx, onChange, onClick }) => {
-  const theme = useContext(ThemeContext);
-  const selectRef = useRef(null);
+const Select = ({ children, className, sx, onChange, onClick }) => {
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
+  const selectRef = (0, _react.useRef)(null);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.select;
-  return _jsxs(SelectWrapper, {
+  return (0, _jsxRuntime.jsxs)(SelectWrapper, {
     styleOverrides: styleOverrides,
     className: className,
     css: sx,
     ref: selectRef,
     children: [
-      _jsx(StyledSelect, {
+      (0, _jsxRuntime.jsx)(StyledSelect, {
         variables: variables,
         onClick: onClick,
         onChange: onChange,
         children: children,
       }),
-      _jsx(Icon, {
+      (0, _jsxRuntime.jsx)(_Icon.Icon, {
         fontSize: '1rem',
         onClick: (e) => selectRef.current.click(),
-        children: _jsx('svg', {
+        children: (0, _jsxRuntime.jsx)('svg', {
           xmlns: 'http://www.w3.org/2000/svg',
           fill: 'none',
           viewBox: '0 0 24 24',
           strokeWidth: 1.5,
           stroke: 'currentColor',
           className: 'w-6 h-6',
-          children: _jsx('path', {
+          children: (0, _jsxRuntime.jsx)('path', {
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
             d: 'M19.5 8.25l-7.5 7.5-7.5-7.5',
@@ -72,4 +77,7 @@ export const Select = ({ children, className, sx, onChange, onClick }) => {
       }),
     ],
   });
+};
+module.exports = {
+  Select,
 };

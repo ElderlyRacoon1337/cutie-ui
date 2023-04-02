@@ -1,6 +1,6 @@
-import { useState } from 'react';
+const { useState } = require('react');
 
-export const useMenu = () => {
+const useMenu = () => {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const menuOpen = Boolean(menuAnchorEl);
   const handleClickMenu = (event) => {
@@ -17,3 +17,4 @@ export const useMenu = () => {
     setMenuAnchorEl,
   };
 };
+module.exports = { useMenu };

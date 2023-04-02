@@ -1,11 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-const StyledSwitch = styled.label`
+
+const StyledSwitch = _styled.default.label`
   border-radius: 20px;
   cursor: pointer;
   float: left;
@@ -86,8 +91,8 @@ const StyledSwitch = styled.label`
     `}
 
     ${(props) =>
-    props.size == 'small' &&
-    `width: 30px;
+      props.size == 'small' &&
+      `width: 30px;
     height: 18px;
     span > span {
       height: 15px;
@@ -100,8 +105,8 @@ const StyledSwitch = styled.label`
     }`}
 
     ${(props) =>
-    props.size == 'large' &&
-    `width: 50px;
+      props.size == 'large' &&
+      `width: 50px;
     height: 30px;
     span > span {
       height: 25px;
@@ -116,7 +121,7 @@ const StyledSwitch = styled.label`
 
   ${(props) => props.styleOverrides};
 `;
-export const Switch = ({
+const Switch = ({
   checked,
   size = 'medium',
   disabled = false,
@@ -127,16 +132,16 @@ export const Switch = ({
   sx,
   onClick,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.switch;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return _jsxs(StyledSwitch, {
+  return (0, _jsxRuntime.jsxs)(StyledSwitch, {
     styleOverrides: styleOverrides,
     variables: variables,
     _color: color,
@@ -147,16 +152,19 @@ export const Switch = ({
     css: sx,
     onClick: onClick,
     children: [
-      _jsx('input', {
+      (0, _jsxRuntime.jsx)('input', {
         onChange: onChange,
         type: 'checkbox',
         checked: checked,
         disabled: disabled,
         ...other,
       }),
-      _jsx('span', {
-        children: _jsx('span', {}),
+      (0, _jsxRuntime.jsx)('span', {
+        children: (0, _jsxRuntime.jsx)('span', {}),
       }),
     ],
   });
+};
+module.exports = {
+  Switch,
 };

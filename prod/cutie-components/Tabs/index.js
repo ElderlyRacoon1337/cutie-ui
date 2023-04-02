@@ -1,12 +1,17 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import tinycolor from 'tinycolor2';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _tinycolor = _interopRequireDefault(require('tinycolor2'));
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-const StyledTabsWrapper = styled.div`
+
+const StyledTabsWrapper = _styled.default.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,7 +22,7 @@ const StyledTabsWrapper = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-const StyledTabs = styled.div`
+const StyledTabs = _styled.default.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,7 +32,7 @@ const StyledTabs = styled.div`
   font-family: ${(props) => props.variables.baseFontFamily};
   font-size: ${(props) => props.variables.fontSizeMedium};
 `;
-const StyledTab = styled.div`
+const StyledTab = _styled.default.div`
   border-bottom: 2px solid transparent;
   text-align: center;
   -webkit-user-select: none;
@@ -37,19 +42,25 @@ const StyledTab = styled.div`
   font-family: ${(props) => props.variables.baseFontFamily};
 
   &:hover {
-    background-color: ${tinycolor('#000').setAlpha(0.04).toString()};
+    background-color: ${(0, _tinycolor.default)('#000')
+      .setAlpha(0.04)
+      .toString()};
   }
   &:active {
-    background-color: ${tinycolor('#000').setAlpha(0.06).toString()};
+    background-color: ${(0, _tinycolor.default)('#000')
+      .setAlpha(0.06)
+      .toString()};
   }
 
   ${(props) =>
     props._mode == 'dark' &&
     `&:hover {
-  background-color: ${tinycolor('#fff').setAlpha(0.07).toString()};
+  background-color: ${(0, _tinycolor.default)('#fff')
+    .setAlpha(0.07)
+    .toString()};
 }
 &:active {
-  background-color: ${tinycolor('#fff').setAlpha(0.1).toString()};
+  background-color: ${(0, _tinycolor.default)('#fff').setAlpha(0.1).toString()};
 }`}
 
   ${(props) =>
@@ -80,21 +91,21 @@ const StyledTab = styled.div`
     props.variant == 'contained' &&
     `background-color: ${props._color};
   color: ${
-    tinycolor(props._color).isLight()
+    (0, _tinycolor.default)(props._color).isLight()
       ? props.variables.black
       : props.variables.white
   };
   &:hover{
     background-color: ${props._color};
   color: ${
-    tinycolor(props._color).isLight()
+    (0, _tinycolor.default)(props._color).isLight()
       ? props.variables.black
       : props.variables.white
   };
   $:active{
     background-color: ${props._color};
   color: ${
-    tinycolor(props._color).isLight()
+    (0, _tinycolor.default)(props._color).isLight()
       ? props.variables.black
       : props.variables.white
   };}
@@ -109,7 +120,7 @@ const StyledTab = styled.div`
   background-color:transparent;
   `}
 `;
-export const Tabs = ({
+const Tabs = ({
   value,
   onChange,
   labels,
@@ -124,27 +135,27 @@ export const Tabs = ({
   sx,
 }) => {
   var _Array$from;
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides.tabs;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return _jsxs(StyledTabsWrapper, {
+  return (0, _jsxRuntime.jsxs)(StyledTabsWrapper, {
     className: 'CuteTabs-wrapper',
     children: [
-      _jsx(StyledTabs, {
+      (0, _jsxRuntime.jsx)(StyledTabs, {
         className: className,
         variables: variables,
         children:
           labels === null || labels === void 0
             ? void 0
             : labels.map((el, i) =>
-                _jsx(
+                (0, _jsxRuntime.jsx)(
                   StyledTab,
                   {
                     styleOverrides: styleOverrides,
@@ -166,7 +177,7 @@ export const Tabs = ({
                 )
               ),
       }),
-      _jsx('div', {
+      (0, _jsxRuntime.jsx)('div', {
         children:
           (_Array$from = Array.from(children)) === null ||
           _Array$from === void 0
@@ -175,4 +186,7 @@ export const Tabs = ({
       }),
     ],
   });
+};
+module.exports = {
+  Tabs,
 };

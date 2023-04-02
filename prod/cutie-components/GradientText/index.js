@@ -1,10 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-const StyledGradientText = styled.p`
+
+const StyledGradientText = _styled.default.p`
   background: linear-gradient(
     ${(props) => props._rotate}deg,
     ${(props) => props.firstColor},
@@ -20,7 +26,7 @@ const StyledGradientText = styled.p`
 
   ${(props) => props.styleOverrides};
 `;
-export const GradientText = ({
+const GradientText = ({
   children,
   firstColor,
   secondColor,
@@ -31,10 +37,10 @@ export const GradientText = ({
   rotate = '90',
   other,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.gradientText;
   if (Object.keys(variables).includes(firstColor)) {
@@ -43,7 +49,7 @@ export const GradientText = ({
   if (Object.keys(variables).includes(secondColor)) {
     secondColor = variables[secondColor];
   }
-  return _jsx(StyledGradientText, {
+  return (0, _jsxRuntime.jsx)(StyledGradientText, {
     styleOverrides: styleOverrides,
     _fontSize: fontSize,
     variables: variables,
@@ -56,4 +62,7 @@ export const GradientText = ({
     ...other,
     children: children,
   });
+};
+module.exports = {
+  GradientText,
 };

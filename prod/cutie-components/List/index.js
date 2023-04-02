@@ -1,9 +1,15 @@
-import styled from '@emotion/styled';
-import { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-const StyledList = styled.ul`
+
+const StyledList = _styled.default.ul`
   list-style: 'none';
   margin: 0;
   padding: 0;
@@ -16,10 +22,10 @@ const StyledList = styled.ul`
 
   ${(props) => props.styleOverrides};
 `;
-export const List = ({ children, className, other, square, sx }) => {
-  let theme = useContext(ThemeContext);
+const List = ({ children, className, other, square, sx }) => {
+  let theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   const styleOverrides = theme.styleOverrides.list;
-  return _jsx(StyledList, {
+  return (0, _jsxRuntime.jsx)(StyledList, {
     styleOverrides: styleOverrides,
     square: square,
     className: className,
@@ -27,4 +33,7 @@ export const List = ({ children, className, other, square, sx }) => {
     css: sx,
     children: children,
   });
+};
+module.exports = {
+  List,
 };

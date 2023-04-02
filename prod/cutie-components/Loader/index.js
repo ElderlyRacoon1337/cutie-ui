@@ -1,12 +1,56 @@
-import styled from '@emotion/styled';
-import React, { useContext } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = _interopRequireWildcard(require('react'));
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== 'function') return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function (nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+  if (obj === null || (typeof obj !== 'object' && typeof obj !== 'function')) {
+    return { default: obj };
+  }
+  var cache = _getRequireWildcardCache(nodeInterop);
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+  var newObj = {};
+  var hasPropertyDescriptor =
+    Object.defineProperty && Object.getOwnPropertyDescriptor;
+  for (var key in obj) {
+    if (key !== 'default' && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor
+        ? Object.getOwnPropertyDescriptor(obj, key)
+        : null;
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+  newObj.default = obj;
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+  return newObj;
+}
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { jsxs as _jsxs } from '@emotion/react/jsx-runtime';
-import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
-const Loader1 = styled.div`
+
+const Loader1 = _styled.default.div`
   border: 3px solid rgba(0, 0, 0, 0.1);
   border-top: 3px solid ${(props) => props.variables.textPrimary};
   border-radius: 50%;
@@ -59,7 +103,7 @@ const Loader1 = styled.div`
 
   ${(props) => props.styleOverrides.loader1};
 `;
-const Loader2 = styled.div`
+const Loader2 = _styled.default.div`
   border: 3px solid transparent;
   border-top: 3px solid ${(props) => props.variables.textPrimary};
   border-bottom: 3px solid ${(props) => props.variables.textPrimary};
@@ -99,7 +143,7 @@ const Loader2 = styled.div`
 
   ${(props) => props.styleOverrides.loader1};
 `;
-const Loader3 = styled.div`
+const Loader3 = _styled.default.div`
   display: flex;
   align-items: center;
 
@@ -149,7 +193,7 @@ const Loader3 = styled.div`
 
   ${(props) => props.styleOverrides.loader3};
 `;
-export const Loader = ({
+const Loader = ({
   size = '40px',
   color = 'primary',
   fatness = 4,
@@ -161,20 +205,20 @@ export const Loader = ({
   duration = 0.8,
   variant = 1,
 }) => {
-  const theme = useContext(ThemeContext);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const mode = theme.theme;
   const styleOverrides = theme.styleOverrides;
   if (Object.keys(variables).includes(color)) {
     color = variables[color];
   }
-  return _jsxs(_Fragment, {
+  return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [
       variant == 1 &&
-        _jsx(Loader1, {
+        (0, _jsxRuntime.jsx)(Loader1, {
           styleOverrides: styleOverrides,
           variables: variables,
           _mode: mode,
@@ -189,7 +233,7 @@ export const Loader = ({
           css: sx,
         }),
       variant == 2 &&
-        _jsx(Loader2, {
+        (0, _jsxRuntime.jsx)(Loader2, {
           styleOverrides: styleOverrides,
           variables: variables,
           _mode: mode,
@@ -202,7 +246,7 @@ export const Loader = ({
           css: sx,
         }),
       variant == 3 &&
-        _jsxs(Loader3, {
+        (0, _jsxRuntime.jsxs)(Loader3, {
           styleOverrides: styleOverrides,
           _color: color,
           size: size,
@@ -210,8 +254,15 @@ export const Loader = ({
           duration: duration,
           className: className,
           css: sx,
-          children: [_jsx('div', {}), _jsx('div', {}), _jsx('div', {})],
+          children: [
+            (0, _jsxRuntime.jsx)('div', {}),
+            (0, _jsxRuntime.jsx)('div', {}),
+            (0, _jsxRuntime.jsx)('div', {}),
+          ],
         }),
     ],
   });
+};
+module.exports = {
+  Loader,
 };

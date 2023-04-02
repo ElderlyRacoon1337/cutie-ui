@@ -1,11 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext, useEffect } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-import { Fragment as _Fragment } from '@emotion/react/jsx-runtime';
-const StyledPopup = styled.div`
+
+const StyledPopup = _styled.default.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -38,15 +43,15 @@ const StyledPopup = styled.div`
 
   ${(props) => props.styleOverrides};
 `;
-export const Popup = ({ open, onClose, children, sx, className, other }) => {
-  const theme = useContext(ThemeContext);
+const Popup = ({ open, onClose, children, sx, className, other }) => {
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.popup;
   const prevent = (ev) => ev.preventDefault();
-  useEffect(() => {
+  (0, _react.useEffect)(() => {
     if (open) {
       document.addEventListener('wheel', prevent, {
         passive: false,
@@ -56,14 +61,14 @@ export const Popup = ({ open, onClose, children, sx, className, other }) => {
       document.removeEventListener('wheel', prevent);
     };
   }, [open]);
-  return _jsx(_Fragment, {
+  return (0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
     children:
       open &&
-      _jsx(StyledPopup, {
+      (0, _jsxRuntime.jsx)(StyledPopup, {
         styleOverrides: styleOverrides,
         variables: variables,
         onClick: onClose,
-        children: _jsx('div', {
+        children: (0, _jsxRuntime.jsx)('div', {
           className: className,
           onClick: (e) => e.stopPropagation(),
           ...other,
@@ -72,4 +77,7 @@ export const Popup = ({ open, onClose, children, sx, className, other }) => {
         }),
       }),
   });
+};
+module.exports = {
+  Popup,
 };

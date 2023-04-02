@@ -1,10 +1,16 @@
-import styled from '@emotion/styled';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { ThemeContext } from '../../cutie-utils/ThemeProvider';
-import { initialVariables } from '../../variables';
+'use strict';
+
+var _styled = _interopRequireDefault(require('@emotion/styled'));
+var _react = require('react');
+var _ThemeProvider = require('../../cutie-utils/ThemeProvider');
+var _variables = require('../../variables');
+var _jsxRuntime = require('@emotion/react/jsx-runtime');
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 /** @jsxImportSource @emotion/react */
-import { jsx as _jsx } from '@emotion/react/jsx-runtime';
-const StyledTooltip = styled.span`
+
+const StyledTooltip = _styled.default.span`
   position: absolute;
   background-color: ${(props) => props.variables.backgroundBlur};
   padding: 5px;
@@ -29,20 +35,14 @@ const StyledTooltip = styled.span`
 
   ${(props) => props.styleOverrides};
 `;
-export const Tooltip = ({
-  anchorEl,
-  position = 'top',
-  children,
-  sx,
-  className,
-}) => {
-  const [xpos, setXpos] = useState(0);
-  const [ypos, setYpos] = useState(0);
-  const tooltipRef = useRef(null);
-  const theme = useContext(ThemeContext);
+const Tooltip = ({ anchorEl, position = 'top', children, sx, className }) => {
+  const [xpos, setXpos] = (0, _react.useState)(0);
+  const [ypos, setYpos] = (0, _react.useState)(0);
+  const tooltipRef = (0, _react.useRef)(null);
+  const theme = (0, _react.useContext)(_ThemeProvider.ThemeContext);
   let variables = theme.variables;
   if (Object.keys(variables).length === 0) {
-    variables = initialVariables;
+    variables = _variables.initialVariables;
   }
   const styleOverrides = theme.styleOverrides.tooltip;
   const getPosition = () => {
@@ -75,14 +75,14 @@ export const Tooltip = ({
       position == 'right' && setXpos(anchorData.x + anchorData.width + 5);
     }
   };
-  useEffect(() => {
+  (0, _react.useEffect)(() => {
     getPosition();
     return () => {
       setXpos(0);
       setYpos(0);
     };
   }, [anchorEl]);
-  return _jsx(StyledTooltip, {
+  return (0, _jsxRuntime.jsx)(StyledTooltip, {
     styleOverrides: styleOverrides,
     xpos: xpos,
     ypos: ypos,
@@ -92,4 +92,7 @@ export const Tooltip = ({
     css: sx,
     children: children,
   });
+};
+module.exports = {
+  Tooltip,
 };
