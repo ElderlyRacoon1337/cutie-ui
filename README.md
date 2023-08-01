@@ -1,6 +1,6 @@
 ## Cutie-ui
 Cutie-ui - библиотека готовых кастомизируемых компонентов, сокращающая время написания кода.
-[![link](Перейти на сайт ознакомления с компонентами)]([https://travis-ci.org/joemccann/dillinger](https://qutie-ui-preview.vercel.app/)https://qutie-ui-preview.vercel.app)
+[Перейти на сайт ознакомления с компонентами]([https://travis-ci.org/joemccann/dillinger](https://qutie-ui-preview.vercel.app/)https://qutie-ui-preview.vercel.app)
 
 ### Преимущества
 - Кастомизируемые готовые компоненты
