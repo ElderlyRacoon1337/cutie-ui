@@ -2,9 +2,9 @@ import React from 'react';
 
 interface MenuProps {
   open: boolean;
-  anchorEl: React.ReactNode;
+  anchorEl: any;
   onClose: () => void;
-  children: React.ReactNode;
+  children: any;
   className?: string;
   sx?: React.CSSProperties | object;
   fullWidth?: boolean;
@@ -15,11 +15,11 @@ interface MenuProps {
 interface MenuItemProps {
   className?: string;
   onClose?: (event: React.MouseEvent<any, MouseEvent>) => void;
-  children?: React.ReactNode;
+  children?: any;
   sx?: React.CSSProperties | object;
   onClick?: (event: React.MouseEvent<any>) => void;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  startIcon?: any;
+  endIcon?: any;
   divider?: boolean;
   other?: object;
 }
